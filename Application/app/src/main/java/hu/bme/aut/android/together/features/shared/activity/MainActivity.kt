@@ -1,12 +1,11 @@
-package hu.bme.aut.android.together
+package hu.bme.aut.android.together.features.shared.activity
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import hu.bme.aut.android.together.R
 
 class MainActivity : AppCompatActivity() {
 
