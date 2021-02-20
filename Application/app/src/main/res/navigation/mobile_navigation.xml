@@ -6,7 +6,7 @@
     app:startDestination="@id/currentEventsListFragment">
     <fragment
         android:id="@+id/currentEventsListFragment"
-        android:name="hu.bme.aut.android.together.features.currentevents.CurrentEventsListFragment"
+        android:name="hu.bme.aut.android.together.features.currentevents.fragment.CurrentEventsListFragment"
         android:label="fragment_current_events_list"
         tools:layout="@layout/fragment_current_events_list" />
     <fragment

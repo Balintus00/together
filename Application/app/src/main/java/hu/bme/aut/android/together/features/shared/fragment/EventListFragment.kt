@@ -1,4 +1,4 @@
-package hu.bme.aut.android.together.features.currentevents
+package hu.bme.aut.android.together.features.shared.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import hu.bme.aut.android.together.R
 
-class CurrentEventsListFragment : Fragment() {
+
+class EventListFragment : Fragment() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,7 +20,6 @@ class CurrentEventsListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_current_events_list, container, false)
+        return inflater.inflate(R.layout.fragment_event_list, container, false)
     }
-
 }
