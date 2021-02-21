@@ -8,4 +8,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="my_events">My events</string>
+    <string name="event_row_item_image_descr">Event\'s image</string>
 </resources>
