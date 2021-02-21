@@ -3,23 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@id/currentEventsFragment">
+
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="hu.bme.aut.android.together.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
-
+        android:id="@+id/profileFragment"
+        android:name="hu.bme.aut.android.together.features.profile.fragment.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="hu.bme.aut.android.together.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
-
+        android:id="@+id/currentEventsFragment"
+        android:name="hu.bme.aut.android.together.features.currentevents.CurrentEventsFragment"
+        android:label="fragment_current_events"
+        tools:layout="@layout/fragment_current_events" />
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="hu.bme.aut.android.together.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/eventQueryFragment"
+        android:name="hu.bme.aut.android.together.features.search.EventQueryFragment"
+        android:label="fragment_event_query"
+        tools:layout="@layout/fragment_event_query" />
 </navigation>

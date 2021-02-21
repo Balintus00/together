@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_home" />
+    <!-- TODO: the drawable icons used by the template should be deleted -->
 
     <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_dashboard" />
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/ic_action_person"
+        android:title="@string/nav_profile" />
 
     <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_notifications" />
+        android:id="@+id/currentEventsFragment"
+        android:icon="@drawable/ic_action_event"
+        android:title="@string/nav_my_events" />
+
+    <item
+        android:id="@+id/eventQueryFragment"
+        android:icon="@drawable/ic_action_search"
+        android:title="@string/nav_search_events" />
 
 </menu>
