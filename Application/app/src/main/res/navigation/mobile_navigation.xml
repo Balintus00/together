@@ -3,12 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/currentEventsListFragment">
+    app:startDestination="@id/nameAdderFragment">
     <fragment
         android:id="@+id/currentEventsListFragment"
         android:name="hu.bme.aut.android.together.features.currentevents.CurrentEventsFragment"
         android:label="fragment_current_events_list"
-        tools:layout="@layout/fragment_current_events" />
+        tools:layout="@layout/fragment_current_events" >
+        <action
+            android:id="@+id/action_currentEventsListFragment_to_nameAdderFragment"
+            app:destination="@id/nameAdderFragment" />
+    </fragment>
     <fragment
         android:id="@+id/eventQueryFragment"
         android:name="hu.bme.aut.android.together.features.search.EventQueryFragment"
@@ -19,4 +23,75 @@
         android:name="hu.bme.aut.android.together.features.profile.fragment.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/nameAdderFragment"
+        android:name="hu.bme.aut.android.together.features.addevent.fragment.NameAdderFragment"
+        android:label="fragment_name_adder"
+        tools:layout="@layout/fragment_name_adder" >
+        <action
+            android:id="@+id/action_nameAdderFragment_to_visibilityChooserFragment"
+            app:destination="@id/visibilityChooserFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/visibilityChooserFragment"
+        android:name="hu.bme.aut.android.together.features.addevent.fragment.VisibilityChooserFragment"
+        android:label="fragment_visibility_chooser"
+        tools:layout="@layout/fragment_visibility_chooser" >
+        <action
+            android:id="@+id/action_visibilityChooserFragment_to_publicEventRuleSetterFragment"
+            app:destination="@id/publicEventRuleSetterFragment" />
+        <action
+            android:id="@+id/action_visibilityChooserFragment_to_categoryPickerFragment"
+            app:destination="@id/categoryPickerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/publicEventRuleSetterFragment"
+        android:name="hu.bme.aut.android.together.features.addevent.fragment.PublicEventRuleSetterFragment"
+        android:label="fragment_public_event_rule_setter"
+        tools:layout="@layout/fragment_public_event_rule_setter" >
+        <action
+            android:id="@+id/action_publicEventRuleSetterFragment_to_categoryPickerFragment"
+            app:destination="@id/categoryPickerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryPickerFragment"
+        android:name="hu.bme.aut.android.together.features.addevent.fragment.CategoryPickerFragment"
+        android:label="fragment_category_picker"
+        tools:layout="@layout/fragment_category_picker" >
+        <action
+            android:id="@+id/action_categoryPickerFragment_to_photoUploaderFragment"
+            app:destination="@id/photoUploaderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/photoUploaderFragment"
+        android:name="hu.bme.aut.android.together.features.addevent.fragment.PhotoUploaderFragment"
+        android:label="fragment_photo_uploader"
+        tools:layout="@layout/fragment_photo_uploader" >
+        <action
+            android:id="@+id/action_photoUploaderFragment_to_placePickerFragment"
+            app:destination="@id/placePickerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/placePickerFragment"
+        android:name="hu.bme.aut.android.together.features.addevent.fragment.PlacePickerFragment"
+        android:label="fragment_place_picker"
+        tools:layout="@layout/fragment_place_picker" >
+        <action
+            android:id="@+id/action_placePickerFragment_to_dateSetterFragment"
+            app:destination="@id/dateSetterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dateSetterFragment"
+        android:name="hu.bme.aut.android.together.features.addevent.fragment.DateSetterFragment"
+        android:label="fragment_date_setter"
+        tools:layout="@layout/fragment_date_setter" >
+        <action
+            android:id="@+id/action_dateSetterFragment_to_descriptionGiverFragment"
+            app:destination="@id/descriptionGiverFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/descriptionGiverFragment"
+        android:name="hu.bme.aut.android.together.features.addevent.fragment.DescriptionGiverFragment"
+        android:label="fragment_description_giver"
+        tools:layout="@layout/fragment_description_giver" />
 </navigation>
