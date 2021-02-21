@@ -6,9 +6,9 @@
     app:startDestination="@id/currentEventsListFragment">
     <fragment
         android:id="@+id/currentEventsListFragment"
-        android:name="hu.bme.aut.android.together.features.currentevents.fragment.CurrentEventsListsContainerFragment"
+        android:name="hu.bme.aut.android.together.features.currentevents.CurrentEventsFragment"
         android:label="fragment_current_events_list"
-        tools:layout="@layout/fragment_current_events_lists_container" />
+        tools:layout="@layout/fragment_current_events" />
     <fragment
         android:id="@+id/eventQueryFragment"
         android:name="hu.bme.aut.android.together.features.search.EventQueryFragment"
@@ -16,7 +16,7 @@
         tools:layout="@layout/fragment_event_query" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="hu.bme.aut.android.together.features.profile.ProfileFragment"
+        android:name="hu.bme.aut.android.together.features.profile.fragment.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>
