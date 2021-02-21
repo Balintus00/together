@@ -6,6 +6,10 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+  
+    <string name="profile_option_title_settings">Settings</string>
+    <string name="profile_birth_date_title">Birth date</string>
+    <string name="profile_invite_count_title">Number of invites in inbox</string>
     <string name="my_events">My events</string>
     <string name="event_row_item_image_descr">Event\'s image</string>
 </resources>
