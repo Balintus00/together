@@ -2,7 +2,7 @@ package hu.bme.aut.android.together.features.currentevents.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import hu.bme.aut.android.together.features.shared.fragment.EventListFragment
+import hu.bme.aut.android.together.features.shared.eventlist.fragment.EventListFragment
 
 class EventTimeAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
     override fun getItemCount(): Int {

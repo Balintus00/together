@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="ivEventItem"
+        app:layout_constraintStart_toStartOf="@id/ivEventItem"
         tools:text="Friday, febr 13 - 18:00" />
 
     <TextView
@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="@id/tvEventTime"
-        app:layout_constraintStart_toStartOf="ivEventItem"
+        app:layout_constraintStart_toStartOf="@id/ivEventItem"
         tools:text="Kristóf's birthday party" />
 
     <TextView
@@ -39,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="@id/tvEventName"
-        app:layout_constraintStart_toStartOf="ivEventItem"
+        app:layout_constraintStart_toStartOf="@id/ivEventItem"
         tools:text="Budapest" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
