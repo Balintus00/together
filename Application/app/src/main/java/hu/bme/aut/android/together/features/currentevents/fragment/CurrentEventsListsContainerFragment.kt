@@ -6,20 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.tabs.TabLayoutMediator
-import hu.bme.aut.android.together.databinding.FragmentCurrentEventsListBinding
+import hu.bme.aut.android.together.databinding.FragmentCurrentEventsListsContainerBinding
 import hu.bme.aut.android.together.features.currentevents.adapter.EventTimeAdapter
-import java.lang.IllegalStateException
 
-class CurrentEventsListFragment : Fragment() {
+class CurrentEventsListsContainerFragment : Fragment() {
 
-    private lateinit var binding: FragmentCurrentEventsListBinding
+    private lateinit var binding: FragmentCurrentEventsListsContainerBinding
     private lateinit var pagerAdapter: EventTimeAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentCurrentEventsListBinding.inflate(inflater, container, false)
+        binding = FragmentCurrentEventsListsContainerBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -29,13 +28,13 @@ class CurrentEventsListFragment : Fragment() {
         attachEventTimeTabLayoutMediator()
     }
 
-    private fun setEventTimePagerAdapter(){
+    private fun setEventTimePagerAdapter() {
         pagerAdapter = EventTimeAdapter(this)
         binding.eventTimePager.adapter = pagerAdapter
     }
 
-    private fun attachEventTimeTabLayoutMediator(){
-        TabLayoutMediator(binding.eventTimeTabLayout, binding.eventTimePager){ tab, position ->
+    private fun attachEventTimeTabLayoutMediator() {
+        TabLayoutMediator(binding.eventTimeTabLayout, binding.eventTimePager) { tab, position ->
             tab.text = pagerAdapter.getTabName(position)
         }.attach()
     }

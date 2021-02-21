@@ -6,10 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentEventListBinding
 import hu.bme.aut.android.together.features.shared.eventlist.adapter.EventListAdapter
-
 
 class EventListFragment : Fragment() {
 

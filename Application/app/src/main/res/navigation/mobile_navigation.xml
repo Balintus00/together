@@ -6,9 +6,9 @@
     app:startDestination="@id/currentEventsListFragment">
     <fragment
         android:id="@+id/currentEventsListFragment"
-        android:name="hu.bme.aut.android.together.features.currentevents.fragment.CurrentEventsListFragment"
+        android:name="hu.bme.aut.android.together.features.currentevents.fragment.CurrentEventsListsContainerFragment"
         android:label="fragment_current_events_list"
-        tools:layout="@layout/fragment_current_events_list" />
+        tools:layout="@layout/fragment_current_events_lists_container" />
     <fragment
         android:id="@+id/eventQueryFragment"
         android:name="hu.bme.aut.android.together.features.search.EventQueryFragment"

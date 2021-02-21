@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.currentevents.fragment.CurrentEventsListFragment">
+    tools:context=".features.currentevents.fragment.CurrentEventsListsContainerFragment">
 
     <TextView
         android:id="@+id/textView"
