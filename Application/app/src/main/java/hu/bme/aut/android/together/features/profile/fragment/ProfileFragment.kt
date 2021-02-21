@@ -13,15 +13,11 @@ class ProfileFragment : Fragment() {
 
     private lateinit var binding: FragmentProfileBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentProfileBinding.inflate(inflater, container,false)
+        binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -30,17 +26,20 @@ class ProfileFragment : Fragment() {
         setToolbar()
     }
 
-    private fun setToolbar(){
-        with(binding.tbProfile){
+    private fun setToolbar() {
+        with(binding.tbProfile) {
             setNavigationIcon(R.drawable.ic_action_arrow_back)
             setNavigationOnClickListener {
                 findNavController().popBackStack()
             }
             inflateMenu(R.menu.profile_toolbar_menu)
             setOnMenuItemClickListener {
-                when(it.itemId){
+                when (it.itemId) {
                     R.id.actionProfileSettingsOption -> {
-                        // TODO opening settings
+                        ProfileFragmentDirections.actionProfileFragmentToSettingsFragment()
+                            .let { action ->
+                                findNavController().navigate(action)
+                            }
                         true
                     }
                     else -> super.onOptionsItemSelected(it)
