@@ -10,4 +10,8 @@
     <string name="hint_new_event_name">New event name</string>
     <string name="next">Next</string>
     <string name="_1_7">1/7</string>
+    <string name="choose_the_visibility_title">Choose the visibility!</string>
+    <string name="_2_7">2/7</string>
+    <string name="visibility_private">Private</string>
+    <string name="visibility_public">Public</string>
 </resources>
