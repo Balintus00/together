@@ -16,7 +16,7 @@
         tools:layout="@layout/fragment_event_query" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="hu.bme.aut.android.together.features.profile.ProfileFragment"
+        android:name="hu.bme.aut.android.together.features.profile.fragment.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>
