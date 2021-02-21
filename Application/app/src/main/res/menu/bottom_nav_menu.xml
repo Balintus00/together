@@ -9,7 +9,7 @@
         android:title="@string/nav_profile" />
 
     <item
-        android:id="@+id/currentEventsFragment"
+        android:id="@+id/currentEventsListFragment"
         android:icon="@drawable/ic_action_event"
         android:title="@string/nav_my_events" />
 
