@@ -14,4 +14,9 @@
     <string name="_2_7">2/7</string>
     <string name="visibility_private">Private</string>
     <string name="visibility_public">Public</string>
+    <string name="enter_the_maximum_participant_count">Enter the maximum participant count!</string>
+    <string name="participant_option_infinite"><u>Indefinite</u></string>
+    <string name="should_be_the_join_requests_accepted_automatically">Should be the join requests accepted automatically?</string>
+    <string name="public_event_autoaccept_positive_option">Yes.</string>
+    <string name="public_event_autoaccept_negative_option">No, the join requests should be handed by the organisers.</string>
 </resources>

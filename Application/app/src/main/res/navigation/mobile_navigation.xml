@@ -19,11 +19,6 @@
         android:label="fragment_event_query"
         tools:layout="@layout/fragment_event_query" />
     <fragment
-        android:id="@+id/profileFragment"
-        android:name="hu.bme.aut.android.together.features.profile.fragment.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
-    <fragment
         android:id="@+id/nameAdderFragment"
         android:name="hu.bme.aut.android.together.features.addevent.fragment.NameAdderFragment"
         android:label="fragment_name_adder"
@@ -52,6 +47,9 @@
         <action
             android:id="@+id/action_publicEventRuleSetterFragment_to_categoryPickerFragment"
             app:destination="@id/categoryPickerFragment" />
+        <action
+            android:id="@+id/action_publicEventRuleSetterFragment_to_publicEventParticipantQuantifierFragment"
+            app:destination="@id/publicEventParticipantQuantifierFragment" />
     </fragment>
     <fragment
         android:id="@+id/categoryPickerFragment"
@@ -94,4 +92,9 @@
         android:name="hu.bme.aut.android.together.features.addevent.fragment.DescriptionGiverFragment"
         android:label="fragment_description_giver"
         tools:layout="@layout/fragment_description_giver" />
+    <fragment
+        android:id="@+id/publicEventParticipantQuantifierFragment"
+        android:name="hu.bme.aut.android.together.features.addevent.fragment.PublicEventParticipantQuantifierFragment"
+        android:label="fragment_public_event_participant_quantifier"
+        tools:layout="@layout/fragment_public_event_participant_quantifier" />
 </navigation>
