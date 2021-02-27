@@ -26,22 +26,24 @@
             style="@style/Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:layout_marginTop="208dp"
+            android:layout_marginTop="140dp"
             android:hint="@string/hint_new_event_name"
+            android:inputType="textMultiLine"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.32"
+            app:layout_constraintHorizontal_bias="0.2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvAddEventNameTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/tvAddEventNameTitle"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnNameAdderNext"
+            style="@style/ImportantButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/ImportantButton"
-            android:layout_marginTop="128dp"
+            android:layout_marginTop="108dp"
+            android:enabled="false"
             android:text="@string/next"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.463"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etAddEventName" />
 
