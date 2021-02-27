@@ -54,7 +54,10 @@ class PublicEventRuleSetterFragment : Fragment() {
 
     private fun setCountOptionBehaviour() {
         binding.tvParticipantCountOption.setOnClickListener {
-            // TODO navigating to the page, where the count can be set
+            PublicEventRuleSetterFragmentDirections.actionPublicEventRuleSetterFragmentToPublicEventParticipantQuantifierFragment()
+                .let { action ->
+                    findNavController().navigate((action))
+                }
         }
     }
 
