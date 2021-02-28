@@ -1,60 +1,126 @@
 package hu.bme.aut.android.together.features.addevent.fragment
 
+import android.app.Activity.RESULT_CANCELED
+import android.app.Activity.RESULT_OK
+import android.content.DialogInterface
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.provider.MediaStore
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
+import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import hu.bme.aut.android.together.R
+import hu.bme.aut.android.together.databinding.FragmentPhotoUploaderBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [PhotoUploaderFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+//TODO The ImageView's initial picture should be set, which is specified by the event's chosen category
 class PhotoUploaderFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+    private lateinit var binding: FragmentPhotoUploaderBinding
+
+    companion object {
+        private const val REQUEST_CODE_TAKE_PICTURE = 0
+        private const val REQUEST_CODE_CHOOSE_PICTURE = 1
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_photo_uploader, container, false)
+    ): View {
+        binding = FragmentPhotoUploaderBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment PhotoUploaderFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            PhotoUploaderFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setWidgetsBehaviour()
+    }
+
+    private fun setWidgetsBehaviour() {
+        setImageChooserButtonBehaviour()
+        setNextButtonBehaviour()
+    }
+
+    //TODO should be refactored later to be cleaner
+    private fun setImageChooserButtonBehaviour() {
+        val imageChoiceOptionArray =
+            resources.getStringArray(R.array.add_event_photo_upload_options)
+        binding.btnAddEventPhotoChooser.setOnClickListener {
+            AlertDialog.Builder(requireContext()).apply {
+                setTitle(getString(R.string.add_event_upload_photo_dialog_title))
+                setItems(imageChoiceOptionArray) { dialog: DialogInterface, i: Int ->
+                    when (i) {
+                        0 -> {
+                            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                            startActivityForResult(intent, REQUEST_CODE_TAKE_PICTURE)
+                        }
+                        1 -> Intent(
+                            Intent.ACTION_PICK,
+                        ).apply {
+                            type = "image/*"
+                        }.let { intent ->
+                            startActivityForResult(intent, REQUEST_CODE_CHOOSE_PICTURE)
+                        }
+                        else -> {
+                            dialog.dismiss()
+                        }
+                    }
+                }
+            }.show()
+        }
+    }
+
+    private fun setNextButtonBehaviour() {
+        binding.btnAddEventPhotoUploadNext.setOnClickListener {
+            PhotoUploaderFragmentDirections.actionPhotoUploaderFragmentToPlacePickerFragment()
+                .let { action ->
+                    findNavController().navigate(action)
+                }
+        }
+    }
+
+    //TODO should be refactored later to be cleaner
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode != RESULT_CANCELED) {
+            when (requestCode) {
+                REQUEST_CODE_TAKE_PICTURE -> {
+                    if (resultCode == RESULT_OK) {
+                        data?.let { intent ->
+                            intent.extras?.let { extras ->
+                                binding.ivAddEventPhotoUploader.setImageBitmap(extras.get("data") as Bitmap)
+                            }
+                        }
+                    }
+                }
+                REQUEST_CODE_CHOOSE_PICTURE -> {
+                    if (resultCode == RESULT_OK) {
+                        data?.let {
+                            try {
+                                binding.ivAddEventPhotoUploader.setImageBitmap(
+                                    BitmapFactory.decodeStream(
+                                        requireActivity().contentResolver.openInputStream(data.data!!)
+                                    )
+                                )
+                            } catch (exception: Exception) {
+                                Log.w("Together!", exception.stackTrace.toString())
+                                Snackbar.make(
+                                    binding.root,
+                                    getString(R.string.error_add_event_photo_upload_file_not_found),
+                                    Snackbar.LENGTH_LONG
+                                ).show()
+                            }
+                        }
+                    }
                 }
             }
+        }
     }
+
 }
