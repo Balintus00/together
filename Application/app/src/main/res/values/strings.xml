@@ -26,4 +26,26 @@
     <string name="title_participant_quantifier">Choose an option!</string>
     <string name="title_event_participant_count_dialogfragment">Specify the count!</string>
     <string name="cancel">Cancel</string>
+    <string name="title_add_event_category_picker">What kind of event is this?</string>
+    <string-array name="event_category_types_array">
+        <item>Outoors &amp; Adventure</item>
+        <item>Tech</item>
+        <item>Family</item>
+        <item>Health &amp; Wellnes</item>
+        <item>Learning</item>
+        <item>Food &amp; Drink</item>
+        <item>Language &amp; Culture</item>
+        <item>Music</item>
+        <item>Movements</item>
+        <item>Film</item>
+        <item>Sci-Fi &amp; Games</item>
+        <item>Beliefs</item>
+        <item>Arts</item>
+        <item>Book Clubs</item>
+        <item>Dance</item>
+        <item>Pets</item>
+        <item>Hobbies &amp; Crafts</item>
+        <item>Fashion &amp; Beauty</item>
+        <item>Career &amp; Business</item>
+    </string-array>
 </resources>
