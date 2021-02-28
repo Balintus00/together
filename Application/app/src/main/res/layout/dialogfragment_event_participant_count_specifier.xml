@@ -17,14 +17,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvApplyParticipantCount"
-        style="@style/DialogButton"
+    <Button
+        android:id="@+id/btnApplyParticipantCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:text="@string/apply_participant_count_button"
+        style="@style/DialogButtonPositive"
+        android:layout_marginTop="18dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etParticipantCount" />
+
+    <Button
+        android:id="@+id/btnCancelParticipantCount"
+        style="@style/DialogButtonNegative"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="@string/cancel"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etParticipantCount" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

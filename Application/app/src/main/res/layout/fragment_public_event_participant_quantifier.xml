@@ -8,14 +8,24 @@
     tools:context=".features.addevent.fragment.PublicEventParticipantQuantifierFragment">
 
     <TextView
+        android:id="@+id/tvParticipantQuantifierTitle"
+        style="@style/Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_participant_quantifier"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/tvInfiniteParticipantOption"
         style="@style/MediumTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="36dp"
         android:text="@string/option_indefinite"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tvParticipantQuantifierTitle" />
 
     <TextView
         android:id="@+id/tvSpecifiyParticipantCountOption"

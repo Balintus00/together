@@ -18,9 +18,12 @@
     <string name="participant_option_infinite"><u>Indefinite</u></string>
     <string name="should_be_the_join_requests_accepted_automatically">Should be the join requests accepted automatically?</string>
     <string name="public_event_autoaccept_positive_option">Yes.</string>
-    <string name="public_event_autoaccept_negative_option">No, the join requests should be handed by the organisers.</string>
+    <string name="public_event_autoaccept_negative_option">No, the join requests should be handled by the organisers.</string>
     <string name="specify_the_maximum_participant_count">Specify the maximum participant count!</string>
-    <string name="apply_participant_count_button">APPLY</string>
+    <string name="apply_participant_count_button">Apply</string>
     <string name="option_indefinite">Indefinite.</string>
     <string name="option_specify_the_count">Specify the count!</string>
+    <string name="title_participant_quantifier">Choose an option!</string>
+    <string name="title_event_participant_count_dialogfragment">Specify the count!</string>
+    <string name="cancel">Cancel</string>
 </resources>
