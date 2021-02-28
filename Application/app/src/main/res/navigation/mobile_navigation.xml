@@ -66,8 +66,8 @@
         android:label="fragment_photo_uploader"
         tools:layout="@layout/fragment_photo_uploader" >
         <action
-            android:id="@+id/action_photoUploaderFragment_to_placePickerFragment"
-            app:destination="@id/placePickerFragment" />
+            android:id="@+id/action_photoUploaderFragment_to_dateSetterFragment"
+            app:destination="@id/dateSetterFragment" />
     </fragment>
     <fragment
         android:id="@+id/placePickerFragment"
@@ -75,8 +75,8 @@
         android:label="fragment_place_picker"
         tools:layout="@layout/fragment_place_picker" >
         <action
-            android:id="@+id/action_placePickerFragment_to_dateSetterFragment"
-            app:destination="@id/dateSetterFragment" />
+            android:id="@+id/action_placePickerFragment_to_descriptionGiverFragment"
+            app:destination="@id/descriptionGiverFragment" />
     </fragment>
     <fragment
         android:id="@+id/dateSetterFragment"
@@ -84,8 +84,8 @@
         android:label="fragment_date_setter"
         tools:layout="@layout/fragment_date_setter" >
         <action
-            android:id="@+id/action_dateSetterFragment_to_descriptionGiverFragment"
-            app:destination="@id/descriptionGiverFragment" />
+            android:id="@+id/action_dateSetterFragment_to_placePickerFragment"
+            app:destination="@id/placePickerFragment" />
     </fragment>
     <fragment
         android:id="@+id/descriptionGiverFragment"

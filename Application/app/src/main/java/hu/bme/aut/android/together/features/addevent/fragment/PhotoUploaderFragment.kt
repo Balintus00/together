@@ -78,7 +78,7 @@ class PhotoUploaderFragment : Fragment() {
 
     private fun setNextButtonBehaviour() {
         binding.btnAddEventPhotoUploadNext.setOnClickListener {
-            PhotoUploaderFragmentDirections.actionPhotoUploaderFragmentToPlacePickerFragment()
+            PhotoUploaderFragmentDirections.actionPhotoUploaderFragmentToDateSetterFragment()
                 .let { action ->
                     findNavController().navigate(action)
                 }

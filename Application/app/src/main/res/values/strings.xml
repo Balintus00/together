@@ -34,6 +34,10 @@
     <string name="add_event_no_photo_description">Doesn\'t have a well fitting photo? No problem, the chosen category\'s default photo will be used then!</string>
     <string name="add_event_upload_photo_dialog_title">Choose a picture for your event!</string>
     <string name="error_add_event_photo_upload_file_not_found">Something went wrong with the specified picture! :(</string>
+    <string name="add_event_date_setter_title">Set the date of your event.</string>
+    <string name="add_event_title_from">From</string>
+    <string name="add_event_title_to">To</string>
+    <string name="_5_7">5/7</string>
     <string-array name="event_category_types_array">
         <item>Outoors &amp; Adventure</item>
         <item>Tech</item>
