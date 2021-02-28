@@ -38,6 +38,10 @@
     <string name="add_event_title_from">From</string>
     <string name="add_event_title_to">To</string>
     <string name="_5_7">5/7</string>
+    <string name="title_add_event_pick_place">Where will your event take place?</string>
+    <string name="_6_7">6/7</string>
+    <string name="hint_add_event_pick_place">Event\'s place</string>
+    <string name="online">Online</string>
     <string-array name="event_category_types_array">
         <item>Outoors &amp; Adventure</item>
         <item>Tech</item>
@@ -63,5 +67,9 @@
         <item>Take Photo</item>
         <item>Choose from Gallery</item>
         <item>Cancel</item>
+    </string-array>
+    <string-array name="add_event_pick_place_categories">
+        <item>Venue</item>
+        <item>Online</item>
     </string-array>
 </resources>

@@ -5,56 +5,70 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import androidx.navigation.fragment.findNavController
 import hu.bme.aut.android.together.R
+import hu.bme.aut.android.together.databinding.FragmentPlacePickerBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class PlacePickerFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [PlacePickerFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class PlacePickerFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var binding: FragmentPlacePickerBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_place_picker, container, false)
+    ): View {
+        binding = FragmentPlacePickerBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment PlacePickerFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            PlacePickerFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setUpUIWidgets()
+    }
+
+    private fun setUpUIWidgets() {
+        setCategorySpinnerBehaviour()
+        setNextButtonBehaviour()
+    }
+
+    private fun setCategorySpinnerBehaviour() {
+        val categoriesArray = resources.getStringArray(R.array.add_event_pick_place_categories)
+        val spinnerArrayAdapter =
+            ArrayAdapter(
+                requireContext(),
+                R.layout.support_simple_spinner_dropdown_item,
+                categoriesArray
+            )
+        binding.spinnerAddEventPickPlaceCategories.adapter = spinnerArrayAdapter
+       binding.spinnerAddEventPickPlaceCategories.onItemSelectedListener = this
+    }
+
+    private fun setNextButtonBehaviour() {
+        binding.btnAddEventPickPlaceNext.setOnClickListener {
+            PlacePickerFragmentDirections.actionPlacePickerFragmentToDescriptionGiverFragment()
+                .let { action ->
+                    findNavController().navigate(action)
                 }
+        }
+    }
+
+    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, id: Long) {
+        binding.btnAddEventPickPlaceNext.isEnabled = true
+        when(position){
+            0 -> {
+                binding.etAddEventPickPlace.isEnabled = true
+                binding.etAddEventPickPlace.text.clear()
             }
+            1 -> {
+                binding.etAddEventPickPlace.isEnabled = false
+                binding.etAddEventPickPlace.setText(getString(R.string.online))
+            }
+        }
+    }
+
+    override fun onNothingSelected(p0: AdapterView<*>?) {
+        binding.btnAddEventPickPlaceNext.isEnabled = false
     }
 }
