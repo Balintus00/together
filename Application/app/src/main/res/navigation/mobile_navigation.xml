@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/nameAdderFragment">
+    app:startDestination="@id/currentEventsListFragment">
+
     <fragment
         android:id="@+id/currentEventsListFragment"
         android:name="hu.bme.aut.android.together.features.currentevents.fragment.CurrentEventsListsContainerFragment"
         android:label="fragment_current_events_list"
-        tools:layout="@layout/fragment_current_events_lists_container" />
+        tools:layout="@layout/fragment_current_events_lists_container">
         <action
             android:id="@+id/action_currentEventsListFragment_to_nameAdderFragment"
             app:destination="@id/nameAdderFragment" />
@@ -98,6 +99,7 @@
         android:name="hu.bme.aut.android.together.features.addevent.fragment.PublicEventParticipantQuantifierFragment"
         android:label="fragment_public_event_participant_quantifier"
         tools:layout="@layout/fragment_public_event_participant_quantifier" />
+    <fragment
         android:id="@+id/profileFragment"
         android:name="hu.bme.aut.android.together.features.profile.fragment.ProfileFragment"
         android:label="fragment_profile"
