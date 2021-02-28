@@ -11,10 +11,22 @@
 
     <style name="Title">
         <item name="android:textColor">#000</item>
-        <item name="android:textSize">46sp</item>
+        <item name="android:textSize">48sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:paddingStart">10dp</item>
         <item name="android:paddingEnd">10dp</item>
+    </style>
+
+    <style name="MediumTitle" parent="Title">
+        <item name="android:textSize">36sp</item>
+    </style>
+
+    <style name="BigAttribute" parent="Title">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="MediumAttribute" parent="BigAttribute">
+        <item name="android:textSize">18sp</item>
     </style>
 
     <style name="Subtitle">
@@ -43,9 +55,43 @@
         <item name="android:textStyle">bold</item>
         <item name="backgroundTint">@color/lightBackgroundColor</item>
         <item name="background">@color/lightBackgroundColor</item>
-        <item name="strokeColor">#000</item>
+        <item name="strokeColor">@color/color_states_materialbutton</item>
+        <item name="android:textColor">@color/color_states_materialbutton</item>
         <item name="strokeWidth">3sp</item>
         <item name="fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="ImportantButtonRoundEdge" parent="ImportantButton">
+        <item name="cornerRadius">25dp</item>
+    </style>
+
+    <style name="MediumButton" parent="ImportantButton">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="MediumButtonRoundEdge" parent="MediumButton">
+        <item name="cornerRadius">25dp</item>
+    </style>
+
+    <style name="EventOption">
+        <item name="android:textSize">24sp</item>
+        <item name="android:buttonTint">@color/primaryHighlightColor</item>
+    </style>
+
+    <style name="DialogButton" parent="Widget.AppCompat.Button.Borderless.Colored">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="DialogButtonPositive" parent="DialogButton">
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+    <style name="DialogButtonNegative" parent="DialogButton">
+        <item name="android:textColor">@color/secondaryColor</item>
+    </style>
+
+    <style name="DialogWithTitle" parent="@style/Theme.AppCompat.Light.Dialog">
+        <item name="android:windowNoTitle">false</item>
     </style>
 
 </resources>

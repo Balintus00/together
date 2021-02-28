@@ -6,7 +6,75 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-  
+    <string name="name_your_event">Name your event!</string>
+    <string name="hint_new_event_name">New event name</string>
+    <string name="next">Next</string>
+    <string name="_1_7">1/7</string>
+    <string name="choose_the_visibility_title">Choose the visibility!</string>
+    <string name="_2_7">2/7</string>
+    <string name="visibility_private">Private</string>
+    <string name="visibility_public">Public</string>
+    <string name="enter_the_maximum_participant_count">Enter the maximum participant count!</string>
+    <string name="participant_option_infinite"><u>Indefinite</u></string>
+    <string name="should_be_the_join_requests_accepted_automatically">Should be the join requests accepted automatically?</string>
+    <string name="public_event_autoaccept_positive_option">Yes.</string>
+    <string name="public_event_autoaccept_negative_option">No, the join requests should be handled by the organisers.</string>
+    <string name="specify_the_maximum_participant_count">Specify the maximum participant count!</string>
+    <string name="apply_participant_count_button">Apply</string>
+    <string name="option_indefinite">Indefinite.</string>
+    <string name="option_specify_the_count">Specify the count!</string>
+    <string name="title_participant_quantifier">Choose an option!</string>
+    <string name="title_event_participant_count_dialogfragment">Specify the count!</string>
+    <string name="cancel">Cancel</string>
+    <string name="title_add_event_category_picker">What kind of event is this?</string>
+    <string name="_3_7">3/7</string>
+    <string name="_4_7">4/7</string>
+    <string name="title_fragment_photo_uploader">Choose a photo for your event!</string>
+    <string name="add_event_choose_photo">Choose</string>
+    <string name="add_event_no_photo_description">Doesn\'t have a well fitting photo? No problem, the chosen category\'s default photo will be used then!</string>
+    <string name="add_event_upload_photo_dialog_title">Choose a picture for your event!</string>
+    <string name="error_add_event_photo_upload_file_not_found">Something went wrong with the specified picture! :(</string>
+    <string name="add_event_date_setter_title">Set the date of your event.</string>
+    <string name="add_event_title_from">From</string>
+    <string name="add_event_title_to">To</string>
+    <string name="_5_7">5/7</string>
+    <string name="title_add_event_pick_place">Where will your event take place?</string>
+    <string name="_6_7">6/7</string>
+    <string name="hint_add_event_pick_place">Event\'s place</string>
+    <string name="online">Online</string>
+    <string name="add_event_description_giver_title">Give a description to your event!</string>
+    <string name="create">Create</string>
+    <string name="_7_7">7/7</string>
+    <string-array name="event_category_types_array">
+        <item>Outoors &amp; Adventure</item>
+        <item>Tech</item>
+        <item>Family</item>
+        <item>Health &amp; Wellnes</item>
+        <item>Learning</item>
+        <item>Food &amp; Drink</item>
+        <item>Language &amp; Culture</item>
+        <item>Music</item>
+        <item>Movements</item>
+        <item>Film</item>
+        <item>Sci-Fi &amp; Games</item>
+        <item>Beliefs</item>
+        <item>Arts</item>
+        <item>Book Clubs</item>
+        <item>Dance</item>
+        <item>Pets</item>
+        <item>Hobbies &amp; Crafts</item>
+        <item>Fashion &amp; Beauty</item>
+        <item>Career &amp; Business</item>
+    </string-array>
+    <string-array name="add_event_photo_upload_options">
+        <item>Take Photo</item>
+        <item>Choose from Gallery</item>
+        <item>Cancel</item>
+    </string-array>
+    <string-array name="add_event_pick_place_categories">
+        <item>Venue</item>
+        <item>Online</item>
+    </string-array>
     <string name="profile_option_title_settings">Settings</string>
     <string name="profile_birth_date_title">Birth date</string>
     <string name="profile_invite_count_title">Number of invites in inbox</string>
