@@ -1,5 +1,5 @@
 <resources>
-    <!-- Base application theme. -->
+    <!-- Base application theme.  Theme.AppCompat.Light.NoActionBar-->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -29,7 +29,28 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <style name="Subtitle">
+        <item name="android:textColor">#484848</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+    </style>
+
+    <style name="AttributeName">
+        <item name="android:textColor">#000</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:layout_marginStart">10dp</item>
+    </style>
+
+    <style name="AttributeData">
+        <item name="android:textColor">#000</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginStart">10dp</item>
+    </style>
+
     <style name="ImportantButton" parent="Theme.MaterialComponents.Light">
+        <item name="android:textColor">#000</item>
         <item name="android:textSize">36sp</item>
         <item name="android:textStyle">bold</item>
         <item name="backgroundTint">@color/lightBackgroundColor</item>
