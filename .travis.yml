@@ -24,4 +24,4 @@ before_script:
  - emulator -avd test -no-audio -no-window &
  - adb wait-for-device
  - adb shell input keyevent 82 &
-script: ./gradlew :app:build :app:connectedDebugAndroidTest
+script: ./Application/gradlew :app:build :app:connectedDebugAndroidTest
