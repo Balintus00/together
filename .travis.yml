@@ -15,7 +15,7 @@ android:
     - sys-img-armeabi-v7a-android-21
 before_install:
 - yes | sdkmanager "platforms;android-28"
-- chmod +x ./Application/gradlew
+- chmod +x gradlew
 env:
   global:
     - MALLOC_ARENA_MAX=2
@@ -25,4 +25,4 @@ before_script:
  - emulator -avd test -no-audio -no-window &
  - adb wait-for-device
  - adb shell input keyevent 82 &
-script: ./Application/gradlew :app:build :app:connectedDebugAndroidTest
+script: ./gradlew :app:build :app:connectedDebugAndroidTest
