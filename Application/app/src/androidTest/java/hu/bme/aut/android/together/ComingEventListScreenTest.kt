@@ -14,7 +14,6 @@ import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
 
-// Comment to git push, and try to trigger TravisCI
 @RunWith(AndroidJUnit4::class)
 class ComingEventListScreenTest {
 
