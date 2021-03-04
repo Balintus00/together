@@ -1,11 +1,8 @@
 <resources>
-    <!-- Base application theme.  Theme.AppCompat.Light.NoActionBar-->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-
         <item name="fontFamily">@font/roboto</item>
     </style>
 
@@ -50,7 +47,6 @@
     </style>
 
     <style name="ImportantButton" parent="Theme.MaterialComponents.Light">
-        <item name="android:textColor">#000</item>
         <item name="android:textSize">36sp</item>
         <item name="android:textStyle">bold</item>
         <item name="backgroundTint">@color/lightBackgroundColor</item>
