@@ -16,6 +16,7 @@ android:
     - sys-img-armeabi-v7a-android-21
 before_install:
 - yes | sdkmanager "platforms;android-28"
+- yes | sdkmanager --licenses
 - chmod +x gradlew
 env:
   global:
