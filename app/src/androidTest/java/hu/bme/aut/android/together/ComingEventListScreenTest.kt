@@ -9,6 +9,7 @@ import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.internal.runner.junit4.statement.UiThreadStatement.runOnUiThread
+import com.google.common.truth.Truth.assertThat
 import hu.bme.aut.android.together.features.currentevents.fragment.ComingEventListFragment
 import org.junit.Assert
 import org.junit.Test
@@ -23,12 +24,13 @@ class ComingEventListScreenTest {
         runOnUiThread {
             navController.setGraph(R.navigation.mobile_navigation)
         }
-        val comingEventListScenario = launchFragmentInContainer<ComingEventListFragment>(themeResId = R.style.AppTheme)
+        val comingEventListScenario =
+            launchFragmentInContainer<ComingEventListFragment>(themeResId = R.style.AppTheme)
         comingEventListScenario.onFragment { fragment ->
             Navigation.setViewNavController(fragment.requireView(), navController)
         }
         onView(ViewMatchers.withId(R.id.eventListAddFab)).perform(ViewActions.click())
-        Assert.assertEquals(R.id.nameAdderFragment, navController.currentDestination?.id)
+        assertThat(navController.currentDestination?.id).isEqualTo(R.id.nameAdderFragment)
     }
 
 }
