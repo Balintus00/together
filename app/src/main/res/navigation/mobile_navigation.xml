@@ -34,7 +34,7 @@
         android:label="fragment_add_event_pager"
         tools:layout="@layout/fragment_add_event_pager" />
     <fragment
-        android:id="@+id/eventQueryFragment2"
+        android:id="@+id/eventQueryFragment"
         android:name="hu.bme.aut.android.together.features.search.EventQueryFragment"
         android:label="fragment_event_query"
         tools:layout="@layout/fragment_event_query" />
