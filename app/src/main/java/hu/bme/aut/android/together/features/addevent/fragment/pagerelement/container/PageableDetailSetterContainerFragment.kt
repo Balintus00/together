@@ -35,6 +35,7 @@ class PageableDetailSetterContainerFragment : Fragment() {
 
     private lateinit var binding: FragmentPageableDetailSetterContainerBinding
 
+    @kotlin.jvm.Volatile
     private var fragmentAdded = false
 
     override fun onAttach(context: Context) {
