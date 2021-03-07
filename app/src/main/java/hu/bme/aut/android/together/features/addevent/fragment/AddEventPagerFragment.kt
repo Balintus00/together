@@ -10,7 +10,7 @@ import hu.bme.aut.android.together.databinding.FragmentAddEventPagerBinding
 import hu.bme.aut.android.together.features.addevent.adapter.AddEventPagerAdapter
 import kotlin.math.roundToInt
 
-class AddEventPagerFragment : Fragment() {
+class AddEventPagerFragment : Fragment(), PagerContainer  {
 
     private lateinit var pagerAdapter: AddEventPagerAdapter
     private lateinit var binding: FragmentAddEventPagerBinding
@@ -45,5 +45,12 @@ class AddEventPagerFragment : Fragment() {
 
     private fun calculateCurrentPagingProgress(position: Int): Int {
         return ((position + 1).toFloat() / pagerAdapter.itemCount.toFloat() * 100).roundToInt()
+    }
+
+    override fun pageTo(position: Int) {
+        with(binding.vp2AddEventPager){
+            require(position >= 0 && position < adapter!!.itemCount)
+            currentItem = position
+        }
     }
 }

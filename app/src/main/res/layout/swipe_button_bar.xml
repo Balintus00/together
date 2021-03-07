@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <ImageButton
-        android:id="@+id/imageView3"
+        android:id="@+id/ibtnLeft"
         style="@style/SwipeButtonStyle"
         android:src="@drawable/ic_keyboard_arrow_left"
         android:layout_width="96dp"
@@ -17,6 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
+        android:id="@+id/ibtnRight"
         android:src="@drawable/ic_keyboard_arrow_right"
         style="@style/SwipeButtonStyle"
         android:layout_width="96dp"

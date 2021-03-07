@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.addevent.fragment.pagerelement.PhotoUploaderFragment">
+    tools:context=".features.addevent.fragment.pagerelement.detailsetter.PhotoUploaderFragment">
 
     <TextView
         android:id="@+id/tvAddEventPhotoUploaderTitle"
@@ -51,14 +51,5 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnAddEventPhotoChooser" />
-
-    <include
-        android:id="@+id/swipeButtonBarPhotoUploader"
-        layout="@layout/swipe_button_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvAddEventPhotoUploadInfo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

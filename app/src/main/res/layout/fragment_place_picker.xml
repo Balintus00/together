@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.addevent.fragment.pagerelement.PlacePickerFragment">
+    tools:context=".features.addevent.fragment.pagerelement.detailsetter.PlacePickerFragment">
 
     <TextView
         android:id="@+id/tvAddEventPickPlaceTitle"
@@ -37,14 +37,5 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerAddEventPickPlaceCategories" />
-
-    <include
-        android:id="@+id/swipeButtonBarPlacePicker"
-        layout="@layout/swipe_button_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etAddEventPickPlace" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

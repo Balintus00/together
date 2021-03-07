@@ -80,4 +80,5 @@
     <string name="profile_invite_count_title">Number of invites in inbox</string>
     <string name="my_events">My events</string>
     <string name="event_row_item_image_descr">Event\'s image</string>
+    <string name="error_navigation_error_try_reload">Error in setting up navigation, try reloading this screen!</string>
 </resources>

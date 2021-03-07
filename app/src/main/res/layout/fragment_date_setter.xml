@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.addevent.fragment.pagerelement.DateSetterFragment">
+    tools:context=".features.addevent.fragment.pagerelement.detailsetter.DateSetterFragment">
 
     <TextView
         android:id="@+id/tvAddEventDateSetterTitle"
@@ -120,14 +120,5 @@
             tools:text="14:00" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <include
-        android:id="@+id/swipeButtonBarDateSetter"
-        layout="@layout/swipe_button_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/clAddEventDateSetterToPart" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package hu.bme.aut.android.together.features.addevent.fragment.pagerelement
+package hu.bme.aut.android.together.features.addevent.fragment.pagerelement.detailsetter
 
 import android.app.Activity.RESULT_CANCELED
 import android.app.Activity.RESULT_OK

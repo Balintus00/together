@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.addevent.fragment.pagerelement.VisibilityChooserFragment">
+    tools:context=".features.addevent.fragment.pagerelement.detailsetter.VisibilityChooserFragment">
 
     <TextView
         android:id="@+id/tvChooseVisibilityTitle"
@@ -96,14 +96,5 @@
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
-
-    <include
-        android:id="@+id/swipeButtonBarVisibilityChooser"
-        layout="@layout/swipe_button_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

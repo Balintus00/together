@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.addevent.fragment.pagerelement.CategoryPickerFragment">
+    tools:context=".features.addevent.fragment.pagerelement.detailsetter.CategoryPickerFragment">
 
     <TextView
         android:id="@+id/tvAddEventCategoryPickerTitle"
@@ -25,14 +25,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvAddEventCategoryPickerTitle" />
-
-    <include
-        android:id="@+id/swipeButtonBarCategoryPicker"
-        layout="@layout/swipe_button_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/tvAddEventCategoryPickerTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cgCategory" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
