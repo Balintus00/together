@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    tools:context=".features.addevent.fragment.NameAdderFragment">
+    tools:context=".features.addevent.fragment.pagerelement.NameAdderFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
 
@@ -34,25 +34,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvAddEventNameTitle"/>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnNameAdderNext"
-            style="@style/ImportantButtonRoundEdge"
-            android:layout_width="wrap_content"
+        <include
+            android:id="@+id/swipeButtonBarNameAdder"
+            layout="@layout/swipe_button_bar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="108dp"
-            android:enabled="false"
-            android:text="@string/next"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.463"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etAddEventName" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/_1_7"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

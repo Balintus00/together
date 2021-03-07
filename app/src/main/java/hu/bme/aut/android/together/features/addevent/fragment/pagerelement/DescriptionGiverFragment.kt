@@ -1,11 +1,10 @@
-package hu.bme.aut.android.together.features.addevent.fragment
+package hu.bme.aut.android.together.features.addevent.fragment.pagerelement
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentDescriptionGiverBinding
 
 class DescriptionGiverFragment : Fragment() {

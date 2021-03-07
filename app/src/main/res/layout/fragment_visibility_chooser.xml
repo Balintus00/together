@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.addevent.fragment.VisibilityChooserFragment">
+    tools:context=".features.addevent.fragment.pagerelement.VisibilityChooserFragment">
 
     <TextView
         android:id="@+id/tvChooseVisibilityTitle"
@@ -17,12 +17,13 @@
 
     <!-- TODO it this could be changed to ConstraintLayout flat layout hierarchy could be earned -->
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="104dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
         android:weightSum="2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvChooseVisibilityTitle">
@@ -96,11 +97,13 @@
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <include
+        android:id="@+id/swipeButtonBarVisibilityChooser"
+        layout="@layout/swipe_button_bar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/_2_7"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

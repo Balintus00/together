@@ -1,4 +1,4 @@
-package hu.bme.aut.android.together.features.addevent.fragment
+package hu.bme.aut.android.together.features.addevent.fragment.pagerelement
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentVisibilityChooserBinding
 
 class VisibilityChooserFragment : Fragment() {
@@ -29,16 +28,10 @@ class VisibilityChooserFragment : Fragment() {
     private fun setCardClickBehaviour() {
         with(binding) {
             cardPrivate.setOnClickListener {
-                VisibilityChooserFragmentDirections.actionVisibilityChooserFragmentToCategoryPickerFragment()
-                    .let { action ->
-                        findNavController().navigate(action)
-                    }
+                //TODO navigation was here
             }
             cardPublic.setOnClickListener {
-                VisibilityChooserFragmentDirections.actionVisibilityChooserFragmentToPublicEventRuleSetterFragment()
-                    .let { action ->
-                        findNavController().navigate(action)
-                    }
+                //TODO navigation was here
             }
         }
     }

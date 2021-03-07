@@ -6,7 +6,7 @@ import kotlinx.android.synthetic.main.fragment_current_event_list.*
 class ComingEventListFragment : CurrentEventListFragment() {
     override fun setFabBehaviour() {
         eventListAddFab.setOnClickListener {
-            CurrentEventsListsContainerFragmentDirections.actionCurrentEventsListFragmentToNameAdderFragment()
+            CurrentEventsListsContainerFragmentDirections.actionCurrentEventsListFragmentToAddEventPagerFragment()
                 .let { action ->
                     findNavController().navigate(action)
                 }

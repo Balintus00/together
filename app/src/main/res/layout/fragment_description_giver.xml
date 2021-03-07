@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.addevent.fragment.DescriptionGiverFragment">
+    tools:context=".features.addevent.fragment.pagerelement.DescriptionGiverFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_height="wrap_content"
@@ -33,23 +33,14 @@
             app:layout_constraintTop_toBottomOf="@+id/tvAddEventDescriptionGiverTitle"
             tools:text="Lorem ipsum dolor sit amet." />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnAddEventCreate"
-            style="@style/ImportantButtonRoundEdge"
-            android:layout_width="wrap_content"
+        <include
+            android:id="@+id/swipeButtonBarDescriptionGiver"
+            layout="@layout/swipe_button_bar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="56dp"
-            android:text="@string/create"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etAddEventDescriptionGiver" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/_7_7"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

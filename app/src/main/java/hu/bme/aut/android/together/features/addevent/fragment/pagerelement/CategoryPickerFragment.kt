@@ -1,11 +1,10 @@
-package hu.bme.aut.android.together.features.addevent.fragment
+package hu.bme.aut.android.together.features.addevent.fragment.pagerelement
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import com.google.android.material.chip.Chip
 import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentCategoryPickerBinding
@@ -39,10 +38,7 @@ class CategoryPickerFragment : Fragment() {
             text = name
             setOnClickListener {
                 //TODO the chosen category will also be passed later
-                CategoryPickerFragmentDirections.actionCategoryPickerFragmentToPhotoUploaderFragment()
-                    .let { action ->
-                        findNavController().navigate(action)
-                    }
+                //TODO navigation was here before
             }
         }
     }

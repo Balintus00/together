@@ -69,6 +69,11 @@
         <item name="cornerRadius">25dp</item>
     </style>
 
+    <style name="SwipeButtonStyle">
+        <item name="backgroundTint">@color/lightBackgroundColor</item>
+        <item name="background">@color/lightBackgroundColor</item>
+    </style>
+
     <style name="EventOption">
         <item name="android:textSize">24sp</item>
         <item name="android:buttonTint">@color/primaryHighlightColor</item>

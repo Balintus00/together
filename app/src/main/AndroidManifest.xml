@@ -16,7 +16,7 @@
         <uses-library android:name="android.test.runner"
             android:required="false" />
         <activity
-            android:name=".features.shared.activity.MainActivity"
+            android:name=".activity.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

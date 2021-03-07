@@ -1,4 +1,4 @@
-package hu.bme.aut.android.together.features.addevent.fragment
+package hu.bme.aut.android.together.features.addevent.fragment.pagerelement
 
 import android.os.Bundle
 import android.text.Editable
@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
 import hu.bme.aut.android.together.databinding.FragmentNameAdderBinding
 
 class NameAdderFragment : Fragment() {
@@ -39,19 +38,14 @@ class NameAdderFragment : Fragment() {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) { }
 
             override fun afterTextChanged(p0: Editable?) {
-                binding.btnNameAdderNext.isEnabled = p0?.length ?: 0 > 0
+                //TODO next button setting was here
             }
 
         })
     }
 
     private fun setNextButtonBehaviour() {
-        binding.btnNameAdderNext.setOnClickListener {
-            NameAdderFragmentDirections.actionNameAdderFragmentToVisibilityChooserFragment()
-                .let { action ->
-                    findNavController().navigate(action)
-                }
-        }
+        //TODO navigation was here
     }
 
 }

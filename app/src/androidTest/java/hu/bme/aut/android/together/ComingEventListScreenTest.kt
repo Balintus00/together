@@ -32,7 +32,7 @@ class ComingEventListScreenTest {
             Navigation.setViewNavController(fragment.requireView(), navController)
         }
         onView(ViewMatchers.withId(R.id.eventListAddFab)).perform(ViewActions.click())
-        assertThat(navController.currentDestination?.id).isEqualTo(R.id.nameAdderFragment)
+        assertThat(navController.currentDestination?.id).isEqualTo(R.id.addEventPagerFragment)
     }
 
 }

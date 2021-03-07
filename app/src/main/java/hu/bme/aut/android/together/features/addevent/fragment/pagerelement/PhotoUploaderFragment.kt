@@ -1,4 +1,4 @@
-package hu.bme.aut.android.together.features.addevent.fragment
+package hu.bme.aut.android.together.features.addevent.fragment.pagerelement
 
 import android.app.Activity.RESULT_CANCELED
 import android.app.Activity.RESULT_OK
@@ -14,7 +14,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
-import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentPhotoUploaderBinding
@@ -77,12 +76,7 @@ class PhotoUploaderFragment : Fragment() {
     }
 
     private fun setNextButtonBehaviour() {
-        binding.btnAddEventPhotoUploadNext.setOnClickListener {
-            PhotoUploaderFragmentDirections.actionPhotoUploaderFragmentToDateSetterFragment()
-                .let { action ->
-                    findNavController().navigate(action)
-                }
-        }
+        //TODO navigation was here
     }
 
     //TODO should be refactored later to be cleaner

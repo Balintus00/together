@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.addevent.fragment.PlacePickerFragment">
+    tools:context=".features.addevent.fragment.pagerelement.PlacePickerFragment">
 
     <TextView
         android:id="@+id/tvAddEventPickPlaceTitle"
@@ -38,23 +38,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerAddEventPickPlaceCategories" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnAddEventPickPlaceNext"
-        style="@style/ImportantButtonRoundEdge"
-        android:layout_width="wrap_content"
+    <include
+        android:id="@+id/swipeButtonBarPlacePicker"
+        layout="@layout/swipe_button_bar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:enabled="false"
-        android:text="@string/next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etAddEventPickPlace" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/_6_7"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
