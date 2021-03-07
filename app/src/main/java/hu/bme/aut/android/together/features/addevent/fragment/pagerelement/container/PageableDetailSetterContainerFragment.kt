@@ -2,10 +2,12 @@ package hu.bme.aut.android.together.features.addevent.fragment.pagerelement.cont
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isEmpty
 import hu.bme.aut.android.together.databinding.FragmentPageableDetailSetterContainerBinding
 import hu.bme.aut.android.together.features.addevent.fragment.PagerContainer
 import hu.bme.aut.android.together.features.addevent.fragment.pagerelement.detailsetter.*
@@ -32,6 +34,8 @@ class PageableDetailSetterContainerFragment : Fragment() {
     private lateinit var containedFragmentFactory: ContainedFragmentFactory
 
     private lateinit var binding: FragmentPageableDetailSetterContainerBinding
+
+    private var fragmentAdded = false
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -69,9 +73,13 @@ class PageableDetailSetterContainerFragment : Fragment() {
     }
 
     private fun addContainedFragment() {
-        childFragmentManager.beginTransaction()
-            .add(binding.fcvEventDetailAdder.id, containedFragmentFactory.getFragment())
-            .commit()
+        if(!fragmentAdded) {
+            Log.d("Together!", "Fragment added: " + containedFragmentFactory.name)
+            childFragmentManager.beginTransaction()
+                .add(binding.fcvEventDetailAdder.id, containedFragmentFactory.getFragment())
+                .commit()
+            fragmentAdded = true
+        }
     }
 
     private fun setNavigationButtonsBehaviour() {
@@ -86,7 +94,7 @@ class PageableDetailSetterContainerFragment : Fragment() {
             else
                 ibtnLeft.setOnClickListener {
                     pagerContainer.pageTo(position - 1)
-            }
+                }
         }
     }
 
