@@ -29,6 +29,7 @@
             android:layout_marginTop="140dp"
             android:hint="@string/hint_new_event_name"
             android:inputType="textMultiLine"
+            android:autofillHints=""
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.2"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,6 +40,7 @@
             layout="@layout/swipe_button_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etAddEventName" />

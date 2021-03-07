@@ -1,6 +1,7 @@
 <resources>
+    <!-- TODO Wireframe's actual colors should be used -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/primaryHighlightColor</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="fontFamily">@font/roboto</item>
@@ -93,6 +94,11 @@
 
     <style name="DialogWithTitle" parent="@style/Theme.AppCompat.Light.Dialog">
         <item name="android:windowNoTitle">false</item>
+    </style>
+
+    <!-- TODO later if the theme will be correctly set, this might become removable-->
+    <style name="MainProgressBarStyle" parent="Widget.MaterialComponents.LinearProgressIndicator">
+        <item name="android:colorAccent">@color/primaryHighlightColor</item>
     </style>
 
 </resources>

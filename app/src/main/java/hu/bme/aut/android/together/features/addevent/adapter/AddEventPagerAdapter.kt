@@ -14,7 +14,8 @@ class AddEventPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) 
         PhotoUploaderFragment(),
         DateSetterFragment(),
         PlacePickerFragment(),
-        DescriptionGiverFragment()
+        DescriptionGiverFragment(),
+        OverViewFragment()
     )
 
     override fun getItemCount(): Int {
