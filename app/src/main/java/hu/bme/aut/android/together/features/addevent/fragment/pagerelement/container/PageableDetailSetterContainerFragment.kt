@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isEmpty
+import androidx.fragment.app.findFragment
 import hu.bme.aut.android.together.databinding.FragmentPageableDetailSetterContainerBinding
 import hu.bme.aut.android.together.features.addevent.fragment.PagerContainer
 import hu.bme.aut.android.together.features.addevent.fragment.pagerelement.detailsetter.*
@@ -29,14 +29,12 @@ class PageableDetailSetterContainerFragment : Fragment() {
     }
 
     //TODO It's really important to document, that the parentFragment must implement PagerContainer interface
+    //TODO Using dependency injection pattern would be better than that.
     private lateinit var pagerContainer: PagerContainer
 
     private lateinit var containedFragmentFactory: ContainedFragmentFactory
 
     private lateinit var binding: FragmentPageableDetailSetterContainerBinding
-
-    @kotlin.jvm.Volatile
-    private var fragmentAdded = false
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -74,13 +72,11 @@ class PageableDetailSetterContainerFragment : Fragment() {
     }
 
     private fun addContainedFragment() {
-        if(!fragmentAdded) {
-            Log.d("Together!", "Fragment added: " + containedFragmentFactory.name)
-            childFragmentManager.beginTransaction()
-                .add(binding.fcvEventDetailAdder.id, containedFragmentFactory.getFragment())
-                .commit()
-            fragmentAdded = true
-        }
+        Log.d("Together!", "Fragment added: " + containedFragmentFactory.name)
+        childFragmentManager.beginTransaction()
+            .replace(binding.fcvEventDetailAdder.id, containedFragmentFactory.getFragment())
+            .commit()
+
     }
 
     private fun setNavigationButtonsBehaviour() {
