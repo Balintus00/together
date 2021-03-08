@@ -17,9 +17,10 @@
 
     <EditText
         android:id="@+id/etAddEventName"
-        style="@style/Title"
+        style="@style/MediumTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:maxLength="50"
         android:layout_marginTop="140dp"
         android:autofillHints=""
         android:hint="@string/hint_new_event_name"
@@ -28,5 +29,16 @@
         app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvAddEventNameTitle" />
+
+    <TextView
+        android:id="@+id/tvRemainingCharacterCount"
+        style="@style/SupportInformationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/etAddEventName"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:text="25" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

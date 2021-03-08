@@ -47,6 +47,11 @@
         <item name="android:layout_marginStart">10dp</item>
     </style>
 
+    <style name="SupportInformationText">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/secondaryColor</item>
+    </style>
+
     <style name="ImportantButton" parent="Theme.MaterialComponents.Light">
         <item name="android:textSize">36sp</item>
         <item name="android:textStyle">bold</item>

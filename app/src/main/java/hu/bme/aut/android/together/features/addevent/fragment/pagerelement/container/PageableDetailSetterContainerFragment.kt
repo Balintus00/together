@@ -2,12 +2,10 @@ package hu.bme.aut.android.together.features.addevent.fragment.pagerelement.cont
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.findFragment
 import hu.bme.aut.android.together.databinding.FragmentPageableDetailSetterContainerBinding
 import hu.bme.aut.android.together.features.addevent.fragment.PagerContainer
 import hu.bme.aut.android.together.features.addevent.fragment.pagerelement.detailsetter.*
@@ -72,7 +70,6 @@ class PageableDetailSetterContainerFragment : Fragment() {
     }
 
     private fun addContainedFragment() {
-        Log.d("Together!", "Fragment added: " + containedFragmentFactory.name)
         childFragmentManager.beginTransaction()
             .replace(binding.fcvEventDetailAdder.id, containedFragmentFactory.getFragment())
             .commit()
