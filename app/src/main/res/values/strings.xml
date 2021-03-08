@@ -81,4 +81,8 @@
     <string name="my_events">My events</string>
     <string name="event_row_item_image_descr">Event\'s image</string>
     <string name="error_navigation_error_try_reload">Error in setting up navigation, try reloading this screen!</string>
+    <string name="title_max_participant_count">Maximum participant count</string>
+    <string name="title_join_request_auto_accept">Join request auto-accept</string>
+    <string name="state_off">OFF</string>
+    <string name="tap_here_to_modify_these_settings"><u>Tap here to modify these settings</u></string>
 </resources>

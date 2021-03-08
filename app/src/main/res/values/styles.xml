@@ -19,6 +19,16 @@
         <item name="android:textSize">36sp</item>
     </style>
 
+    <style name="SmallTitle" parent="MediumTitle">
+        <item name="android:textSize">24sp</item>
+    </style>
+    
+    <style name="SmallLink">
+        <item name="android:textColor">@color/primaryHighlightColor</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="BigAttribute" parent="Title">
         <item name="android:textSize">24sp</item>
     </style>
@@ -78,6 +88,11 @@
     <style name="SwipeButtonStyle">
         <item name="backgroundTint">@color/lightBackgroundColor</item>
         <item name="background">@color/lightBackgroundColor</item>
+    </style>
+
+    <style name="MultipleChoiceCardStyle">
+        <item name="cardCornerRadius">25dp</item>
+        <item name="strokeColor">@color/primaryHighlightColor</item>
     </style>
 
     <style name="EventOption">

@@ -60,7 +60,7 @@ class PublicEventRuleSetterFragment : Fragment() {
 
     private fun setNextButtonBehaviour() {
         binding.btnPublicEventRuleSetterNext.setOnClickListener {
-            //TODO navigation was here
+            findNavController().popBackStack()
         }
     }
 }

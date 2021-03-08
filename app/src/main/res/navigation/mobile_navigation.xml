@@ -32,10 +32,19 @@
         android:id="@+id/addEventPagerFragment"
         android:name="hu.bme.aut.android.together.features.addevent.fragment.AddEventPagerFragment"
         android:label="fragment_add_event_pager"
-        tools:layout="@layout/fragment_add_event_pager" />
+        tools:layout="@layout/fragment_add_event_pager" >
+        <action
+            android:id="@+id/action_addEventPagerFragment_to_publicEventRuleSetterFragment"
+            app:destination="@id/publicEventRuleSetterFragment" />
+    </fragment>
     <fragment
         android:id="@+id/eventQueryFragment"
         android:name="hu.bme.aut.android.together.features.search.EventQueryFragment"
         android:label="fragment_event_query"
         tools:layout="@layout/fragment_event_query" />
+    <fragment
+        android:id="@+id/publicEventRuleSetterFragment"
+        android:name="hu.bme.aut.android.together.features.addevent.fragment.pagerelement.detailsetter.PublicEventRuleSetterFragment"
+        android:label="fragment_public_event_rule_setter"
+        tools:layout="@layout/fragment_public_event_rule_setter" />
 </navigation>
