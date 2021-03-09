@@ -85,4 +85,5 @@
     <string name="title_join_request_auto_accept">Join request auto-accept</string>
     <string name="state_off">OFF</string>
     <string name="tap_here_to_modify_these_settings"><u>Tap here to modify these settings</u></string>
+    <string name="apply">Apply</string>
 </resources>

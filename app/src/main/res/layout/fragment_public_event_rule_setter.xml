@@ -1,82 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".features.addevent.fragment.pagerelement.detailsetter.PublicEventRuleSetterFragment">
 
-    <TextView
-        android:id="@+id/tvPublicEventRuleSetterTitle"
-        style="@style/MediumTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/enter_the_maximum_participant_count"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvParticipantCountOption"
-        style="@style/MediumTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="@string/participant_option_infinite"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPublicEventRuleSetterTitle" />
-
-    <TextView
-        android:id="@+id/tvRequestHandlingTitle"
-        style="@style/MediumTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="@string/should_be_the_join_requests_accepted_automatically"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvParticipantCountOption" />
-
-    <RadioGroup
-        android:id="@+id/rgRequestHandlingOptions"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvRequestHandlingTitle">
+        android:layout_height="wrap_content">
 
-        <RadioButton
-            android:id="@+id/rbAutoRequestHandlingPositive"
+        <TextView
+            android:id="@+id/tvPublicEventRuleSetterTitle"
+            style="@style/MediumTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/enter_the_maximum_participant_count"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvParticipantCountOption"
+            style="@style/MediumTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="@string/participant_option_infinite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPublicEventRuleSetterTitle" />
+
+        <TextView
+            android:id="@+id/tvRequestHandlingTitle"
+            style="@style/MediumTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="@string/should_be_the_join_requests_accepted_automatically"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvParticipantCountOption" />
+
+        <RadioGroup
+            android:id="@+id/rgRequestHandlingOptions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/public_event_autoaccept_positive_option"
-            style="@style/EventOption"/>
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvRequestHandlingTitle">
 
-        <RadioButton
-            android:id="@+id/rbAutoRequestHandlingNegative"
-            android:layout_width="match_parent"
+            <RadioButton
+                android:id="@+id/rbAutoRequestHandlingPositive"
+                style="@style/EventOption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/public_event_autoaccept_positive_option" />
+
+            <RadioButton
+                android:id="@+id/rbAutoRequestHandlingNegative"
+                style="@style/EventOption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/public_event_autoaccept_negative_option" />
+
+        </RadioGroup>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPublicEventRuleSetterNext"
+            style="@style/ImportantButtonRoundEdge"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/public_event_autoaccept_negative_option"
-            style="@style/EventOption"/>
+            android:layout_marginTop="32dp"
+            android:enabled="false"
+            android:text="@string/apply"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rgRequestHandlingOptions" />
 
-    </RadioGroup>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnPublicEventRuleSetterNext"
-        style="@style/ImportantButtonRoundEdge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/next"
-        android:enabled="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rgRequestHandlingOptions" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/_2_7"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

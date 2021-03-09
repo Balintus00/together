@@ -74,11 +74,11 @@ class VisibilityChooserFragment : Fragment() {
 
     private fun setPublicOptionsVisibility(willBeVisible: Boolean) {
         with(binding.clPublicOptions) {
-            if (willBeVisible) {
-                visibility = View.VISIBLE
-                requestFocus()
+            //TODO this visibility change should be animated
+            visibility = if (willBeVisible) {
+                View.VISIBLE
             } else
-                visibility = View.GONE
+                View.GONE
         }
     }
 

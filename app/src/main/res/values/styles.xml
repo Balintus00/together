@@ -1,5 +1,6 @@
 <resources>
     <!-- TODO Wireframe's actual colors should be used -->
+    <!-- TODO after the correct theme will be used, most of the styles might need to be refactored -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/primaryHighlightColor</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -75,6 +76,8 @@
 
     <style name="ImportantButtonRoundEdge" parent="ImportantButton">
         <item name="cornerRadius">25dp</item>
+        <item name="backgroundTint">@color/color_states_primary_color_button_background</item>
+        <item name="background">@color/color_states_primary_color_button_background</item>
     </style>
 
     <style name="MediumButton" parent="ImportantButton">
@@ -116,7 +119,6 @@
         <item name="android:windowNoTitle">false</item>
     </style>
 
-    <!-- TODO later if the theme will be correctly set, this might become removable-->
     <style name="MainProgressBarStyle" parent="Widget.MaterialComponents.LinearProgressIndicator">
         <item name="android:colorAccent">@color/primaryHighlightColor</item>
     </style>

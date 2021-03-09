@@ -46,5 +46,14 @@
         android:id="@+id/publicEventRuleSetterFragment"
         android:name="hu.bme.aut.android.together.features.addevent.fragment.pagerelement.detailsetter.PublicEventRuleSetterFragment"
         android:label="fragment_public_event_rule_setter"
-        tools:layout="@layout/fragment_public_event_rule_setter" />
+        tools:layout="@layout/fragment_public_event_rule_setter" >
+        <action
+            android:id="@+id/action_publicEventRuleSetterFragment_to_publicEventParticipantQuantifierFragment"
+            app:destination="@id/publicEventParticipantQuantifierFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/publicEventParticipantQuantifierFragment"
+        android:name="hu.bme.aut.android.together.features.addevent.fragment.pagerelement.detailsetter.PublicEventParticipantQuantifierFragment"
+        android:label="fragment_public_event_participant_quantifier"
+        tools:layout="@layout/fragment_public_event_participant_quantifier" />
 </navigation>
