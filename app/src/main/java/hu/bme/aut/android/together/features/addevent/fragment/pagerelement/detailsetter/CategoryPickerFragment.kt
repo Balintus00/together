@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipDrawable
 import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentCategoryPickerBinding
 
@@ -36,10 +37,14 @@ class CategoryPickerFragment : Fragment() {
     private fun createCategoryChip(name: String): Chip {
         return Chip(requireContext()).apply {
             text = name
-            setOnClickListener {
-                //TODO the chosen category will also be passed later
-                //TODO navigation was here before
-            }
+            setChipDrawable(
+                ChipDrawable.createFromAttributes(
+                    requireContext(),
+                    null,
+                    0,
+                    R.style.Widget_MaterialComponents_Chip_Choice
+                )
+            )
         }
     }
 }
