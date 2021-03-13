@@ -30,11 +30,24 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="BigAttribute" parent="Title">
+    <style name="EnormousNormalAttribute" parent="Title">
+        <item name="android:textSize">36sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="EnormousNormalSecondaryAttribute" parent="EnormousNormalAttribute">
+        <item name="android:textColor">@color/secondaryColor</item>
+    </style>
+
+    <style name="BigNormalAttribute" parent="EnormousNormalAttribute">
         <item name="android:textSize">24sp</item>
     </style>
 
-    <style name="MediumAttribute" parent="BigAttribute">
+    <style name="BigBoldAttribute" parent="BigNormalAttribute">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="MediumAttribute" parent="BigNormalAttribute">
         <item name="android:textSize">18sp</item>
     </style>
 
@@ -61,6 +74,7 @@
     <style name="SupportInformationText">
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/secondaryColor</item>
+        <item name="android:layout_marginStart">10dp</item>
     </style>
 
     <style name="ImportantButton" parent="Theme.MaterialComponents.Light">

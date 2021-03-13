@@ -7,20 +7,28 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import hu.bme.aut.android.together.databinding.FragmentPageableDetailSetterContainerBinding
-import hu.bme.aut.android.together.features.addevent.fragment.PagerContainer
-import hu.bme.aut.android.together.features.addevent.fragment.pagerelement.detailsetter.*
-import kotlinx.android.synthetic.main.swipe_button_bar.*
+import hu.bme.aut.android.together.features.addevent.interfaces.EventAddingPagerContainer
+import hu.bme.aut.android.together.features.addevent.fragment.pagerelement.factory.PageableDetailFragmentFactory
+import kotlin.properties.Delegates
 
 class PageableDetailSetterContainerFragment : Fragment() {
 
     companion object {
         private const val CONTAINED_FRAGMENT_ID_KEY = "CONTAINED_FRAGMENT_ID_KEY"
+        private const val SHOW_BACK_KEY = "SHOW_BACK_KEY"
+        private const val SHOW_FORWARD_KEY = "SHOW_FORWARD_KEY"
 
         @JvmStatic
-        fun newInstance(containedFragmentFactoryOrdinal: Int): PageableDetailSetterContainerFragment {
+        fun newInstance(
+            containedFragmentFactoryOrdinal: Int,
+            showBackKey: Boolean = true,
+            showForwardKey: Boolean = true
+        ): PageableDetailSetterContainerFragment {
             return PageableDetailSetterContainerFragment().apply {
                 arguments = Bundle().apply {
                     putInt(CONTAINED_FRAGMENT_ID_KEY, containedFragmentFactoryOrdinal)
+                    putBoolean(SHOW_BACK_KEY, showBackKey)
+                    putBoolean(SHOW_FORWARD_KEY, showForwardKey)
                 }
             }
         }
@@ -28,20 +36,42 @@ class PageableDetailSetterContainerFragment : Fragment() {
 
     //TODO It's really important to document, that the parentFragment must implement PagerContainer interface
     //TODO Using dependency injection pattern would be better than that.
-    private lateinit var pagerContainer: PagerContainer
+    private lateinit var eventAddingPagerContainer: EventAddingPagerContainer
 
-    private lateinit var containedFragmentFactory: ContainedFragmentFactory
+    private lateinit var pageableDetailFragmentFactory: PageableDetailFragmentFactory
+
+    private var showBackNavigationButton by Delegates.notNull<Boolean>()
+
+    private var showForwardNavigationButton by Delegates.notNull<Boolean>()
 
     private lateinit var binding: FragmentPageableDetailSetterContainerBinding
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        pagerContainer = parentFragment as PagerContainer
+        eventAddingPagerContainer = parentFragment as EventAddingPagerContainer
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        retrieveArguments()
+    }
+
+    private fun retrieveArguments() {
+        retrieveNavigationButtonArgs()
         retrieveContainedFragmentFactory()
+    }
+
+    private fun retrieveNavigationButtonArgs() {
+        retrieveBackNavigationButtonArgs()
+        retrieveForwardNavigationButtonArgs()
+    }
+
+    private fun retrieveBackNavigationButtonArgs() {
+        showBackNavigationButton = arguments?.getBoolean(SHOW_BACK_KEY) ?: true
+    }
+
+    private fun retrieveForwardNavigationButtonArgs() {
+        showForwardNavigationButton = arguments?.getBoolean(SHOW_FORWARD_KEY) ?: true
     }
 
     private fun retrieveContainedFragmentFactory() {
@@ -51,8 +81,8 @@ class PageableDetailSetterContainerFragment : Fragment() {
                         " ContainedFragmentFactory ordinal value in arguments Bundle! Use static" +
                         " newInstance() factory method to instantiate this fragment!"
             )
-        require(ordinal >= 0 && ordinal < ContainedFragmentFactory.values().size)
-        containedFragmentFactory = ContainedFragmentFactory.values()[ordinal]
+        require(ordinal >= 0 && ordinal < PageableDetailFragmentFactory.values().size)
+        pageableDetailFragmentFactory = PageableDetailFragmentFactory.values()[ordinal]
     }
 
     override fun onCreateView(
@@ -71,7 +101,7 @@ class PageableDetailSetterContainerFragment : Fragment() {
 
     private fun addContainedFragment() {
         childFragmentManager.beginTransaction()
-            .replace(binding.fcvEventDetailAdder.id, containedFragmentFactory.getFragment())
+            .replace(binding.fcvEventDetailAdder.id, pageableDetailFragmentFactory.getFragment())
             .commit()
 
     }
@@ -82,62 +112,24 @@ class PageableDetailSetterContainerFragment : Fragment() {
     }
 
     private fun setBackNavigatingButtonBehaviour() {
-        containedFragmentFactory.ordinal.let { position ->
-            if (position == 0)
-                ibtnLeft.visibility = View.GONE
-            else
-                ibtnLeft.setOnClickListener {
-                    pagerContainer.pageTo(position - 1)
+        pageableDetailFragmentFactory.ordinal.let { position ->
+            if (showBackNavigationButton)
+                binding.swipeButtonBar.ibtnLeft.setOnClickListener {
+                    eventAddingPagerContainer.pageTo(position - 1)
                 }
+            else
+                binding.swipeButtonBar.ibtnLeft.visibility = View.GONE
         }
     }
 
     private fun setForwardNavigatingButtonBehaviour() {
-        containedFragmentFactory.ordinal.let { position ->
-            ibtnRight.setOnClickListener {
-                pagerContainer.pageTo(position + 1)
-            }
+        pageableDetailFragmentFactory.ordinal.let { position ->
+            if (showForwardNavigationButton)
+                binding.swipeButtonBar.ibtnRight.setOnClickListener {
+                    eventAddingPagerContainer.pageTo(position + 1)
+                }
+            else
+                binding.swipeButtonBar.ibtnRight.visibility = View.GONE
         }
-    }
-
-    // The order of the instances is important
-    enum class ContainedFragmentFactory {
-        NameAdder {
-            override fun getFragment(): Fragment {
-                return NameAdderFragment()
-            }
-        },
-        VisibilityChooser {
-            override fun getFragment(): Fragment {
-                return VisibilityChooserFragment()
-            }
-        },
-        CategoryPicker {
-            override fun getFragment(): Fragment {
-                return CategoryPickerFragment()
-            }
-        },
-        PhotoUploader {
-            override fun getFragment(): Fragment {
-                return PhotoUploaderFragment()
-            }
-        },
-        DateSetter {
-            override fun getFragment(): Fragment {
-                return DateSetterFragment()
-            }
-        },
-        PlacePicker {
-            override fun getFragment(): Fragment {
-                return PlacePickerFragment()
-            }
-        },
-        DescriptionGiver {
-            override fun getFragment(): Fragment {
-                return DescriptionGiverFragment()
-            }
-        };
-
-        abstract fun getFragment(): Fragment
     }
 }

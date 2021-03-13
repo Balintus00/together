@@ -7,7 +7,7 @@
     <color name="primaryHighlightColor">#ff6f00</color>
     <color name="disabledPrimaryHighlightColor">#A6ff6f00</color>
     <color name="lightBackgroundColor">#fff</color>
-    <color name="secondaryColor">#484848</color>
+    <color name="secondaryColor">#787878</color>
     <color name="defaultColor">#fff3f3f3</color>
     <color name="black">#000</color>
 </resources>
