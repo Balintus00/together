@@ -1,4 +1,4 @@
-package hu.bme.aut.android.together.features.addevent.fragment
+package hu.bme.aut.android.together.features.addevent.fragment.pagerelement.detailsetter
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import androidx.navigation.fragment.findNavController
 import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentPlacePickerBinding
 
@@ -46,16 +45,11 @@ class PlacePickerFragment : Fragment(), AdapterView.OnItemSelectedListener {
     }
 
     private fun setNextButtonBehaviour() {
-        binding.btnAddEventPickPlaceNext.setOnClickListener {
-            PlacePickerFragmentDirections.actionPlacePickerFragmentToDescriptionGiverFragment()
-                .let { action ->
-                    findNavController().navigate(action)
-                }
-        }
+        //TODO navigation was here
     }
 
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, id: Long) {
-        binding.btnAddEventPickPlaceNext.isEnabled = true
+        //TODO button enabling was here
         when(position){
             0 -> {
                 binding.etAddEventPickPlace.isEnabled = true
@@ -69,6 +63,6 @@ class PlacePickerFragment : Fragment(), AdapterView.OnItemSelectedListener {
     }
 
     override fun onNothingSelected(p0: AdapterView<*>?) {
-        binding.btnAddEventPickPlaceNext.isEnabled = false
+        //TODO button disabling was here
     }
 }

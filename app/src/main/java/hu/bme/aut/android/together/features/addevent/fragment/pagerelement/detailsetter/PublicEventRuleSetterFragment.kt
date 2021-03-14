@@ -1,4 +1,4 @@
-package hu.bme.aut.android.together.features.addevent.fragment
+package hu.bme.aut.android.together.features.addevent.fragment.pagerelement.detailsetter
 
 import android.os.Bundle
 import android.util.Log
@@ -56,17 +56,14 @@ class PublicEventRuleSetterFragment : Fragment() {
         binding.tvParticipantCountOption.setOnClickListener {
             PublicEventRuleSetterFragmentDirections.actionPublicEventRuleSetterFragmentToPublicEventParticipantQuantifierFragment()
                 .let { action ->
-                    findNavController().navigate((action))
+                    findNavController().navigate(action)
                 }
         }
     }
 
     private fun setNextButtonBehaviour() {
         binding.btnPublicEventRuleSetterNext.setOnClickListener {
-            PublicEventRuleSetterFragmentDirections.actionPublicEventRuleSetterFragmentToCategoryPickerFragment()
-                .let { action ->
-                    findNavController().navigate(action)
-                }
+            findNavController().popBackStack()
         }
     }
 }

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.addevent.fragment.DateSetterFragment">
+    tools:context=".features.addevent.fragment.pagerelement.detailsetter.DateSetterFragment">
 
     <TextView
         android:id="@+id/tvAddEventDateSetterTitle"
@@ -46,10 +46,10 @@
 
         <TextView
             android:id="@+id/tvAddEventFromDate"
-            style="@style/BigAttribute"
+            style="@style/BigBoldAttribute"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="FROM DATE"
+            android:text="@string/placeholder_from_date"
             android:layout_marginStart="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivAddEventFromTimeIcon"
@@ -58,10 +58,10 @@
 
         <TextView
             android:id="@+id/tvAddEventFromHourMinute"
-            style="@style/BigAttribute"
+            style="@style/BigBoldAttribute"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="FROM TIME"
+            android:text="@string/placeholder_from_time"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvAddEventFromDate"
             app:layout_constraintTop_toTopOf="parent"
@@ -98,10 +98,10 @@
 
         <TextView
             android:id="@+id/tvAddEventToDate"
-            style="@style/BigAttribute"
+            style="@style/BigBoldAttribute"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TO DATE"
+            android:text="@string/placeholder_to_date"
             android:layout_marginStart="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivAddEventToTimeIcon"
@@ -110,33 +110,15 @@
 
         <TextView
             android:id="@+id/tvAddEventToHourMinute"
-            style="@style/BigAttribute"
+            style="@style/BigBoldAttribute"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TO TIME"
+            android:text="@string/placeholder_to_time"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvAddEventToDate"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="14:00" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnNextFragmentDateSetter"
-        style="@style/ImportantButtonRoundEdge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="@string/next"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/clAddEventDateSetterToPart" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/_5_7"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

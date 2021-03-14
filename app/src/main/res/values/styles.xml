@@ -1,6 +1,8 @@
 <resources>
+    <!-- TODO Wireframe's actual colors should be used -->
+    <!-- TODO after the correct theme will be used, most of the styles might need to be refactored -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/primaryHighlightColor</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="fontFamily">@font/roboto</item>
@@ -18,11 +20,34 @@
         <item name="android:textSize">36sp</item>
     </style>
 
-    <style name="BigAttribute" parent="Title">
+    <style name="SmallTitle" parent="MediumTitle">
+        <item name="android:textSize">24sp</item>
+    </style>
+    
+    <style name="SmallLink">
+        <item name="android:textColor">@color/primaryHighlightColor</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="EnormousNormalAttribute" parent="Title">
+        <item name="android:textSize">36sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="EnormousNormalSecondaryAttribute" parent="EnormousNormalAttribute">
+        <item name="android:textColor">@color/secondaryColor</item>
+    </style>
+
+    <style name="BigNormalAttribute" parent="EnormousNormalAttribute">
         <item name="android:textSize">24sp</item>
     </style>
 
-    <style name="MediumAttribute" parent="BigAttribute">
+    <style name="BigBoldAttribute" parent="BigNormalAttribute">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="MediumAttribute" parent="BigNormalAttribute">
         <item name="android:textSize">18sp</item>
     </style>
 
@@ -46,6 +71,12 @@
         <item name="android:layout_marginStart">10dp</item>
     </style>
 
+    <style name="SupportInformationText">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/secondaryColor</item>
+        <item name="android:layout_marginStart">10dp</item>
+    </style>
+
     <style name="ImportantButton" parent="Theme.MaterialComponents.Light">
         <item name="android:textSize">36sp</item>
         <item name="android:textStyle">bold</item>
@@ -59,6 +90,8 @@
 
     <style name="ImportantButtonRoundEdge" parent="ImportantButton">
         <item name="cornerRadius">25dp</item>
+        <item name="backgroundTint">@color/color_states_primary_color_button_background</item>
+        <item name="background">@color/color_states_primary_color_button_background</item>
     </style>
 
     <style name="MediumButton" parent="ImportantButton">
@@ -67,6 +100,16 @@
 
     <style name="MediumButtonRoundEdge" parent="MediumButton">
         <item name="cornerRadius">25dp</item>
+    </style>
+
+    <style name="SwipeButtonStyle">
+        <item name="backgroundTint">@color/lightBackgroundColor</item>
+        <item name="background">@color/lightBackgroundColor</item>
+    </style>
+
+    <style name="MultipleChoiceCardStyle">
+        <item name="cardCornerRadius">25dp</item>
+        <item name="strokeColor">@color/primaryHighlightColor</item>
     </style>
 
     <style name="EventOption">
@@ -88,6 +131,10 @@
 
     <style name="DialogWithTitle" parent="@style/Theme.AppCompat.Light.Dialog">
         <item name="android:windowNoTitle">false</item>
+    </style>
+
+    <style name="MainProgressBarStyle" parent="Widget.MaterialComponents.LinearProgressIndicator">
+        <item name="android:colorAccent">@color/primaryHighlightColor</item>
     </style>
 
 </resources>

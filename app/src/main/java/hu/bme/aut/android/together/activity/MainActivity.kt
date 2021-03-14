@@ -1,4 +1,4 @@
-package hu.bme.aut.android.together.features.shared.activity
+package hu.bme.aut.android.together.activity
 
 import android.os.Bundle
 import android.view.View

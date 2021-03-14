@@ -1,4 +1,4 @@
-package hu.bme.aut.android.together.features.addevent.fragment
+package hu.bme.aut.android.together.features.addevent.fragment.pagerelement.detailsetter
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
@@ -7,9 +7,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.DatePicker
-import android.widget.TimePicker
-import androidx.navigation.fragment.findNavController
 import hu.bme.aut.android.together.databinding.FragmentDateSetterBinding
 import java.util.*
 
@@ -91,11 +88,6 @@ class DateSetterFragment : Fragment() {
     }
 
     private fun setNextButtonBehaviour() {
-        binding.btnNextFragmentDateSetter.setOnClickListener {
-            DateSetterFragmentDirections.actionDateSetterFragmentToPlacePickerFragment()
-                .let { action ->
-                    findNavController().navigate(action)
-                }
-        }
+        //TODO navigation was here
     }
 }

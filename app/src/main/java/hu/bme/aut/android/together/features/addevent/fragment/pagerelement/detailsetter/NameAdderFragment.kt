@@ -1,16 +1,18 @@
-package hu.bme.aut.android.together.features.addevent.fragment
+package hu.bme.aut.android.together.features.addevent.fragment.pagerelement.detailsetter
 
 import android.os.Bundle
 import android.text.Editable
+import android.text.InputFilter
 import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
 import hu.bme.aut.android.together.databinding.FragmentNameAdderBinding
 
 class NameAdderFragment : Fragment() {
+
+    private var maxCharacterCount = -1
 
     private lateinit var binding: FragmentNameAdderBinding
 
@@ -24,12 +26,25 @@ class NameAdderFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setWidgetsBehaviour()
+        initializeCharacterCounterTextView()
+        setEditTextBehaviour()
     }
 
-    private fun setWidgetsBehaviour() {
-        setEditTextBehaviour()
-        setNextButtonBehaviour()
+    private fun initializeCharacterCounterTextView() {
+        saveMaxCharacterCount()
+        setCharacterCounterTextView(maxCharacterCount)
+    }
+
+    private fun saveMaxCharacterCount() {
+        for(filter in binding.etAddEventName.filters){
+            if(filter is InputFilter.LengthFilter){
+                maxCharacterCount = filter.max
+            }
+        }
+    }
+
+    private fun setCharacterCounterTextView(newCount: Int) {
+        binding.tvRemainingCharacterCount.text = newCount.toString()
     }
 
     private fun setEditTextBehaviour() {
@@ -39,19 +54,9 @@ class NameAdderFragment : Fragment() {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) { }
 
             override fun afterTextChanged(p0: Editable?) {
-                binding.btnNameAdderNext.isEnabled = p0?.length ?: 0 > 0
+                setCharacterCounterTextView(maxCharacterCount - (p0?.length ?: 0))
             }
 
         })
     }
-
-    private fun setNextButtonBehaviour() {
-        binding.btnNameAdderNext.setOnClickListener {
-            NameAdderFragmentDirections.actionNameAdderFragmentToVisibilityChooserFragment()
-                .let { action ->
-                    findNavController().navigate(action)
-                }
-        }
-    }
-
 }
