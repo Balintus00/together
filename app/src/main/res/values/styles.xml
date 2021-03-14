@@ -23,10 +23,6 @@
     <style name="SmallTitle" parent="MediumTitle">
 		<item name="android:textSize">24sp</item>
 	</style>
-	
-    <style name="BigBoldAttribute" parent="Title">
-        <item name="android:textSize">24sp</item>
-    </style>
     
     <style name="SmallLink">
         <item name="android:textColor">@color/primaryHighlightColor</item>
@@ -49,10 +45,6 @@
 
     <style name="BigBoldAttribute" parent="BigNormalAttribute">
         <item name="android:textStyle">bold</item>
-    </style>
-	
-    <style name="BigNormalAttribute" parent="BigBoldAttribute">
-        <item name="android:textStyle">normal</item>
     </style>
 
     <style name="MediumAttribute" parent="BigNormalAttribute">

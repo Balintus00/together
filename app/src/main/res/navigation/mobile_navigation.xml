@@ -18,7 +18,7 @@
         android:id="@+id/eventQueryFragment"
         android:name="hu.bme.aut.android.together.features.searchevent.fragment.EventQueryFragment"
         android:label="fragment_event_query"
-        tools:layout="@layout/fragment_event_query" >
+        tools:layout="@layout/fragment_event_query">
         <action
             android:id="@+id/action_eventQueryFragment_to_eventSearchResultFragment"
             app:destination="@id/eventSearchResultFragment" />
@@ -27,7 +27,7 @@
         android:id="@+id/profileFragment"
         android:name="hu.bme.aut.android.together.features.profile.fragment.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" >
+        tools:layout="@layout/fragment_profile">
         <action
             android:id="@+id/action_profileFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
@@ -40,17 +40,16 @@
         android:id="@+id/addEventPagerFragment"
         android:name="hu.bme.aut.android.together.features.addevent.fragment.AddEventPagerFragment"
         android:label="fragment_add_event_pager"
-        tools:layout="@layout/fragment_add_event_pager" >
+        tools:layout="@layout/fragment_add_event_pager">
         <action
             android:id="@+id/action_addEventPagerFragment_to_publicEventRuleSetterFragment"
             app:destination="@id/publicEventRuleSetterFragment" />
     </fragment>
     <fragment
-    <fragment
         android:id="@+id/publicEventRuleSetterFragment"
         android:name="hu.bme.aut.android.together.features.addevent.fragment.pagerelement.detailsetter.PublicEventRuleSetterFragment"
         android:label="fragment_public_event_rule_setter"
-        tools:layout="@layout/fragment_public_event_rule_setter" >
+        tools:layout="@layout/fragment_public_event_rule_setter">
         <action
             android:id="@+id/action_publicEventRuleSetterFragment_to_publicEventParticipantQuantifierFragment"
             app:destination="@id/publicEventParticipantQuantifierFragment" />
@@ -60,19 +59,6 @@
         android:name="hu.bme.aut.android.together.features.addevent.fragment.pagerelement.detailsetter.PublicEventParticipantQuantifierFragment"
         android:label="fragment_public_event_participant_quantifier"
         tools:layout="@layout/fragment_public_event_participant_quantifier" />
-    <fragment
-        android:id="@+id/profileFragment"
-        android:name="hu.bme.aut.android.together.features.profile.fragment.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" >
-        <action
-            android:id="@+id/action_profileFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/settingsFragment"
-        android:name="hu.bme.aut.android.together.features.settings.SettingsFragment"
-        android:label="SettingsFragment" />
     <fragment
         android:id="@+id/eventSearchResultFragment"
         android:name="hu.bme.aut.android.together.features.searchevent.fragment.EventSearchResultFragment"
