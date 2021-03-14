@@ -14,7 +14,15 @@
             android:id="@+id/action_currentEventsListFragment_to_addEventPagerFragment"
             app:destination="@id/addEventPagerFragment" />
     </fragment>
-
+    <fragment
+        android:id="@+id/eventQueryFragment"
+        android:name="hu.bme.aut.android.together.features.searchevent.fragment.EventQueryFragment"
+        android:label="fragment_event_query"
+        tools:layout="@layout/fragment_event_query" >
+        <action
+            android:id="@+id/action_eventQueryFragment_to_eventSearchResultFragment"
+            app:destination="@id/eventSearchResultFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="hu.bme.aut.android.together.features.profile.fragment.ProfileFragment"
@@ -38,10 +46,6 @@
             app:destination="@id/publicEventRuleSetterFragment" />
     </fragment>
     <fragment
-        android:id="@+id/eventQueryFragment"
-        android:name="hu.bme.aut.android.together.features.search.EventQueryFragment"
-        android:label="fragment_event_query"
-        tools:layout="@layout/fragment_event_query" />
     <fragment
         android:id="@+id/publicEventRuleSetterFragment"
         android:name="hu.bme.aut.android.together.features.addevent.fragment.pagerelement.detailsetter.PublicEventRuleSetterFragment"
@@ -56,4 +60,22 @@
         android:name="hu.bme.aut.android.together.features.addevent.fragment.pagerelement.detailsetter.PublicEventParticipantQuantifierFragment"
         android:label="fragment_public_event_participant_quantifier"
         tools:layout="@layout/fragment_public_event_participant_quantifier" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="hu.bme.aut.android.together.features.profile.fragment.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="hu.bme.aut.android.together.features.settings.SettingsFragment"
+        android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/eventSearchResultFragment"
+        android:name="hu.bme.aut.android.together.features.searchevent.fragment.EventSearchResultFragment"
+        android:label="fragment_event_search_result"
+        tools:layout="@layout/fragment_event_search_result" />
 </navigation>

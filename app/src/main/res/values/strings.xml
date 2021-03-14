@@ -45,6 +45,7 @@
     <string name="add_event_description_giver_title">Give a description to your event!</string>
     <string name="create">Create</string>
     <string name="_7_7">7/7</string>
+    <string name="default_no_category">Not specified</string>
     <string-array name="event_category_types_array">
         <item>Outoors &amp; Adventure</item>
         <item>Tech</item>
@@ -114,4 +115,24 @@
     <string name="placeholder_to_time">TO TIME</string>
     <string name="placeholder_from_time">FROM TIME</string>
     <string name="placeholder_from_date">FROM DATE</string>
+    <string name="title_results_event_search">Results</string>
+    <string name="title_event_query">Search events!</string>
+    <string name="title_event_query_place_specifier">I want to go in...</string>
+    <string name="default_value_place_event_query">Anywhere!</string>
+    <string name="title_event_query_radius_specifier">around in a ... km radius</string>
+    <string name="title_event_query_date_on">On</string>
+    <string name="title_event_query_time_from">From</string>
+    <string name="title_event_query_time_to">To</string>
+    <string name="title_event_query_type">The type of event is...</string>
+    <string name="title_event_query_name">the name of the event contains the following...</string>
+    <string name="default_value_name_event_query">Nothing special</string>
+    <string name="event_query_default_value_today">Today</string>
+    <string name="event_query_default_value_now">Now</string>
+    <string name="event_query_default_value_date_indefinite">Indefinite</string>
+    <string name="event_query_default_value_time_indefinite">Indefinite</string>
+    <string-array name="event_query_date_setting_options">
+        <item>Specify a concrete value!</item>
+        <item>Use default value.</item>
+        <item>Close</item>
+    </string-array>
 </resources>
