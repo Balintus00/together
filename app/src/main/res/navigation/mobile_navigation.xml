@@ -17,9 +17,13 @@
         
     <fragment
         android:id="@+id/eventQueryFragment"
-        android:name="hu.bme.aut.android.together.features.search.EventQueryFragment"
+        android:name="hu.bme.aut.android.together.features.searchevent.fragment.EventQueryFragment"
         android:label="fragment_event_query"
-        tools:layout="@layout/fragment_event_query" />
+        tools:layout="@layout/fragment_event_query" >
+        <action
+            android:id="@+id/action_eventQueryFragment_to_eventSearchResultFragment"
+            app:destination="@id/eventSearchResultFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nameAdderFragment"
         android:name="hu.bme.aut.android.together.features.addevent.fragment.NameAdderFragment"
@@ -112,4 +116,9 @@
         android:id="@+id/settingsFragment"
         android:name="hu.bme.aut.android.together.features.settings.SettingsFragment"
         android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/eventSearchResultFragment"
+        android:name="hu.bme.aut.android.together.features.searchevent.fragment.EventSearchResultFragment"
+        android:label="fragment_event_search_result"
+        tools:layout="@layout/fragment_event_search_result" />
 </navigation>

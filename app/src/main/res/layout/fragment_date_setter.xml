@@ -46,7 +46,7 @@
 
         <TextView
             android:id="@+id/tvAddEventFromDate"
-            style="@style/BigAttribute"
+            style="@style/BigBoldAttribute"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="FROM DATE"
@@ -58,7 +58,7 @@
 
         <TextView
             android:id="@+id/tvAddEventFromHourMinute"
-            style="@style/BigAttribute"
+            style="@style/BigBoldAttribute"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="FROM TIME"
@@ -98,7 +98,7 @@
 
         <TextView
             android:id="@+id/tvAddEventToDate"
-            style="@style/BigAttribute"
+            style="@style/BigBoldAttribute"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TO DATE"
@@ -110,7 +110,7 @@
 
         <TextView
             android:id="@+id/tvAddEventToHourMinute"
-            style="@style/BigAttribute"
+            style="@style/BigBoldAttribute"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TO TIME"
