@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.profileFragment -> showBottomNav(navView)
                 R.id.eventQueryFragment -> showBottomNav(navView)
                 R.id.eventSearchResultFragment -> showBottomNav(navView)
+                R.id.eventDetailsFragment -> showBottomNav(navView)
                 else -> hideBottomNav(navView)
             }
         }

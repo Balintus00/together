@@ -75,5 +75,22 @@
         android:id="@+id/eventDetailsFragment"
         android:name="hu.bme.aut.android.together.features.eventdetails.fragment.EventDetailsFragment"
         android:label="fragment_event_details"
-        tools:layout="@layout/fragment_event_details" />
+        tools:layout="@layout/fragment_event_details" >
+        <action
+            android:id="@+id/action_eventDetailsFragment_to_eventDetailsCommunicationFragment"
+            app:destination="@id/eventDetailsCommunicationFragment" />
+        <action
+            android:id="@+id/action_eventDetailsFragment_to_eventDetailsFullDescriptionFragment"
+            app:destination="@id/eventDetailsFullDescriptionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventDetailsCommunicationFragment"
+        android:name="hu.bme.aut.android.together.features.eventdetails.fragment.EventDetailsCommunicationFragment"
+        android:label="fragment_event_details_communication"
+        tools:layout="@layout/fragment_event_details_communication" />
+    <fragment
+        android:id="@+id/eventDetailsFullDescriptionFragment"
+        android:name="hu.bme.aut.android.together.features.eventdetails.fragment.EventDetailsFullDescriptionFragment"
+        android:label="fragment_event_details_full_description"
+        tools:layout="@layout/fragment_event_details_full_description" />
 </navigation>
