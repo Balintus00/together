@@ -7,7 +7,7 @@ import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.EventRowItemBinding
 import hu.bme.aut.android.together.features.shared.eventlist.model.EventShortInfo
 
-class EventListAdapter : RecyclerView.Adapter<EventListAdapter.EventListViewHolder>() {
+class EventListAdapter(val onEventItemClick: () -> Unit) : RecyclerView.Adapter<EventListAdapter.EventListViewHolder>() {
 
     // TODO mocked data, should be removed later
     private val eventShortInfoList = listOf(
@@ -28,6 +28,9 @@ class EventListAdapter : RecyclerView.Adapter<EventListAdapter.EventListViewHold
             holder.binding.tvEventTime.text = time
             // TODO this should be later replaced with actual image resource using
             holder.binding.ivEventItem.setImageResource(R.mipmap.ic_launcher)
+            holder.binding.clEventRowItem.setOnClickListener {
+                onEventItemClick()
+            }
         }
     }
 

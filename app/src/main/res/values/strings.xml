@@ -130,6 +130,9 @@
     <string name="event_query_default_value_now">Now</string>
     <string name="event_query_default_value_date_indefinite">Indefinite</string>
     <string name="event_query_default_value_time_indefinite">Indefinite</string>
+    <string name="example_title_event_detail">Kristóf\'s birthday party</string>
+    <string name="example_date_time_event_details">Friday, febr 13 - 18:00</string>
+    <string name="example_place_event_details">Budapest, Irinyi József u. 42.</string>
     <string-array name="event_query_date_setting_options">
         <item>Specify a concrete value!</item>
         <item>Use default value.</item>

@@ -6,8 +6,7 @@
     tools:context=".features.currentevents.fragment.CurrentEventListFragment">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/eventListFragmentContainer"
-        android:name="hu.bme.aut.android.together.features.shared.eventlist.fragment.EventListFragment"
+        android:id="@+id/fcvEventListFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

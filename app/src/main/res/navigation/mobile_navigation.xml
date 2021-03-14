@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_currentEventsListFragment_to_addEventPagerFragment"
             app:destination="@id/addEventPagerFragment" />
+        <action
+            android:id="@+id/action_currentEventsListFragment_to_eventDetailsFragment"
+            app:destination="@id/eventDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/eventQueryFragment"
@@ -63,5 +66,14 @@
         android:id="@+id/eventSearchResultFragment"
         android:name="hu.bme.aut.android.together.features.searchevent.fragment.EventSearchResultFragment"
         android:label="fragment_event_search_result"
-        tools:layout="@layout/fragment_event_search_result" />
+        tools:layout="@layout/fragment_event_search_result" >
+        <action
+            android:id="@+id/action_eventSearchResultFragment_to_eventDetailsFragment"
+            app:destination="@id/eventDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventDetailsFragment"
+        android:name="hu.bme.aut.android.together.features.eventdetails.fragment.EventDetailsFragment"
+        android:label="fragment_event_details"
+        tools:layout="@layout/fragment_event_details" />
 </navigation>

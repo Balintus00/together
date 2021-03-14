@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import hu.bme.aut.android.together.databinding.FragmentCurrentEventListBinding
+import hu.bme.aut.android.together.features.shared.eventlist.fragment.EventListFragment
 
 abstract class CurrentEventListFragment : Fragment() {
 
@@ -21,7 +22,20 @@ abstract class CurrentEventListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        createContainedEventListFragment()
         setFabBehaviour()
+    }
+
+    private fun createContainedEventListFragment() {
+        childFragmentManager.beginTransaction()
+            .replace(
+                binding.fcvEventListFragment.id,
+                EventListFragment.createEventListFragment(
+                    CurrentEventsListsContainerFragmentDirections
+                        .actionCurrentEventsListFragmentToEventDetailsFragment().actionId
+                )
+            )
+            .commit()
     }
 
     protected abstract fun setFabBehaviour()
