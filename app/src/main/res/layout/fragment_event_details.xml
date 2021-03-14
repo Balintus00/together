@@ -7,6 +7,7 @@
     tools:context=".features.eventdetails.fragment.EventDetailsFragment">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/event_detail_backdrop_height"
         android:fitsSystemWindows="true">
@@ -27,11 +28,10 @@
                 android:src="@mipmap/ic_launcher"/>
             
             <androidx.appcompat.widget.Toolbar
+                android:id="@+id/tbEventDetails"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"/>
-
-
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -47,6 +47,7 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:layout_marginTop="32dp"
                 android:id="@+id/tvEventDateTime"
                 style="@style/HighlightedBigNormalAttribute"
                 android:layout_width="match_parent"
@@ -57,17 +58,82 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                style="@style/BigNormalAttribute"
-                android:text="@string/example_place_event_details"
+                android:layout_marginTop="32dp"
                 android:id="@+id/tvEventPlace"
+                style="@style/BigNormalAttribute"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@string/example_place_event_details"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tvEventDateTime" />
+                app:layout_constraintTop_toBottomOf="@id/tvEventDateTime" />
+
+            <TextView
+                android:layout_marginTop="32dp"
+                android:id="@+id/textView19"
+                style="@style/MediumBoldAttribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/title_about_event_details"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvEventPlace" />
+
+            <TextView
+                android:layout_marginTop="16dp"
+                android:id="@+id/tvEventQuickDescription"
+                style="@style/MediumAttribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/example_quick_info_event_detail"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+            <TextView
+                android:layout_marginTop="16dp"
+                android:id="@+id/tvShowMoreInformationEventDetails"
+                style="@style/HighlightedMediumAttribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/see_more_information_event_details"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvEventQuickDescription" />
+
+            <TextView
+                android:layout_marginTop="32dp"
+                android:id="@+id/textView21"
+                style="@style/MediumBoldAttribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/title_location_event_details"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvShowMoreInformationEventDetails" />
+
+            <TextView
+                android:layout_marginTop="16dp"
+                style="@style/MediumAttribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/example_place_event_details"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+            <!-- TODO MapView will be here -->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:layout_anchor="@id/appbar"
+        android:focusable="true"
+        app:layout_anchorGravity="bottom|right|end"
+        app:srcCompat="@drawable/ic_action_message"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
