@@ -73,7 +73,7 @@
     </fragment>
     <fragment
         android:id="@+id/eventDetailsFragment"
-        android:name="hu.bme.aut.android.together.features.eventdetails.fragment.EventDetailsFragment"
+        android:name="hu.bme.aut.android.together.features.eventdetails.fragment.details.EventDetailsFragment"
         android:label="fragment_event_details"
         tools:layout="@layout/fragment_event_details" >
         <action
@@ -85,12 +85,12 @@
     </fragment>
     <fragment
         android:id="@+id/eventDetailsCommunicationFragment"
-        android:name="hu.bme.aut.android.together.features.eventdetails.fragment.EventDetailsCommunicationFragment"
+        android:name="hu.bme.aut.android.together.features.eventdetails.fragment.communication.EventDetailsCommunicationFragment"
         android:label="fragment_event_details_communication"
         tools:layout="@layout/fragment_event_details_communication" />
     <fragment
         android:id="@+id/eventDetailsFullDescriptionFragment"
-        android:name="hu.bme.aut.android.together.features.eventdetails.fragment.EventDetailsFullDescriptionFragment"
+        android:name="hu.bme.aut.android.together.features.eventdetails.fragment.details.EventDetailsFullDescriptionFragment"
         android:label="fragment_event_details_full_description"
         tools:layout="@layout/fragment_event_details_full_description" />
 </navigation>
