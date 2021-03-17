@@ -35,6 +35,10 @@
         <item name="android:textStyle">normal</item>
     </style>
 
+    <style name="HighlightedEnormousNormalAttribute" parent="EnormousNormalAttribute">
+        <item name="android:textColor">@color/primaryHighlightColor</item>
+    </style>
+
     <style name="EnormousNormalSecondaryAttribute" parent="EnormousNormalAttribute">
         <item name="android:textColor">@color/secondaryColor</item>
     </style>

@@ -17,7 +17,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="@string/example_title_event_detail" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -28,29 +29,19 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView20"
-                style="@style/Title"
+                android:layout_marginTop="12dp"
+                android:id="@+id/tvEventDateTime"
+                style="@style/HighlightedEnormousNormalAttribute"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/example_title_event_detail"
+                android:text="@string/example_date_time_event_details"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tvEventDateTime"
-                style="@style/BigNormalAttribute"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="@string/example_date_time_event_details"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView20" />
-
-            <TextView
                 android:id="@+id/tvEventPlace"
-                style="@style/BigNormalAttribute"
+                style="@style/BigBoldAttribute"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
