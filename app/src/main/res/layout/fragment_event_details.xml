@@ -112,6 +112,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvShowMoreInformationEventDetails" />
 
             <TextView
+                android:id="@+id/textView22"
                 style="@style/MediumAttribute"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -121,7 +122,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
-            <!-- TODO MapView will be here -->
+            <com.google.android.gms.maps.MapView xmlns:map="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/mvEventLocation"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView22"
+                map:cameraZoom="13"
+                map:liteMode="true"
+                map:mapType="normal" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

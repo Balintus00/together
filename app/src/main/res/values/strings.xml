@@ -142,6 +142,7 @@
     <string name="tab_name_news_event_details">News</string>
     <string name="tab_name_coming_current_events">Coming</string>
     <string name="tab_name_past_current_events">Past</string>
+    <string name="error_map_loading_no_information">Map couldn\'t be loaded!</string>
     <string-array name="event_query_date_setting_options">
         <item>Specify a concrete value!</item>
         <item>Use default value.</item>
