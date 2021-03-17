@@ -143,6 +143,8 @@
     <string name="tab_name_coming_current_events">Coming</string>
     <string name="tab_name_past_current_events">Past</string>
     <string name="error_map_loading_no_information">Map couldn\'t be loaded!</string>
+    <string name="example_title_event_news">What kind of gift should you bring?</string>
+    <string name="example_author_event_news">by KR1ST0F</string>
     <string-array name="event_query_date_setting_options">
         <item>Specify a concrete value!</item>
         <item>Use default value.</item>

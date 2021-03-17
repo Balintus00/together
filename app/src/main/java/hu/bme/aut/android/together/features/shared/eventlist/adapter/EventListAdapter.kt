@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import hu.bme.aut.android.together.R
-import hu.bme.aut.android.together.databinding.EventRowItemBinding
-import hu.bme.aut.android.together.features.shared.eventlist.model.EventShortInfo
+import hu.bme.aut.android.together.databinding.ItemEventRowBinding
+import hu.bme.aut.android.together.model.EventShortInfo
 
 class EventListAdapter(val onEventItemClick: () -> Unit) : RecyclerView.Adapter<EventListAdapter.EventListViewHolder>() {
 
@@ -17,7 +17,7 @@ class EventListAdapter(val onEventItemClick: () -> Unit) : RecyclerView.Adapter<
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventListViewHolder {
         val binding =
-            EventRowItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            ItemEventRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return EventListViewHolder(binding)
     }
 
@@ -38,6 +38,6 @@ class EventListAdapter(val onEventItemClick: () -> Unit) : RecyclerView.Adapter<
         return eventShortInfoList.size
     }
 
-    inner class EventListViewHolder(val binding: EventRowItemBinding) :
+    inner class EventListViewHolder(val binding: ItemEventRowBinding) :
         RecyclerView.ViewHolder(binding.root)
 }

@@ -59,6 +59,10 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <style name="MediumSecondaryAttribute" parent="MediumAttribute">
+        <item name="android:textColor">@color/secondaryColor</item>
+    </style>
+
     <style name="HighlightedMediumAttribute" parent="MediumAttribute">
         <item name="android:textColor">@color/primaryHighlightColor</item>
     </style>
@@ -151,6 +155,16 @@
 
     <style name="MainProgressBarStyle" parent="Widget.MaterialComponents.LinearProgressIndicator">
         <item name="android:colorAccent">@color/primaryHighlightColor</item>
+    </style>
+
+    <style name="ItemCardViewStyle" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">25dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="strokeColor">#000</item>
+        <item name="strokeWidth">1dp</item>
     </style>
 
 </resources>

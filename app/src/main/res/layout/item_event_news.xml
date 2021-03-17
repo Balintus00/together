@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardItemEventNews"
+    style="@style/ItemCardViewStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginVertical="16dp">
+
+        <TextView
+            android:id="@+id/tvTitleEventNews"
+            style="@style/BigBoldAttribute"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="@string/example_title_event_news"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvAuthorEventNews"
+            style="@style/MediumSecondaryAttribute"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="@string/example_author_event_news"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleEventNews" />
+
+        <TextView
+            android:id="@+id/tvMessageEventNews"
+            style="@style/MediumAttribute"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            tools:text="@string/example_event_description"
+            app:layout_constraintTop_toBottomOf="@+id/tvAuthorEventNews" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
