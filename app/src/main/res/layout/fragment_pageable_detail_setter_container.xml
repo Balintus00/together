@@ -24,7 +24,7 @@
 
         <include
             android:id="@+id/swipeButtonBar"
-            layout="@layout/swipe_button_bar"
+            layout="@layout/widget_swipe_button_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"

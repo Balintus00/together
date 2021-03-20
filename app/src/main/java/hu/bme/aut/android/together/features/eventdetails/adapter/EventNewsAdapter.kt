@@ -8,13 +8,13 @@ import android.view.ViewGroup
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import hu.bme.aut.android.together.databinding.ItemEventNewsBinding
-import hu.bme.aut.android.together.model.EventNewsInfo
+import hu.bme.aut.android.together.model.EventNewsMessage
 
 class EventNewsAdapter(val context: Context) : RecyclerView.Adapter<EventNewsAdapter.EventNewsViewHolder>() {
 
     // TODO Actual data will be used later
     private val eventNewsList = listOf(
-        EventNewsInfo(
+        EventNewsMessage(
             "What kind of gift should you bring?",
             "KR1ST0F",
             "Lorem ipsum dolor sit amet."
@@ -41,7 +41,7 @@ class EventNewsAdapter(val context: Context) : RecyclerView.Adapter<EventNewsAda
         }
     }
 
-    private fun setCardOnClickBehaviour(card: CardView, representedNews: EventNewsInfo) {
+    private fun setCardOnClickBehaviour(card: CardView, representedNews: EventNewsMessage) {
         card.setOnClickListener {
             AlertDialog.Builder(context).apply {
                 setTitle(representedNews.title)
