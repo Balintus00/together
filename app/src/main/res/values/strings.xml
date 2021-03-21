@@ -155,4 +155,6 @@
     <string name="action_invite_people_event_details">Invite people</string>
     <string name="action_modify_event_event_details">Modify this event</string>
     <string name="action_close_organiser_menu_event_details">Close</string>
+    <string name="example_remaining_spaces_event_details">Spaces are not limited!</string>
+    <string name="secret_event_event_details">Shh it\'s a secret event!</string>
 </resources>

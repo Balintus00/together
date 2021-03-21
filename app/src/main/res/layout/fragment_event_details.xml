@@ -47,15 +47,27 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:id="@+id/tvPrivateEvent"
+                style="@style/MediumSecondaryAttribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/secret_event_event_details"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
                 android:id="@+id/tvEventDateTime"
                 style="@style/HighlightedBigNormalAttribute"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="24dp"
                 android:text="@string/example_date_time_event_details"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/tvPrivateEvent" />
 
             <TextView
                 android:id="@+id/tvEventPlace"
@@ -69,15 +81,26 @@
                 app:layout_constraintTop_toBottomOf="@id/tvEventDateTime" />
 
             <TextView
+                android:id="@+id/tvEventParticipantCount"
+                style="@style/BoldHighlightedMediumAttribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/example_remaining_spaces_event_details"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvEventPlace" />
+
+            <TextView
                 android:id="@+id/textView19"
                 style="@style/MediumBoldAttribute"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="24dp"
                 android:text="@string/title_about_event_details"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvEventPlace" />
+                app:layout_constraintTop_toBottomOf="@+id/tvEventParticipantCount" />
 
             <TextView
                 android:id="@+id/tvEventQuickDescription"
@@ -106,7 +129,7 @@
                 style="@style/MediumBoldAttribute"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="24dp"
                 android:text="@string/title_location_event_details"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvShowMoreInformationEventDetails" />

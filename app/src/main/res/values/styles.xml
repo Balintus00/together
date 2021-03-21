@@ -67,6 +67,10 @@
         <item name="android:textColor">@color/primaryHighlightColor</item>
     </style>
 
+    <style name="BoldHighlightedMediumAttribute" parent="HighlightedMediumAttribute">
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="MediumBoldAttribute" parent="MediumAttribute">
         <item name="android:textStyle">bold</item>
     </style>

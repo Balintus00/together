@@ -56,11 +56,17 @@ class EventDetailsFragment : Fragment(), OnMapReadyCallback {
     }
 
     private fun setUpUiWidgets(savedInstanceState: Bundle?) {
+        setEventVisibilityTextVisibility()
         setUpFABByArguments()
         setUpMap(savedInstanceState)
         setUpToolbar()
         setShowWholeDescriptionTextBehaviour()
         setFABBehaviour()
+    }
+    
+    private fun setEventVisibilityTextVisibility() {
+        if(optionsArray[1])
+            binding.tvPrivateEvent.visibility = View.VISIBLE
     }
 
     private fun setUpFABByArguments() {
@@ -142,7 +148,7 @@ class EventDetailsFragment : Fragment(), OnMapReadyCallback {
             }
         }
     }
-    
+
     private fun setParticipantFABBehaviour() {
         binding.fabActionEventDetails.setOnClickListener {
             EventDetailsFragmentDirections.actionEventDetailsFragmentToEventDetailsCommunicationFragment()
