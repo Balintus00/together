@@ -9,7 +9,7 @@ import hu.bme.aut.android.together.databinding.DialogfragmentEventQuestionRespon
 import hu.bme.aut.android.together.model.EventNewsMessage
 import kotlinx.android.synthetic.main.dialogfragment_event_question_response.*
 
-class EventQuestionResponseDialogFragment(val representedQuestion: EventNewsMessage) : DialogFragment() {
+class EventQuestionResponseDialogFragment(private val representedQuestion: EventNewsMessage) : DialogFragment() {
 
     private lateinit var binding: DialogfragmentEventQuestionResponseBinding
 
@@ -42,7 +42,7 @@ class EventQuestionResponseDialogFragment(val representedQuestion: EventNewsMess
     }
 
     private fun setPositiveButtonBehaviour() {
-        btnAnswer.setOnClickListener {
+        btnAccept.setOnClickListener {
             //TODO sending data to backend...
             dismiss()
         }

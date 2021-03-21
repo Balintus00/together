@@ -6,52 +6,33 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/tvQuestionTitle"
+        android:id="@+id/tvInvitationTitle"
         style="@style/AttributeName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="@string/example_question_title"
+        android:text="@string/example_question_title"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="10dp" />
 
     <TextView
-        android:id="@+id/tvQuestionAuthor"
+        android:id="@+id/tvInvitationSender"
         style="@style/SupportInformationText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        tools:text="@string/example_question_author"
-        app:layout_constraintTop_toBottomOf="@+id/tvQuestionTitle"
+        android:text="@string/example_question_author"
+        app:layout_constraintTop_toBottomOf="@+id/tvInvitationTitle"
         tools:layout_editor_absoluteX="10dp" />
 
     <TextView
-        android:id="@+id/tvQuestionDescription"
+        android:id="@+id/tvInvitationDescription"
         style="@style/AttributeData"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        tools:text="@string/example_detailed_question"
-        app:layout_constraintTop_toBottomOf="@+id/tvQuestionAuthor"
+        android:text="@string/example_detailed_question"
+        app:layout_constraintTop_toBottomOf="@+id/tvInvitationSender"
         tools:layout_editor_absoluteX="10dp" />
-
-    <TextView
-        android:id="@+id/textView29"
-        style="@style/AttributeName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/title_question_response_answer"
-        app:layout_constraintTop_toBottomOf="@+id/tvQuestionDescription"
-        tools:layout_editor_absoluteX="10dp" />
-
-    <EditText
-        android:id="@+id/etEventQuestionAnswer"
-        style="@style/AttributeData"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:hint="@string/hint_question_response_answer"
-        app:layout_constraintTop_toBottomOf="@+id/textView29" />
 
     <Button
         android:id="@+id/btnAccept"
@@ -59,9 +40,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="@string/action_answer"
+        android:text="@string/action_accept"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etEventQuestionAnswer" />
+        app:layout_constraintTop_toBottomOf="@id/tvInvitationDescription" />
 
     <Button
         android:id="@+id/btnCancel"
@@ -71,6 +52,6 @@
         android:layout_marginTop="24dp"
         android:text="@string/cancel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etEventQuestionAnswer" />
+        app:layout_constraintTop_toBottomOf="@id/tvInvitationDescription" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

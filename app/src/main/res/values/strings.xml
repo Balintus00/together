@@ -186,4 +186,8 @@
     <string name="attribute_photo_modify_event">Photo</string>
     <string name="action_upload_new_picture">Upload new picture</string>
     <string name="attribute_description_event_modification">Description</string>
+    <string name="profile_option_event_invitations">Event invitations</string>
+    <string name="title_invitations">Invitations</string>
+    <string name="title_incoming_invitations">Incoming invitations</string>
+    <string name="action_accept">Accept</string>
 </resources>

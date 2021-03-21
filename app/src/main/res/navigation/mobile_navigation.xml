@@ -34,6 +34,9 @@
         <action
             android:id="@+id/action_profileFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_eventInvitationsFragment"
+            app:destination="@id/eventInvitationsFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -144,4 +147,9 @@
             android:label="fragment_public_event_participant_quantifier"
             tools:layout="@layout/fragment_public_event_participant_quantifier" />
     </navigation>
+    <fragment
+        android:id="@+id/eventInvitationsFragment"
+        android:name="hu.bme.aut.android.together.features.profile.fragment.EventInvitationsFragment"
+        android:label="fragment_event_invitations"
+        tools:layout="@layout/fragment_event_invitations" />
 </navigation>
