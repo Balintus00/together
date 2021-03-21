@@ -172,4 +172,18 @@
     <string name="title_question_response_answer">Answer</string>
     <string name="action_answer">Answer</string>
     <string name="hint_question_response_answer">Your answer.</string>
+    <string name="title_invitation_event">Invite people</string>
+    <string name="hint_event_invitation_username_input">Type the username here...</string>
+    <string name="action_add">Add</string>
+    <string name="title_event_invitation_sender_selected">Selected</string>
+    <string name="example_invited_usernames">T4M4S, KR1ST0F, B4RN1</string>
+    <string name="title_event_modification">Modify your event</string>
+    <string name="attribute_name_event_modification">Name</string>
+    <string name="help_event_modification">Tap on the attribute that you would like to modify!</string>
+    <string name="attribute_type_event_modification">Type</string>
+    <string name="example_location">Budapest</string>
+    <string name="attribute_location_modify_event">Location</string>
+    <string name="attribute_photo_modify_event">Photo</string>
+    <string name="action_upload_new_picture">Upload new picture</string>
+    <string name="attribute_description_event_modification">Description</string>
 </resources>

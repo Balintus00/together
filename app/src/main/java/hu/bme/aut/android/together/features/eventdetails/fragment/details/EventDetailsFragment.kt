@@ -141,11 +141,17 @@ class EventDetailsFragment : Fragment(), OnMapReadyCallback {
                 binding.fabActionEventDetails.isExpanded = false
             }
             tvOrganiserActionInvitePeople.setOnClickListener {
-                //TODO navigate...
+                EventDetailsFragmentDirections.actionEventDetailsFragmentToEventInvitationSenderFragment()
+                    .let { action ->
+                        findNavController().navigate(action)
+                    }
                 binding.fabActionEventDetails.isExpanded = false
             }
             tvOrganiserActionModifyEvent.setOnClickListener {
-                //TODO navigate...
+                EventDetailsFragmentDirections.actionEventDetailsFragmentToModifyEventDetailsFragment()
+                    .let { action ->
+                        findNavController().navigate(action)
+                    }
                 binding.fabActionEventDetails.isExpanded = false
             }
             tvCloseOrganiserSheet.setOnClickListener {

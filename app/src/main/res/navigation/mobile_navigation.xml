@@ -77,6 +77,12 @@
                 android:name="isParticipant"
                 app:argType="boolean"
                 android:defaultValue="true" />
+            <action
+                android:id="@+id/action_eventDetailsFragment_to_eventInvitationSenderFragment"
+                app:destination="@id/eventInvitationSenderFragment" />
+            <action
+                android:id="@+id/action_eventDetailsFragment_to_modifyEventDetailsFragment"
+                app:destination="@id/modifyEventDetailsFragment" />
         </fragment>
         <fragment
             android:id="@+id/eventDetailsFullDescriptionFragment"
@@ -101,6 +107,16 @@
             android:name="hu.bme.aut.android.together.features.eventdetails.fragment.communication.EventQuestionsFragment"
             android:label="fragment_event_questions"
             tools:layout="@layout/fragment_event_questions" />
+        <fragment
+            android:id="@+id/eventInvitationSenderFragment"
+            android:name="hu.bme.aut.android.together.features.eventdetails.fragment.communication.EventInvitationSenderFragment"
+            android:label="fragment_event_invitation_sender"
+            tools:layout="@layout/fragment_event_invitation_sender" />
+        <fragment
+            android:id="@+id/modifyEventDetailsFragment"
+            android:name="hu.bme.aut.android.together.features.eventdetails.fragment.details.ModifyEventDetailsFragment"
+            android:label="fragment_modify_event_details"
+            tools:layout="@layout/fragment_modify_event_details" />
     </navigation>
     <navigation android:id="@+id/addEventGraph"
         app:startDestination="@id/addEventPagerFragment">
