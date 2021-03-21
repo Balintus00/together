@@ -6,11 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.google.android.material.tabs.TabLayoutMediator
 import hu.bme.aut.android.together.databinding.FragmentEventDetailsCommunicationBinding
 import hu.bme.aut.android.together.features.eventdetails.adapter.CommunicationPanelsAdapter
 
 class EventDetailsCommunicationFragment : Fragment() {
+
+    val args: EventDetailsCommunicationFragmentArgs by navArgs()
 
     private lateinit var binding: FragmentEventDetailsCommunicationBinding
 
@@ -42,7 +45,7 @@ class EventDetailsCommunicationFragment : Fragment() {
     }
 
     private fun initializeAndSetPagerAdapter() {
-        pagerAdapter = CommunicationPanelsAdapter(this)
+        pagerAdapter = CommunicationPanelsAdapter(this, args.isOrganiser)
         binding.vp2CommunicationPanels.adapter = pagerAdapter
     }
 

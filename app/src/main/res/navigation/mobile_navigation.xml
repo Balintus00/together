@@ -87,7 +87,12 @@
             android:id="@+id/eventDetailsCommunicationFragment"
             android:name="hu.bme.aut.android.together.features.eventdetails.fragment.communication.EventDetailsCommunicationFragment"
             android:label="fragment_event_details_communication"
-            tools:layout="@layout/fragment_event_details_communication" />
+            tools:layout="@layout/fragment_event_details_communication" >
+            <argument
+                android:name="isOrganiser"
+                app:argType="boolean"
+                android:defaultValue="false" />
+        </fragment>
     </navigation>
     <navigation android:id="@+id/addEventGraph"
         app:startDestination="@id/addEventPagerFragment">

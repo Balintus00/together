@@ -6,7 +6,8 @@ import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.features.eventdetails.fragment.communication.NewsListFragment
 import hu.bme.aut.android.together.features.eventdetails.fragment.communication.QAFragment
 
-class CommunicationPanelsAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
+class CommunicationPanelsAdapter(fragment: Fragment, private val isOrganiser: Boolean) :
+    FragmentStateAdapter(fragment) {
     companion object {
         private const val TAB_COUNT = 2
     }
@@ -20,7 +21,7 @@ class CommunicationPanelsAdapter(fragment: Fragment) : FragmentStateAdapter(frag
     override fun createFragment(position: Int): Fragment {
         require(position in 0 until TAB_COUNT)
         return when (position) {
-            0 -> NewsListFragment()
+            0 -> NewsListFragment.createFragment(isOrganiser)
             1 -> QAFragment()
             else -> throw IllegalArgumentException("Invalid position was given to adapter!")
         }

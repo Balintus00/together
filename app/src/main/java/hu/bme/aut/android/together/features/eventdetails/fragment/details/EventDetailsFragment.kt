@@ -63,9 +63,9 @@ class EventDetailsFragment : Fragment(), OnMapReadyCallback {
         setShowWholeDescriptionTextBehaviour()
         setFABBehaviour()
     }
-    
+
     private fun setEventVisibilityTextVisibility() {
-        if(optionsArray[1])
+        if (optionsArray[1])
             binding.tvPrivateEvent.visibility = View.VISIBLE
     }
 
@@ -132,7 +132,9 @@ class EventDetailsFragment : Fragment(), OnMapReadyCallback {
     private fun setOrganiserSheetBehaviour() {
         with(binding.organiserSheet) {
             tvOrganiserActionShowMessages.setOnClickListener {
-                EventDetailsFragmentDirections.actionEventDetailsFragmentToEventDetailsCommunicationFragment()
+                EventDetailsFragmentDirections.actionEventDetailsFragmentToEventDetailsCommunicationFragment(
+                    optionsArray[0]
+                )
                     .let { action ->
                         findNavController().navigate(action)
                     }
