@@ -140,14 +140,60 @@
 
     </androidx.core.widget.NestedScrollView>
 
+    <com.google.android.material.circularreveal.CircularRevealFrameLayout
+        android:id="@+id/organiserSheet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/lightBackgroundColor"
+        android:visibility="invisible"
+        app:layout_anchor="@id/fabActionEventDetails"
+        app:layout_anchorGravity="center"
+        app:layout_behavior="@string/fab_transformation_sheet_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvOrganiserActionShowMessages"
+                style="@style/OrganiserOptionItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/action_show_messages_event_details" />
+
+            <TextView
+                android:id="@+id/tvOrganiserActionInvitePeople"
+                style="@style/OrganiserOptionItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/action_invite_people_event_details" />
+
+            <TextView
+                android:id="@+id/tvOrganiserActionModifyEvent"
+                style="@style/OrganiserOptionItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/action_modify_event_event_details" />
+
+            <TextView
+                android:id="@+id/tvCloseOrganiserSheet"
+                style="@style/OrganiserOptionItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/action_close_organiser_menu_event_details" />
+
+        </LinearLayout>
+
+    </com.google.android.material.circularreveal.CircularRevealFrameLayout>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabEventCommunication"
+        android:id="@+id/fabActionEventDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="true"
         app:layout_anchor="@id/appbar"
-        app:layout_anchorGravity="bottom|right|end"
-        app:srcCompat="@drawable/ic_action_message" />
+        app:layout_anchorGravity="bottom|right|end" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -19,11 +19,11 @@
     <style name="MediumTitle" parent="Title">
         <item name="android:textSize">36sp</item>
     </style>
-	
+
     <style name="SmallTitle" parent="MediumTitle">
-		<item name="android:textSize">24sp</item>
-	</style>
-    
+        <item name="android:textSize">24sp</item>
+    </style>
+
     <style name="SmallLink">
         <item name="android:textColor">@color/primaryHighlightColor</item>
         <item name="android:textSize">24sp</item>
@@ -95,6 +95,13 @@
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/secondaryColor</item>
         <item name="android:layout_marginStart">10dp</item>
+    </style>
+
+    <style name="OrganiserOptionItem">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_margin">2dp</item>
     </style>
 
     <style name="ImportantButton" parent="Theme.MaterialComponents.Light">

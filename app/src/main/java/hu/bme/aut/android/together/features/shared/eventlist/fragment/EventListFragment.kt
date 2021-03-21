@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.*
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import hu.bme.aut.android.together.databinding.FragmentEventListBinding
@@ -13,6 +14,12 @@ import hu.bme.aut.android.together.features.shared.eventlist.adapter.EventListAd
 class EventListFragment : Fragment() {
 
     companion object {
+        //organiser, private, limitedParticipantCount, participant
+        private val eventDetailsItemOptionsArray = arrayOf(
+            arrayOf(false, true, false, true),
+            arrayOf(false, false, true, false),
+            arrayOf(true, false, true, true)
+        )
         private const val ACTION_ARGUMENT_KEY = "ACTION_ARGUMENT_KEY"
         private const val ON_ITEM_CLICK_NAVIGATION_DISABLED_DEFAULT_VALUE = -1
 
@@ -20,7 +27,7 @@ class EventListFragment : Fragment() {
             itemNavigationActionId: Int = ON_ITEM_CLICK_NAVIGATION_DISABLED_DEFAULT_VALUE
         ): EventListFragment {
             return EventListFragment().apply {
-                arguments = Bundle().apply{
+                arguments = Bundle().apply {
                     putInt(ACTION_ARGUMENT_KEY, itemNavigationActionId)
                 }
             }
@@ -37,13 +44,26 @@ class EventListFragment : Fragment() {
     }
 
     private fun initializeRecyclerViewAdapter() {
-        val actionId = arguments?.getInt(ACTION_ARGUMENT_KEY)
-            ?: throw IllegalStateException("Arguments was null!")
-        adapter =
-            if (actionId != ON_ITEM_CLICK_NAVIGATION_DISABLED_DEFAULT_VALUE)
-                EventListAdapter { findNavController().navigate(actionId) }
+        gatherItemNavigationActionId().let { actionId ->
+            adapter = if (actionId != ON_ITEM_CLICK_NAVIGATION_DISABLED_DEFAULT_VALUE)
+                EventListAdapter { position ->
+                    findNavController().navigate(actionId, Bundle().apply {
+                        eventDetailsItemOptionsArray[position].let { optionArray ->
+                            putBoolean("isOrganiser", optionArray[0])
+                            putBoolean("isPrivate", optionArray[1])
+                            putBoolean("isParticipantCountLimited", optionArray[2])
+                            putBoolean("isParticipant", optionArray[3])
+                        }
+                    })
+                }
             else
                 EventListAdapter {}
+        }
+    }
+
+    private fun gatherItemNavigationActionId(): Int {
+        return arguments?.getInt(ACTION_ARGUMENT_KEY)
+            ?: throw IllegalStateException("Arguments was null!")
     }
 
     override fun onCreateView(

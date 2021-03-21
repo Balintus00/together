@@ -7,12 +7,13 @@ import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.ItemEventRowBinding
 import hu.bme.aut.android.together.model.EventShortInfo
 
-class EventListAdapter(val onEventItemClick: () -> Unit) : RecyclerView.Adapter<EventListAdapter.EventListViewHolder>() {
+class EventListAdapter(val onEventItemClick: (position: Int) -> Unit) : RecyclerView.Adapter<EventListAdapter.EventListViewHolder>() {
 
     // TODO mocked data, should be removed later
     private val eventShortInfoList = listOf(
         EventShortInfo("Kristóf's birthday party", "Budapest", "Friday, febr 13 - 18:00", ""),
-        EventShortInfo("Budapest sightseeing tour", "Budapest", "Saturday, febr 14 - 18:00", "")
+        EventShortInfo("Budapest sightseeing tour", "Budapest", "Saturday, febr 14 - 18:00", ""),
+        EventShortInfo("Own birthday party", "Budapest", "Saturday, febr 14 - 18:00", "")
     )
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventListViewHolder {
@@ -29,7 +30,7 @@ class EventListAdapter(val onEventItemClick: () -> Unit) : RecyclerView.Adapter<
             // TODO this should be later replaced with actual image resource using
             holder.binding.ivEventItem.setImageResource(R.mipmap.ic_launcher)
             holder.binding.clEventRowItem.setOnClickListener {
-                onEventItemClick()
+                onEventItemClick(position)
             }
         }
     }

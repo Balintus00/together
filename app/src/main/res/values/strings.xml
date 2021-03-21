@@ -145,9 +145,14 @@
     <string name="error_map_loading_no_information">Map couldn\'t be loaded!</string>
     <string name="example_title_event_news">What kind of gift should you bring?</string>
     <string name="example_author_event_news">by KR1ST0F</string>
+    <string name="message_event_join_event_details">Join request successfully sent!</string>
     <string-array name="event_query_date_setting_options">
         <item>Specify a concrete value!</item>
         <item>Use default value.</item>
         <item>Close</item>
     </string-array>
+    <string name="action_show_messages_event_details">Show messages</string>
+    <string name="action_invite_people_event_details">Invite people</string>
+    <string name="action_modify_event_event_details">Modify this event</string>
+    <string name="action_close_organiser_menu_event_details">Close</string>
 </resources>
