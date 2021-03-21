@@ -138,12 +138,15 @@ class EventDetailsFragment : Fragment(), OnMapReadyCallback {
                     .let { action ->
                         findNavController().navigate(action)
                     }
+                binding.fabActionEventDetails.isExpanded = false
             }
             tvOrganiserActionInvitePeople.setOnClickListener {
                 //TODO navigate...
+                binding.fabActionEventDetails.isExpanded = false
             }
             tvOrganiserActionModifyEvent.setOnClickListener {
                 //TODO navigate...
+                binding.fabActionEventDetails.isExpanded = false
             }
             tvCloseOrganiserSheet.setOnClickListener {
                 binding.fabActionEventDetails.isExpanded = false

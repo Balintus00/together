@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvQuestionTitle"
+        style="@style/AttributeName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="@string/example_question_title"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="10dp" />
+
+    <TextView
+        android:id="@+id/tvQuestionAuthor"
+        style="@style/SupportInformationText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        tools:text="@string/example_question_author"
+        app:layout_constraintTop_toBottomOf="@+id/tvQuestionTitle"
+        tools:layout_editor_absoluteX="10dp" />
+
+    <TextView
+        android:id="@+id/tvQuestionDescription"
+        style="@style/AttributeData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        tools:text="@string/example_detailed_question"
+        app:layout_constraintTop_toBottomOf="@+id/tvQuestionAuthor"
+        tools:layout_editor_absoluteX="10dp" />
+
+    <TextView
+        android:id="@+id/textView29"
+        style="@style/AttributeName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/title_question_response_answer"
+        app:layout_constraintTop_toBottomOf="@+id/tvQuestionDescription"
+        tools:layout_editor_absoluteX="10dp" />
+
+    <EditText
+        android:id="@+id/etEventQuestionAnswer"
+        style="@style/AttributeData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/hint_question_response_answer"
+        app:layout_constraintTop_toBottomOf="@+id/textView29" />
+
+    <Button
+        android:id="@+id/btnAnswer"
+        style="@style/DialogButtonPositive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/action_answer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etEventQuestionAnswer" />
+
+    <Button
+        android:id="@+id/btnCancel"
+        style="@style/DialogButtonNegative"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etEventQuestionAnswer" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

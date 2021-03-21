@@ -1,8 +1,5 @@
 package hu.bme.aut.android.together.features.eventdetails.adapter
 
-import android.app.AlertDialog
-import android.content.Context
-import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
@@ -10,7 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import hu.bme.aut.android.together.databinding.ItemEventNewsBinding
 import hu.bme.aut.android.together.model.EventNewsMessage
 
-class EventNewsAdapter(val context: Context) : RecyclerView.Adapter<EventNewsAdapter.EventNewsViewHolder>() {
+class EventMessagesAdapter(val onItemClick: (representedNews: EventNewsMessage) -> Unit) :
+    RecyclerView.Adapter<EventMessagesAdapter.EventNewsViewHolder>() {
 
     // TODO Actual data will be used later
     private val eventNewsList = listOf(
@@ -43,13 +41,7 @@ class EventNewsAdapter(val context: Context) : RecyclerView.Adapter<EventNewsAda
 
     private fun setCardOnClickBehaviour(card: CardView, representedNews: EventNewsMessage) {
         card.setOnClickListener {
-            AlertDialog.Builder(context).apply {
-                setTitle(representedNews.title)
-                setMessage(representedNews.message)
-                setPositiveButton("BACK") { dialogInterface: DialogInterface, _: Int ->
-                    dialogInterface.dismiss()
-                }
-            }.show()
+            onItemClick(representedNews)
         }
     }
 

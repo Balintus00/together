@@ -163,4 +163,13 @@
     <string name="title_create_new_post">Create a new post!</string>
     <string name="hint_content_new_post_event_details">Important information about your event.</string>
     <string name="hint_title_new_post_event_details">Your event\'s title.</string>
+    <string name="action_organiser_event_questions">Unanswered questions</string>
+    <string name="title_event_details_questions">Questions</string>
+    <string name="action_back">BACK</string>
+    <string name="example_question_title">Where can I park with my car nearby?</string>
+    <string name="example_question_author">by B4RN1</string>
+    <string name="example_detailed_question">Lorem ipsum dolor sit amet?</string>
+    <string name="title_question_response_answer">Answer</string>
+    <string name="action_answer">Answer</string>
+    <string name="hint_question_response_answer">Your answer.</string>
 </resources>

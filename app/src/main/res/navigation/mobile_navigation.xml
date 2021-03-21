@@ -92,7 +92,15 @@
                 android:name="isOrganiser"
                 app:argType="boolean"
                 android:defaultValue="false" />
+            <action
+                android:id="@+id/action_eventDetailsCommunicationFragment_to_eventQuestionsFragment"
+                app:destination="@id/eventQuestionsFragment" />
         </fragment>
+        <fragment
+            android:id="@+id/eventQuestionsFragment"
+            android:name="hu.bme.aut.android.together.features.eventdetails.fragment.communication.EventQuestionsFragment"
+            android:label="fragment_event_questions"
+            tools:layout="@layout/fragment_event_questions" />
     </navigation>
     <navigation android:id="@+id/addEventGraph"
         app:startDestination="@id/addEventPagerFragment">
