@@ -21,6 +21,8 @@ before_install:
   - yes | sdkmanager "platforms;android-28"
   - yes | sdkmanager "build-tools;28.0.3"
 before_script:
+ - touch local.properties
+ - echo "MAPS_API_KEY=${GOOGLE_MAPS_API_KEY}" > ./local.properties
  - chmod +x gradlew
  - echo no | android create avd --force -n test -t android-21 --abi armeabi-v7a -s "768x1280"
  - emulator -avd test -no-audio -no-window &
