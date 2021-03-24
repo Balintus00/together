@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentNewsListBinding
-import hu.bme.aut.android.together.features.eventdetails.adapter.EventMessagesAdapter
+import hu.bme.aut.android.together.features.shared.eventmessage.adapter.EventMessagesAdapter
 import hu.bme.aut.android.together.features.eventdetails.dialogfragment.EventPostNewsDialogFragment
 import hu.bme.aut.android.together.model.EventNewsMessage
 import kotlinx.android.synthetic.main.fragment_news_list.*

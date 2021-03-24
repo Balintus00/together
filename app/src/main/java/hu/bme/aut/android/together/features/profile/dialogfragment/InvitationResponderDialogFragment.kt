@@ -8,6 +8,7 @@ import androidx.fragment.app.DialogFragment
 import hu.bme.aut.android.together.databinding.DialogfragmentInvitationResponderBinding
 import hu.bme.aut.android.together.model.EventNewsMessage
 
+//TODO might needed to be refactored
 class InvitationResponderDialogFragment(val invitationData: EventNewsMessage) : DialogFragment() {
 
     private lateinit var binding: DialogfragmentInvitationResponderBinding

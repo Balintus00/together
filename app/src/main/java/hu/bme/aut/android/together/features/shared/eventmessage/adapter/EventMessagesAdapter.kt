@@ -1,4 +1,4 @@
-package hu.bme.aut.android.together.features.eventdetails.adapter
+package hu.bme.aut.android.together.features.shared.eventmessage.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

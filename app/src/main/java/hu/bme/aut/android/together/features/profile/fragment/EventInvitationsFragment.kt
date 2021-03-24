@@ -8,9 +8,13 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import hu.bme.aut.android.together.databinding.FragmentEventInvitationsBinding
-import hu.bme.aut.android.together.features.eventdetails.adapter.EventMessagesAdapter
+import hu.bme.aut.android.together.features.shared.eventmessage.adapter.EventMessagesAdapter
 import hu.bme.aut.android.together.features.profile.dialogfragment.InvitationResponderDialogFragment
 
+/**
+ * This Fragment displays the user's incoming invitations. The user can accept or decline these
+ * invites here using [InvitationResponderDialogFragment].
+ */
 class EventInvitationsFragment : Fragment() {
 
     private lateinit var binding: FragmentEventInvitationsBinding
@@ -29,11 +33,15 @@ class EventInvitationsFragment : Fragment() {
     }
 
     private fun setUpUIWidgets() {
-        setUpToolbar()
+        setToolbarNavigationBehaviour()
         setUpRecyclerView()
     }
 
-    private fun setUpToolbar() {
+    /**
+     * This function sets the toolbar's (with the id of tbInvitations) navigation behaviour, to pop
+     * the BackStack when the toolbar's navigation action is clicked.
+     */
+    private fun setToolbarNavigationBehaviour() {
         with(binding.tbInvitations) {
             setNavigationOnClickListener {
                 findNavController().popBackStack()
@@ -41,6 +49,12 @@ class EventInvitationsFragment : Fragment() {
         }
     }
 
+    /**
+     * This function sets the adapter and the layoutManager of the contained recyclerView
+     * (with the id of rvIncomingInvites). The layoutManager uses the built in
+     * [LinearLayoutManager]'s instance, and the adapter is set to be a [EventMessagesAdapter]
+     * instance.
+     */
     private fun setUpRecyclerView() {
         with(binding.rvIncomingInvites) {
             adapter = EventMessagesAdapter{

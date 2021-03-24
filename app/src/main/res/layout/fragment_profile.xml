@@ -16,16 +16,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_action_arrow_back"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-    <!-- TODO The placeholder image source should be removed later -->
-
+    <!-- TODO The placeholder image source should be removed later, and actual image should be loaded -->
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/civProfileImage"
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:layout_marginTop="28dp"
         android:src="@mipmap/ic_launcher_round"
+        android:contentDescription="@string/content_description_own_profile_picture"
         app:civ_border_color="#FF000000"
         app:civ_border_width="2dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Botond"
+        tools:text="Botond"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/civProfileImage" />
@@ -50,13 +51,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="B0T0ND"
+        tools:text="B0T0ND"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/tbProfile"
         app:layout_constraintTop_toBottomOf="@+id/tvProfileName" />
 
     <TextView
-        android:id="@+id/tvProfileBirthTitle"
+        android:id="@+id/textView37"
         style="@style/AttributeName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -70,27 +71,8 @@
         style="@style/AttributeData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1999.09.01."
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvProfileBirthTitle" />
-
-    <TextView
-        android:id="@+id/tvProfileIncomingInviteCountTitle"
-        style="@style/AttributeName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/profile_invite_count_title"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvProfileBirthValue" />
-
-    <TextView
-        android:id="@+id/tvProfileIncomingInviteCountValue"
-        style="@style/AttributeData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="69"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvProfileIncomingInviteCountTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/textView37"
+        tools:text="1999.09.01." />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

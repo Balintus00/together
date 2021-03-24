@@ -190,4 +190,5 @@
     <string name="title_invitations">Invitations</string>
     <string name="title_incoming_invitations">Incoming invitations</string>
     <string name="action_accept">Accept</string>
+    <string name="content_description_own_profile_picture">Your profile picture.</string>
 </resources>
