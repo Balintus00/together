@@ -15,7 +15,20 @@
             app:destination="@id/addEventGraph" />
         <action
             android:id="@+id/action_currentEventsListFragment_to_eventDetailsFragment"
-            app:destination="@id/eventDetailsGraph" />
+            app:destination="@id/eventDetailsGraph">
+            <argument
+                android:name="isOrganiser"
+                app:argType="boolean" />
+            <argument
+                android:name="isPrivate"
+                app:argType="boolean" />
+            <argument
+                android:name="isParticipantCountLimited"
+                app:argType="boolean" />
+            <argument
+                android:name="isParticipant"
+                app:argType="boolean" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/eventQueryFragment"
@@ -49,7 +62,45 @@
         tools:layout="@layout/fragment_event_search_result" >
         <action
             android:id="@+id/action_eventSearchResultFragment_to_eventDetailsFragment"
-            app:destination="@id/eventDetailsGraph" />
+            app:destination="@id/eventDetailsGraph">
+            <argument
+                android:name="isOrganiser"
+                app:argType="boolean" />
+            <argument
+                android:name="isPrivate"
+                app:argType="boolean" />
+            <argument
+                android:name="isParticipantCountLimited"
+                app:argType="boolean" />
+            <argument
+                android:name="isParticipant"
+                app:argType="boolean" />
+        </action>
+        <argument
+            android:name="place"
+            app:argType="string" />
+        <argument
+            android:name="radius"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="from_date"
+            app:argType="string" />
+        <argument
+            android:name="from_time"
+            app:argType="string" />
+        <argument
+            android:name="type"
+            app:argType="string" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="to_date"
+            app:argType="string" />
+        <argument
+            android:name="to_time"
+            app:argType="string" />
     </fragment>
     <navigation android:id="@+id/eventDetailsGraph"
         app:startDestination="@id/eventDetailsFragment">
@@ -66,20 +117,16 @@
                 app:destination="@id/eventDetailsFullDescriptionFragment" />
             <argument
                 android:name="isOrganiser"
-                app:argType="boolean"
-                android:defaultValue="false" />
+                app:argType="boolean" />
             <argument
                 android:name="isPrivate"
-                app:argType="boolean"
-                android:defaultValue="false" />
+                app:argType="boolean" />
             <argument
                 android:name="isParticipantCountLimited"
-                app:argType="boolean"
-                android:defaultValue="false" />
+                app:argType="boolean" />
             <argument
                 android:name="isParticipant"
-                app:argType="boolean"
-                android:defaultValue="true" />
+                app:argType="boolean" />
             <action
                 android:id="@+id/action_eventDetailsFragment_to_eventInvitationSenderFragment"
                 app:destination="@id/eventInvitationSenderFragment" />

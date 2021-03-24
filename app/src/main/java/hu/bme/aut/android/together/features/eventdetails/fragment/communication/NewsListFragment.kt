@@ -13,7 +13,6 @@ import hu.bme.aut.android.together.databinding.FragmentNewsListBinding
 import hu.bme.aut.android.together.features.shared.eventmessage.adapter.EventMessagesAdapter
 import hu.bme.aut.android.together.features.eventdetails.dialogfragment.EventPostNewsDialogFragment
 import hu.bme.aut.android.together.model.EventNewsMessage
-import kotlinx.android.synthetic.main.fragment_news_list.*
 
 class NewsListFragment : Fragment() {
 
@@ -51,8 +50,8 @@ class NewsListFragment : Fragment() {
         adapter = EventMessagesAdapter { representedNews ->
             showNewsInformationInDialog(representedNews)
         }
-        rvEventNews.adapter = adapter
-        rvEventNews.layoutManager = LinearLayoutManager(context)
+        binding.rvEventNews.adapter = adapter
+        binding.rvEventNews.layoutManager = LinearLayoutManager(context)
     }
 
     private fun showNewsInformationInDialog(eventNewsMessage: EventNewsMessage) {

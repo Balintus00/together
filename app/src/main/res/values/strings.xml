@@ -191,4 +191,8 @@
     <string name="title_incoming_invitations">Incoming invitations</string>
     <string name="action_accept">Accept</string>
     <string name="content_description_own_profile_picture">Your profile picture.</string>
+    <string name="content_description_search_button">Search button.</string>
+    <string name="date_year_month_day">%1$d.%2$d.%3$d</string>
+    <string name="time_hour_minute">%1$d:%2$d</string>
+    <string name="content_description_current_event_list_add_fab">Create your own new event button.</string>
 </resources>

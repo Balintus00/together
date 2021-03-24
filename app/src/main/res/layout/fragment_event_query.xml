@@ -37,12 +37,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
+            <!-- TODO Maps API autoFill could be used later -->
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/etPlace"
                 style="@style/BigNormalAttribute"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/default_value_place_event_query"
+                android:importantForAutofill="no"
                 android:inputType="textMultiLine"
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -58,16 +60,17 @@
                 android:text="@string/title_event_query_radius_specifier"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText" />
+                app:layout_constraintTop_toBottomOf="@+id/etPlace" />
 
             <!-- Hardcoded hint value, because 0 is the same in every language -->
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/etRadius"
                 style="@style/BigNormalAttribute"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:digits="0123456789"
                 android:hint="0"
+                android:importantForAutofill="no"
                 android:inputType="number"
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -84,7 +87,7 @@
                 android:text="@string/title_event_query_time_from"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText2" />
+                app:layout_constraintTop_toBottomOf="@+id/etRadius" />
 
             <TextView
                 android:id="@+id/tvFromDate"
@@ -183,10 +186,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/spinnerCategory" />
 
             <EditText
+                android:id="@+id/etName"
                 style="@style/BigNormalAttribute"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/default_value_name_event_query"
+                android:importantForAutofill="no"
                 android:inputType="textMultiLine"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -209,6 +214,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
+        android:contentDescription="@string/content_description_search_button"
         android:src="@drawable/ic_action_search" />
 
 </FrameLayout>

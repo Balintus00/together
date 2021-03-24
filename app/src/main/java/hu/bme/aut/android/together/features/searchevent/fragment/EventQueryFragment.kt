@@ -16,6 +16,11 @@ import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentEventQueryBinding
 import java.util.*
 
+/**
+ * With this Fragment the user can specify event search parameters to use to discover new events.
+ * After triggering the search (Using the Fragment's Floating Action Button), the user will be
+ * navigated to a [EventSearchResultFragment] instance, which will contain the search results.
+ */
 class EventQueryFragment : Fragment() {
 
     private lateinit var binding: FragmentEventQueryBinding
@@ -34,12 +39,17 @@ class EventQueryFragment : Fragment() {
     }
 
     private fun setUpUIWidgets() {
-        setDateSetterTextViews()
+        setDateAndTimeSetterTextViews()
         setUpCategorySpinner()
         setUpSearchFAB()
     }
 
-    private fun setDateSetterTextViews() {
+    /**
+     * The Fragment contains multiple TextViews (by their ids: tvFromDate, tvFromTime, tvToDate,
+     * tvToTime), which should be used to apply date and time filters to the query.
+     * This function applies this behaviour to those TextViews.
+     */
+    private fun setDateAndTimeSetterTextViews() {
         setDateTextViewDialogBehaviour(
             binding.tvFromDate,
             getString(R.string.event_query_default_value_today),
@@ -62,23 +72,36 @@ class EventQueryFragment : Fragment() {
         )
     }
 
+    /**
+     * This function sets the on click behaviour of the given TextView. When the TextView will be
+     * clicked, an [AlertDialog] will be displayed to the user, on which the user can reset
+     * the TextView's content to the given default value, or can choose to use the given method
+     * reference to set the TextView's content.
+     * @param dateTimeTextView the TextViews, of which behaviour will be set.
+     * @param defaultTextValue the default value, which can be applied to the TextView's content
+     * by the user's choice.
+     * @param displaySetterDialog this method reference is called, when the user wants to set the
+     * value of the given TextView, but not to the given default value. This function should provide
+     * some kind of interface to the user, on which the user can select the value, which should be
+     * applied as the TextView's content.
+     */
     private fun setDateTextViewDialogBehaviour(
-        dateTextView: TextView,
+        dateTimeTextView: TextView,
         defaultTextValue: String,
         displaySetterDialog: (TextView) -> Unit
     ) {
-        dateTextView.setOnClickListener {
+        dateTimeTextView.setOnClickListener {
             val dateSettingChoiceArray =
                 resources.getStringArray(R.array.event_query_date_setting_options)
             AlertDialog.Builder(requireContext()).apply {
                 setItems(dateSettingChoiceArray) { dialog: DialogInterface, i: Int ->
                     when (i) {
                         0 -> {
-                            displaySetterDialog(dateTextView)
+                            displaySetterDialog(dateTimeTextView)
                             dialog.dismiss()
                         }
                         1 -> {
-                            dateTextView.text = defaultTextValue
+                            dateTimeTextView.text = defaultTextValue
                             dialog.dismiss()
                         }
                         else -> dialog.dismiss()
@@ -88,28 +111,47 @@ class EventQueryFragment : Fragment() {
         }
     }
 
+    /**
+     * This function displays a [DatePickerDialog], of which result will modify the given TextView's
+     * content.
+     * @param dateTextView the TextView, of which content will be modified by the dialog's result.
+     */
     private fun useDatePickerDialogOnTextView(dateTextView: TextView) {
         val calendar = Calendar.getInstance()
         DatePickerDialog(
             requireContext(),
-            { _, year, month, day -> dateTextView.text = "$year.$month.$day" },
+            { _, year, month, day ->
+                dateTextView.text = getString(R.string.date_year_month_day, year, month, day)
+            },
             calendar.get(Calendar.YEAR),
             calendar.get(Calendar.MONTH),
             calendar.get(Calendar.DAY_OF_MONTH)
         ).show()
     }
 
+    /**
+     * This function displays a [TimePickerDialog], of which result will modify the given TextView's
+     * content.
+     * @param timeTextView the TextView, of which content will be modified by the dialog's result.
+     */
     private fun useTimePickerDialogOnTextView(timeTextView: TextView) {
         val calendar = Calendar.getInstance()
         TimePickerDialog(
             requireContext(),
-            { _, hour, minute -> timeTextView.text = "$hour:$minute" },
+            { _, hour, minute ->
+                timeTextView.text = getString(R.string.time_hour_minute, hour, minute)
+            },
             calendar.get(Calendar.HOUR_OF_DAY),
             calendar.get(Calendar.MINUTE),
             true
         ).show()
     }
 
+    /**
+     * This function initializes the Spinner's (with the id of spinnerCategory) ArrayAdapter, to
+     * contain the possible event type values, and also a value, which the user can select, if it
+     * doesn't want to use the category filter.
+     */
     private fun setUpCategorySpinner() {
         binding.spinnerCategory.adapter = ArrayAdapter(
             requireContext(),
@@ -121,10 +163,25 @@ class EventQueryFragment : Fragment() {
         )
     }
 
+    /**
+     * This function sets the FAB's (with the id of fabSearchEvent) behaviour when clicked.
+     * When the FAB is clicked, the search parameters (in this fragment's widgets) specified by the
+     * user will be passed to a [EventSearchResultFragment] instance, then the application
+     * navigates to this fragment.
+     */
     private fun setUpSearchFAB() {
         binding.fabSearchEvent.setOnClickListener {
-            //TODO search parameters wil be passed here
-            EventQueryFragmentDirections.actionEventQueryFragmentToEventSearchResultFragment()
+            EventQueryFragmentDirections.actionEventQueryFragmentToEventSearchResultFragment(
+                place = binding.etPlace.text.toString(),
+                radius = if (binding.etRadius.text.isEmpty()) 0 else binding.etRadius.text.toString()
+                    .toInt(),
+                fromDate = binding.tvFromDate.toString(),
+                fromTime = binding.tvFromTime.toString(),
+                toDate = binding.tvToDate.text.toString(),
+                toTime = binding.tvToTime.text.toString(),
+                type = binding.spinnerCategory.selectedItem.toString(),
+                name = binding.etName.text.toString()
+            )
                 .let { action ->
                     findNavController().navigate(action)
                 }

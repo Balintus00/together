@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -16,9 +17,11 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.snackbar.Snackbar
 import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentEventDetailsBinding
-import kotlinx.android.synthetic.main.fragment_event_details.view.*
 
 class EventDetailsFragment : Fragment(), OnMapReadyCallback {
+
+    //TODO these navigation arguments will be later removed, when actual data will be used
+    private val args: EventDetailsFragmentArgs by navArgs()
 
     //organiser, private, limitedParticipantCount, isParticipant
     private lateinit var optionsArray: Array<Boolean>
@@ -31,14 +34,12 @@ class EventDetailsFragment : Fragment(), OnMapReadyCallback {
     }
 
     private fun retrieveOptionsArray() {
-        arguments?.let {
-            optionsArray = arrayOf(
-                it.getBoolean("isOrganiser"),
-                it.getBoolean("isPrivate"),
-                it.getBoolean("isParticipantCountLimited"),
-                it.getBoolean("isParticipant")
-            )
-        }
+        optionsArray = arrayOf(
+            args.isOrganiser,
+            args.isPrivate,
+            args.isParticipantCountLimited,
+            args.isParticipant
+        )
     }
 
     override fun onCreateView(
@@ -130,7 +131,7 @@ class EventDetailsFragment : Fragment(), OnMapReadyCallback {
     }
 
     private fun setOrganiserSheetBehaviour() {
-        with(binding.organiserSheet) {
+        with(binding) {
             tvOrganiserActionShowMessages.setOnClickListener {
                 EventDetailsFragmentDirections.actionEventDetailsFragmentToEventDetailsCommunicationFragment(
                     optionsArray[0]
@@ -138,24 +139,24 @@ class EventDetailsFragment : Fragment(), OnMapReadyCallback {
                     .let { action ->
                         findNavController().navigate(action)
                     }
-                binding.fabActionEventDetails.isExpanded = false
+                fabActionEventDetails.isExpanded = false
             }
             tvOrganiserActionInvitePeople.setOnClickListener {
                 EventDetailsFragmentDirections.actionEventDetailsFragmentToEventInvitationSenderFragment()
                     .let { action ->
                         findNavController().navigate(action)
                     }
-                binding.fabActionEventDetails.isExpanded = false
+                fabActionEventDetails.isExpanded = false
             }
             tvOrganiserActionModifyEvent.setOnClickListener {
                 EventDetailsFragmentDirections.actionEventDetailsFragmentToModifyEventDetailsFragment()
                     .let { action ->
                         findNavController().navigate(action)
                     }
-                binding.fabActionEventDetails.isExpanded = false
+                fabActionEventDetails.isExpanded = false
             }
             tvCloseOrganiserSheet.setOnClickListener {
-                binding.fabActionEventDetails.isExpanded = false
+                fabActionEventDetails.isExpanded = false
             }
         }
     }
