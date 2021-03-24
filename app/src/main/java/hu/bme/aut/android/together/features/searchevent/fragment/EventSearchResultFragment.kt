@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import hu.bme.aut.android.together.databinding.FragmentEventSearchResultBinding
-import hu.bme.aut.android.together.features.currentevents.fragment.CurrentEventListFragment
 import hu.bme.aut.android.together.features.shared.eventlist.adapter.EventListAdapter
 
 /**
@@ -38,7 +37,20 @@ class EventSearchResultFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setUpToolbar()
         setUpRecyclerView()
+    }
+
+    /**
+     * This function sets the fragment's toolbar (of which id is tbSearchResults) navigation click
+     * behaviour. Simply when the toolbar's navigation icon is clicked, the BackStack is popped.
+     */
+    private fun setUpToolbar() {
+        with(binding.tbSearchResults) {
+            setNavigationOnClickListener {
+                findNavController().popBackStack()
+            }
+        }
     }
 
     /**
