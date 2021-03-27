@@ -1,11 +1,8 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Together!</string>
     <string name="nav_profile">Profile</string>
     <string name="nav_my_events">My events</string>
     <string name="nav_search_events">Search events</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="name_your_event">Name your event!</string>
     <string name="hint_new_event_name">New event name</string>
     <string name="next">Next</string>
@@ -117,27 +114,28 @@
     <string name="placeholder_from_date">FROM DATE</string>
     <string name="title_results_event_search">Results</string>
     <string name="title_event_query">Search events!</string>
-    <string name="title_event_query_place_specifier">I want to go in...</string>
+    <string name="title_event_query_place_specifier">I want to go in…</string>
     <string name="default_value_place_event_query">Anywhere!</string>
-    <string name="title_event_query_radius_specifier">around in a ... km radius</string>
+    <string name="title_event_query_radius_specifier">around in a … km radius</string>
     <string name="title_event_query_date_on">On</string>
     <string name="title_event_query_time_from">From</string>
     <string name="title_event_query_time_to">To</string>
-    <string name="title_event_query_type">The type of event is...</string>
-    <string name="title_event_query_name">the name of the event contains the following...</string>
+    <string name="title_event_query_type">The type of event is…</string>
+    <string name="title_event_query_name">the name of the event contains the following…</string>
     <string name="default_value_name_event_query">Nothing special</string>
     <string name="event_query_default_value_today">Today</string>
     <string name="event_query_default_value_now">Now</string>
     <string name="event_query_default_value_date_indefinite">Indefinite</string>
     <string name="event_query_default_value_time_indefinite">Indefinite</string>
     <string name="example_title_event_detail">Kristóf\'s birthday party</string>
-    <string name="example_date_time_event_details">Friday, febr 13 - 18:00</string>
+    <string name="example_date_time_event_details">Friday, febr 13 – 18:00</string>
     <string name="example_place_event_details">Budapest, Irinyi József u. 42.</string>
     <string name="title_about_event_details">About</string>
     <string name="example_quick_info_event_detail">I happily invite you to my birthday!</string>
     <string name="see_more_information_event_details"><u>See more information</u></string>
     <string name="title_location_event_details">Location</string>
-    <string name="example_long_lorem_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget lobortis enim, ut convallis est. Curabitur sit amet ligula a orci elementum vulputate. Proin arcu lectus, volutpat eget aliquet nec, condimentum quis justo. Pellentesque tempor mauris quis tellus suscipit finibus. Aliquam at lobortis sapien, non iaculis mauris. In malesuada facilisis leo id cursus. Cras id risus fringilla, lacinia eros at, volutpat arcu. Etiam elementum sagittis pharetra. Praesent pretium elementum quam vel semper. In mollis, neque et efficitur blandit, magna nisl porta velit, eget elementum eros elit sed nisl. Sed consectetur vitae risus condimentum sollicitudin. Aliquam ultricies rhoncus justo sed semper. Sed in lorem porttitor, tincidunt ipsum sit amet, accumsan ipsum. Nam ac mattis nunc. Vivamus efficitur, tortor ac pulvinar auctor, enim nunc cursus odio, id tristique risus turpis eu nisi. Nunc luctus, mauris non tincidunt maximus, erat mi ultricies ligula, nec pretium nibh tellus a diam. Vestibulum blandit, neque sit amet varius convallis, diam ante venenatis ipsum, vitae gravida enim leo ac diam. Sed sapien sapien, pellentesque eu massa et, tempus placerat urna. Curabitur egestas, purus ac lobortis dignissim, ligula orci venenatis eros, non fermentum lectus tellus non leo. Etiam in accumsan quam. Nam vel ligula leo. Aenean in congue dolor. Sed dictum blandit velit vitae ultrices. Suspendisse nec ex vitae magna vehicula facilisis vel id justo. Nullam a semper erat. Sed venenatis ligula vel dignissim auctor. Quisque felis libero, aliquet vel diam a, rhoncus finibus ex.</string>
+    <!-- Typos should be ignored in this text, because that's a long placeholder text. -->
+    <string name="example_long_lorem_text" tools:ignore="Typos">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget lobortis enim, ut convallis est. Curabitur sit amet ligula a orci elementum vulputate. Proin arcu lectus, volutpat eget aliquet nec, condimentum quis justo. Pellentesque tempor mauris quis tellus suscipit finibus. Aliquam at lobortis sapien, non iaculis mauris. In malesuada facilisis leo id cursus. Cras id risus fringilla, lacinia eros at, volutpat arcu. Etiam elementum sagittis pharetra. Praesent pretium elementum quam vel semper. In mollis, neque et efficitur blandit, magna nisl porta velit, eget elementum eros elit sed nisl. Sed consectetur vitae risus condimentum sollicitudin. Aliquam ultricies rhoncus justo sed semper. Sed in lorem porttitor, tincidunt ipsum sit amet, accumsan ipsum. Nam ac mattis nunc. Vivamus efficitur, tortor ac pulvinar auctor, enim nunc cursus odio, id tristique risus turpis eu nisi. Nunc luctus, mauris non tincidunt maximus, erat mi ultricies ligula, nec pretium nibh tellus a diam. Vestibulum blandit, neque sit amet varius convallis, diam ante venenatis ipsum, vitae gravida enim leo ac diam. Sed sapien sapien, pellentesque eu massa et, tempus placerat urna. Curabitur egestas, purus ac lobortis dignissim, ligula orci venenatis eros, non fermentum lectus tellus non leo. Etiam in accumsan quam. Nam vel ligula leo. Aenean in congue dolor. Sed dictum blandit velit vitae ultrices. Suspendisse nec ex vitae magna vehicula facilisis vel id justo. Nullam a semper erat. Sed venenatis ligula vel dignissim auctor. Quisque felis libero, aliquet vel diam a, rhoncus finibus ex.</string>
     <string name="tab_name_qa_event_details"><![CDATA[Q&A]]></string>
     <string name="tab_name_news_event_details">News</string>
     <string name="tab_name_coming_current_events">Coming</string>
@@ -173,7 +171,7 @@
     <string name="action_answer">Answer</string>
     <string name="hint_question_response_answer">Your answer.</string>
     <string name="title_invitation_event">Invite people</string>
-    <string name="hint_event_invitation_username_input">Type the username here...</string>
+    <string name="hint_event_invitation_username_input">Type the username here…</string>
     <string name="action_add">Add</string>
     <string name="title_event_invitation_sender_selected">Selected</string>
     <string name="example_invited_usernames">T4M4S, KR1ST0F, B4RN1</string>
@@ -194,6 +192,7 @@
     <string name="content_description_search_button">Search button.</string>
     <string name="date_year_month_day">%1$d.%2$d.%3$d</string>
     <string name="time_hour_minute">%1$d:%2$d</string>
+    <string name="by_author">by %s</string>
     <string name="content_description_current_event_list_add_fab">Create your own new event button.</string>
     <string name="swipe_left_back_button">Swipe left/back button</string>
     <string name="swipe_right_forward_button">Swipe right/forward button</string>

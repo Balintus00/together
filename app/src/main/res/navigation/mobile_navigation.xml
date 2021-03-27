@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/currentEventsListFragment"
-        android:name="hu.bme.aut.android.together.features.currentevents.fragment.CurrentEventsListsContainerFragment"
+        android:name="hu.bme.aut.android.together.features.currentevents.fragment.EventListsPagerFragment"
         android:label="fragment_current_events_list"
-        tools:layout="@layout/fragment_current_events_lists_container">
+        tools:layout="@layout/fragment_event_lists_pager">
         <action
             android:id="@+id/action_currentEventsListFragment_to_addEventPagerFragment"
             app:destination="@id/addEventGraph" />

@@ -6,6 +6,10 @@ import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.features.currentevents.fragment.ComingEventListFragment
 import hu.bme.aut.android.together.features.currentevents.fragment.PastEventListFragment
 
+/**
+ * This adapter is used to control an [hu.bme.aut.android.together.features.currentevents.fragment.EventListsPagerFragment]
+ * instance's ViewPager2 widget.
+ */
 class EventTimeAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
     companion object {
         private const val TAB_COUNT = 2
@@ -17,6 +21,11 @@ class EventTimeAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
         return TAB_COUNT
     }
 
+    /**
+     * The adapter provides the following fragments:
+     * - 0. : [ComingEventListFragment]
+     * - 1. : [PastEventListFragment]
+     */
     override fun createFragment(position: Int): Fragment {
         return when (position) {
             0 -> ComingEventListFragment()
@@ -25,6 +34,10 @@ class EventTimeAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
         }
     }
 
+    /**
+     * Returns the tab name, that fits the fragment at the given index.
+     * @param index the position of the Tab in the list.
+     */
     fun getTabName(index: Int): String {
         return when (index) {
             0 -> context.getString(R.string.tab_name_coming_current_events)

@@ -7,10 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import hu.bme.aut.android.together.databinding.FragmentCurrentEventListBinding
+import hu.bme.aut.android.together.databinding.FragmentEventListBinding
 import hu.bme.aut.android.together.features.shared.eventlist.adapter.EventListAdapter
 
-abstract class CurrentEventListFragment : Fragment() {
+/**
+ * This Fragment contains a list of events, and a FAB, which represents the Fragment's main action.
+ */
+abstract class EventListFragment : Fragment() {
 
     //TODO this data mocking will be removed later
     companion object {
@@ -21,13 +24,13 @@ abstract class CurrentEventListFragment : Fragment() {
         )
     }
 
-    protected lateinit var binding: FragmentCurrentEventListBinding
+    protected lateinit var binding: FragmentEventListBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentCurrentEventListBinding.inflate(inflater, container, false)
+        binding = FragmentEventListBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -37,12 +40,19 @@ abstract class CurrentEventListFragment : Fragment() {
         initRecyclerView()
     }
 
+    /**
+     * Initializes the contained RecyclerView widget's adapter and layoutManager.
+     * [LinearLayoutManager] is used as its layoutManager, and the adapter is set to an [EventListAdapter]
+     * instance. When an item event item is clicked, the user should be navigated to a
+     * [hu.bme.aut.android.together.features.eventdetails.fragment.details.EventDetailsFragment]
+     * instance. This behaviour is passed as a method reference in the adapter's constructor.
+     */
     private fun initRecyclerView() {
         with(binding.rvEvents) {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = EventListAdapter { position ->
                 eventDetailsItemOptionsArray[position].let { optionsArray ->
-                    CurrentEventsListsContainerFragmentDirections.actionCurrentEventsListFragmentToEventDetailsFragment(
+                    EventListsPagerFragmentDirections.actionCurrentEventsListFragmentToEventDetailsFragment(
                         isOrganiser = optionsArray[0],
                         isPrivate = optionsArray[1],
                         isParticipantCountLimited = optionsArray[2],
@@ -56,5 +66,8 @@ abstract class CurrentEventListFragment : Fragment() {
         }
     }
 
+    /**
+     * Sets the behaviour of the contained FAB widget.
+     */
     protected abstract fun setFabBehaviour()
 }

@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.currentevents.fragment.CurrentEventListFragment">
+    tools:context=".features.currentevents.fragment.EventListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvEvents"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/eventListAddFab"
@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_add"
-        android:contentDescription="@string/content_description_current_event_list_add_fab" />
+        android:contentDescription="@string/content_description_current_event_list_add_fab"
+        android:src="@drawable/ic_add" />
 
 </FrameLayout>

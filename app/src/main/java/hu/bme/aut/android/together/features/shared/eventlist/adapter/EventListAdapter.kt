@@ -7,6 +7,10 @@ import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.ItemEventRowBinding
 import hu.bme.aut.android.together.model.EventShortInfo
 
+/**
+ * This [RecyclerView.Adapter] implementation can be used to set [RecyclerView] widget to represent
+ * a list of events. The adapter stores the represented data in a list of [EventShortInfo] instances.
+ */
 class EventListAdapter(val onEventItemClick: (position: Int) -> Unit) :
     RecyclerView.Adapter<EventListAdapter.EventListViewHolder>() {
 
@@ -40,6 +44,9 @@ class EventListAdapter(val onEventItemClick: (position: Int) -> Unit) :
         return eventShortInfoList.size
     }
 
+    /**
+     * The ViewHolder uses the [R.layout.item_event_row] layout.
+     */
     inner class EventListViewHolder(val binding: ItemEventRowBinding) :
         RecyclerView.ViewHolder(binding.root)
 }

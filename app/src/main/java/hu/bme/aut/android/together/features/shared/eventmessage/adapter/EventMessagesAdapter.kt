@@ -4,9 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.ItemEventNewsBinding
 import hu.bme.aut.android.together.model.EventNewsMessage
 
+/**
+ * This adapter can be used to represent a list of messages.
+ * For the messages' layout, see [EventNewsViewHolder] class's documentation.
+ */
 class EventMessagesAdapter(val onItemClick: (representedNews: EventNewsMessage) -> Unit) :
     RecyclerView.Adapter<EventMessagesAdapter.EventNewsViewHolder>() {
 
@@ -33,7 +38,8 @@ class EventMessagesAdapter(val onItemClick: (representedNews: EventNewsMessage) 
         with(holder.binding) {
             val representedNews = eventNewsList[position]
             tvTitleEventNews.text = representedNews.title
-            tvAuthorEventNews.text = "by " + representedNews.author
+            tvAuthorEventNews.text =
+                holder.binding.root.resources.getString(R.string.by_author, representedNews.author)
             tvMessageEventNews.text = representedNews.message
             setCardOnClickBehaviour(cardItemEventNews, representedNews)
         }
@@ -49,6 +55,9 @@ class EventMessagesAdapter(val onItemClick: (representedNews: EventNewsMessage) 
         return eventNewsList.size
     }
 
+    /**
+     * The ViewHolder uses the [R.layout.item_event_news] layout.
+     */
     inner class EventNewsViewHolder(val binding: ItemEventNewsBinding) :
         RecyclerView.ViewHolder(binding.root)
 
