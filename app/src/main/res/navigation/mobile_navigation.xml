@@ -193,6 +193,23 @@
             android:name="hu.bme.aut.android.together.features.addevent.fragment.pagerelement.detailsetter.PublicEventParticipantQuantifierFragment"
             android:label="fragment_public_event_participant_quantifier"
             tools:layout="@layout/fragment_public_event_participant_quantifier" />
+        <action
+            android:id="@+id/action_global_eventDetailsGraph"
+            app:destination="@id/eventDetailsGraph"
+            app:popUpTo="@id/currentEventsListFragment">
+            <argument
+                android:name="isOrganiser"
+                app:argType="boolean" />
+            <argument
+                android:name="isPrivate"
+                app:argType="boolean" />
+            <argument
+                android:name="isParticipantCountLimited"
+                app:argType="boolean" />
+            <argument
+                android:name="isParticipant"
+                app:argType="boolean" />
+        </action>
     </navigation>
     <fragment
         android:id="@+id/eventInvitationsFragment"

@@ -10,6 +10,10 @@ import androidx.navigation.fragment.findNavController
 import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentPublicEventRuleSetterBinding
 
+/**
+ * On this Fragment the user can set the special public event options, such as the maximum
+ * participant count, or the join request auto-accept options.
+ */
 class PublicEventRuleSetterFragment : Fragment() {
 
     private lateinit var binding: FragmentPublicEventRuleSetterBinding
@@ -30,9 +34,14 @@ class PublicEventRuleSetterFragment : Fragment() {
     private fun setWidgetBehaviours() {
         setRequestHandlingRadioGroupBehaviour()
         setCountOptionBehaviour()
-        setNextButtonBehaviour()
+        setApplyButtonBehaviour()
     }
 
+    /**
+     * The request auto-accept options can be set on a RadioGroup.
+     * By default, the apply button, that saves the user's chosen option is disabled. If one of the
+     * RadioButton of RadioGroup gets selected, this button should be enabled.
+     */
     private fun setRequestHandlingRadioGroupBehaviour() {
         binding.rgRequestHandlingOptions.setOnCheckedChangeListener { _, i ->
             when (i) {
@@ -52,6 +61,11 @@ class PublicEventRuleSetterFragment : Fragment() {
         }
     }
 
+    /**
+     * If the user clicks on the TextView, that contains the maximum participant count options,
+     * it should be navigated to a [PublicEventParticipantQuantifierFragment] instance, on which
+     * the user can specify the count, that should be used as threshold.
+     */
     private fun setCountOptionBehaviour() {
         binding.tvParticipantCountOption.setOnClickListener {
             PublicEventRuleSetterFragmentDirections.actionPublicEventRuleSetterFragmentToPublicEventParticipantQuantifierFragment()
@@ -61,7 +75,11 @@ class PublicEventRuleSetterFragment : Fragment() {
         }
     }
 
-    private fun setNextButtonBehaviour() {
+    /**
+     * When the Apply button is clicked, it should save the set options, then navigate back.
+     */
+    private fun setApplyButtonBehaviour() {
+        //TODO setting the chosen data
         binding.btnPublicEventRuleSetterNext.setOnClickListener {
             findNavController().popBackStack()
         }

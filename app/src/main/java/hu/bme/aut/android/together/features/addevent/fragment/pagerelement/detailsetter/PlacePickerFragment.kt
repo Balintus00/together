@@ -10,6 +10,10 @@ import android.widget.ArrayAdapter
 import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentPlacePickerBinding
 
+/**
+ * This [Fragment] provides an user interface, that can be used by the user to set the location of
+ * the event which is under creation.
+ */
 class PlacePickerFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     private lateinit var binding: FragmentPlacePickerBinding
@@ -29,9 +33,12 @@ class PlacePickerFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     private fun setUpUIWidgets() {
         setCategorySpinnerBehaviour()
-        setNextButtonBehaviour()
     }
 
+    /**
+     * Sets the contained Spinner's ArrayAdapter. The ArrayAdapter is using this resource as its
+     * content [R.array.add_event_pick_place_categories].
+     */
     private fun setCategorySpinnerBehaviour() {
         val categoriesArray = resources.getStringArray(R.array.add_event_pick_place_categories)
         val spinnerArrayAdapter =
@@ -41,20 +48,17 @@ class PlacePickerFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 categoriesArray
             )
         binding.spinnerAddEventPickPlaceCategories.adapter = spinnerArrayAdapter
-       binding.spinnerAddEventPickPlaceCategories.onItemSelectedListener = this
-    }
-
-    private fun setNextButtonBehaviour() {
-        //TODO navigation was here
+        binding.spinnerAddEventPickPlaceCategories.onItemSelectedListener = this
     }
 
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, id: Long) {
-        //TODO button enabling was here
-        when(position){
+        when (position) {
+            // Not online
             0 -> {
                 binding.etAddEventPickPlace.isEnabled = true
                 binding.etAddEventPickPlace.text.clear()
             }
+            // Online
             1 -> {
                 binding.etAddEventPickPlace.isEnabled = false
                 binding.etAddEventPickPlace.setText(getString(R.string.online))
@@ -62,7 +66,5 @@ class PlacePickerFragment : Fragment(), AdapterView.OnItemSelectedListener {
         }
     }
 
-    override fun onNothingSelected(p0: AdapterView<*>?) {
-        //TODO button disabling was here
-    }
+    override fun onNothingSelected(p0: AdapterView<*>?) { }
 }

@@ -20,9 +20,18 @@ import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentPhotoUploaderBinding
 
 //TODO The ImageView's initial picture should be set, which is specified by the event's chosen category
+/**
+ * This [Fragment] provides an user interface, that can be used by the user to set the image of
+ * the event which is under creation.
+ */
 class PhotoUploaderFragment : Fragment() {
     private lateinit var binding: FragmentPhotoUploaderBinding
 
+    /**
+     * This [androidx.activity.result.ActivityResultLauncher] instance can be used to launch some
+     * kind of camera activity to get the image of the event. The picture returned will be set
+     * as the content of the fragment's ImageView widget.
+     */
     private val cameraActivityLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == RESULT_OK) {
@@ -38,6 +47,12 @@ class PhotoUploaderFragment : Fragment() {
         }
     }
 
+    /**
+     * This [androidx.activity.result.ActivityResultLauncher] instance can be used to launch some
+     * kind of photo picker activity to get the image of the event. The picture returned will be set
+     * as the content of the fragment's ImageView widget. If some kind of error happens, the user
+     * will be notified about it using a [Snackbar].
+     */
     private val photoPickerActivityLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == RESULT_OK) {
@@ -87,12 +102,20 @@ class PhotoUploaderFragment : Fragment() {
         setImageChooserButtonBehaviour()
     }
 
+    /**
+     * Sets the Photo Chooser button behaviour. If the button is clicked, a menu will be displayed,
+     * which the user can use to pick the method of the image choosing for the event.
+     */
     private fun setImageChooserButtonBehaviour() {
         binding.btnAddEventPhotoChooser.setOnClickListener {
             displayImageTakingOptionMenu()
         }
     }
-    
+
+    /**
+     * Displays an [AlertDialog], that contains the menu to choose the preferred image taking method.
+     * Two options are available: taking a photo, picking a photo from the gallery.
+     */
     private fun displayImageTakingOptionMenu() {
         val imageChoiceOptionArray =
             resources.getStringArray(R.array.add_event_photo_upload_options)
@@ -108,6 +131,10 @@ class PhotoUploaderFragment : Fragment() {
         }.show()
     }
 
+    /**
+     * This function tries to start a camera activity. If some kind of error happens, the user
+     * will be notified using a [Snackbar] message.
+     */
     private fun tryToUseCamera() {
         if (requireContext().packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY)) {
             startCameraActivity()
@@ -120,11 +147,17 @@ class PhotoUploaderFragment : Fragment() {
         }
     }
 
+    /**
+     * Launches a camera activity. Use [tryToUseCamera] method instead to handle possible errors.
+     */
     private fun startCameraActivity() {
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         cameraActivityLauncher.launch(intent)
     }
 
+    /**
+     * Launches an activity, that lets the user use some kind of gallery to pick the photo.
+     */
     private fun startPhotoPickerActivity() {
         Intent(
             Intent.ACTION_PICK,

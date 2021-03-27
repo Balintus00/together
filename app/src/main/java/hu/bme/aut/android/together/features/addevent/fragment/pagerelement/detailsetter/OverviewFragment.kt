@@ -13,16 +13,30 @@ import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentOverviewBinding
 import hu.bme.aut.android.together.features.addevent.interfaces.EventAddingPagerContainer
 
+/**
+ * This Fragment displays the event's data set by the user.
+ * The container Fragment must implement the [hu.bme.aut.android.together.features.addevent.interfaces.EventAddingPagerContainer]
+ * interface.
+ */
 class OverviewFragment : Fragment() {
 
+    /**
+     * The pageable container which contains this fragment.
+     */
     private lateinit var eventAddingPagerContainer: EventAddingPagerContainer
 
     private lateinit var binding: FragmentOverviewBinding
 
-    //TODO It's really important to document, that the parentFragment must implement PagerContainer interface
-    //TODO Using dependency injection pattern would be better than that.
     override fun onAttach(context: Context) {
         super.onAttach(context)
+        setPagerContainer()
+    }
+
+    /**
+     * Sets [eventAddingPagerContainer] to parentFragment.
+     */
+    private fun setPagerContainer() {
+        //TODO Using dependency injection pattern would be better than this.
         eventAddingPagerContainer = parentFragment as EventAddingPagerContainer
     }
 
@@ -39,22 +53,34 @@ class OverviewFragment : Fragment() {
         setUpToolbar()
     }
 
+    /**
+     * Sets the toolbar navigation icon behaviour and menu.
+     */
     private fun setUpToolbar() {
         binding.tbAddEventOverview.let { toolbar ->
-            setUpToolbarNavigation(toolbar)
+            setUpToolbarNavigationBehaviour(toolbar)
             setUpToolBarMenu(toolbar)
         }
     }
-    
-    private fun setUpToolbarNavigation(toolbar: Toolbar) {
+
+    /**
+     * Sets the Toolbar NavigationIcon's behaviour. When the icon is clicked, [eventAddingPagerContainer]
+     * is signaled, that the previous page should be displayed.
+     */
+    private fun setUpToolbarNavigationBehaviour(toolbar: Toolbar) {
         with(toolbar) {
-            setNavigationIcon(R.drawable.ic_action_arrow_back)
             setNavigationOnClickListener {
                 eventAddingPagerContainer.pageBack()
             }
         }
     }
-    
+
+    /**
+     * Sets the toolbar menu. The used menu resource is [R.menu.add_event_overview_menu].
+     * The two menu item can be used to mark the event adding process completed, or discard
+     * this event. When the event is tried to be discarded, the user's confirmation is necessary
+     * to do so.
+     */
     private fun setUpToolBarMenu(toolbar: Toolbar) {
         with(toolbar) {
             inflateMenu(R.menu.add_event_overview_menu)
@@ -74,11 +100,18 @@ class OverviewFragment : Fragment() {
         }
     }
 
+    /**
+     * Signaling [eventAddingPagerContainer] that user completed setting the event.
+     */
     private fun createEventSelected() {
-        //TODO data should be validated and verified
         eventAddingPagerContainer.eventCreated()
     }
 
+    /**
+     * When the user tries to discard the event, this function is called to show it a confirmation
+     * [AlertDialog]. If the user confirms that the event should be discarded, [eventAddingPagerContainer]
+     * will be notified about this decision.
+     */
     private fun displayEventCancellationConfirmationDialog() {
         AlertDialog.Builder(requireContext()).apply {
             setTitle(getString(R.string.title_dialog_event_cancellation))

@@ -195,4 +195,11 @@
     <string name="date_year_month_day">%1$d.%2$d.%3$d</string>
     <string name="time_hour_minute">%1$d:%2$d</string>
     <string name="content_description_current_event_list_add_fab">Create your own new event button.</string>
+    <string name="swipe_left_back_button">Swipe left/back button</string>
+    <string name="swipe_right_forward_button">Swipe right/forward button</string>
+    <string name="clock_icon_image">Clock icon image</string>
+    <string name="hint_desription_giver">Type the event\'s description here.</string>
+    <string name="content_description_event_image">The event\'s image</string>
+    <string name="content_description_public_option">Public option image</string>
+    <string name="content_description_private_option">Private option image</string>
 </resources>

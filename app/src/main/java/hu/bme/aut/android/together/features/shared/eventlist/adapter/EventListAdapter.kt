@@ -7,7 +7,8 @@ import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.ItemEventRowBinding
 import hu.bme.aut.android.together.model.EventShortInfo
 
-class EventListAdapter(val onEventItemClick: (position: Int) -> Unit) : RecyclerView.Adapter<EventListAdapter.EventListViewHolder>() {
+class EventListAdapter(val onEventItemClick: (position: Int) -> Unit) :
+    RecyclerView.Adapter<EventListAdapter.EventListViewHolder>() {
 
     // TODO mocked data, should be removed later
     private val eventShortInfoList = listOf(
@@ -23,7 +24,7 @@ class EventListAdapter(val onEventItemClick: (position: Int) -> Unit) : Recycler
     }
 
     override fun onBindViewHolder(holder: EventListViewHolder, position: Int) {
-        with(eventShortInfoList[position]){
+        with(eventShortInfoList[position]) {
             holder.binding.tvEventName.text = name
             holder.binding.tvEventPlace.text = location
             holder.binding.tvEventTime.text = time

@@ -4,17 +4,41 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import hu.bme.aut.android.together.features.addevent.fragment.pagerelement.container.PageableDetailSetterContainerFragment
 import hu.bme.aut.android.together.features.addevent.fragment.pagerelement.detailsetter.OverviewFragment
-import hu.bme.aut.android.together.features.addevent.fragment.pagerelement.factory.PageableDetailFragmentFactory
+import hu.bme.aut.android.together.features.addevent.fragment.pagerelement.factory.PageableDetailSetterFragmentFactory
 
+/**
+ * This [FragmentStateAdapter] implementation can be used to control the event adding feature's
+ * paging behaviour.
+ * @param fragment the reference of the fragment, which contains the widget, that owns this adapter.
+ */
 class AddEventPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
 
-    // Order of elements in this array is important!
+    /**
+     * This array of fragments contains the represented fragments of the adapter and its widget.
+     * The order of fragments in this array determines their order in the paging.
+     */
     private val fragmentPagesArray: Array<Fragment>
 
     init {
-        // Setting up fragmentPagesArray
+        fragmentPagesArray = createFragmentPagesArray()
+    }
+
+    /**
+     * Creates the array, which will contain, which [Fragment]s in what kind of order should be
+     * displayed. Currently it uses every instance of
+     * [hu.bme.aut.android.together.features.addevent.fragment.pagerelement.factory.PageableDetailSetterFragmentFactory]
+     * to populate the array. The order of fragments follows the ordinal values of the above referenced factory class.
+     * The fragment's created by this method will be contained by an
+     * [hu.bme.aut.android.together.features.addevent.fragment.pagerelement.container.PageableDetailSetterContainerFragment]
+     * instance.
+     * The first fragment's back navigation button will be hidden.
+     * After this, an [hu.bme.aut.android.together.features.addevent.fragment.pagerelement.detailsetter.OverviewFragment]
+     * intance will be added as the last element of the array.
+     * @return Array of [Fragment]s with the proper content.
+     */
+    private fun createFragmentPagesArray(): Array<Fragment> {
         val mutableArray = mutableListOf<Fragment>()
-        PageableDetailFragmentFactory.values().forEach {
+        PageableDetailSetterFragmentFactory.values().forEach {
             if (it.ordinal == 0)
                 mutableArray.add(
                     PageableDetailSetterContainerFragment.newInstance(
@@ -26,7 +50,7 @@ class AddEventPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) 
                 mutableArray.add(PageableDetailSetterContainerFragment.newInstance(it.ordinal))
         }
         mutableArray.add(OverviewFragment())
-        fragmentPagesArray = mutableArray.toTypedArray()
+        return mutableArray.toTypedArray()
     }
 
     override fun getItemCount(): Int {

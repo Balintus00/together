@@ -8,9 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import hu.bme.aut.android.together.databinding.FragmentPageableDetailSetterContainerBinding
 import hu.bme.aut.android.together.features.addevent.interfaces.EventAddingPagerContainer
-import hu.bme.aut.android.together.features.addevent.fragment.pagerelement.factory.PageableDetailFragmentFactory
+import hu.bme.aut.android.together.features.addevent.fragment.pagerelement.factory.PageableDetailSetterFragmentFactory
 import kotlin.properties.Delegates
 
+/**
+ * This [Fragment]'s main responsibility to provide an user interface for swiping the pages
+ * of the event creation process. Use [newInstance] factory method to create this class's instances.
+ * This fragment's parent should implement the
+ * [hu.bme.aut.android.together.features.addevent.interfaces.EventAddingPagerContainer] interface.
+ */
 class PageableDetailSetterContainerFragment : Fragment() {
 
     companion object {
@@ -18,6 +24,18 @@ class PageableDetailSetterContainerFragment : Fragment() {
         private const val SHOW_BACK_KEY = "SHOW_BACK_KEY"
         private const val SHOW_FORWARD_KEY = "SHOW_FORWARD_KEY"
 
+        /**
+         * Factory method for this class.
+         * @param containedFragmentFactoryOrdinal this implementation uses
+         * [hu.bme.aut.android.together.features.addevent.fragment.pagerelement.factory.PageableDetailSetterFragmentFactory]
+         * enum class to create the contained fragments. The contained fragment's factory's ordinal
+         * value should be passed as this parameter.
+         * @param showBackKey with this option it can be set whether a back button should be
+         * available in the created fragment. It's default value is true.
+         * @param showForwardKey with this option it can be set whether a forward button should be
+         * available in the created fragment. It's default value is true.
+         * @return the created [PageableDetailSetterContainerFragment] instance.
+         */
         @JvmStatic
         fun newInstance(
             containedFragmentFactoryOrdinal: Int,
@@ -34,11 +52,10 @@ class PageableDetailSetterContainerFragment : Fragment() {
         }
     }
 
-    //TODO It's really important to document, that the parentFragment must implement PagerContainer interface
-    //TODO Using dependency injection pattern would be better than that.
+    //TODO Using dependency injection pattern would be better than this solution.
     private lateinit var eventAddingPagerContainer: EventAddingPagerContainer
 
-    private lateinit var pageableDetailFragmentFactory: PageableDetailFragmentFactory
+    private lateinit var pageableDetailSetterFragmentFactory: PageableDetailSetterFragmentFactory
 
     private var showBackNavigationButton by Delegates.notNull<Boolean>()
 
@@ -48,6 +65,13 @@ class PageableDetailSetterContainerFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
+        setUpPagerContainer()
+    }
+
+    /**
+     * Sets [eventAddingPagerContainer] to hold the parentFragment's reference.
+     */
+    private fun setUpPagerContainer() {
         eventAddingPagerContainer = parentFragment as EventAddingPagerContainer
     }
 
@@ -56,6 +80,12 @@ class PageableDetailSetterContainerFragment : Fragment() {
         retrieveArguments()
     }
 
+    /**
+     * Retrieves every argument from arguments. These arguments are the following:
+     * - Display options of the navigation buttons
+     * - The ordinal value of the used [hu.bme.aut.android.together.features.addevent.fragment.pagerelement.factory.PageableDetailSetterFragmentFactory]
+     * instance.
+     */
     private fun retrieveArguments() {
         retrieveNavigationButtonArgs()
         retrieveContainedFragmentFactory()
@@ -74,6 +104,11 @@ class PageableDetailSetterContainerFragment : Fragment() {
         showForwardNavigationButton = arguments?.getBoolean(SHOW_FORWARD_KEY) ?: true
     }
 
+    /**
+     * Retrieves from the arguments the ordinal value of the passed
+     * [hu.bme.aut.android.together.features.addevent.fragment.pagerelement.factory.PageableDetailSetterFragmentFactory]
+     * instance. Using this value the function initializes [pageableDetailSetterFragmentFactory].
+     */
     private fun retrieveContainedFragmentFactory() {
         val ordinal = arguments?.getInt(CONTAINED_FRAGMENT_ID_KEY)
             ?: throw IllegalArgumentException(
@@ -81,8 +116,8 @@ class PageableDetailSetterContainerFragment : Fragment() {
                         " ContainedFragmentFactory ordinal value in arguments Bundle! Use static" +
                         " newInstance() factory method to instantiate this fragment!"
             )
-        require(ordinal >= 0 && ordinal < PageableDetailFragmentFactory.values().size)
-        pageableDetailFragmentFactory = PageableDetailFragmentFactory.values()[ordinal]
+        require(ordinal >= 0 && ordinal < PageableDetailSetterFragmentFactory.values().size)
+        pageableDetailSetterFragmentFactory = PageableDetailSetterFragmentFactory.values()[ordinal]
     }
 
     override fun onCreateView(
@@ -99,11 +134,16 @@ class PageableDetailSetterContainerFragment : Fragment() {
         setNavigationButtonsBehaviour()
     }
 
+    /**
+     * Adds the contained fragment to the Fragment's FragmentContainerView, using [pageableDetailSetterFragmentFactory].
+     */
     private fun addContainedFragment() {
         childFragmentManager.beginTransaction()
-            .replace(binding.fcvEventDetailAdder.id, pageableDetailFragmentFactory.getFragment())
+            .replace(
+                binding.fcvEventDetailAdder.id,
+                pageableDetailSetterFragmentFactory.getFragment()
+            )
             .commit()
-
     }
 
     private fun setNavigationButtonsBehaviour() {
@@ -111,8 +151,15 @@ class PageableDetailSetterContainerFragment : Fragment() {
         setForwardNavigatingButtonBehaviour()
     }
 
+    /**
+     * Sets the back navigation button's behaviour.
+     * If [showBackNavigationButton] is true, the button will be displayed; in the other case
+     * it won't be displayed. If the button should be displayed, its on click behaviour will
+     * be the following: using [eventAddingPagerContainer] it signals, that the previous
+     * page should be shown.
+     */
     private fun setBackNavigatingButtonBehaviour() {
-        pageableDetailFragmentFactory.ordinal.let { position ->
+        pageableDetailSetterFragmentFactory.ordinal.let { position ->
             if (showBackNavigationButton)
                 binding.swipeButtonBar.ibtnLeft.setOnClickListener {
                     eventAddingPagerContainer.pageTo(position - 1)
@@ -122,8 +169,15 @@ class PageableDetailSetterContainerFragment : Fragment() {
         }
     }
 
+    /**
+     * Sets the forward navigation button's behaviour.
+     * If [showForwardNavigationButton] is true, the button will be displayed; in the other case
+     * it won't be displayed. If the button should be displayed, its on click behaviour will
+     * be the following: using [eventAddingPagerContainer] it signals, that the next
+     * page should be shown.
+     */
     private fun setForwardNavigatingButtonBehaviour() {
-        pageableDetailFragmentFactory.ordinal.let { position ->
+        pageableDetailSetterFragmentFactory.ordinal.let { position ->
             if (showForwardNavigationButton)
                 binding.swipeButtonBar.ibtnRight.setOnClickListener {
                     eventAddingPagerContainer.pageTo(position + 1)

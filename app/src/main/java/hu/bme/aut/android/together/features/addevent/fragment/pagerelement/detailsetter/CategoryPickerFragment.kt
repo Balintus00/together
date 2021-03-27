@@ -10,6 +10,10 @@ import com.google.android.material.chip.ChipDrawable
 import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentCategoryPickerBinding
 
+/**
+ * This [Fragment] provides an user interface, that can be used by the user to set the category of
+ * the event which is under creation.
+ */
 class CategoryPickerFragment : Fragment() {
 
     private lateinit var binding: FragmentCategoryPickerBinding
@@ -27,6 +31,10 @@ class CategoryPickerFragment : Fragment() {
         addCategoryChips()
     }
 
+    /**
+     * Adds the categories to the fragment [com.google.android.material.chip.ChipGroup] as
+     * [Chip]s. The list of categories is contained by [R.array.event_category_types_array].
+     */
     private fun addCategoryChips() {
         val categoryArray = resources.getStringArray(R.array.event_category_types_array)
         for (category in categoryArray) {
@@ -34,6 +42,10 @@ class CategoryPickerFragment : Fragment() {
         }
     }
 
+    /**
+     * Creates an appropriately set [Chip], which will contain a category.
+     * This chips has the [R.style.Widget_MaterialComponents_Chip_Choice] style.
+     */
     private fun createCategoryChip(name: String): Chip {
         return Chip(requireContext()).apply {
             text = name

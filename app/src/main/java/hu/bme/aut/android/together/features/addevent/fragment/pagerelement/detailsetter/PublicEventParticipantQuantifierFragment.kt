@@ -9,6 +9,9 @@ import androidx.navigation.fragment.findNavController
 import hu.bme.aut.android.together.databinding.FragmentPublicEventParticipantQuantifierBinding
 import hu.bme.aut.android.together.features.addevent.dialogfragment.EventParticipantCountSpecifierDialogFragment
 
+/**
+ * On this Fragment the user can specify the maximum threshold for participants.
+ */
 class PublicEventParticipantQuantifierFragment : Fragment() {
 
     private lateinit var binding: FragmentPublicEventParticipantQuantifierBinding
@@ -28,19 +31,26 @@ class PublicEventParticipantQuantifierFragment : Fragment() {
     }
 
     private fun setOptionsBehaviour() {
-        setUndefinedOptionBehaviour()
+        setIndefiniteOptionBehaviour()
         setSpecifyCountOptionBehaviour()
     }
 
-    private fun setUndefinedOptionBehaviour() {
-        // TODO passing the set value using ViewModel
+    /**
+     * Sets the threshold as indefinite value, then pops the BackStack.
+     */
+    private fun setIndefiniteOptionBehaviour() {
+        // TODO passing the set value using ViewModel probably
         binding.tvInfiniteParticipantOption.setOnClickListener {
             findNavController().popBackStack()
         }
     }
 
+    /**
+     * Displays an [EventParticipantCountSpecifierDialogFragment] instance, on which the user can
+     * specify the maximum participant count.
+     */
     private fun setSpecifyCountOptionBehaviour() {
-        // TODO passing the set value using ViewModel
+        // TODO passing the set value using ViewModel probably
         binding.tvSpecifiyParticipantCountOption.setOnClickListener {
             EventParticipantCountSpecifierDialogFragment().show(
                 parentFragmentManager,

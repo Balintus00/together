@@ -10,8 +10,15 @@ import android.view.View
 import android.view.ViewGroup
 import hu.bme.aut.android.together.databinding.FragmentNameAdderBinding
 
+/**
+ * This [Fragment] provides an user interface, that can be used by the user to set the name of
+ * the event which is under creation.
+ */
 class NameAdderFragment : Fragment() {
 
+    /**
+     * This variable stores the maximum length of the event's name.
+     */
     private var maxCharacterCount = -1
 
     private lateinit var binding: FragmentNameAdderBinding
@@ -30,11 +37,17 @@ class NameAdderFragment : Fragment() {
         setEditTextBehaviour()
     }
 
+    /**
+     * Sets the behaviour of the character counter textview.
+     */
     private fun initializeCharacterCounterTextView() {
         saveMaxCharacterCount()
         setCharacterCounterTextView(maxCharacterCount)
     }
 
+    /**
+     * Saves the maximum value of the character counter into [maxCharacterCount].
+     */
     private fun saveMaxCharacterCount() {
         for(filter in binding.etAddEventName.filters){
             if(filter is InputFilter.LengthFilter){
@@ -43,10 +56,18 @@ class NameAdderFragment : Fragment() {
         }
     }
 
+    /**
+     * Sets the value of the character counting TextView to the given parameter's value.
+     * @param newCount the new content of the character counter TextView.
+     */
     private fun setCharacterCounterTextView(newCount: Int) {
         binding.tvRemainingCharacterCount.text = newCount.toString()
     }
 
+    /**
+     * Sets the description container EditText's behaviour to change the content of the character
+     * counter TextView whenever its content is modified.
+     */
     private fun setEditTextBehaviour() {
         binding.etAddEventName.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) { }

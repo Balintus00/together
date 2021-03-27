@@ -11,6 +11,10 @@ import hu.bme.aut.android.together.databinding.FragmentVisibilityChooserBinding
 import hu.bme.aut.android.together.features.addevent.fragment.AddEventPagerFragmentDirections
 import kotlin.math.roundToInt
 
+/**
+ * This [Fragment] provides an user interface, that can be used by the user to set the visibility of
+ * the event which is under creation.
+ */
 class VisibilityChooserFragment : Fragment() {
 
     companion object {
@@ -44,6 +48,16 @@ class VisibilityChooserFragment : Fragment() {
         }
     }
 
+    /**
+     * This function sets the onclick behaviour of the two MaterialCard widgets, that represent
+     * the visibility options.
+     * When the user choose by clicking a MaterialCard, other cards should be unselected.
+     * The special public visibility's option will be displayed, if the given paramter enables it.
+     * @param chosenCard the currently chosen card.
+     * @param otherCards other cards, that can't be chosen.
+     * @param willPublicOptionsBeVisible decides whether the public visibility's special options
+     * and its interface should be available to the user.
+     */
     private fun setChoosableClickBehaviourOnCard(
         chosenCard: MaterialCardView,
         otherCards: Array<MaterialCardView>,
@@ -57,24 +71,42 @@ class VisibilityChooserFragment : Fragment() {
         }
     }
 
+    /**
+     * Adds border to chosen card.
+     * If a card has thick border around it, then it implies that it is the selected card.
+     * @param card the chosen [MaterialCardView] by the user, that represents a visibility option.
+     */
     private fun setChosenCard(card: MaterialCardView) {
         // To achieve pixel-independent display, pixel value should be calculated from given dp value
         card.strokeWidth = CHOSEN_CARD_STROKE_WIDTH_DP.convertDpToPixel()
         card.invalidate()
     }
 
+    /**
+     * This function converts a dp value to pixel value.
+     * @receiver the value in dp, which should be converted to pixel value.
+     */
     private fun Int.convertDpToPixel(): Int {
         return (this.toFloat() * requireContext().resources.displayMetrics.densityDpi.toFloat() / 160.0f).roundToInt()
     }
 
+    /**
+     * Removes the from the card the border (by setting its strokeWidth 0).
+     * If a card has thick border around it, then it implies that it is the selected card.
+     * @param card the card, that is no longer chosen.
+     */
     private fun setUnchosenCard(card: MaterialCardView) {
         card.strokeWidth = 0
         card.invalidate()
     }
 
+    /**
+     * Sets visible or invisible the special options of the public visibility.
+     * @param willBeVisible decides whether or not the public visibility's special option should be
+     * visible.
+     */
     private fun setPublicOptionsVisibility(willBeVisible: Boolean) {
         with(binding.clPublicOptions) {
-            //TODO this visibility change should be animated
             visibility = if (willBeVisible) {
                 View.VISIBLE
             } else
@@ -82,9 +114,13 @@ class VisibilityChooserFragment : Fragment() {
         }
     }
 
+    /**
+     * Sets the underlined TextView's onclick behaviour in the special public options.
+     * If the user clicks this TextView, it will be navigated to a different Fragment, on which
+     * it can set these special options.
+     */
     private fun setPublicOptionsLinkBehaviour() {
         binding.tvPublicOptionsModifierLink.setOnClickListener {
-            // TODO this parameter should come from DI pattern
             AddEventPagerFragmentDirections.actionAddEventPagerFragmentToPublicEventRuleSetterFragment()
                 .let { action ->
                     findNavController().navigate(action)
