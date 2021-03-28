@@ -9,6 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import hu.bme.aut.android.together.databinding.FragmentQABinding
 import hu.bme.aut.android.together.features.eventdetails.adapter.EventQAAdapter
 
+/**
+ * This Fragment contains the QA panel for the events.
+ */
 class QAFragment : Fragment() {
 
     private lateinit var binding: FragmentQABinding
@@ -28,6 +31,11 @@ class QAFragment : Fragment() {
         initializeRecyclerView()
     }
 
+    /**
+     * Initializes the fragment's RecyclerView widget.
+     * The layoutManager is set to a [LinearLayoutManager], and the adapter to a [EventQAAdapter]
+     * instance.
+     */
     private fun initializeRecyclerView() {
         adapter = EventQAAdapter(requireContext())
         binding.rvQuestionsAndAnswers.adapter = adapter

@@ -11,6 +11,8 @@ import hu.bme.aut.android.together.model.EventNewsMessage
 /**
  * This adapter can be used to represent a list of messages.
  * For the messages' layout, see [EventNewsViewHolder] class's documentation.
+ * @param onItemClick this function will be fired when an element will be clicked of the
+ * RecyclerView, that uses this adapter.
  */
 class EventMessagesAdapter(val onItemClick: (representedNews: EventNewsMessage) -> Unit) :
     RecyclerView.Adapter<EventMessagesAdapter.EventNewsViewHolder>() {
@@ -45,6 +47,12 @@ class EventMessagesAdapter(val onItemClick: (representedNews: EventNewsMessage) 
         }
     }
 
+    /**
+     * Sets the card's onclick behaviour. Fires the method reference, that was given
+     * as parameter in the instance's constructor by passing [representedNews] parameter.
+     * @param card the Card, which onclick behaviour is being set by this function.
+     * @param representedNews the object which holds the card's data.
+     */
     private fun setCardOnClickBehaviour(card: CardView, representedNews: EventNewsMessage) {
         card.setOnClickListener {
             onItemClick(representedNews)
