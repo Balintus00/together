@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import hu.bme.aut.android.together.databinding.FragmentQABinding
 import hu.bme.aut.android.together.features.eventdetails.adapter.EventQAAdapter
+import hu.bme.aut.android.together.features.eventdetails.dialogfragment.EventQuestionAskingDialogFragment
 
 /**
  * This Fragment contains the QA panel for the events.
@@ -28,7 +29,12 @@ class QAFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setUpUIWidgets()
+    }
+
+    private fun setUpUIWidgets() {
         initializeRecyclerView()
+        setUpQuestionAskingFAB()
     }
 
     /**
@@ -40,5 +46,16 @@ class QAFragment : Fragment() {
         adapter = EventQAAdapter(requireContext())
         binding.rvQuestionsAndAnswers.adapter = adapter
         binding.rvQuestionsAndAnswers.layoutManager = LinearLayoutManager(requireContext())
+    }
+
+    /**
+     * The FAB on this fragment can be used to add questions to the event.
+     * After clicking this FAB an [EventQuestionAskingDialogFragment] will be displayed,
+     * that can be used to ask the question.
+     */
+    private fun setUpQuestionAskingFAB() {
+        binding.fabAskQuestion.setOnClickListener {
+            EventQuestionAskingDialogFragment().show(parentFragmentManager, "")
+        }
     }
 }

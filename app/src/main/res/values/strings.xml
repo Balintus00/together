@@ -206,4 +206,8 @@
     <string name="content_description_save_button">Save modified event</string>
     <string name="content_description_invitation_sender_FAB">Clicking this button sends invite to the specified users</string>
     <string name="content_description_news_list_fab">The organiser can use this button to add a new post to the event\'s news feed.</string>
+    <string name="title_description_of_your_question">Description of your question</string>
+    <string name="title_title_of_your_question">Title of your question</string>
+    <string name="hint_question_description">Your question\'s description (Just in case you feel it\'s needed!)</string>
+    <string name="hint_question_title">Your question\'s title.</string>
 </resources>
