@@ -17,6 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_action_arrow_back"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:title="@string/example_title_event_detail" />
 
@@ -29,11 +30,11 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:layout_marginTop="12dp"
                 android:id="@+id/tvEventDateTime"
                 style="@style/HighlightedEnormousNormalAttribute"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
                 android:text="@string/example_date_time_event_details"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

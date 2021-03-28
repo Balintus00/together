@@ -201,4 +201,9 @@
     <string name="content_description_event_image">The event\'s image</string>
     <string name="content_description_public_option">Public option image</string>
     <string name="content_description_private_option">Private option image</string>
+    <string name="marker_title_details_event_location">The event\'s location</string>
+    <string name="content_description_event_details_FAB">The main action of this screen. If you are not a participant of this event, you can send an invitation request by clicking this button. If you are a participant, you can navigate to the event\'s communication screen by clicking this button. If you are an organiser of this event, by clicking this button, the organiser option panel will be displayed.</string>
+    <string name="content_description_save_button">Save modified event</string>
+    <string name="content_description_invitation_sender_FAB">Clicking this button sends invite to the specified users</string>
+    <string name="content_description_news_list_fab">The organiser can use this button to add a new post to the event\'s news feed.</string>
 </resources>

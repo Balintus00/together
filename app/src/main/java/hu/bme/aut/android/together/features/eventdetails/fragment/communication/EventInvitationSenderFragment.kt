@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import hu.bme.aut.android.together.databinding.FragmentEventInvitationSenderBinding
 
+/**
+ * This fragment can be used by the event's organiser, to send invitations to the event.
+ */
 class EventInvitationSenderFragment : Fragment() {
 
     private lateinit var binding: FragmentEventInvitationSenderBinding
@@ -30,6 +33,10 @@ class EventInvitationSenderFragment : Fragment() {
         setFabBehaviour()
     }
 
+    /**
+     * Sets the contained toolbar's onclick behaviour. After the navigation icon was clicked, the
+     * user is navigated back by popping the BackStack.
+     */
     private fun setToolbarBehaviour() {
         with(binding.tbEventDetailsCommunication) {
             setNavigationOnClickListener {
@@ -39,6 +46,10 @@ class EventInvitationSenderFragment : Fragment() {
         }
     }
 
+    /**
+     * Sets the contained FAB onclick behaviour. Clicking this button sends the invites to the
+     * specified users, then navigates back the ser by popping the BackStack.
+     */
     private fun setFabBehaviour() {
         binding.fabSendInvites.setOnClickListener {
             //TODO interacting with the backend...

@@ -22,6 +22,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:contentDescription="@string/content_description_event_image"
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
                 android:src="@mipmap/ic_launcher"
@@ -31,7 +32,8 @@
                 android:id="@+id/tbEventDetails"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin" />
+                app:layout_collapseMode="pin"
+                app:navigationIcon="@drawable/ic_action_arrow_back" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -215,6 +217,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:contentDescription="@string/content_description_event_details_FAB"
         android:focusable="true"
         app:layout_anchor="@id/appbar"
         app:layout_anchorGravity="bottom|right|end" />

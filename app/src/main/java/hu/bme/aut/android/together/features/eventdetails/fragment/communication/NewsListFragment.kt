@@ -14,9 +14,15 @@ import hu.bme.aut.android.together.features.shared.eventmessage.adapter.EventMes
 import hu.bme.aut.android.together.features.eventdetails.dialogfragment.EventPostNewsDialogFragment
 import hu.bme.aut.android.together.model.EventNewsMessage
 
+/**
+ * This fragment displays a list of news about the event.
+ * Use [createFragment] factory method to instantiate this class.
+ * This factory method is temporary to the visual demo version, and will be removed later.
+ */
 class NewsListFragment : Fragment() {
 
     companion object {
+        //TODO this will be removed later
         private const val IS_ORGANISER_DATA_KEY = "IS_ORGANISER_DATA_KEY"
         fun createFragment(isOrganiser: Boolean): NewsListFragment {
             return NewsListFragment().apply {
@@ -45,6 +51,12 @@ class NewsListFragment : Fragment() {
         setFABBehaviour()
     }
 
+    /**
+     * Sets up the fragment's RecyclerView. The layout manager is set to a [LinearLayoutManager],
+     * the adapter set to an [EventMessagesAdapter] instance. In the constructor of the adapter
+     * the list item onclick behaviour is passed; when an items is clicked, [showNewsInformationInDialog]
+     * method is fired using the data provided by the adapter.
+     */
     private fun setUpRecyclerView() {
         val context = requireContext()
         adapter = EventMessagesAdapter { representedNews ->
@@ -54,6 +66,12 @@ class NewsListFragment : Fragment() {
         binding.rvEventNews.layoutManager = LinearLayoutManager(context)
     }
 
+    /**
+     * Displays a dialog to the user, that contains the data of the given [EventNewsMessage]
+     * instance.
+     * @param eventNewsMessage the data holder instance, which is used to set the content
+     * of the dialog.
+     */
     private fun showNewsInformationInDialog(eventNewsMessage: EventNewsMessage) {
         AlertDialog.Builder(requireContext()).apply {
             setTitle(eventNewsMessage.title)
@@ -64,6 +82,11 @@ class NewsListFragment : Fragment() {
         }.show()
     }
 
+    /**
+     * Sets the fragment's FAB's behaviour. This FAB is displayed only if the user has organiser
+     * privilege. The organisers can use this button to post a new news to the news feed using
+     * a DialogFragment.
+     */
     private fun setFABBehaviour() {
         if (gatherIsOrganiserFromArguments()) {
             with(binding.fabOrganiserCreatePost) {

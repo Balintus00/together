@@ -6,6 +6,12 @@ import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.features.eventdetails.fragment.communication.NewsListFragment
 import hu.bme.aut.android.together.features.eventdetails.fragment.communication.QAFragment
 
+/**
+ * This adapter controls the appearance of the tabs, that can be used to communicate with the other
+ * event participants.
+ * @param fragment the reference of the Fragment, which contains the widget, that uses this adapter.
+ * @param isOrganiser if the user has organiser privileges, this value should be true.
+ */
 class CommunicationPanelsAdapter(fragment: Fragment, private val isOrganiser: Boolean) :
     FragmentStateAdapter(fragment) {
     companion object {
@@ -27,6 +33,11 @@ class CommunicationPanelsAdapter(fragment: Fragment, private val isOrganiser: Bo
         }
     }
 
+    /**
+     * Returns the name of chosen fragment's tab's name.
+     * @param position the position of the fragment, which tab's name is needed.
+     * @return the name of the tab, that is marked by the position paramter.
+     */
     fun getTabName(position: Int): String {
         require(position in 0 until TAB_COUNT)
         return when (position) {

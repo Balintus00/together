@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
-import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentEventDetailsFullDescriptionBinding
 
+/**
+ * This fragment displays the whole description of an event.
+ */
 class EventDetailsFullDescriptionFragment : Fragment() {
 
     private lateinit var binding: FragmentEventDetailsFullDescriptionBinding
@@ -26,9 +28,12 @@ class EventDetailsFullDescriptionFragment : Fragment() {
         setUpToolbar()
     }
 
+    /**
+     * Sets the contained Toolbar's navigation icon's behaviour.
+     * When the navigation icon is clicked, then the BackStack will be popped.
+     */
     private fun setUpToolbar() {
         with(binding.tbEventDetailsFull) {
-            setNavigationIcon(R.drawable.ic_action_arrow_back)
             setNavigationOnClickListener {
                 findNavController().popBackStack()
             }

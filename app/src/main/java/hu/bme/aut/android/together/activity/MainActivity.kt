@@ -9,6 +9,10 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import hu.bme.aut.android.together.R
 
+/**
+ * The application implements the Single Activity Architecture. It is the application's activity,
+ * that contains the application's fragments.
+ */
 class MainActivity : AppCompatActivity() {
 
     lateinit var navController: NavController
@@ -25,6 +29,11 @@ class MainActivity : AppCompatActivity() {
         handleBottomNavBarVisibility(navView)
     }
 
+    /**
+     * Sets [navController]'s onDestinationChanged behaviour.
+     * @param navView the application's main bottom navigation bar, that should be displayed on
+     * several destinations.
+     */
     private fun handleBottomNavBarVisibility(navView: BottomNavigationView) {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when(destination.id){
