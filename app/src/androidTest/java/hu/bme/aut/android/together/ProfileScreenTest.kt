@@ -37,4 +37,22 @@ class ProfileScreenTest {
         Truth.assertThat(navController.currentDestination?.id).isEqualTo(R.id.settingsFragment)
     }
 
+    @Test
+    @SmallTest
+    fun testNavigationToInvitesInboxScreen() {
+        val navController = TestNavHostController(ApplicationProvider.getApplicationContext())
+        UiThreadStatement.runOnUiThread {
+            navController.setGraph(R.navigation.mobile_navigation)
+            navController.setCurrentDestination(R.id.profileFragment)
+        }
+        val profileScreenScenario =
+            launchFragmentInContainer<ProfileFragment>(themeResId = R.style.AppTheme)
+        profileScreenScenario.onFragment { fragment ->
+            Navigation.setViewNavController(fragment.requireView(), navController)
+        }
+        Espresso.onView(ViewMatchers.withId(R.id.actionInvitations))
+            .perform(ViewActions.click())
+        Truth.assertThat(navController.currentDestination?.id).isEqualTo(R.id.eventInvitationsFragment)
+    }
+
 }
