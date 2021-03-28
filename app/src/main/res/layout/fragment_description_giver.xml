@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".features.addevent.fragment.pagerelement.detailsetter.DescriptionGiverFragment">
+
+    <TextView
+        android:id="@+id/tvAddEventDescriptionGiverTitle"
+        style="@style/Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_event_description_giver_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etAddEventDescriptionGiver"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:hint="@string/hint_desription_giver"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine"
+        android:maxLength="500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddEventDescriptionGiverTitle"
+        tools:text="Lorem ipsum dolor sit amet." />
+
+    <TextView
+        android:id="@+id/tvRemainingCharacterCount"
+        style="@style/SupportInformationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etAddEventDescriptionGiver"
+        tools:layout_editor_absoluteX="0dp"
+        tools:text="25" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

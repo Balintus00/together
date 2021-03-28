@@ -1,0 +1,217 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Together!</string>
+    <string name="nav_profile">Profile</string>
+    <string name="nav_my_events">My events</string>
+    <string name="nav_search_events">Search events</string>
+    <string name="name_your_event">Name your event!</string>
+    <string name="hint_new_event_name">New event name</string>
+    <string name="next">Next</string>
+    <string name="_1_7">1/7</string>
+    <string name="choose_the_visibility_title">Choose the visibility!</string>
+    <string name="_2_7">2/7</string>
+    <string name="visibility_private">Private</string>
+    <string name="visibility_public">Public</string>
+    <string name="enter_the_maximum_participant_count">Enter the maximum participant count!</string>
+    <string name="participant_option_infinite"><u>Indefinite</u></string>
+    <string name="should_be_the_join_requests_accepted_automatically">Should be the join requests accepted automatically?</string>
+    <string name="public_event_autoaccept_positive_option">Yes.</string>
+    <string name="public_event_autoaccept_negative_option">No, the join requests should be handled by the organisers.</string>
+    <string name="specify_the_maximum_participant_count">Specify the maximum participant count!</string>
+    <string name="apply_participant_count_button">Apply</string>
+    <string name="option_indefinite">Indefinite.</string>
+    <string name="option_specify_the_count">Specify the count!</string>
+    <string name="title_participant_quantifier">Choose an option!</string>
+    <string name="title_event_participant_count_dialogfragment">Specify the count!</string>
+    <string name="cancel">Cancel</string>
+    <string name="title_add_event_category_picker">What kind of event is this?</string>
+    <string name="_3_7">3/7</string>
+    <string name="_4_7">4/7</string>
+    <string name="title_fragment_photo_uploader">Choose a photo for your event!</string>
+    <string name="add_event_choose_photo">Choose</string>
+    <string name="add_event_no_photo_description">Doesn\'t have a well fitting photo? No problem, the chosen category\'s default photo will be used then!</string>
+    <string name="add_event_upload_photo_dialog_title">Choose a picture for your event!</string>
+    <string name="error_add_event_photo_upload_file_not_found">Something went wrong with the specified picture! :(</string>
+    <string name="add_event_date_setter_title">Set the date of your event.</string>
+    <string name="add_event_title_from">From</string>
+    <string name="add_event_title_to">To</string>
+    <string name="_5_7">5/7</string>
+    <string name="title_add_event_pick_place">Where will your event take place?</string>
+    <string name="_6_7">6/7</string>
+    <string name="hint_add_event_pick_place">Event\'s place</string>
+    <string name="online">Online</string>
+    <string name="add_event_description_giver_title">Give a description to your event!</string>
+    <string name="create">Create</string>
+    <string name="_7_7">7/7</string>
+    <string name="default_no_category">Not specified</string>
+    <string-array name="event_category_types_array">
+        <item>Outoors &amp; Adventure</item>
+        <item>Tech</item>
+        <item>Family</item>
+        <item>Health &amp; Wellnes</item>
+        <item>Learning</item>
+        <item>Food &amp; Drink</item>
+        <item>Language &amp; Culture</item>
+        <item>Music</item>
+        <item>Movements</item>
+        <item>Film</item>
+        <item>Sci-Fi &amp; Games</item>
+        <item>Beliefs</item>
+        <item>Arts</item>
+        <item>Book Clubs</item>
+        <item>Dance</item>
+        <item>Pets</item>
+        <item>Hobbies &amp; Crafts</item>
+        <item>Fashion &amp; Beauty</item>
+        <item>Career &amp; Business</item>
+    </string-array>
+    <string-array name="add_event_photo_upload_options">
+        <item>Take Photo</item>
+        <item>Choose from Gallery</item>
+        <item>Cancel</item>
+    </string-array>
+    <string-array name="add_event_pick_place_categories">
+        <item>Venue</item>
+        <item>Online</item>
+    </string-array>
+    <string name="profile_option_title_settings">Settings</string>
+    <string name="profile_birth_date_title">Birth date</string>
+    <string name="profile_invite_count_title">Number of invites in inbox</string>
+    <string name="my_events">My events</string>
+    <string name="event_row_item_image_descr">Event\'s image</string>
+    <string name="error_navigation_error_try_reload">Error in setting up navigation, try reloading this screen!</string>
+    <string name="title_max_participant_count">Maximum participant count</string>
+    <string name="title_join_request_auto_accept">Join request auto-accept</string>
+    <string name="state_off">OFF</string>
+    <string name="tap_here_to_modify_these_settings"><u>Tap here to modify the settings above</u></string>
+    <string name="apply">Apply</string>
+    <string name="error_camera_not_found">Camera not found!</string>
+    <string name="action_complete">Complete</string>
+    <string name="action_drop_event">Drop event</string>
+    <string name="option_discard_event">Discard event</string>
+    <string name="option_cancel">Cancel</string>
+    <string name="title_dialog_event_cancellation">Are you sure about discarding this event?</string>
+    <string name="message_dialog_event_cancellation">Every setting will be discarded, and you will be returned to the event lists.</string>
+    <string name="title_overview">Overview</string>
+    <string name="overview_info">Don’t worry, after the creation of the event you’ll still be able to modify freely your event!</string>
+    <string name="overview_title_event_name">Event name</string>
+    <string name="example_event_name">Kristóf\'s birthday party</string>
+    <string name="example_event_visibility">Public</string>
+    <string name="overview_title_category">Category</string>
+    <string name="example_count_info">Max. participant count: 24</string>
+    <string name="example_auto_join_info">Join request auto-accept: ON</string>
+    <string name="overview_title_visibility">Visibility</string>
+    <string name="example_event_category">Family</string>
+    <string name="example_event_description">Lorem ipsum dolor sit amet.</string>
+    <string name="overview_title_description">Description</string>
+    <string name="overview_place_title">Place</string>
+    <string name="example_event_place">Online</string>
+    <string name="overview_title_date">Date</string>
+    <string name="example_from_date">2021.02.14. 14:15</string>
+    <string name="example_to_date">2021.02.15. 8:00</string>
+    <string name="placeholder_to_date">TO DATE</string>
+    <string name="placeholder_to_time">TO TIME</string>
+    <string name="placeholder_from_time">FROM TIME</string>
+    <string name="placeholder_from_date">FROM DATE</string>
+    <string name="title_results_event_search">Results</string>
+    <string name="title_event_query">Search events!</string>
+    <string name="title_event_query_place_specifier">I want to go in…</string>
+    <string name="default_value_place_event_query">Anywhere!</string>
+    <string name="title_event_query_radius_specifier">around in a … km radius</string>
+    <string name="title_event_query_date_on">On</string>
+    <string name="title_event_query_time_from">From</string>
+    <string name="title_event_query_time_to">To</string>
+    <string name="title_event_query_type">The type of event is…</string>
+    <string name="title_event_query_name">the name of the event contains the following…</string>
+    <string name="default_value_name_event_query">Nothing special</string>
+    <string name="event_query_default_value_today">Today</string>
+    <string name="event_query_default_value_now">Now</string>
+    <string name="event_query_default_value_date_indefinite">Indefinite</string>
+    <string name="event_query_default_value_time_indefinite">Indefinite</string>
+    <string name="example_title_event_detail">Kristóf\'s birthday party</string>
+    <string name="example_date_time_event_details">Friday, febr 13 – 18:00</string>
+    <string name="example_place_event_details">Budapest, Irinyi József u. 42.</string>
+    <string name="title_about_event_details">About</string>
+    <string name="example_quick_info_event_detail">I happily invite you to my birthday!</string>
+    <string name="see_more_information_event_details"><u>See more information</u></string>
+    <string name="title_location_event_details">Location</string>
+    <!-- Typos should be ignored in this text, because that's a long placeholder text. -->
+    <string name="example_long_lorem_text" tools:ignore="Typos">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget lobortis enim, ut convallis est. Curabitur sit amet ligula a orci elementum vulputate. Proin arcu lectus, volutpat eget aliquet nec, condimentum quis justo. Pellentesque tempor mauris quis tellus suscipit finibus. Aliquam at lobortis sapien, non iaculis mauris. In malesuada facilisis leo id cursus. Cras id risus fringilla, lacinia eros at, volutpat arcu. Etiam elementum sagittis pharetra. Praesent pretium elementum quam vel semper. In mollis, neque et efficitur blandit, magna nisl porta velit, eget elementum eros elit sed nisl. Sed consectetur vitae risus condimentum sollicitudin. Aliquam ultricies rhoncus justo sed semper. Sed in lorem porttitor, tincidunt ipsum sit amet, accumsan ipsum. Nam ac mattis nunc. Vivamus efficitur, tortor ac pulvinar auctor, enim nunc cursus odio, id tristique risus turpis eu nisi. Nunc luctus, mauris non tincidunt maximus, erat mi ultricies ligula, nec pretium nibh tellus a diam. Vestibulum blandit, neque sit amet varius convallis, diam ante venenatis ipsum, vitae gravida enim leo ac diam. Sed sapien sapien, pellentesque eu massa et, tempus placerat urna. Curabitur egestas, purus ac lobortis dignissim, ligula orci venenatis eros, non fermentum lectus tellus non leo. Etiam in accumsan quam. Nam vel ligula leo. Aenean in congue dolor. Sed dictum blandit velit vitae ultrices. Suspendisse nec ex vitae magna vehicula facilisis vel id justo. Nullam a semper erat. Sed venenatis ligula vel dignissim auctor. Quisque felis libero, aliquet vel diam a, rhoncus finibus ex.</string>
+    <string name="tab_name_qa_event_details"><![CDATA[Q&A]]></string>
+    <string name="tab_name_news_event_details">News</string>
+    <string name="tab_name_coming_current_events">Coming</string>
+    <string name="tab_name_past_current_events">Past</string>
+    <string name="error_map_loading_no_information">Map cannot be loaded!</string>
+    <string name="example_title_event_news">What kind of gift should you bring?</string>
+    <string name="example_author_event_news">by KR1ST0F</string>
+    <string name="message_event_join_event_details">Join request successfully sent!</string>
+    <string-array name="event_query_date_setting_options">
+        <item>Specify a concrete value!</item>
+        <item>Use default value.</item>
+        <item>Close</item>
+    </string-array>
+    <string name="action_show_messages_event_details">Show messages</string>
+    <string name="action_invite_people_event_details">Invite people</string>
+    <string name="action_modify_event_event_details">Modify this event</string>
+    <string name="action_close_organiser_menu_event_details">Close</string>
+    <string name="example_remaining_spaces_event_details">Spaces are not limited!</string>
+    <string name="secret_event_event_details">Shh it\'s a secret event!</string>
+    <string name="attribute_create_news_post_title">Title</string>
+    <string name="title_content_create_news_post">Content</string>
+    <string name="action_post">Post</string>
+    <string name="title_create_new_post">Create a new post!</string>
+    <string name="hint_content_new_post_event_details">Important information about your event.</string>
+    <string name="hint_title_new_post_event_details">Your event\'s title.</string>
+    <string name="action_organiser_event_questions">Unanswered questions</string>
+    <string name="title_event_details_questions">Questions</string>
+    <string name="action_back">BACK</string>
+    <string name="example_question_title">Where can I park with my car nearby?</string>
+    <string name="example_question_author">by B4RN1</string>
+    <string name="example_detailed_question">Lorem ipsum dolor sit amet?</string>
+    <string name="title_question_response_answer">Answer</string>
+    <string name="action_answer">Answer</string>
+    <string name="hint_question_response_answer">Your answer.</string>
+    <string name="title_invitation_event">Invite people</string>
+    <string name="hint_event_invitation_username_input">Type the username here…</string>
+    <string name="action_add">Add</string>
+    <string name="title_event_invitation_sender_selected">Selected</string>
+    <string name="example_invited_usernames">T4M4S, KR1ST0F, B4RN1</string>
+    <string name="title_event_modification">Modify your event</string>
+    <string name="attribute_name_event_modification">Name</string>
+    <string name="help_event_modification">Tap on the attribute that you would like to modify!</string>
+    <string name="attribute_type_event_modification">Type</string>
+    <string name="example_location">Budapest</string>
+    <string name="attribute_location_modify_event">Location</string>
+    <string name="attribute_photo_modify_event">Photo</string>
+    <string name="action_upload_new_picture">Upload new picture</string>
+    <string name="attribute_description_event_modification">Description</string>
+    <string name="profile_option_event_invitations">Event invitations</string>
+    <string name="title_invitations">Invitations</string>
+    <string name="title_incoming_invitations">Incoming invitations</string>
+    <string name="action_accept">Accept</string>
+    <string name="content_description_own_profile_picture">Your profile picture.</string>
+    <string name="content_description_search_button">Search button.</string>
+    <string name="date_year_month_day">%1$d.%2$d.%3$d</string>
+    <string name="time_hour_minute">%1$d:%2$d</string>
+    <string name="by_author">by %s</string>
+    <string name="content_description_current_event_list_add_fab">Create your own new event button.</string>
+    <string name="swipe_left_back_button">Swipe left/back button</string>
+    <string name="swipe_right_forward_button">Swipe right/forward button</string>
+    <string name="clock_icon_image">Clock icon image</string>
+    <string name="hint_desription_giver">Type the event\'s description here.</string>
+    <string name="content_description_event_image">The event\'s image</string>
+    <string name="content_description_public_option">Public option image</string>
+    <string name="content_description_private_option">Private option image</string>
+    <string name="marker_title_details_event_location">The event\'s location</string>
+    <string name="content_description_event_details_FAB">The main action of this screen. If you are not a participant of this event, you can send an invitation request by clicking this button. If you are a participant, you can navigate to the event\'s communication screen by clicking this button. If you are an organiser of this event, by clicking this button, the organiser option panel will be displayed.</string>
+    <string name="content_description_save_button">Save modified event</string>
+    <string name="content_description_invitation_sender_FAB">Clicking this button sends invite to the specified users</string>
+    <string name="content_description_news_list_fab">The organiser can use this button to add a new post to the event\'s news feed.</string>
+    <string name="title_description_of_your_question">Description of your question</string>
+    <string name="title_title_of_your_question">Title of your question</string>
+    <string name="hint_question_description">Your question\'s description (Just in case you feel it\'s needed!)</string>
+    <string name="hint_question_title">Your question\'s title.</string>
+    <string name="title_organiser_event_settings">Settings</string>
+    <string name="hint_event_attribute_modifier">Type here the new value of the selected attribute!</string>
+    <string name="title_modification_event_attribute">Detail modification - %s</string>
+    <string name="title_modification_event_image">Modify your event\'s image!</string>
+</resources>
