@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,42 +14,20 @@
             style="@style/AttributeName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title_title_of_your_question"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="10dp" />
+            tools:text="Attribute modification - Name"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/editText2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_question_title"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvModificationTitle" />
-
-        <TextView
-            android:id="@+id/textView42"
-            style="@style/AttributeName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/title_description_of_your_question"
-            app:layout_constraintTop_toBottomOf="@+id/editText2"
-            tools:layout_editor_absoluteX="4dp" />
-
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_question_description"
+            android:hint="@string/hint_event_attribute_modifier"
             android:importantForAutofill="no"
             android:inputType="textMultiLine"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView42" />
+            app:layout_constraintTop_toBottomOf="@+id/tvModificationTitle" />
 
         <Button
             android:id="@+id/btnAccept"
@@ -58,7 +36,7 @@
             android:layout_height="wrap_content"
             android:text="@string/action_accept"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText" />
+            app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
         <Button
             android:id="@+id/btnCancel"
@@ -68,7 +46,7 @@
             android:layout_marginEnd="4dp"
             android:text="@string/cancel"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText" />
+            app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

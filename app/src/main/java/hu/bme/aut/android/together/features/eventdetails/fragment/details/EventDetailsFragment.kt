@@ -82,7 +82,8 @@ class EventDetailsFragment : Fragment(), OnMapReadyCallback {
     }
 
     /**
-     *
+     * Adds to a toolbar a special menu for organisers. Organisers can reach the event settings
+     * from this menu.
      */
     private fun addOrganiserSettingsMenuToToolbar() {
         with(binding.tbEventDetails) {
@@ -299,11 +300,6 @@ class EventDetailsFragment : Fragment(), OnMapReadyCallback {
     override fun onStop() {
         super.onStop()
         binding.mvEventLocation.onStop()
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        binding.mvEventLocation.onSaveInstanceState(outState)
     }
 
     override fun onDestroyView() {

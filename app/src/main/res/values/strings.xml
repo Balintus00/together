@@ -140,7 +140,7 @@
     <string name="tab_name_news_event_details">News</string>
     <string name="tab_name_coming_current_events">Coming</string>
     <string name="tab_name_past_current_events">Past</string>
-    <string name="error_map_loading_no_information">Map couldn\'t be loaded!</string>
+    <string name="error_map_loading_no_information">Map cannot be loaded!</string>
     <string name="example_title_event_news">What kind of gift should you bring?</string>
     <string name="example_author_event_news">by KR1ST0F</string>
     <string name="message_event_join_event_details">Join request successfully sent!</string>
@@ -211,4 +211,7 @@
     <string name="hint_question_description">Your question\'s description (Just in case you feel it\'s needed!)</string>
     <string name="hint_question_title">Your question\'s title.</string>
     <string name="title_organiser_event_settings">Settings</string>
+    <string name="hint_event_attribute_modifier">Type here the new value of the selected attribute!</string>
+    <string name="title_modification_event_attribute">Detail modification - %s</string>
+    <string name="title_modification_event_image">Modify your event\'s image!</string>
 </resources>
