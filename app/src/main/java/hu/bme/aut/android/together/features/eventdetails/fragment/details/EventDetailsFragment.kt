@@ -77,7 +77,29 @@ class EventDetailsFragment : Fragment(), OnMapReadyCallback {
     }
 
     private fun setUpWidgetsAsOrganiser() {
+        addOrganiserSettingsMenuToToolbar()
         setUpOrganiserFAB()
+    }
+
+    /**
+     *
+     */
+    private fun addOrganiserSettingsMenuToToolbar() {
+        with(binding.tbEventDetails) {
+            inflateMenu(R.menu.organiser_event_settings_menu)
+            setOnMenuItemClickListener {
+                when (it.itemId) {
+                    R.id.actionOrganiserEventSettings -> {
+                        EventDetailsFragmentDirections.actionEventDetailsFragmentToEventSettingsFragment()
+                            .let { action ->
+                                findNavController().navigate(action)
+                            }
+                        true
+                    }
+                    else -> super.onOptionsItemSelected(it)
+                }
+            }
+        }
     }
 
     /**

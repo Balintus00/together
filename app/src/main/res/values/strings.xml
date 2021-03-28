@@ -210,4 +210,5 @@
     <string name="title_title_of_your_question">Title of your question</string>
     <string name="hint_question_description">Your question\'s description (Just in case you feel it\'s needed!)</string>
     <string name="hint_question_title">Your question\'s title.</string>
+    <string name="title_organiser_event_settings">Settings</string>
 </resources>

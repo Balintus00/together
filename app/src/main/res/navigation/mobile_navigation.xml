@@ -53,7 +53,7 @@
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="hu.bme.aut.android.together.features.settings.SettingsFragment"
+        android:name="hu.bme.aut.android.together.features.profilesettings.ProfileSettingsFragment"
         android:label="SettingsFragment" />
     <fragment
         android:id="@+id/eventSearchResultFragment"
@@ -133,6 +133,9 @@
             <action
                 android:id="@+id/action_eventDetailsFragment_to_modifyEventDetailsFragment"
                 app:destination="@id/modifyEventDetailsFragment" />
+            <action
+                android:id="@+id/action_eventDetailsFragment_to_eventSettingsFragment"
+                app:destination="@id/eventSettingsFragment" />
         </fragment>
         <fragment
             android:id="@+id/eventDetailsFullDescriptionFragment"
@@ -167,6 +170,10 @@
             android:name="hu.bme.aut.android.together.features.eventdetails.fragment.details.ModifyEventDetailsFragment"
             android:label="fragment_modify_event_details"
             tools:layout="@layout/fragment_modify_event_details" />
+        <fragment
+            android:id="@+id/eventSettingsFragment"
+            android:name="hu.bme.aut.android.together.features.eventsettings.EventSettingsFragment"
+            android:label="EventSettingsFragment" />
     </navigation>
     <navigation android:id="@+id/addEventGraph"
         app:startDestination="@id/addEventPagerFragment">

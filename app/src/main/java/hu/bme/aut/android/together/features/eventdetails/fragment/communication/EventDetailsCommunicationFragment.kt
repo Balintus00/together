@@ -53,18 +53,18 @@ class EventDetailsCommunicationFragment : Fragment() {
      */
     private fun setUpOrganisersToolbarMenu() {
         if (args.isOrganiser)
-            addQuestionsActionToToolbar()
+            addOrganiserActionsToToolbar()
     }
 
     /**
      * The organisers can use an inbox to check and answer incoming questions. This function sets
-     * up this menu on the toolber, and its inbox action's onclick behaviour.
+     * up this menu on the toolbar, and its inbox action's onclick behaviour.
      */
     // The function that uses this feature is already marked with this annotation, and it should be enough
     @SuppressLint("UnsafeExperimentalUsageError")
-    private fun addQuestionsActionToToolbar() {
+    private fun addOrganiserActionsToToolbar() {
         with(binding.tbEventDetailsCommunication) {
-            inflateMenu(R.menu.organiser_event_questions_menu)
+            inflateMenu(R.menu.organiser_incoming_questions_menu)
             setOnMenuItemClickListener {
                 when (it.itemId) {
                     R.id.actionOrganiserEventQuestions -> {
