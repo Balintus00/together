@@ -70,7 +70,7 @@ class DetailsScreenTest {
         Truth.assertThat(navController.currentDestination?.id)
             .isEqualTo(R.id.eventDetailsCommunicationFragment)
     }
-
+    /**
     @Test
     @SmallTest
     fun testOrganiserOptionsNavigationToCommunicationScreen() {
@@ -103,7 +103,7 @@ class DetailsScreenTest {
         Truth.assertThat(navController.currentDestination?.id)
             .isEqualTo(R.id.eventDetailsCommunicationFragment)
     }
-    /**
+
     @Test
     @SmallTest
     fun testOrganiserOptionsNavigationToInvitationSenderScreen() {
