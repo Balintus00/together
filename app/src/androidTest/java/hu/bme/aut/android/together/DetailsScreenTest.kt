@@ -15,6 +15,7 @@ import androidx.test.filters.SmallTest
 import androidx.test.internal.runner.junit4.statement.UiThreadStatement
 import com.google.common.truth.Truth
 import hu.bme.aut.android.together.features.eventdetails.fragment.details.EventDetailsFragment
+import org.hamcrest.Matchers.not
 import org.junit.Test
 
 class DetailsScreenTest {
@@ -69,7 +70,7 @@ class DetailsScreenTest {
         Truth.assertThat(navController.currentDestination?.id)
             .isEqualTo(R.id.eventDetailsCommunicationFragment)
     }
-/**
+
     @Test
     @SmallTest
     fun testOrganiserOptionsNavigationToCommunicationScreen() {
@@ -90,6 +91,10 @@ class DetailsScreenTest {
             Navigation.setViewNavController(fragment.requireView(), navController)
         }
         onView(withId(R.id.fabActionEventDetails))
+            .check(matches(isDisplayed()))
+        onView(withId(R.id.organiserSheet))
+            .check(matches(not(isDisplayed())))
+        onView(withId(R.id.fabActionEventDetails))
             .perform(ViewActions.click())
         onView(withId(R.id.organiserSheet))
             .check(matches(isDisplayed()))
@@ -98,7 +103,7 @@ class DetailsScreenTest {
         Truth.assertThat(navController.currentDestination?.id)
             .isEqualTo(R.id.eventDetailsCommunicationFragment)
     }
-
+    /**
     @Test
     @SmallTest
     fun testOrganiserOptionsNavigationToInvitationSenderScreen() {
