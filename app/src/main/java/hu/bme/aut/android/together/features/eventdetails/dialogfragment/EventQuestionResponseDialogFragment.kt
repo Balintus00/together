@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import hu.bme.aut.android.together.databinding.DialogfragmentEventQuestionResponseBinding
-import hu.bme.aut.android.together.model.EventNewsMessage
+import hu.bme.aut.android.together.model.presentation.EventMessage
 
-class EventQuestionResponseDialogFragment(private val representedQuestion: EventNewsMessage) : DialogFragment() {
+class EventQuestionResponseDialogFragment(private val representedQuestion: EventMessage) : DialogFragment() {
 
     private lateinit var binding: DialogfragmentEventQuestionResponseBinding
 

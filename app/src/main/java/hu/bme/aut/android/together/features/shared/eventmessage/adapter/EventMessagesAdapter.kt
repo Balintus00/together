@@ -3,10 +3,12 @@ package hu.bme.aut.android.together.features.shared.eventmessage.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.ItemEventNewsBinding
-import hu.bme.aut.android.together.model.EventNewsMessage
+import hu.bme.aut.android.together.model.presentation.EventMessage
+import hu.bme.aut.android.together.model.presentation.comparator.EventMessageComparator
 
 /**
  * This adapter can be used to represent a list of messages.
@@ -14,17 +16,8 @@ import hu.bme.aut.android.together.model.EventNewsMessage
  * @param onItemClick this function will be fired when an element will be clicked of the
  * RecyclerView, that uses this adapter.
  */
-class EventMessagesAdapter(val onItemClick: (representedNews: EventNewsMessage) -> Unit) :
-    RecyclerView.Adapter<EventMessagesAdapter.EventNewsViewHolder>() {
-
-    // TODO Actual data will be used later
-    private val eventNewsList = listOf(
-        EventNewsMessage(
-            "What kind of gift should you bring?",
-            "KR1ST0F",
-            "Lorem ipsum dolor sit amet."
-        )
-    )
+class EventMessagesAdapter(val onItemClick: (represented: EventMessage) -> Unit) :
+    ListAdapter<EventMessage, EventMessagesAdapter.EventNewsViewHolder>(EventMessageComparator) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventNewsViewHolder {
         return EventNewsViewHolder(
@@ -38,7 +31,7 @@ class EventMessagesAdapter(val onItemClick: (representedNews: EventNewsMessage) 
 
     override fun onBindViewHolder(holder: EventNewsViewHolder, position: Int) {
         with(holder.binding) {
-            val representedNews = eventNewsList[position]
+            val representedNews = getItem(position)
             tvTitleEventNews.text = representedNews.title
             tvAuthorEventNews.text =
                 holder.binding.root.resources.getString(R.string.by_author, representedNews.author)
@@ -49,18 +42,14 @@ class EventMessagesAdapter(val onItemClick: (representedNews: EventNewsMessage) 
 
     /**
      * Sets the card's onclick behaviour. Fires the method reference, that was given
-     * as parameter in the instance's constructor by passing [representedNews] parameter.
+     * as parameter in the instance's constructor by passing [represented] parameter.
      * @param card the Card, which onclick behaviour is being set by this function.
-     * @param representedNews the object which holds the card's data.
+     * @param represented the object which holds the card's data.
      */
-    private fun setCardOnClickBehaviour(card: CardView, representedNews: EventNewsMessage) {
+    private fun setCardOnClickBehaviour(card: CardView, represented: EventMessage) {
         card.setOnClickListener {
-            onItemClick(representedNews)
+            onItemClick(represented)
         }
-    }
-
-    override fun getItemCount(): Int {
-        return eventNewsList.size
     }
 
     /**

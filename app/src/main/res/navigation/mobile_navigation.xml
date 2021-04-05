@@ -220,7 +220,7 @@
     </navigation>
     <fragment
         android:id="@+id/eventInvitationsFragment"
-        android:name="hu.bme.aut.android.together.features.profile.fragment.EventInvitationsFragment"
+        android:name="hu.bme.aut.android.together.features.incomiginvitations.fragment.IncomingEventInvitationsFragment"
         android:label="fragment_event_invitations"
-        tools:layout="@layout/fragment_event_invitations" />
+        tools:layout="@layout/fragment_incoming_event_invitations" />
 </navigation>

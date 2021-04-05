@@ -12,7 +12,7 @@ import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentNewsListBinding
 import hu.bme.aut.android.together.features.shared.eventmessage.adapter.EventMessagesAdapter
 import hu.bme.aut.android.together.features.eventdetails.dialogfragment.EventPostNewsDialogFragment
-import hu.bme.aut.android.together.model.EventNewsMessage
+import hu.bme.aut.android.together.model.presentation.EventMessage
 
 /**
  * This fragment displays a list of news about the event.
@@ -67,15 +67,15 @@ class NewsListFragment : Fragment() {
     }
 
     /**
-     * Displays a dialog to the user, that contains the data of the given [EventNewsMessage]
+     * Displays a dialog to the user, that contains the data of the given [EventMessage]
      * instance.
-     * @param eventNewsMessage the data holder instance, which is used to set the content
+     * @param eventMessage the data holder instance, which is used to set the content
      * of the dialog.
      */
-    private fun showNewsInformationInDialog(eventNewsMessage: EventNewsMessage) {
+    private fun showNewsInformationInDialog(eventMessage: EventMessage) {
         AlertDialog.Builder(requireContext()).apply {
-            setTitle(eventNewsMessage.title)
-            setMessage(eventNewsMessage.message)
+            setTitle(eventMessage.title)
+            setMessage(eventMessage.message)
             setPositiveButton(getString(R.string.action_back)) { dialogInterface: DialogInterface, _: Int ->
                 dialogInterface.dismiss()
             }

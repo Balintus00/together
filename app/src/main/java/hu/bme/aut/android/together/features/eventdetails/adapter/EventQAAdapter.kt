@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.ItemEventNewsBinding
 import hu.bme.aut.android.together.databinding.ItemEventQABinding
-import hu.bme.aut.android.together.model.EventNewsMessage
+import hu.bme.aut.android.together.model.presentation.EventMessage
 import hu.bme.aut.android.together.model.EventQuestionAndAnswer
 
 /**
@@ -24,10 +24,10 @@ class EventQAAdapter(val context: Context) :
     // TODO Actual data will be used later
     private val questionAndAnswerList = listOf(
         EventQuestionAndAnswer(
-            EventNewsMessage(
+            EventMessage(
                 "Where can I park with my" +
                         " car nearby?", "B4RN1", "Lorem ipsum dolor sit amet?"
-            ), EventNewsMessage(
+            ), EventMessage(
                 "There is a huge parking" +
                         " lot around the house!", "KR1ST0F", "Lorem ipsum dolor sit amet!"
             )
@@ -58,7 +58,7 @@ class EventQAAdapter(val context: Context) :
      */
     private fun setUpCardMessage(
         eventMessageCard: ItemEventNewsBinding,
-        content: EventNewsMessage
+        content: EventMessage
     ) {
         setEventMessageCardContent(eventMessageCard, content)
         setCardOnClickBehaviour(eventMessageCard.cardItemEventNews, content)
@@ -66,7 +66,7 @@ class EventQAAdapter(val context: Context) :
 
     private fun setEventMessageCardContent(
         eventMessageCard: ItemEventNewsBinding,
-        content: EventNewsMessage
+        content: EventMessage
     ) {
         with(eventMessageCard) {
             tvTitleEventNews.text = content.title
@@ -80,13 +80,13 @@ class EventQAAdapter(val context: Context) :
      * After the card was clicked, an [AlertDialog] will be displayed, that displays the
      * content of the card.
      * @param card the card which onclick behaviour will be set.
-     * @param representedNews the instance, that holds the data of the card.
+     * @param represented the instance, that holds the data of the card.
      */
-    private fun setCardOnClickBehaviour(card: CardView, representedNews: EventNewsMessage) {
+    private fun setCardOnClickBehaviour(card: CardView, represented: EventMessage) {
         card.setOnClickListener {
             AlertDialog.Builder(context).apply {
-                setTitle(representedNews.title)
-                setMessage(representedNews.message)
+                setTitle(represented.title)
+                setMessage(represented.message)
                 setPositiveButton("BACK") { dialogInterface: DialogInterface, _: Int ->
                     dialogInterface.dismiss()
                 }

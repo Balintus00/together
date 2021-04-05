@@ -1,4 +1,4 @@
-package hu.bme.aut.android.together.features.profile.dialogfragment
+package hu.bme.aut.android.together.features.incomiginvitations.dialogfragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import hu.bme.aut.android.together.databinding.DialogfragmentInvitationResponderBinding
-import hu.bme.aut.android.together.model.EventNewsMessage
+import hu.bme.aut.android.together.model.presentation.EventMessage
 
 //TODO might needed to be refactored
-class InvitationResponderDialogFragment(val invitationData: EventNewsMessage) : DialogFragment() {
+class InvitationResponderDialogFragment(val invitationData: EventMessage) : DialogFragment() {
 
     private lateinit var binding: DialogfragmentInvitationResponderBinding
 
