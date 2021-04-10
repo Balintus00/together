@@ -6,13 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
-import co.zsmb.rainbowcake.dagger.getViewModelFromFactory
 import co.zsmb.rainbowcake.extensions.exhaustive
 import com.bumptech.glide.Glide
 import com.google.android.material.badge.BadgeDrawable
 import com.google.android.material.badge.BadgeUtils
+import dagger.hilt.android.AndroidEntryPoint
 import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentProfileBinding
 import hu.bme.aut.android.together.features.profile.viewmodel.Loading
@@ -26,6 +27,7 @@ import hu.bme.aut.android.together.model.presentation.ProfileData
  * profile picture.
  * From this fragment the user's invitation inbox and settings can be accessed using the toolbar.
  */
+@AndroidEntryPoint
 class ProfileFragment : RainbowCakeFragment<ProfileState, ProfileViewModel>() {
 
     companion object {
@@ -34,7 +36,9 @@ class ProfileFragment : RainbowCakeFragment<ProfileState, ProfileViewModel>() {
 
     private lateinit var binding: FragmentProfileBinding
 
-    override fun provideViewModel(): ProfileViewModel = getViewModelFromFactory()
+    private val profileViewModel : ProfileViewModel by viewModels()
+
+    override fun provideViewModel() = profileViewModel
 
     override fun render(viewState: ProfileState) {
         when (viewState) {

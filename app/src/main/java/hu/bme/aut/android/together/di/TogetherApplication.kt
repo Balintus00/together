@@ -1,13 +1,8 @@
 package hu.bme.aut.android.together.di
 
-import co.zsmb.rainbowcake.dagger.RainbowCakeApplication
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 
 @Suppress("unused")
-class TogetherApplication : RainbowCakeApplication() {
-
-    override lateinit var injector: AppComponent
-
-    override fun setupInjector() {
-        injector = DaggerAppComponent.create()
-    }
-}
+@HiltAndroidApp
+class TogetherApplication : Application()

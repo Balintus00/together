@@ -5,6 +5,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: "androidx.navigation.safeargs.kotlin"
 apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdkVersion 30
@@ -25,6 +26,15 @@ android {
 
         // Share the key with your `AndroidManifest.xml`
         manifestPlaceholders = [ MAPS_API_KEY:"${properties.getProperty('MAPS_API_KEY')}"]
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += [
+                        "room.schemaLocation":"$projectDir/schemas".toString(),
+                        "room.incremental":"true",
+                        "room.expandProjection":"true"]
+            }
+        }
     }
 
     buildFeatures {
@@ -99,16 +109,12 @@ dependencies {
     // Maps API using Google Play Services
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
 
-    //Dagger DI framework
-    def dagger_version = "2.29.1"
-    implementation "com.google.dagger:dagger:$dagger_version"
-    implementation "com.google.dagger:dagger-android-support:$dagger_version"
-    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
-    kapt "com.google.dagger:dagger-compiler:$dagger_version"
-
     //RainbowCake architecture
     implementation "co.zsmb:rainbow-cake-core:1.3.0"
-    implementation "co.zsmb:rainbow-cake-dagger:1.3.0"
+
+    //Hilt DI framework built on Dagger
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
 
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.12.0'
@@ -123,6 +129,8 @@ dependencies {
     // optional - Test helpers
     testImplementation "androidx.room:room-testing:$room_version"
 
+    //Lifecycle KTX
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
 
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'androidx.appcompat:appcompat:1.2.0'

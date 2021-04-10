@@ -5,11 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
-import co.zsmb.rainbowcake.dagger.getViewModelFromFactory
 import co.zsmb.rainbowcake.extensions.exhaustive
+import dagger.hilt.android.AndroidEntryPoint
 import hu.bme.aut.android.together.databinding.FragmentIncomingEventInvitationsBinding
 import hu.bme.aut.android.together.features.shared.eventmessage.adapter.EventMessagesAdapter
 import hu.bme.aut.android.together.features.incomiginvitations.dialogfragment.InvitationResponderDialogFragment
@@ -23,6 +24,7 @@ import hu.bme.aut.android.together.model.presentation.EventMessage
  * This Fragment displays the user's incoming invitations. The user can accept or decline these
  * invites here using [InvitationResponderDialogFragment].
  */
+@AndroidEntryPoint
 class IncomingEventInvitationsFragment :
     RainbowCakeFragment<IncomingEventInvitationsState, IncomingEventInvitationsViewModel>() {
 
@@ -34,7 +36,10 @@ class IncomingEventInvitationsFragment :
 
     private lateinit var adapter: EventMessagesAdapter
 
-    override fun provideViewModel(): IncomingEventInvitationsViewModel = getViewModelFromFactory()
+    private val incomingEventInvitationsViewModel: IncomingEventInvitationsViewModel by viewModels()
+
+    override fun provideViewModel(): IncomingEventInvitationsViewModel =
+        incomingEventInvitationsViewModel
 
     override fun render(viewState: IncomingEventInvitationsState) {
         when (viewState) {

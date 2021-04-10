@@ -1,27 +1,21 @@
-package hu.bme.aut.android.together.persistence
+package hu.bme.aut.android.together.persistence.repository
 
-import android.content.Context
-import androidx.room.Room
+import android.util.Log
 import hu.bme.aut.android.together.model.domain.DomainProfileData
 import hu.bme.aut.android.together.model.persistence.PersistedProfileData
-import hu.bme.aut.android.together.persistence.database.AppDatabase
+import hu.bme.aut.android.together.persistence.dao.ProfileDao
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
 
-class PersistenceManager @Inject constructor(
-    context: Context
+class ProfileRepository @Inject constructor(
+    private val profileDao: ProfileDao
 ) {
 
-    private val db = Room.databaseBuilder(
-        context,
-        AppDatabase::class.java, "database-name"
-    ).build()
-
-    private val profileDao = db.profileDao()
-
     fun saveProfileData(domainProfileData: DomainProfileData) {
+        Log.d("Together!", "Hello!")
         profileDao.insertProfileData(domainProfileData.toPersistedProfileData())
+        Log.d("Together!", "Bye bye!")
     }
 
     fun loadProfileData(profileId: Long): DomainProfileData {
