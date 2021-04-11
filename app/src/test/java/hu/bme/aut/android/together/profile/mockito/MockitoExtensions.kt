@@ -1,0 +1,5 @@
+package hu.bme.aut.android.together.profile.mockito
+
+import org.mockito.Mockito
+
+fun <T> any(type: Class<T>): T = Mockito.any(type)

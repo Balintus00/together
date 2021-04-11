@@ -13,9 +13,7 @@ class ProfileRepository @Inject constructor(
 ) {
 
     fun saveProfileData(domainProfileData: DomainProfileData) {
-        Log.d("Together!", "Hello!")
         profileDao.insertProfileData(domainProfileData.toPersistedProfileData())
-        Log.d("Together!", "Bye bye!")
     }
 
     fun loadProfileData(profileId: Long): DomainProfileData {
