@@ -23,6 +23,9 @@ class RoomModule {
         appDatabase.eventInvitationsDao()
 
     @Provides
+    fun provideEventShortInfoDao(appDatabase: AppDatabase) = appDatabase.eventShortInfoDao()
+
+    @Provides
     @Singleton
     fun provideAppDatabase(@ApplicationContext applicationContext: Context): AppDatabase {
         return Room.databaseBuilder(applicationContext, AppDatabase::class.java, "together-db")
