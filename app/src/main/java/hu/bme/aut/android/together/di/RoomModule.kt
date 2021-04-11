@@ -19,6 +19,10 @@ class RoomModule {
     fun provideProfileDao(appDatabase: AppDatabase) = appDatabase.profileDao()
 
     @Provides
+    fun provideIncomingEventInvitationsDao(appDatabase: AppDatabase) =
+        appDatabase.eventInvitationsDao()
+
+    @Provides
     @Singleton
     fun provideAppDatabase(@ApplicationContext applicationContext: Context): AppDatabase {
         return Room.databaseBuilder(applicationContext, AppDatabase::class.java, "together-db")

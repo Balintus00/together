@@ -12,7 +12,7 @@ import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentNewsListBinding
 import hu.bme.aut.android.together.features.shared.eventmessage.adapter.EventMessagesAdapter
 import hu.bme.aut.android.together.features.eventdetails.dialogfragment.EventPostNewsDialogFragment
-import hu.bme.aut.android.together.model.presentation.EventMessage
+import hu.bme.aut.android.together.model.presentation.EventInvitation
 
 /**
  * This fragment displays a list of news about the event.
@@ -67,12 +67,12 @@ class NewsListFragment : Fragment() {
     }
 
     /**
-     * Displays a dialog to the user, that contains the data of the given [EventMessage]
+     * Displays a dialog to the user, that contains the data of the given [EventInvitation]
      * instance.
      * @param eventMessage the data holder instance, which is used to set the content
      * of the dialog.
      */
-    private fun showNewsInformationInDialog(eventMessage: EventMessage) {
+    private fun showNewsInformationInDialog(eventMessage: EventInvitation) {
         AlertDialog.Builder(requireContext()).apply {
             setTitle(eventMessage.title)
             setMessage(eventMessage.message)

@@ -18,7 +18,7 @@ import hu.bme.aut.android.together.features.incomiginvitations.viewmodel.Incomin
 import hu.bme.aut.android.together.features.incomiginvitations.viewmodel.IncomingEventInvitationsState
 import hu.bme.aut.android.together.features.incomiginvitations.viewmodel.IncomingEventInvitationsViewModel
 import hu.bme.aut.android.together.features.incomiginvitations.viewmodel.Loading
-import hu.bme.aut.android.together.model.presentation.EventMessage
+import hu.bme.aut.android.together.model.presentation.EventInvitation
 
 /**
  * This Fragment displays the user's incoming invitations. The user can accept or decline these
@@ -55,7 +55,7 @@ class IncomingEventInvitationsFragment :
         }.exhaustive
     }
 
-    private fun setUpUIOnLoaded(eventInvitations: List<EventMessage>) {
+    private fun setUpUIOnLoaded(eventInvitations: List<EventInvitation>) {
         adapter.submitList(eventInvitations)
     }
 

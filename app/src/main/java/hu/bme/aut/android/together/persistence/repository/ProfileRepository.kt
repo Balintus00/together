@@ -1,6 +1,5 @@
 package hu.bme.aut.android.together.persistence.repository
 
-import android.util.Log
 import hu.bme.aut.android.together.model.domain.DomainProfileData
 import hu.bme.aut.android.together.model.persistence.PersistedProfileData
 import hu.bme.aut.android.together.persistence.dao.ProfileDao

@@ -4,7 +4,7 @@ import hu.bme.aut.android.together.features.profile.interactor.ProfileInteractor
 import hu.bme.aut.android.together.model.domain.DomainProfileData
 import hu.bme.aut.android.together.network.NetworkDataSource
 import hu.bme.aut.android.together.persistence.repository.ProfileRepository
-import hu.bme.aut.android.together.profile.mockito.any
+import hu.bme.aut.android.together.mockito.any
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith

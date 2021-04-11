@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import hu.bme.aut.android.together.databinding.FragmentEventQuestionsBinding
 import hu.bme.aut.android.together.features.shared.eventmessage.adapter.EventMessagesAdapter
 import hu.bme.aut.android.together.features.eventdetails.dialogfragment.EventQuestionResponseDialogFragment
-import hu.bme.aut.android.together.model.presentation.EventMessage
+import hu.bme.aut.android.together.model.presentation.EventInvitation
 
 /**
  * This fragment displays a list of questions. This is currently used to display the question inbox
@@ -69,7 +69,7 @@ class EventQuestionsFragment : Fragment() {
      * Pops up an AlertDialog, that can be used to answer a question.
      * @param eventMessage the instance, which contains the data of the question.
      */
-    private fun showEventQuestionResponseDialog(eventMessage: EventMessage) {
+    private fun showEventQuestionResponseDialog(eventMessage: EventInvitation) {
         EventQuestionResponseDialogFragment(eventMessage).show(parentFragmentManager, "")
     }
 }

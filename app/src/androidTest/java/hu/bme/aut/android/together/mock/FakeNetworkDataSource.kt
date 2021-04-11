@@ -1,7 +1,7 @@
 package hu.bme.aut.android.together.mock
 
+import hu.bme.aut.android.together.model.domain.DomainEventInvitation
 import hu.bme.aut.android.together.model.domain.DomainProfileData
-import hu.bme.aut.android.together.model.network.NetworkEventMessage
 import hu.bme.aut.android.together.network.NetworkDataSource
 import java.text.SimpleDateFormat
 import java.util.*
@@ -26,9 +26,9 @@ class FakeNetworkDataSource @Inject constructor() : NetworkDataSource {
         return usedProfileData
     }
 
-    override fun getIncomingInvitesById(id: Long): List<NetworkEventMessage> {
+    override fun getIncomingInvitesById(id: Long): List<DomainEventInvitation> {
         return listOf(
-            NetworkEventMessage(
+            DomainEventInvitation(
                 1,
                 "Come join my birthday party!",
                 "KR1ST0F",

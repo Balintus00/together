@@ -1,7 +1,7 @@
 package hu.bme.aut.android.together.network
 
+import hu.bme.aut.android.together.model.domain.DomainEventInvitation
 import hu.bme.aut.android.together.model.domain.DomainProfileData
-import hu.bme.aut.android.together.model.network.NetworkEventMessage
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
@@ -29,10 +29,10 @@ class NetworkManager @Inject constructor() : NetworkDataSource {
     }
 
     @Suppress("RedundantNullableReturnType")
-    override fun getIncomingInvitesById(@Suppress("UNUSED_PARAMETER") id: Long): List<NetworkEventMessage> {
+    override fun getIncomingInvitesById(@Suppress("UNUSED_PARAMETER") id: Long): List<DomainEventInvitation>? {
         Thread.sleep(SIMULATED_LOADING_TIME_MS)
         return listOf(
-            NetworkEventMessage(
+            DomainEventInvitation(
                 1,
                 "Come join my birthday party!",
                 "KR1ST0F",

@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.ItemEventNewsBinding
 import hu.bme.aut.android.together.databinding.ItemEventQABinding
-import hu.bme.aut.android.together.model.presentation.EventMessage
+import hu.bme.aut.android.together.model.presentation.EventInvitation
 import hu.bme.aut.android.together.model.EventQuestionAndAnswer
 
 /**
@@ -24,10 +24,10 @@ class EventQAAdapter(val context: Context) :
     // TODO Actual data will be used later
     private val questionAndAnswerList = listOf(
         EventQuestionAndAnswer(
-            EventMessage(
+            EventInvitation(
                 "Where can I park with my" +
                         " car nearby?", "B4RN1", "Lorem ipsum dolor sit amet?"
-            ), EventMessage(
+            ), EventInvitation(
                 "There is a huge parking" +
                         " lot around the house!", "KR1ST0F", "Lorem ipsum dolor sit amet!"
             )
@@ -58,7 +58,7 @@ class EventQAAdapter(val context: Context) :
      */
     private fun setUpCardMessage(
         eventMessageCard: ItemEventNewsBinding,
-        content: EventMessage
+        content: EventInvitation
     ) {
         setEventMessageCardContent(eventMessageCard, content)
         setCardOnClickBehaviour(eventMessageCard.cardItemEventNews, content)
@@ -66,7 +66,7 @@ class EventQAAdapter(val context: Context) :
 
     private fun setEventMessageCardContent(
         eventMessageCard: ItemEventNewsBinding,
-        content: EventMessage
+        content: EventInvitation
     ) {
         with(eventMessageCard) {
             tvTitleEventNews.text = content.title
@@ -82,7 +82,7 @@ class EventQAAdapter(val context: Context) :
      * @param card the card which onclick behaviour will be set.
      * @param represented the instance, that holds the data of the card.
      */
-    private fun setCardOnClickBehaviour(card: CardView, represented: EventMessage) {
+    private fun setCardOnClickBehaviour(card: CardView, represented: EventInvitation) {
         card.setOnClickListener {
             AlertDialog.Builder(context).apply {
                 setTitle(represented.title)

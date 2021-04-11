@@ -1,9 +1,9 @@
 package hu.bme.aut.android.together.model
 
-import hu.bme.aut.android.together.model.presentation.EventMessage
+import hu.bme.aut.android.together.model.presentation.EventInvitation
 
 /**
- * Contains two [EventMessage] references. One instance represents a question's data, the
+ * Contains two [EventInvitation] references. One instance represents a question's data, the
  * other represents an answer's data.
  */
-class EventQuestionAndAnswer(val question: EventMessage, val answer: EventMessage)
+class EventQuestionAndAnswer(val question: EventInvitation, val answer: EventInvitation)

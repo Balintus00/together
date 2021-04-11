@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.ItemEventNewsBinding
-import hu.bme.aut.android.together.model.presentation.EventMessage
+import hu.bme.aut.android.together.model.presentation.EventInvitation
 import hu.bme.aut.android.together.model.presentation.comparator.EventMessageComparator
 
 /**
@@ -16,8 +16,8 @@ import hu.bme.aut.android.together.model.presentation.comparator.EventMessageCom
  * @param onItemClick this function will be fired when an element will be clicked of the
  * RecyclerView, that uses this adapter.
  */
-class EventMessagesAdapter(val onItemClick: (represented: EventMessage) -> Unit) :
-    ListAdapter<EventMessage, EventMessagesAdapter.EventNewsViewHolder>(EventMessageComparator) {
+class EventMessagesAdapter(val onItemClick: (represented: EventInvitation) -> Unit) :
+    ListAdapter<EventInvitation, EventMessagesAdapter.EventNewsViewHolder>(EventMessageComparator) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventNewsViewHolder {
         return EventNewsViewHolder(
@@ -46,7 +46,7 @@ class EventMessagesAdapter(val onItemClick: (represented: EventMessage) -> Unit)
      * @param card the Card, which onclick behaviour is being set by this function.
      * @param represented the object which holds the card's data.
      */
-    private fun setCardOnClickBehaviour(card: CardView, represented: EventMessage) {
+    private fun setCardOnClickBehaviour(card: CardView, represented: EventInvitation) {
         card.setOnClickListener {
             onItemClick(represented)
         }
