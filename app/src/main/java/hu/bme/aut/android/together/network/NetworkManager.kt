@@ -6,14 +6,17 @@ import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
 
-class NetworkManager @Inject constructor() {
+class NetworkManager @Inject constructor() : NetworkDataSource {
 
     companion object {
-        private const val SIMULATED_LOADING_TIME_MS = 0L
+        private const val SIMULATED_LOADING_TIME_MS = 500L
     }
 
+    //TODO: RedundantNullabeReturnType warning is suppressed, because it will be fixed
+    // in the actual implementation later
+
     @Suppress("RedundantNullableReturnType")
-    fun getUserProfileById(@Suppress("UNUSED_PARAMETER") id: Long): DomainProfileData? {
+    override fun getUserProfileById(@Suppress("UNUSED_PARAMETER") id: Long): DomainProfileData? {
         Thread.sleep(SIMULATED_LOADING_TIME_MS)
         return DomainProfileData(
             1,
@@ -26,7 +29,7 @@ class NetworkManager @Inject constructor() {
     }
 
     @Suppress("RedundantNullableReturnType")
-    fun getIncomingInvitesById(@Suppress("UNUSED_PARAMETER") id: Long): List<NetworkEventMessage> {
+    override fun getIncomingInvitesById(@Suppress("UNUSED_PARAMETER") id: Long): List<NetworkEventMessage> {
         Thread.sleep(SIMULATED_LOADING_TIME_MS)
         return listOf(
             NetworkEventMessage(
