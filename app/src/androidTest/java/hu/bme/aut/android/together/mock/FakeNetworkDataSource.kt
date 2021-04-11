@@ -8,15 +8,22 @@ import java.util.*
 import javax.inject.Inject
 
 class FakeNetworkDataSource @Inject constructor() : NetworkDataSource {
-    override fun getUserProfileById(id: Long): DomainProfileData {
-        return DomainProfileData(
+
+    companion object {
+        const val usedDateString = "1999.9.1"
+
+        var usedProfileData = DomainProfileData(
             1,
             "Botond",
             "B0T0ND",
-            SimpleDateFormat("yyyy.MM.d.", Locale.ENGLISH).run { parse("1999.09.01.") }!!,
+            SimpleDateFormat("yyyy.M.d", Locale.ENGLISH).run { parse(usedDateString) }!!,
             "https://picsum.photos/200",
             1
         )
+    }
+
+    override fun getUserProfileById(id: Long): DomainProfileData {
+        return usedProfileData
     }
 
     override fun getIncomingInvitesById(id: Long): List<NetworkEventMessage> {
