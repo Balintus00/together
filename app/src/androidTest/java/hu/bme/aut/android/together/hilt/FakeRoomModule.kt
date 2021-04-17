@@ -9,8 +9,10 @@ import dagger.hilt.components.SingletonComponent
 import dagger.hilt.testing.TestInstallIn
 import hu.bme.aut.android.together.di.RoomModule
 import hu.bme.aut.android.together.model.persistence.PersistedEventInvitation
+import hu.bme.aut.android.together.model.persistence.PersistedEventShortInfo
 import hu.bme.aut.android.together.model.persistence.PersistedProfileData
 import hu.bme.aut.android.together.persistence.dao.EventInvitationsDao
+import hu.bme.aut.android.together.persistence.dao.EventShortInfoDao
 import hu.bme.aut.android.together.persistence.dao.ProfileDao
 import hu.bme.aut.android.together.persistence.database.AppDatabase
 import javax.inject.Singleton
@@ -54,6 +56,45 @@ class FakeRoomModule {
             }
 
             override fun insertIncomingEventInvitations(vararg invitations: PersistedEventInvitation) {}
+
+        }
+
+    @Provides
+    fun provideEventShortInfoDao(@Suppress("UNUSED_PARAMETER") appDatabase: AppDatabase) =
+        object : EventShortInfoDao {
+            override fun getCachedComingEventShortInfo(): List<PersistedEventShortInfo> {
+                return listOf(
+                    PersistedEventShortInfo(
+                        1,
+                        "Coronavirus beginning party",
+                        "Budapest",
+                        "2020.02.14.",
+                        "16:00",
+                        "2020.02.14.",
+                        "22:00",
+                        "https://picsum.photos/200",
+                        true
+                    )
+                )
+            }
+
+            override fun getPastComingEventShortInfo(): List<PersistedEventShortInfo> {
+                return listOf(
+                    PersistedEventShortInfo(
+                        1,
+                        "Coronavirus beginning party",
+                        "Budapest",
+                        "2020.02.14.",
+                        "16:00",
+                        "2020.02.14.",
+                        "22:00",
+                        "https://picsum.photos/200",
+                        true
+                    )
+                )
+            }
+
+            override fun insertCachedEventShortInfo(vararg eventShortInfo: PersistedEventShortInfo) {}
 
         }
 

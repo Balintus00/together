@@ -89,7 +89,7 @@ class NetworkManager @Inject constructor() : NetworkDataSource {
                 ).run { parse("2022.03.02. 22:00") }!!,
                 "https://picsum.photos/200",
                 true
-            ),
+            )
         )
     }
 
