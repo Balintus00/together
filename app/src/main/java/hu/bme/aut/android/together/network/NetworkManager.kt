@@ -46,7 +46,7 @@ class NetworkManager @Inject constructor() : NetworkDataSource {
         Thread.sleep(SIMULATED_LOADING_TIME_MS)
         return listOf(
             DomainEventShortInfo(
-                1,
+                1L,
                 "Kristóf's birthday party",
                 "Budapest",
                 SimpleDateFormat(
@@ -61,7 +61,7 @@ class NetworkManager @Inject constructor() : NetworkDataSource {
                 true
                 ),
             DomainEventShortInfo(
-                2,
+                2L,
                 "Budapest sightseeing tour",
                 "Budapest",
                 SimpleDateFormat(
@@ -76,7 +76,7 @@ class NetworkManager @Inject constructor() : NetworkDataSource {
                 true
             ),
             DomainEventShortInfo(
-                3,
+                3L,
                 "Going to gym",
                 "Budapest",
                 SimpleDateFormat(
@@ -97,7 +97,7 @@ class NetworkManager @Inject constructor() : NetworkDataSource {
         Thread.sleep(SIMULATED_LOADING_TIME_MS)
         return listOf(
             DomainEventShortInfo(
-                1,
+                1L,
                 "Coronavirus beginning party",
                 "Budapest",
                 SimpleDateFormat(
@@ -109,7 +109,7 @@ class NetworkManager @Inject constructor() : NetworkDataSource {
                     Locale.ENGLISH
                 ).run { parse("2020.02.14. 22:00") }!!,
                 "https://picsum.photos/200",
-                true
+                false
             )
         )
     }

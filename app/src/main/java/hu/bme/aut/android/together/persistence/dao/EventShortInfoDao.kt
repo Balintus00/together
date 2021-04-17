@@ -1,5 +1,6 @@
 package hu.bme.aut.android.together.persistence.dao
 
+import android.database.sqlite.SQLiteException
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -16,6 +17,7 @@ interface EventShortInfoDao {
     fun getPastComingEventShortInfo() : List<PersistedEventShortInfo>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Throws(SQLiteException::class)
     fun insertCachedEventShortInfo(vararg eventShortInfo : PersistedEventShortInfo)
 
 }

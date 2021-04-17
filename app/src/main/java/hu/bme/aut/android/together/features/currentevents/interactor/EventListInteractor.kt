@@ -11,16 +11,19 @@ class EventListInteractor @Inject constructor(
     private val eventShortInfoRepository: EventShortInfoRepository
 ) {
 
-    fun getComingEventShortInfoByProfileId(profileId: Long) : List<DomainEventShortInfo> {
-        return networkDataSource.getComingEventShortInfoListByProfileId(profileId)?.let { infoList ->
-            eventShortInfoRepository.persistEventShortInfo(*infoList.toTypedArray())
-            infoList
-        } ?: eventShortInfoRepository.loadCachedComingEventShortInfo()
+    fun getComingEventShortInfoByProfileId(profileId: Long): List<DomainEventShortInfo> {
+        return networkDataSource.getComingEventShortInfoListByProfileId(profileId)
+            ?.let { infoList ->
+                eventShortInfoRepository.persistEventShortInfo(*infoList.toTypedArray())
+                infoList
+            } ?: eventShortInfoRepository.loadCachedComingEventShortInfo()
     }
 
-    fun getPastEventShortInfoByProfileId(profileId: Long) : List<DomainEventShortInfo> {
+    fun getPastEventShortInfoByProfileId(profileId: Long): List<DomainEventShortInfo> {
         return networkDataSource.getPastEventShortInfoListByProfileId(profileId)?.let { infoList ->
+            Log.d("Together!", "Before call")
             eventShortInfoRepository.persistEventShortInfo(*infoList.toTypedArray())
+            Log.d("Together!", "After call")
             infoList
         } ?: eventShortInfoRepository.loadCachedPastEventShortInfo()
     }

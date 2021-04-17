@@ -25,9 +25,13 @@ class EventShortInfoRepository @Inject constructor(
     }
 
     fun persistEventShortInfo(vararg eventShortInfo: DomainEventShortInfo) {
-        eventShortInfoDao.insertCachedEventShortInfo(*eventShortInfo.map {
-            it.toPersistedEventShortInfo()
-        }.toTypedArray())
+        try {
+            eventShortInfoDao.insertCachedEventShortInfo(*eventShortInfo.map {
+                it.toPersistedEventShortInfo()
+            }.toTypedArray())
+        } catch (e: Exception) {
+            Log.e("Together!", e.stackTraceToString())
+        }
     }
 
     private fun DomainEventShortInfo.toPersistedEventShortInfo(): PersistedEventShortInfo {
