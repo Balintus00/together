@@ -14,6 +14,7 @@ import com.google.common.truth.Truth
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import hu.bme.aut.android.together.features.searchevent.searcher.fragment.EventQueryFragment
+import hu.bme.aut.android.together.hilt.launchFragmentInHiltContainer
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -33,14 +34,13 @@ class EventSearchScreenTest {
             navController.setGraph(R.navigation.mobile_navigation)
             navController.setCurrentDestination(R.id.eventQueryFragment)
         }
-        val eventSearchScreenScenario =
-            launchFragmentInContainer<EventQueryFragment>(themeResId = R.style.AppTheme)
-        eventSearchScreenScenario.onFragment { fragment ->
-            Navigation.setViewNavController(fragment.requireView(), navController)
+        launchFragmentInHiltContainer<EventQueryFragment>(themeResId = R.style.AppTheme) {
+            Navigation.setViewNavController(this.requireView(), navController)
         }
         Espresso.onView(ViewMatchers.withId(R.id.fabSearchEvent))
             .perform(ViewActions.click())
-        Truth.assertThat(navController.currentDestination?.id).isEqualTo(R.id.eventSearchResultFragment)
+        Truth.assertThat(navController.currentDestination?.id)
+            .isEqualTo(R.id.eventSearchResultFragment)
     }
 
 }
