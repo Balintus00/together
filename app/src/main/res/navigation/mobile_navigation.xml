@@ -32,7 +32,7 @@
     </fragment>
     <fragment
         android:id="@+id/eventQueryFragment"
-        android:name="hu.bme.aut.android.together.features.searchevent.fragment.EventQueryFragment"
+        android:name="hu.bme.aut.android.together.features.searchevent.searcher.fragment.EventQueryFragment"
         android:label="fragment_event_query"
         tools:layout="@layout/fragment_event_query">
         <action
@@ -57,7 +57,7 @@
         android:label="SettingsFragment" />
     <fragment
         android:id="@+id/eventSearchResultFragment"
-        android:name="hu.bme.aut.android.together.features.searchevent.fragment.EventSearchResultFragment"
+        android:name="hu.bme.aut.android.together.features.searchevent.result.fragment.EventSearchResultFragment"
         android:label="fragment_event_search_result"
         tools:layout="@layout/fragment_event_search_result" >
         <action

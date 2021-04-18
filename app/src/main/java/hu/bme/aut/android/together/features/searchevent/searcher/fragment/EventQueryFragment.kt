@@ -1,4 +1,4 @@
-package hu.bme.aut.android.together.features.searchevent.fragment
+package hu.bme.aut.android.together.features.searchevent.searcher.fragment
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
@@ -14,6 +14,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.navigation.fragment.findNavController
 import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentEventQueryBinding
+import hu.bme.aut.android.together.features.searchevent.fragment.EventQueryFragmentDirections
 import java.util.*
 
 /**
