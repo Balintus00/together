@@ -1,6 +1,7 @@
 package hu.bme.aut.android.together.mock
 
 import hu.bme.aut.android.together.model.domain.DomainEventInvitation
+import hu.bme.aut.android.together.model.domain.DomainEventQueryParameter
 import hu.bme.aut.android.together.model.domain.DomainEventShortInfo
 import hu.bme.aut.android.together.model.domain.DomainProfileData
 import hu.bme.aut.android.together.network.NetworkDataSource
@@ -52,8 +53,7 @@ class FakeNetworkDataSource @Inject constructor() : NetworkDataSource {
                     "yyyy.MM.dd. HH:mm",
                     Locale.ENGLISH
                 ).run { parse("2022.03.02. 22:00") }!!,
-                "https://picsum.photos/200",
-                true
+                "https://picsum.photos/200"
             ),
             DomainEventShortInfo(
                 2,
@@ -67,8 +67,7 @@ class FakeNetworkDataSource @Inject constructor() : NetworkDataSource {
                     "yyyy.MM.dd. HH:mm",
                     Locale.ENGLISH
                 ).run { parse("2022.03.02. 22:00") }!!,
-                "https://picsum.photos/200",
-                true
+                "https://picsum.photos/200"
             ),
             DomainEventShortInfo(
                 3,
@@ -82,8 +81,7 @@ class FakeNetworkDataSource @Inject constructor() : NetworkDataSource {
                     "yyyy.MM.dd. HH:mm",
                     Locale.ENGLISH
                 ).run { parse("2022.03.02. 22:00") }!!,
-                "https://picsum.photos/200",
-                true
+                "https://picsum.photos/200"
             )
         )
     }
@@ -102,8 +100,26 @@ class FakeNetworkDataSource @Inject constructor() : NetworkDataSource {
                     "yyyy.MM.dd. HH:mm",
                     Locale.ENGLISH
                 ).run { parse("2020.02.14. 22:00") }!!,
-                "https://picsum.photos/200",
-                true
+                "https://picsum.photos/200"
+            )
+        )
+    }
+
+    override fun searchEventsByQueryParameter(queryParameter: DomainEventQueryParameter): List<DomainEventShortInfo> {
+        return listOf(
+            DomainEventShortInfo(
+                1,
+                "Coronavirus beginning party",
+                "Budapest",
+                SimpleDateFormat(
+                    "yyyy.MM.dd. HH:mm",
+                    Locale.ENGLISH
+                ).run { parse("2020.02.14. 16:00") }!!,
+                SimpleDateFormat(
+                    "yyyy.MM.dd. HH:mm",
+                    Locale.ENGLISH
+                ).run { parse("2020.02.14. 22:00") }!!,
+                "https://picsum.photos/200"
             )
         )
     }

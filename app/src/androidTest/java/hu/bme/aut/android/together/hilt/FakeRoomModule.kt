@@ -62,7 +62,7 @@ class FakeRoomModule {
     @Provides
     fun provideEventShortInfoDao(@Suppress("UNUSED_PARAMETER") appDatabase: AppDatabase) =
         object : EventShortInfoDao {
-            override fun getCachedComingEventShortInfo(): List<PersistedEventShortInfo> {
+            override fun getShortInfoByPersistenceOption(shortInfoPersistenceOption: Int): List<PersistedEventShortInfo> {
                 return listOf(
                     PersistedEventShortInfo(
                         1,
@@ -73,23 +73,7 @@ class FakeRoomModule {
                         "2020.02.14.",
                         "22:00",
                         "https://picsum.photos/200",
-                        true
-                    )
-                )
-            }
-
-            override fun getPastComingEventShortInfo(): List<PersistedEventShortInfo> {
-                return listOf(
-                    PersistedEventShortInfo(
-                        1,
-                        "Coronavirus beginning party",
-                        "Budapest",
-                        "2020.02.14.",
-                        "16:00",
-                        "2020.02.14.",
-                        "22:00",
-                        "https://picsum.photos/200",
-                        true
+                        shortInfoPersistenceOption
                     )
                 )
             }
