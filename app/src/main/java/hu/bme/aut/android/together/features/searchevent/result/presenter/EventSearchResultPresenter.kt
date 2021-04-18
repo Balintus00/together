@@ -1,6 +1,5 @@
 package hu.bme.aut.android.together.features.searchevent.result.presenter
 
-import android.util.Log
 import co.zsmb.rainbowcake.withIOContext
 import hu.bme.aut.android.together.features.searchevent.result.interactor.EventSearchResultInteractor
 import hu.bme.aut.android.together.model.domain.DomainEventQueryParameter

@@ -1,6 +1,5 @@
 package hu.bme.aut.android.together.features.searchevent.result.viewmodel
 
-import android.util.Log
 import co.zsmb.rainbowcake.base.RainbowCakeViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import hu.bme.aut.android.together.features.searchevent.result.presenter.EventSearchResultPresenter

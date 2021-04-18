@@ -47,8 +47,7 @@ class EventListInteractorTest {
                     "yyyy.MM.dd. HH:mm",
                     Locale.ENGLISH
                 ).run { parse("2020.02.14. 22:00") }!!,
-                "https://picsum.photos/200",
-                true
+                "https://picsum.photos/200"
             )
         )
         Mockito.`when`(mockNetworkDataSource.getComingEventShortInfoListByProfileId(exampleProfileId))
@@ -80,8 +79,7 @@ class EventListInteractorTest {
                     "yyyy.MM.dd. HH:mm",
                     Locale.ENGLISH
                 ).run { parse("2020.02.14. 22:00") }!!,
-                "https://picsum.photos/200",
-                true
+                "https://picsum.photos/200"
             )
         )
         Mockito.`when`(mockNetworkDataSource.getComingEventShortInfoListByProfileId(exampleProfileId))
@@ -113,8 +111,7 @@ class EventListInteractorTest {
                     "yyyy.MM.dd. HH:mm",
                     Locale.ENGLISH
                 ).run { parse("2020.02.14. 22:00") }!!,
-                "https://picsum.photos/200",
-                false
+                "https://picsum.photos/200"
             )
         )
         Mockito.`when`(mockNetworkDataSource.getPastEventShortInfoListByProfileId(exampleProfileId))
@@ -146,8 +143,7 @@ class EventListInteractorTest {
                     "yyyy.MM.dd. HH:mm",
                     Locale.ENGLISH
                 ).run { parse("2020.02.14. 22:00") }!!,
-                "https://picsum.photos/200",
-                false
+                "https://picsum.photos/200"
             )
         )
         Mockito.`when`(mockNetworkDataSource.getPastEventShortInfoListByProfileId(exampleProfileId))
