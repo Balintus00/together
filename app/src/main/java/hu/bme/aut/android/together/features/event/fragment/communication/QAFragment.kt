@@ -1,4 +1,4 @@
-package hu.bme.aut.android.together.features.eventdetails.fragment.communication
+package hu.bme.aut.android.together.features.event.fragment.communication
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import hu.bme.aut.android.together.databinding.FragmentQABinding
-import hu.bme.aut.android.together.features.eventdetails.adapter.EventQAAdapter
-import hu.bme.aut.android.together.features.eventdetails.dialogfragment.EventQuestionAskingDialogFragment
+import hu.bme.aut.android.together.features.event.adapter.EventQAAdapter
+import hu.bme.aut.android.together.features.event.dialogfragment.EventQuestionAskingDialogFragment
 
 /**
  * This Fragment contains the QA panel for the events.

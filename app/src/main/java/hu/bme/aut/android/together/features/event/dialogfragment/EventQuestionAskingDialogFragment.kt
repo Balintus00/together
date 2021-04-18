@@ -1,4 +1,4 @@
-package hu.bme.aut.android.together.features.eventdetails.dialogfragment
+package hu.bme.aut.android.together.features.event.dialogfragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

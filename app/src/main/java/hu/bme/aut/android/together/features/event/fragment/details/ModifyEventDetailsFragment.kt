@@ -1,4 +1,4 @@
-package hu.bme.aut.android.together.features.eventdetails.fragment.details
+package hu.bme.aut.android.together.features.event.fragment.details
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -24,7 +24,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentModifyEventDetailsBinding
-import hu.bme.aut.android.together.features.eventdetails.dialogfragment.EventAttributeModifierDialogFragment
+import hu.bme.aut.android.together.features.event.dialogfragment.EventAttributeModifierDialogFragment
 import java.util.*
 
 /**

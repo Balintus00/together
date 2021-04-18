@@ -1,4 +1,4 @@
-package hu.bme.aut.android.together.features.eventdetails.fragment.communication
+package hu.bme.aut.android.together.features.event.fragment.communication
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -13,7 +13,7 @@ import com.google.android.material.badge.BadgeUtils
 import com.google.android.material.tabs.TabLayoutMediator
 import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentEventDetailsCommunicationBinding
-import hu.bme.aut.android.together.features.eventdetails.adapter.CommunicationPanelsAdapter
+import hu.bme.aut.android.together.features.event.adapter.CommunicationPanelsAdapter
 
 /**
  * This fragment provides an user interface, which can be used to connect with the event's other

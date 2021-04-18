@@ -1,4 +1,4 @@
-package hu.bme.aut.android.together.features.eventdetails.fragment.communication
+package hu.bme.aut.android.together.features.event.fragment.communication
 
 import android.app.AlertDialog
 import android.content.DialogInterface
@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentNewsListBinding
 import hu.bme.aut.android.together.features.shared.eventmessage.adapter.EventMessagesAdapter
-import hu.bme.aut.android.together.features.eventdetails.dialogfragment.EventPostNewsDialogFragment
+import hu.bme.aut.android.together.features.event.dialogfragment.EventPostNewsDialogFragment
 import hu.bme.aut.android.together.model.presentation.EventInvitation
 
 /**

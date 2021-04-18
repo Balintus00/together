@@ -1,4 +1,4 @@
-package hu.bme.aut.android.together.features.eventdetails.fragment.communication
+package hu.bme.aut.android.together.features.event.fragment.communication
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,7 +9,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import hu.bme.aut.android.together.databinding.FragmentEventQuestionsBinding
 import hu.bme.aut.android.together.features.shared.eventmessage.adapter.EventMessagesAdapter
-import hu.bme.aut.android.together.features.eventdetails.dialogfragment.EventQuestionResponseDialogFragment
+import hu.bme.aut.android.together.features.event.dialogfragment.EventQuestionResponseDialogFragment
 import hu.bme.aut.android.together.model.presentation.EventInvitation
 
 /**

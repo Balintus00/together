@@ -1,4 +1,4 @@
-package hu.bme.aut.android.together.features.eventdetails.fragment.details
+package hu.bme.aut.android.together.features.event.details.fragment
 
 import android.location.Geocoder
 import android.os.Bundle
@@ -19,6 +19,8 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.snackbar.Snackbar
 import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentEventDetailsBinding
+import hu.bme.aut.android.together.features.event.fragment.details.EventDetailsFragmentArgs
+import hu.bme.aut.android.together.features.event.fragment.details.EventDetailsFragmentDirections
 import java.util.*
 
 /**

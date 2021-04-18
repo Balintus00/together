@@ -1,10 +1,10 @@
-package hu.bme.aut.android.together.features.eventdetails.adapter
+package hu.bme.aut.android.together.features.event.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import hu.bme.aut.android.together.R
-import hu.bme.aut.android.together.features.eventdetails.fragment.communication.NewsListFragment
-import hu.bme.aut.android.together.features.eventdetails.fragment.communication.QAFragment
+import hu.bme.aut.android.together.features.event.fragment.communication.NewsListFragment
+import hu.bme.aut.android.together.features.event.fragment.communication.QAFragment
 
 /**
  * This adapter controls the appearance of the tabs, that can be used to communicate with the other

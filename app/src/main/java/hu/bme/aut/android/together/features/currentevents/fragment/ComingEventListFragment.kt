@@ -91,7 +91,7 @@ class ComingEventListFragment : RainbowCakeFragment<EventListState, ComingEventL
      * Initializes the contained RecyclerView widget's adapter and layoutManager.
      * [LinearLayoutManager] is used as its layoutManager, and the adapter is set to an [EventListAdapter]
      * instance. When an item event item is clicked, the user should be navigated to a
-     * [hu.bme.aut.android.together.features.eventdetails.fragment.details.EventDetailsFragment]
+     * [hu.bme.aut.android.together.features.event.fragment.details.EventDetailsFragment]
      * instance. This behaviour is passed as a method reference in the adapter's constructor.
      */
     private fun initRecyclerView() {

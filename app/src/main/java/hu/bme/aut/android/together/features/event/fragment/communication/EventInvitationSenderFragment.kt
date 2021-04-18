@@ -1,4 +1,4 @@
-package hu.bme.aut.android.together.features.eventdetails.fragment.communication
+package hu.bme.aut.android.together.features.event.fragment.communication
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -4,9 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
 import co.zsmb.rainbowcake.extensions.exhaustive
@@ -36,6 +34,7 @@ class EventSearchResultFragment :
             arrayOf(true, false, true, true)
         )
 
+        //TODO this should be retrieved from navargs !!!
         private val exampleEventQueryParameter = EventQueryParameter(
             "",
             "Szombathely",
@@ -105,7 +104,7 @@ class EventSearchResultFragment :
      * layoutManager as a [LinearLayoutManager] instance, and the adapter as an [EventListAdapter]
      * instance. In the adapter's constructor the item on click behaviour is passed. When a
      * contained item of this RecyclerView is clicked, it should navigate to an
-     * [hu.bme.aut.android.together.features.eventdetails.fragment.details.EventDetailsFragment]
+     * [hu.bme.aut.android.together.features.event.fragment.details.EventDetailsFragment]
      * instance, which displays the clicked event item's information.
      */
     private fun setUpRecyclerView() {

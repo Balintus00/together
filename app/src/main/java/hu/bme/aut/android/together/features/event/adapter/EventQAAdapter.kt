@@ -1,4 +1,4 @@
-package hu.bme.aut.android.together.features.eventdetails.adapter
+package hu.bme.aut.android.together.features.event.adapter
 
 import android.app.AlertDialog
 import android.content.Context
