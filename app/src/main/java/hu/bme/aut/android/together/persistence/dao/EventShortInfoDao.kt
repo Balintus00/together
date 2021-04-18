@@ -10,14 +10,6 @@ import hu.bme.aut.android.together.model.persistence.PersistedEventShortInfo
 @Dao
 interface EventShortInfoDao {
 
-    @Query("SELECT * FROM persistedeventshortinfo WHERE isComing = 1")
-    @Throws(SQLiteException::class)
-    fun getCachedComingEventShortInfo() : List<PersistedEventShortInfo>
-
-    @Query("SELECT * FROM persistedeventshortinfo WHERE isComing = 0")
-    @Throws(SQLiteException::class)
-    fun getPastComingEventShortInfo() : List<PersistedEventShortInfo>
-
     @Query("SELECT * FROM persistedeventshortinfo WHERE cachingType = :shortInfoPersistenceOption")
     @Throws(SQLiteException::class)
     fun getShortInfoByPersistenceOption(shortInfoPersistenceOption: Int) : List<PersistedEventShortInfo>

@@ -8,6 +8,5 @@ data class DomainEventShortInfo(
     val location: String,
     val startDate: Date,
     val endDate: Date,
-    val imageUrl: String,
-    val isComing: Boolean
+    val imageUrl: String
 )

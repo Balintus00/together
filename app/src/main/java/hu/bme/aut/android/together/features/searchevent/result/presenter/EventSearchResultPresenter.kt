@@ -16,11 +16,8 @@ class EventSearchResultPresenter @Inject constructor(
 ) {
 
     suspend fun loadSearchResults(searchParameters: EventQueryParameter) = withIOContext {
-        Log.d("Together!", "Hello")
         searchParameters.toDomainEventQueryParameter()
-        Log.d("Together!", "Hello")
         interactor.loadResultsByQueryParameters(searchParameters.toDomainEventQueryParameter()).map {
-            Log.d("Together!", "Hello")
             it.toEventShortInfo()
         }
     }

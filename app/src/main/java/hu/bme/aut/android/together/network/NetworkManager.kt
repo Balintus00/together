@@ -59,8 +59,7 @@ class NetworkManager @Inject constructor() : NetworkDataSource {
                     "yyyy.MM.dd. HH:mm",
                     Locale.ENGLISH
                 ).run { parse("2022.03.02. 22:00") }!!,
-                "https://picsum.photos/200",
-                true
+                "https://picsum.photos/200"
                 ),
             DomainEventShortInfo(
                 2L,
@@ -74,8 +73,7 @@ class NetworkManager @Inject constructor() : NetworkDataSource {
                     "yyyy.MM.dd. HH:mm",
                     Locale.ENGLISH
                 ).run { parse("2022.03.02. 22:00") }!!,
-                "https://picsum.photos/200",
-                true
+                "https://picsum.photos/200"
             ),
             DomainEventShortInfo(
                 3L,
@@ -89,8 +87,7 @@ class NetworkManager @Inject constructor() : NetworkDataSource {
                     "yyyy.MM.dd. HH:mm",
                     Locale.ENGLISH
                 ).run { parse("2022.03.02. 22:00") }!!,
-                "https://picsum.photos/200",
-                true
+                "https://picsum.photos/200"
             )
         )
     }
@@ -110,8 +107,7 @@ class NetworkManager @Inject constructor() : NetworkDataSource {
                     "yyyy.MM.dd. HH:mm",
                     Locale.ENGLISH
                 ).run { parse("2020.02.14. 22:00") }!!,
-                "https://picsum.photos/200",
-                false
+                "https://picsum.photos/200"
             )
         )
     }
@@ -131,8 +127,7 @@ class NetworkManager @Inject constructor() : NetworkDataSource {
                     "yyyy.MM.dd. HH:mm",
                     Locale.ENGLISH
                 ).run { parse("2020.02.14. 22:00") }!!,
-                "https://picsum.photos/200",
-                false
+                "https://picsum.photos/200"
             )
         )
     }

@@ -59,7 +59,7 @@ class EventListInteractorTest {
         Mockito.verify(mockNetworkDataSource, Mockito.times(1))
             .getComingEventShortInfoListByProfileId(exampleProfileId)
         Mockito.verify(mockEventShortInfoRepository, Mockito.times(1))
-            .persistEventShortInfo(*exampleEventShortInfoList.toTypedArray())
+            .persistComingEventShortInfo(*exampleEventShortInfoList.toTypedArray())
         Mockito.verify(mockEventShortInfoRepository, Mockito.never())
             .loadCachedComingEventShortInfo()
     }
@@ -92,7 +92,7 @@ class EventListInteractorTest {
         Mockito.verify(mockNetworkDataSource, Mockito.times(1))
             .getComingEventShortInfoListByProfileId(1L)
         Mockito.verify(mockEventShortInfoRepository, Mockito.never())
-            .persistEventShortInfo(any())
+            .persistComingEventShortInfo(any())
         Mockito.verify(mockEventShortInfoRepository, Mockito.times(1))
             .loadCachedComingEventShortInfo()
     }
@@ -125,7 +125,7 @@ class EventListInteractorTest {
         Mockito.verify(mockNetworkDataSource, Mockito.times(1))
             .getPastEventShortInfoListByProfileId(exampleProfileId)
         Mockito.verify(mockEventShortInfoRepository, Mockito.times(1))
-            .persistEventShortInfo(*exampleEventShortInfoList.toTypedArray())
+            .persistPastEventShortInfo(*exampleEventShortInfoList.toTypedArray())
         Mockito.verify(mockEventShortInfoRepository, Mockito.never())
             .loadCachedPastEventShortInfo()
     }
@@ -158,7 +158,7 @@ class EventListInteractorTest {
         Mockito.verify(mockNetworkDataSource, Mockito.times(1))
             .getPastEventShortInfoListByProfileId(1L)
         Mockito.verify(mockEventShortInfoRepository, Mockito.never())
-            .persistEventShortInfo(any())
+            .persistPastEventShortInfo(any())
         Mockito.verify(mockEventShortInfoRepository, Mockito.times(1))
             .loadCachedPastEventShortInfo()
     }

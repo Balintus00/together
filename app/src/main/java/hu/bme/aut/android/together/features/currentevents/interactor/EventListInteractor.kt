@@ -18,7 +18,7 @@ class EventListInteractor @Inject constructor(
         return networkDataSource.getComingEventShortInfoListByProfileId(profileId)
             ?.let { infoList ->
                 try {
-                    eventShortInfoRepository.persistEventShortInfo(*infoList.toTypedArray())
+                    eventShortInfoRepository.persistComingEventShortInfo(*infoList.toTypedArray())
                 } catch (e: RuntimeException) {
                     Log.e("Together!", "Persisting data into database failed. Stacktrace:")
                     Log.e("Together!", e.stackTraceToString())
@@ -39,7 +39,7 @@ class EventListInteractor @Inject constructor(
     fun getPastEventShortInfoByProfileId(profileId: Long): List<DomainEventShortInfo> {
         return networkDataSource.getPastEventShortInfoListByProfileId(profileId)?.let { infoList ->
             try {
-                eventShortInfoRepository.persistEventShortInfo(*infoList.toTypedArray())
+                eventShortInfoRepository.persistPastEventShortInfo(*infoList.toTypedArray())
             } catch (e: RuntimeException) {
                 Log.e("Together!", "Persisting data into database failed. Stacktrace:")
                 Log.e("Together!", e.stackTraceToString())

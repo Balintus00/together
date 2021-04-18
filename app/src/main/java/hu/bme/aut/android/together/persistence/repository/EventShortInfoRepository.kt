@@ -24,9 +24,10 @@ class EventShortInfoRepository @Inject constructor(
      */
     fun loadCachedComingEventShortInfo(): List<DomainEventShortInfo> {
         try {
-            return eventShortInfoDao.getCachedComingEventShortInfo().map {
-                it.toDomainEventShortInfo()
-            }
+            return eventShortInfoDao.getShortInfoByPersistenceOption(PersistedEventShortInfoType.ComingEvent.ordinal)
+                .map {
+                    it.toDomainEventShortInfo()
+                }
         } catch (e: SQLiteException) {
             throw RuntimeException(LOADING_EXCEPTION_MESSAGE)
         }
@@ -37,34 +38,24 @@ class EventShortInfoRepository @Inject constructor(
      */
     fun loadCachedPastEventShortInfo(): List<DomainEventShortInfo> {
         try {
-            return eventShortInfoDao.getPastComingEventShortInfo().map {
-                it.toDomainEventShortInfo()
-            }
+            return eventShortInfoDao.getShortInfoByPersistenceOption(PersistedEventShortInfoType.PastEvent.ordinal)
+                .map {
+                    it.toDomainEventShortInfo()
+                }
         } catch (e: SQLiteException) {
             Log.e("Together!", e.stackTraceToString())
             throw RuntimeException(LOADING_EXCEPTION_MESSAGE)
         }
     }
 
+    /**
+     * @throws RuntimeException if the loading was unsuccessful.
+     */
     fun loadCachedResultEventShortInfo(): List<DomainEventShortInfo> {
         return eventShortInfoDao.getShortInfoByPersistenceOption(PersistedEventShortInfoType.ResultEvent.ordinal)
             .map {
                 it.toDomainEventShortInfo()
             }
-    }
-
-    /**
-     * @throws RuntimeException if the saving was unsuccessful.
-     */
-    fun persistEventShortInfo(vararg eventShortInfo: DomainEventShortInfo) {
-        try {
-            eventShortInfoDao.insertCachedEventShortInfo(*eventShortInfo.map {
-                it.toPersistedEventShortInfo()
-            }.toTypedArray())
-        } catch (e: SQLiteException) {
-            Log.e("Together!", e.stackTraceToString())
-            throw RuntimeException(SAVING_EXCEPTION_MESSAGE)
-        }
     }
 
     /**
@@ -109,24 +100,6 @@ class EventShortInfoRepository @Inject constructor(
         }
     }
 
-    //TODO remove
-    private fun DomainEventShortInfo.toPersistedEventShortInfo(): PersistedEventShortInfo {
-        val startCalendar = Calendar.getInstance().apply { time = startDate }
-        val endCalendar = Calendar.getInstance().apply { time = endDate }
-        return PersistedEventShortInfo(
-            eventId,
-            name,
-            location,
-            startCalendar.run { "${get(Calendar.YEAR)}.${get(Calendar.MONTH) + 1}.${get(Calendar.DAY_OF_MONTH)}." },
-            startCalendar.run { "${get(Calendar.HOUR_OF_DAY)}:${get(Calendar.MINUTE)}" },
-            endCalendar.run { "${get(Calendar.YEAR)}.${get(Calendar.MONTH) + 1}.${get(Calendar.DAY_OF_MONTH)}." },
-            endCalendar.run { "${get(Calendar.HOUR_OF_DAY)}:${get(Calendar.MINUTE)}" },
-            imageUrl,
-            isComing,
-            0
-        )
-    }
-
     private fun DomainEventShortInfo.toPersistedEventShortInfo(cachingType: Int): PersistedEventShortInfo {
         require(cachingType in PersistedEventShortInfoType.values().map { it.ordinal })
         val startCalendar = Calendar.getInstance().apply { time = startDate }
@@ -140,7 +113,6 @@ class EventShortInfoRepository @Inject constructor(
             endCalendar.run { "${get(Calendar.YEAR)}.${get(Calendar.MONTH) + 1}.${get(Calendar.DAY_OF_MONTH)}." },
             endCalendar.run { "${get(Calendar.HOUR_OF_DAY)}:${get(Calendar.MINUTE)}" },
             imageUrl,
-            isComing,
             cachingType
         )
     }
@@ -158,8 +130,7 @@ class EventShortInfoRepository @Inject constructor(
                 "yyyy.MM.dd. HH:mm",
                 Locale.ENGLISH
             ).run { parse("$endDate $endTime") }!!,
-            imageUrl,
-            isComing
+            imageUrl
         )
     }
 
