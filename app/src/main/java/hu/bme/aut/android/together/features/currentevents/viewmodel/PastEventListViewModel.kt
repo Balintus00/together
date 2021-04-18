@@ -12,8 +12,13 @@ class PastEventListViewModel @Inject constructor(
 
     fun loadPastEventShortInfoListByProfileId(profileId: Long) = execute {
         viewState = Loading
-        pastEventListPresenter.loadPastEventShortInfoByProfileId(profileId).let{
-            viewState = EventListLoaded(it)
+        try {
+            pastEventListPresenter.loadPastEventShortInfoByProfileId(profileId).let{
+                viewState = EventListLoaded(it)
+            }
+        }
+        catch (e: RuntimeException) {
+            viewState = LoadingError(e.localizedMessage!!)
         }
     }
 

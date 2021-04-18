@@ -11,9 +11,11 @@ import hu.bme.aut.android.together.model.persistence.PersistedEventShortInfo
 interface EventShortInfoDao {
 
     @Query("SELECT * FROM persistedeventshortinfo WHERE isComing = 1")
+    @Throws(SQLiteException::class)
     fun getCachedComingEventShortInfo() : List<PersistedEventShortInfo>
 
     @Query("SELECT * FROM persistedeventshortinfo WHERE isComing = 0")
+    @Throws(SQLiteException::class)
     fun getPastComingEventShortInfo() : List<PersistedEventShortInfo>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

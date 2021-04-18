@@ -11,12 +11,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
 import co.zsmb.rainbowcake.extensions.exhaustive
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentEventListBinding
-import hu.bme.aut.android.together.features.currentevents.viewmodel.ComingEventListViewModel
-import hu.bme.aut.android.together.features.currentevents.viewmodel.EventListLoaded
-import hu.bme.aut.android.together.features.currentevents.viewmodel.EventListState
-import hu.bme.aut.android.together.features.currentevents.viewmodel.Loading
+import hu.bme.aut.android.together.features.currentevents.viewmodel.*
 import hu.bme.aut.android.together.features.shared.eventlist.adapter.EventListAdapter
 import hu.bme.aut.android.together.model.presentation.EventShortInfo
 
@@ -28,7 +27,7 @@ class ComingEventListFragment : RainbowCakeFragment<EventListState, ComingEventL
 
     //TODO this data mocking will be removed later
     companion object {
-        private val FAKE_PROFILE_ID = 1L
+        private const val FAKE_PROFILE_ID = 1L
 
         private val eventDetailsItemOptionsArray = arrayOf(
             arrayOf(false, true, false, true),
@@ -41,12 +40,12 @@ class ComingEventListFragment : RainbowCakeFragment<EventListState, ComingEventL
 
     private lateinit var binding: FragmentEventListBinding
 
-    private val comingEventListViewModel : ComingEventListViewModel by viewModels()
+    private val comingEventListViewModel: ComingEventListViewModel by viewModels()
 
-    override fun provideViewModel(): ComingEventListViewModel  = comingEventListViewModel
+    override fun provideViewModel(): ComingEventListViewModel = comingEventListViewModel
 
     override fun render(viewState: EventListState) {
-        when(viewState) {
+        when (viewState) {
             is Loading -> {
                 binding.cpiEventListLoading.isVisible = true
                 binding.flContent.isVisible = false
@@ -56,11 +55,22 @@ class ComingEventListFragment : RainbowCakeFragment<EventListState, ComingEventL
                 setUpUIOnLoaded(viewState.eventShortInfoList)
                 binding.flContent.isVisible = true
             }
+            is LoadingError -> {
+                binding.cpiEventListLoading.isVisible = false
+                binding.flContent.isVisible = false
+                displayLoadingError(viewState.errorMessage)
+            }
         }.exhaustive
     }
 
     private fun setUpUIOnLoaded(eventShortInfoList: List<EventShortInfo>) {
         eventListAdapter.submitList(eventShortInfoList)
+    }
+
+    private fun displayLoadingError(errorMessage: String) {
+        Snackbar.make(requireView(), errorMessage, Snackbar.LENGTH_LONG)
+            .setAction(getString(R.string.action_reload)
+            ) { viewModel.loadComingEventShortInfoListByProfileId(FAKE_PROFILE_ID) }.show()
     }
 
     override fun onCreateView(

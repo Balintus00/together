@@ -1,5 +1,6 @@
 package hu.bme.aut.android.together.persistence.repository
 
+import android.database.sqlite.SQLiteException
 import android.util.Log
 import hu.bme.aut.android.together.model.domain.DomainEventShortInfo
 import hu.bme.aut.android.together.model.persistence.PersistedEventShortInfo
@@ -12,25 +13,49 @@ class EventShortInfoRepository @Inject constructor(
     private val eventShortInfoDao: EventShortInfoDao
 ) {
 
+    companion object {
+        const val LOADING_EXCEPTION_MESSAGE = "LOADING_EXCEPTION"
+        const val SAVING_EXCEPTION_MESSAGE = "SAVING_EXCEPTION"
+    }
+
+    /**
+     * @throws RuntimeException if the loading was unsuccessful.
+     */
     fun loadCachedComingEventShortInfo(): List<DomainEventShortInfo> {
-        return eventShortInfoDao.getCachedComingEventShortInfo().map {
-            it.toDomainEventShortInfo()
+        try {
+            return eventShortInfoDao.getCachedComingEventShortInfo().map {
+                it.toDomainEventShortInfo()
+            }
+        } catch (e: SQLiteException) {
+            throw RuntimeException(LOADING_EXCEPTION_MESSAGE)
         }
     }
 
+    /**
+     * @throws RuntimeException if the loading was unsuccessful.
+     */
     fun loadCachedPastEventShortInfo(): List<DomainEventShortInfo> {
-        return eventShortInfoDao.getPastComingEventShortInfo().map {
-            it.toDomainEventShortInfo()
+        try {
+            return eventShortInfoDao.getPastComingEventShortInfo().map {
+                it.toDomainEventShortInfo()
+            }
+        } catch(e: SQLiteException) {
+            Log.e("Together!", e.stackTraceToString())
+            throw RuntimeException(LOADING_EXCEPTION_MESSAGE)
         }
     }
 
+    /**
+     * @throws RuntimeException if the saving was unsuccessful.
+     */
     fun persistEventShortInfo(vararg eventShortInfo: DomainEventShortInfo) {
         try {
             eventShortInfoDao.insertCachedEventShortInfo(*eventShortInfo.map {
                 it.toPersistedEventShortInfo()
             }.toTypedArray())
-        } catch (e: Exception) {
+        } catch (e: SQLiteException) {
             Log.e("Together!", e.stackTraceToString())
+            throw RuntimeException(SAVING_EXCEPTION_MESSAGE)
         }
     }
 

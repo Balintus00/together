@@ -10,12 +10,11 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
 import co.zsmb.rainbowcake.extensions.exhaustive
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentEventListBinding
-import hu.bme.aut.android.together.features.currentevents.viewmodel.EventListLoaded
-import hu.bme.aut.android.together.features.currentevents.viewmodel.EventListState
-import hu.bme.aut.android.together.features.currentevents.viewmodel.Loading
-import hu.bme.aut.android.together.features.currentevents.viewmodel.PastEventListViewModel
+import hu.bme.aut.android.together.features.currentevents.viewmodel.*
 import hu.bme.aut.android.together.features.shared.eventlist.adapter.EventListAdapter
 import hu.bme.aut.android.together.model.presentation.EventShortInfo
 
@@ -27,7 +26,7 @@ class PastEventListFragment : RainbowCakeFragment<EventListState, PastEventListV
 
     //TODO this data mocking will be removed later
     companion object {
-        private val FAKE_PROFILE_ID = 1L
+        private const val FAKE_PROFILE_ID = 1L
 
         private val eventDetailsItemOptionsArray = arrayOf(
             arrayOf(false, true, false, true),
@@ -40,12 +39,12 @@ class PastEventListFragment : RainbowCakeFragment<EventListState, PastEventListV
 
     private lateinit var binding: FragmentEventListBinding
 
-    private val pastEventListViewModel : PastEventListViewModel by viewModels()
+    private val pastEventListViewModel: PastEventListViewModel by viewModels()
 
     override fun provideViewModel(): PastEventListViewModel = pastEventListViewModel
 
     override fun render(viewState: EventListState) {
-        when(viewState) {
+        when (viewState) {
             is Loading -> {
                 binding.cpiEventListLoading.isVisible = true
                 binding.flContent.isVisible = false
@@ -55,11 +54,23 @@ class PastEventListFragment : RainbowCakeFragment<EventListState, PastEventListV
                 setUpUIOnLoaded(viewState.eventShortInfoList)
                 binding.flContent.isVisible = true
             }
+            is LoadingError -> {
+                binding.cpiEventListLoading.isVisible = false
+                binding.flContent.isVisible = false
+                displayError(viewState.errorMessage)
+            }
         }.exhaustive
     }
 
     private fun setUpUIOnLoaded(eventShortInfoList: List<EventShortInfo>) {
         eventListAdapter.submitList(eventShortInfoList)
+    }
+
+    private fun displayError(errorMessage: String) {
+        Snackbar.make(requireView(), errorMessage, Snackbar.LENGTH_LONG).setAction(
+            getString(R.string.action_reload)
+        ) { viewModel.loadPastEventShortInfoListByProfileId(FAKE_PROFILE_ID) }
+            .show()
     }
 
     override fun onCreateView(

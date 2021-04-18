@@ -11,19 +11,39 @@ class EventListInteractor @Inject constructor(
     private val eventShortInfoRepository: EventShortInfoRepository
 ) {
 
+    /**
+     * @throws RuntimeException if loading cached data is needed, and this operation fails.
+     */
     fun getComingEventShortInfoByProfileId(profileId: Long): List<DomainEventShortInfo> {
         return networkDataSource.getComingEventShortInfoListByProfileId(profileId)
             ?.let { infoList ->
-                eventShortInfoRepository.persistEventShortInfo(*infoList.toTypedArray())
+                try {
+                    eventShortInfoRepository.persistEventShortInfo(*infoList.toTypedArray())
+                } catch (e: RuntimeException) {
+                    Log.e("Together!", "Persisting data into database failed. Stacktrace:")
+                    Log.e("Together!", e.stackTraceToString())
+                }
                 infoList
-            } ?: eventShortInfoRepository.loadCachedComingEventShortInfo()
+            } ?: try {
+            eventShortInfoRepository.loadCachedComingEventShortInfo()
+        } catch (e: RuntimeException) {
+            Log.e("Together!", "Loading cached data failed. Stacktrace:")
+            Log.e("Together!", e.stackTraceToString())
+            throw e
+        }
     }
 
+    /**
+     * @throws RuntimeException if loading cached data is needed, and this operation fails.
+     */
     fun getPastEventShortInfoByProfileId(profileId: Long): List<DomainEventShortInfo> {
         return networkDataSource.getPastEventShortInfoListByProfileId(profileId)?.let { infoList ->
-            Log.d("Together!", "Before call")
-            eventShortInfoRepository.persistEventShortInfo(*infoList.toTypedArray())
-            Log.d("Together!", "After call")
+            try {
+                eventShortInfoRepository.persistEventShortInfo(*infoList.toTypedArray())
+            } catch (e: RuntimeException) {
+                Log.e("Together!", "Persisting data into database failed. Stacktrace:")
+                Log.e("Together!", e.stackTraceToString())
+            }
             infoList
         } ?: eventShortInfoRepository.loadCachedPastEventShortInfo()
     }

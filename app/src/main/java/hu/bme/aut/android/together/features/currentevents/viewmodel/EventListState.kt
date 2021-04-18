@@ -9,3 +9,7 @@ object Loading : EventListState()
 data class EventListLoaded(
     val eventShortInfoList : List<EventShortInfo>
 ) : EventListState()
+
+data class LoadingError(
+    val errorMessage: String
+) : EventListState()

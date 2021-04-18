@@ -214,4 +214,6 @@
     <string name="hint_event_attribute_modifier">Type here the new value of the selected attribute!</string>
     <string name="title_modification_event_attribute">Detail modification - %s</string>
     <string name="title_modification_event_image">Modify your event\'s image!</string>
+    <string name="error_message_loading">Searched data can\'t be loaded!</string>
+    <string name="action_reload">RELOAD</string>
 </resources>
