@@ -10,7 +10,7 @@ class ComingEventListViewModel @Inject constructor(
     private val comingEventListPresenter: ComingEventListPresenter
 ) : RainbowCakeViewModel<EventListState>(Loading) {
 
-    fun loadComingPastEventShortInfoListByProfileId(profileId: Long) = execute {
+    fun loadComingEventShortInfoListByProfileId(profileId: Long) = execute {
         viewState = Loading
         comingEventListPresenter.loadPastEventShortInfoByProfileId(profileId).let{
             viewState = EventListLoaded(it)

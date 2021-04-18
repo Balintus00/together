@@ -1,6 +1,7 @@
 package hu.bme.aut.android.together.incominginvitations
 
 import hu.bme.aut.android.together.features.incomiginvitations.interactor.IncomingEventInvitationsInteractor
+import hu.bme.aut.android.together.mockito.any
 import hu.bme.aut.android.together.model.domain.DomainEventInvitation
 import hu.bme.aut.android.together.network.NetworkDataSource
 import hu.bme.aut.android.together.persistence.repository.EventInvitationsRepository
@@ -60,7 +61,7 @@ class IncomingInvitationsInteractorTest {
         incomingEventInvitationsInteractor.getUsersIncomingInvites(exampleProfileId)
         Mockito.verify(mockNetworkDataSource, Mockito.times(1)).getIncomingInvitesById(1L)
         Mockito.verify(mockEventInvitationsRepository, Mockito.never())
-            .saveIncomingEventInvitations()
+            .saveIncomingEventInvitations(any())
         Mockito.verify(mockEventInvitationsRepository, Mockito.times(1))
             .loadIncomingEventInvitations()
     }

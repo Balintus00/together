@@ -119,6 +119,6 @@ class ComingEventListFragment : RainbowCakeFragment<EventListState, ComingEventL
 
     override fun onStart() {
         super.onStart()
-        viewModel.loadComingPastEventShortInfoListByProfileId(FAKE_PROFILE_ID)
+        viewModel.loadComingEventShortInfoListByProfileId(FAKE_PROFILE_ID)
     }
 }

@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
 
+//TODO this fake implementation will be changed to communicate with the backend
 class NetworkManager @Inject constructor() : NetworkDataSource {
 
     companion object {
