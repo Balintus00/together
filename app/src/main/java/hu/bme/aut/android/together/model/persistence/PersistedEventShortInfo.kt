@@ -14,5 +14,10 @@ data class PersistedEventShortInfo(
     @ColumnInfo(name = "endDate") val endDate: String,
     @ColumnInfo(name = "endTime") val endTime: String,
     @ColumnInfo(name = "imageUrl") val imageUrl: String,
-    @ColumnInfo(name = "isComing") val isComing: Boolean
+    @ColumnInfo(name = "isComing") val isComing: Boolean,
+    @ColumnInfo(name = "cachingType") val cachingType: Int
 )
+
+enum class PersistedEventShortInfoType {
+    ComingEvent, PastEvent, ResultEvent
+}

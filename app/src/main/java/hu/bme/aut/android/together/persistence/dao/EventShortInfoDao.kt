@@ -18,6 +18,10 @@ interface EventShortInfoDao {
     @Throws(SQLiteException::class)
     fun getPastComingEventShortInfo() : List<PersistedEventShortInfo>
 
+    @Query("SELECT * FROM persistedeventshortinfo WHERE cachingType = :shortInfoPersistenceOption")
+    @Throws(SQLiteException::class)
+    fun getShortInfoByPersistenceOption(shortInfoPersistenceOption: Int) : List<PersistedEventShortInfo>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     @Throws(SQLiteException::class)
     fun insertCachedEventShortInfo(vararg eventShortInfo : PersistedEventShortInfo)

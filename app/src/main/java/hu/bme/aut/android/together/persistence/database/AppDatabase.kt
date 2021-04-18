@@ -11,7 +11,7 @@ import hu.bme.aut.android.together.persistence.dao.ProfileDao
 
 @Database(
     entities = [PersistedProfileData::class, PersistedEventInvitation::class, PersistedEventShortInfo::class],
-    version = 1
+    version = 2
 )
 abstract class AppDatabase : RoomDatabase() {
 

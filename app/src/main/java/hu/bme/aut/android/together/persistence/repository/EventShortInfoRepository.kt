@@ -4,6 +4,7 @@ import android.database.sqlite.SQLiteException
 import android.util.Log
 import hu.bme.aut.android.together.model.domain.DomainEventShortInfo
 import hu.bme.aut.android.together.model.persistence.PersistedEventShortInfo
+import hu.bme.aut.android.together.model.persistence.PersistedEventShortInfoType
 import hu.bme.aut.android.together.persistence.dao.EventShortInfoDao
 import java.text.SimpleDateFormat
 import java.util.*
@@ -39,10 +40,17 @@ class EventShortInfoRepository @Inject constructor(
             return eventShortInfoDao.getPastComingEventShortInfo().map {
                 it.toDomainEventShortInfo()
             }
-        } catch(e: SQLiteException) {
+        } catch (e: SQLiteException) {
             Log.e("Together!", e.stackTraceToString())
             throw RuntimeException(LOADING_EXCEPTION_MESSAGE)
         }
+    }
+
+    fun loadCachedResultEventShortInfo(): List<DomainEventShortInfo> {
+        return eventShortInfoDao.getShortInfoByPersistenceOption(PersistedEventShortInfoType.ResultEvent.ordinal)
+            .map {
+                it.toDomainEventShortInfo()
+            }
     }
 
     /**
@@ -59,6 +67,49 @@ class EventShortInfoRepository @Inject constructor(
         }
     }
 
+    /**
+     * @throws RuntimeException if the saving was unsuccessful.
+     */
+    fun persistResultEventShortInfo(vararg eventShortInfo: DomainEventShortInfo) {
+        try {
+            eventShortInfoDao.insertCachedEventShortInfo(*eventShortInfo.map {
+                it.toPersistedEventShortInfo(PersistedEventShortInfoType.ResultEvent.ordinal)
+            }.toTypedArray())
+        } catch (e: SQLiteException) {
+            Log.e("Together!", e.stackTraceToString())
+            throw RuntimeException(SAVING_EXCEPTION_MESSAGE)
+        }
+    }
+
+    /**
+     * @throws RuntimeException if the saving was unsuccessful.
+     */
+    fun persistComingEventShortInfo(vararg eventShortInfo: DomainEventShortInfo) {
+        try {
+            eventShortInfoDao.insertCachedEventShortInfo(*eventShortInfo.map {
+                it.toPersistedEventShortInfo(PersistedEventShortInfoType.ComingEvent.ordinal)
+            }.toTypedArray())
+        } catch (e: SQLiteException) {
+            Log.e("Together!", e.stackTraceToString())
+            throw RuntimeException(SAVING_EXCEPTION_MESSAGE)
+        }
+    }
+
+    /**
+     * @throws RuntimeException if the saving was unsuccessful.
+     */
+    fun persistPastEventShortInfo(vararg eventShortInfo: DomainEventShortInfo) {
+        try {
+            eventShortInfoDao.insertCachedEventShortInfo(*eventShortInfo.map {
+                it.toPersistedEventShortInfo(PersistedEventShortInfoType.PastEvent.ordinal)
+            }.toTypedArray())
+        } catch (e: SQLiteException) {
+            Log.e("Together!", e.stackTraceToString())
+            throw RuntimeException(SAVING_EXCEPTION_MESSAGE)
+        }
+    }
+
+    //TODO remove
     private fun DomainEventShortInfo.toPersistedEventShortInfo(): PersistedEventShortInfo {
         val startCalendar = Calendar.getInstance().apply { time = startDate }
         val endCalendar = Calendar.getInstance().apply { time = endDate }
@@ -71,7 +122,26 @@ class EventShortInfoRepository @Inject constructor(
             endCalendar.run { "${get(Calendar.YEAR)}.${get(Calendar.MONTH) + 1}.${get(Calendar.DAY_OF_MONTH)}." },
             endCalendar.run { "${get(Calendar.HOUR_OF_DAY)}:${get(Calendar.MINUTE)}" },
             imageUrl,
-            isComing
+            isComing,
+            0
+        )
+    }
+
+    private fun DomainEventShortInfo.toPersistedEventShortInfo(cachingType: Int): PersistedEventShortInfo {
+        require(cachingType in PersistedEventShortInfoType.values().map { it.ordinal })
+        val startCalendar = Calendar.getInstance().apply { time = startDate }
+        val endCalendar = Calendar.getInstance().apply { time = endDate }
+        return PersistedEventShortInfo(
+            eventId,
+            name,
+            location,
+            startCalendar.run { "${get(Calendar.YEAR)}.${get(Calendar.MONTH) + 1}.${get(Calendar.DAY_OF_MONTH)}." },
+            startCalendar.run { "${get(Calendar.HOUR_OF_DAY)}:${get(Calendar.MINUTE)}" },
+            endCalendar.run { "${get(Calendar.YEAR)}.${get(Calendar.MONTH) + 1}.${get(Calendar.DAY_OF_MONTH)}." },
+            endCalendar.run { "${get(Calendar.HOUR_OF_DAY)}:${get(Calendar.MINUTE)}" },
+            imageUrl,
+            isComing,
+            cachingType
         )
     }
 

@@ -142,7 +142,7 @@ class EventQueryFragment : RainbowCakeFragment<EventQueryState, EventQueryViewMo
         DatePickerDialog(
             requireContext(),
             { _, year, month, day ->
-                changeText(getString(R.string.date_year_month_day, year, month, day))
+                changeText(getString(R.string.date_year_month_day, year, month + 1, day))
             },
             calendar.get(Calendar.YEAR),
             calendar.get(Calendar.MONTH),

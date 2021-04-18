@@ -29,6 +29,8 @@ class RoomModule {
     @Singleton
     fun provideAppDatabase(@ApplicationContext applicationContext: Context): AppDatabase {
         return Room.databaseBuilder(applicationContext, AppDatabase::class.java, "together-db")
+            // Currently the database is used only for caching, so this option seems to be perfect
+            .fallbackToDestructiveMigration()
             .build()
     }
 
