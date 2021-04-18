@@ -11,12 +11,19 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
 import androidx.test.internal.runner.junit4.statement.UiThreadStatement
 import com.google.common.truth.Truth
+import dagger.hilt.android.testing.HiltAndroidRule
+import dagger.hilt.android.testing.HiltAndroidTest
 import hu.bme.aut.android.together.features.searchevent.searcher.fragment.EventQueryFragment
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
+@HiltAndroidTest
 class EventSearchScreenTest {
+
+    @get:Rule
+    var hiltRule = HiltAndroidRule(this)
 
     @Test
     @SmallTest
