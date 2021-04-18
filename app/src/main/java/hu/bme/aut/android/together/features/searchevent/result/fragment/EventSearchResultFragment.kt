@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import hu.bme.aut.android.together.databinding.FragmentEventSearchResultBinding
-import hu.bme.aut.android.together.features.searchevent.fragment.EventSearchResultFragmentDirections
 import hu.bme.aut.android.together.features.shared.eventlist.adapter.EventListAdapter
 
 /**
