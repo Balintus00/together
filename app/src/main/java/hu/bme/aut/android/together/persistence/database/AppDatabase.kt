@@ -2,16 +2,19 @@ package hu.bme.aut.android.together.persistence.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import hu.bme.aut.android.together.model.persistence.PersistedEventDetails
 import hu.bme.aut.android.together.model.persistence.PersistedEventInvitation
 import hu.bme.aut.android.together.model.persistence.PersistedEventShortInfo
 import hu.bme.aut.android.together.model.persistence.PersistedProfileData
+import hu.bme.aut.android.together.persistence.dao.EventDetailsDao
 import hu.bme.aut.android.together.persistence.dao.EventInvitationsDao
 import hu.bme.aut.android.together.persistence.dao.EventShortInfoDao
 import hu.bme.aut.android.together.persistence.dao.ProfileDao
 
 @Database(
-    entities = [PersistedProfileData::class, PersistedEventInvitation::class, PersistedEventShortInfo::class],
-    version = 3
+    entities = [PersistedProfileData::class, PersistedEventInvitation::class, PersistedEventShortInfo::class,
+        PersistedEventDetails::class],
+    version = 4
 )
 abstract class AppDatabase : RoomDatabase() {
 
@@ -20,4 +23,6 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun eventInvitationsDao(): EventInvitationsDao
 
     abstract fun eventShortInfoDao(): EventShortInfoDao
+
+    abstract fun eventDetailsDao(): EventDetailsDao
 }

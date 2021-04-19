@@ -193,6 +193,7 @@
     <string name="date_year_month_day">%1$d.%2$d.%3$d</string>
     <string name="time_hour_minute">%1$d:%2$d</string>
     <string name="by_author">by %s</string>
+    <string name="event_details_remaining_spaces">Remaining spaces: %d</string>
     <string name="content_description_current_event_list_add_fab">Create your own new event button.</string>
     <string name="swipe_left_back_button">Swipe left/back button</string>
     <string name="swipe_right_forward_button">Swipe right/forward button</string>
@@ -216,4 +217,5 @@
     <string name="title_modification_event_image">Modify your event\'s image!</string>
     <string name="error_message_loading">Searched data can\'t be loaded!</string>
     <string name="action_reload">RELOAD</string>
+    <string name="event_details_unlimited_spaces">Spaces are not limited!</string>
 </resources>

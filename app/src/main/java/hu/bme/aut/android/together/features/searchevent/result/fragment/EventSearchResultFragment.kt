@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
 import co.zsmb.rainbowcake.extensions.exhaustive
@@ -26,26 +28,17 @@ import hu.bme.aut.android.together.model.presentation.EventShortInfo
 class EventSearchResultFragment :
     RainbowCakeFragment<EventSearchResultState, EventSearchResultViewModel>() {
 
-    //TODO this data mocking will be removed later
-    companion object {
-        private val eventDetailsItemOptionsArray = arrayOf(
-            arrayOf(false, true, false, true),
-            arrayOf(false, false, true, false),
-            arrayOf(true, false, true, true)
-        )
-
-        //TODO this should be retrieved from navargs !!!
-        private val exampleEventQueryParameter = EventQueryParameter(
-            "",
-            "Szombathely",
-            0,
-            "2021.03.18.",
-            "18:53",
-            "2021.04.18.",
-            "18:54",
-            "Family"
-        )
-    }
+    //TODO this should be retrieved from navargs !!!
+    private val exampleEventQueryParameter = EventQueryParameter(
+        "",
+        "Szombathely",
+        0,
+        "2021.03.18.",
+        "18:53",
+        "2021.04.18.",
+        "18:54",
+        "Family"
+    )
 
     private lateinit var binding: FragmentEventSearchResultBinding
 
@@ -104,20 +97,15 @@ class EventSearchResultFragment :
      * layoutManager as a [LinearLayoutManager] instance, and the adapter as an [EventListAdapter]
      * instance. In the adapter's constructor the item on click behaviour is passed. When a
      * contained item of this RecyclerView is clicked, it should navigate to an
-     * [hu.bme.aut.android.together.features.event.fragment.details.EventDetailsFragment]
+     * [hu.bme.aut.android.together.features.event.details.fragment.EventDetailsFragment]
      * instance, which displays the clicked event item's information.
      */
     private fun setUpRecyclerView() {
         listAdapter = EventListAdapter { position ->
-            eventDetailsItemOptionsArray[position].let { optionsArray ->
-                EventSearchResultFragmentDirections.actionEventSearchResultFragmentToEventDetailsFragment(
-                    isOrganiser = optionsArray[0],
-                    isPrivate = optionsArray[1],
-                    isParticipantCountLimited = optionsArray[2],
-                    isParticipant = optionsArray[3]
-                ).let { action ->
-                    binding.rvEventResults.findNavController().navigate(action)
-                }
+            EventSearchResultFragmentDirections.actionEventSearchResultFragmentToEventDetailsFragment(
+                (position + 1).toLong()
+            ).let { action ->
+                binding.rvEventResults.findNavController().navigate(action)
             }
         }
         with(binding.rvEventResults) {

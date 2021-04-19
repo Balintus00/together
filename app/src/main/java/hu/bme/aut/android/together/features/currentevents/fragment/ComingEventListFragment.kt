@@ -28,12 +28,6 @@ class ComingEventListFragment : RainbowCakeFragment<EventListState, ComingEventL
     //TODO this data mocking will be removed later
     companion object {
         private const val FAKE_PROFILE_ID = 1L
-
-        private val eventDetailsItemOptionsArray = arrayOf(
-            arrayOf(false, true, false, true),
-            arrayOf(false, false, true, false),
-            arrayOf(true, false, true, true)
-        )
     }
 
     private lateinit var eventListAdapter: EventListAdapter
@@ -69,7 +63,8 @@ class ComingEventListFragment : RainbowCakeFragment<EventListState, ComingEventL
 
     private fun displayLoadingError(errorMessage: String) {
         Snackbar.make(requireView(), errorMessage, Snackbar.LENGTH_LONG)
-            .setAction(getString(R.string.action_reload)
+            .setAction(
+                getString(R.string.action_reload)
             ) { viewModel.loadComingEventShortInfoListByProfileId(FAKE_PROFILE_ID) }.show()
     }
 
@@ -91,24 +86,19 @@ class ComingEventListFragment : RainbowCakeFragment<EventListState, ComingEventL
      * Initializes the contained RecyclerView widget's adapter and layoutManager.
      * [LinearLayoutManager] is used as its layoutManager, and the adapter is set to an [EventListAdapter]
      * instance. When an item event item is clicked, the user should be navigated to a
-     * [hu.bme.aut.android.together.features.event.fragment.details.EventDetailsFragment]
+     * [hu.bme.aut.android.together.features.event.details.fragment.EventDetailsFragment]
      * instance. This behaviour is passed as a method reference in the adapter's constructor.
      */
     private fun initRecyclerView() {
         with(binding.rvEvents) {
             layoutManager = LinearLayoutManager(requireContext())
             eventListAdapter = EventListAdapter { position ->
-                eventDetailsItemOptionsArray[position].let { optionsArray ->
-                    EventListsPagerFragmentDirections.actionCurrentEventsListFragmentToEventDetailsFragment(
-                        isOrganiser = optionsArray[0],
-                        isPrivate = optionsArray[1],
-                        isParticipantCountLimited = optionsArray[2],
-                        isParticipant = optionsArray[3]
-                    )
-                        .let { action ->
-                            findNavController().navigate(action)
-                        }
-                }
+                EventListsPagerFragmentDirections.actionCurrentEventsListFragmentToEventDetailsFragment(
+                    (position + 1).toLong()
+                )
+                    .let { action ->
+                        findNavController().navigate(action)
+                    }
             }
             adapter = eventListAdapter
         }

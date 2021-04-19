@@ -50,7 +50,7 @@ class EventSearchResultPresenter @Inject constructor(
     }
 
     private fun convertDateToRepresentedDateFormat(date: Date): String {
-        return SimpleDateFormat("yyyy, MMM dd - HH:mm", Locale.ENGLISH).format(date)
+        return SimpleDateFormat("EEEE, MMM dd - HH:mm", Locale.ENGLISH).format(date)
     }
 
 }

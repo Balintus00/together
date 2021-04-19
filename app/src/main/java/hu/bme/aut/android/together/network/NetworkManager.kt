@@ -1,9 +1,6 @@
 package hu.bme.aut.android.together.network
 
-import hu.bme.aut.android.together.model.domain.DomainEventInvitation
-import hu.bme.aut.android.together.model.domain.DomainEventQueryParameter
-import hu.bme.aut.android.together.model.domain.DomainEventShortInfo
-import hu.bme.aut.android.together.model.domain.DomainProfileData
+import hu.bme.aut.android.together.model.domain.*
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
@@ -130,6 +127,82 @@ class NetworkManager @Inject constructor() : NetworkDataSource {
                 "https://picsum.photos/200"
             )
         )
+    }
+
+    override fun getEventDetailsById(eventId: Long): DomainEventDetails {
+        Thread.sleep(SIMULATED_LOADING_TIME_MS)
+        //returning different kinds of events by id
+        return when(eventId) {
+            1L -> {
+                DomainEventDetails(
+                    1L,
+                    "Kristóf's birtday party",
+                    "https://picsum.photos/200",
+                    SimpleDateFormat(
+                        "yyyy.MM.dd. HH:mm",
+                        Locale.ENGLISH
+                    ).run { parse("2020.02.14. 16:00") }!!,
+                    SimpleDateFormat(
+                        "yyyy.MM.dd. HH:mm",
+                        Locale.ENGLISH
+                    ).run { parse("2020.02.14. 22:00") }!!,
+                    "Budapest, Irinyi József u. 42.",
+                    "Lorem ipsum dolor sit amet!",
+                    false,
+                    0,
+                    0,
+                    isPrivate = true,
+                    isParticipant = true,
+                    isOrganiser = true
+                )
+            }
+            2L -> {
+                DomainEventDetails(
+                    2L,
+                    "Budapest sightseeing tour",
+                    "https://picsum.photos/200",
+                    SimpleDateFormat(
+                        "yyyy.MM.dd. HH:mm",
+                        Locale.ENGLISH
+                    ).run { parse("2020.02.14. 16:00") }!!,
+                    SimpleDateFormat(
+                        "yyyy.MM.dd. HH:mm",
+                        Locale.ENGLISH
+                    ).run { parse("2020.02.14. 22:00") }!!,
+                    "Budapest, Irinyi József u. 42.",
+                    "Lorem ipsum dolor sit amet!",
+                    true,
+                    50,
+                    30,
+                    isPrivate = false,
+                    isParticipant = true,
+                    isOrganiser = false
+                )
+            }
+            else -> {
+                DomainEventDetails(
+                    3L,
+                    "Going to gym",
+                    "https://picsum.photos/200",
+                    SimpleDateFormat(
+                        "yyyy.MM.dd. HH:mm",
+                        Locale.ENGLISH
+                    ).run { parse("2020.02.14. 16:00") }!!,
+                    SimpleDateFormat(
+                        "yyyy.MM.dd. HH:mm",
+                        Locale.ENGLISH
+                    ).run { parse("2020.02.14. 22:00") }!!,
+                    "Budapest, Irinyi József u. 42.",
+                    "Lorem ipsum dolor sit amet!",
+                    false,
+                    0,
+                    0,
+                    isPrivate = false,
+                    isParticipant = false,
+                    isOrganiser = false
+                )
+            }
+        }
     }
 
 }

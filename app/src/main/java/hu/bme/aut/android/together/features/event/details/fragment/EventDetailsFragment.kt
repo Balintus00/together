@@ -3,77 +3,122 @@ package hu.bme.aut.android.together.features.event.details.fragment
 import android.location.Geocoder
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.core.view.isVisible
+import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import co.zsmb.rainbowcake.base.RainbowCakeFragment
+import co.zsmb.rainbowcake.extensions.exhaustive
+import com.bumptech.glide.Glide
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentEventDetailsBinding
-import hu.bme.aut.android.together.features.event.fragment.details.EventDetailsFragmentArgs
-import hu.bme.aut.android.together.features.event.fragment.details.EventDetailsFragmentDirections
+import hu.bme.aut.android.together.features.event.details.viewmodel.EventDetailsLoaded
+import hu.bme.aut.android.together.features.event.details.viewmodel.EventDetailsState
+import hu.bme.aut.android.together.features.event.details.viewmodel.EventDetailsViewModel
+import hu.bme.aut.android.together.features.event.details.viewmodel.Loading
+import hu.bme.aut.android.together.model.presentation.EventDetails
 import java.util.*
+import kotlin.properties.Delegates
 
 /**
  * This fragment instance can be used to display an event's details.
  */
-class EventDetailsFragment : Fragment(), OnMapReadyCallback {
+@AndroidEntryPoint
+class EventDetailsFragment : RainbowCakeFragment<EventDetailsState, EventDetailsViewModel>(),
+    OnMapReadyCallback {
 
-    //TODO these navigation arguments will be later removed, when actual data will be used
     private val args: EventDetailsFragmentArgs by navArgs()
-
-    //organiser, private, limitedParticipantCount, isParticipant
-    private lateinit var optionsArray: Array<Boolean>
 
     private lateinit var binding: FragmentEventDetailsBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        retrieveOptionsArray()
+    private val eventDetailsViewModel: EventDetailsViewModel by viewModels()
+
+    private var representedEventId by Delegates.notNull<Long>()
+
+    private var mapLocation: String? = null
+
+    override fun provideViewModel() = eventDetailsViewModel
+
+    override fun render(viewState: EventDetailsState) {
+        when (viewState) {
+            is Loading -> {
+                displayLoadingStateUI()
+            }
+            is EventDetailsLoaded -> {
+                setDisplayableDetailsData(viewState.details)
+                displayLoadedStateUI()
+            }
+        }.exhaustive
     }
 
-    //TODO these navigation arguments will be later removed, when actual data will be used
-    private fun retrieveOptionsArray() {
-        optionsArray = arrayOf(
-            args.isOrganiser,
-            args.isPrivate,
-            args.isParticipantCountLimited,
-            args.isParticipant
+    private fun displayLoadingStateUI() {
+        binding.clDetailsContent.isVisible = false
+        binding.fabActionEventDetails.isVisible = false
+        binding.cpiDetailsLoading.isVisible = true
+    }
+
+    private fun setDisplayableDetailsData(details: EventDetails) {
+        binding.ctlEventDetailsToolbarLayout.title = details.title
+        loadEventImage(details.imageUrl)
+        binding.tvPrivateEvent.isVisible = details.isPrivate
+        binding.tvEventDateTime.text = details.startDate
+        binding.tvEventPlace.text = details.location
+        binding.tvMapLocation.text = details.location
+        setMapLocation(details.location)
+        setParticipantCountText(
+            details.isParticipantCountLimited,
+            details.maxParticipantCount,
+            details.currentParticipantCount
         )
+        //TODO too long descriptions should be handled
+        binding.tvEventQuickDescription.text = details.description
+        setMainFABBehaviour(details.isParticipant, details.isOrganiser)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentEventDetailsBinding.inflate(inflater, container, false)
-        return binding.root
+    private fun loadEventImage(imageURL: String) {
+        Glide.with(binding.ivEventImage).load(imageURL).into(binding.ivEventImage)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        setUpUIWidgets(savedInstanceState)
-        handleBackPressed()
+    private fun setParticipantCountText(
+        areSpacesLimited: Boolean,
+        maxParticipantCount: Int,
+        currentParticipantCount: Int
+    ) {
+        binding.tvEventParticipantCount.text = if (areSpacesLimited) {
+            getString(
+                R.string.event_details_remaining_spaces,
+                maxParticipantCount - currentParticipantCount
+            )
+        } else {
+            getString(R.string.event_details_unlimited_spaces)
+        }
     }
 
-    private fun setUpUIWidgets(savedInstanceState: Bundle?) {
-        setUpRoleDependentUIWidgets()
-        setUpNonRoleDependentUiWidgets(savedInstanceState)
+    private fun setMapLocation(location: String) {
+        mapLocation = location
+        binding.mvEventLocation.getMapAsync(this)
     }
 
-    private fun setUpRoleDependentUIWidgets() {
+    private fun setMainFABBehaviour(isParticipant: Boolean, isOrganiser: Boolean) {
+        setUpRoleDependentUIWidgets(isParticipant, isOrganiser)
+    }
+
+    private fun setUpRoleDependentUIWidgets(isParticipant: Boolean, isOrganiser: Boolean) {
         when {
-            optionsArray[0] -> setUpWidgetsAsOrganiser()
-            optionsArray[3] -> setUpWidgetsAsParticipant()
+            isOrganiser -> setUpWidgetsAsOrganiser()
+            isParticipant -> setUpWidgetsAsParticipant()
             else -> setUpWidgetsAsNonParticipant()
         }
     }
@@ -222,21 +267,47 @@ class EventDetailsFragment : Fragment(), OnMapReadyCallback {
         ).show()
     }
 
+    private fun displayLoadedStateUI() {
+        binding.clDetailsContent.isVisible = true
+        binding.fabActionEventDetails.isVisible = true
+        binding.cpiDetailsLoading.isVisible = false
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        retrieveRepresentedEventId()
+    }
+
+    private fun retrieveRepresentedEventId() {
+        representedEventId = args.eventId
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentEventDetailsBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setUpUIWidgets(savedInstanceState)
+        handleBackPressed()
+    }
+
+    private fun setUpUIWidgets(savedInstanceState: Bundle?) {
+        setUpNonRoleDependentUiWidgets(savedInstanceState)
+    }
+
     private fun setUpNonRoleDependentUiWidgets(savedInstanceState: Bundle?) {
-        setEventVisibilityTextVisibility()
         setUpMap(savedInstanceState)
         setUpToolbar()
         setShowWholeDescriptionTextBehaviour()
     }
 
-    private fun setEventVisibilityTextVisibility() {
-        if (optionsArray[1])
-            binding.tvPrivateEvent.visibility = View.VISIBLE
-    }
-
     private fun setUpMap(savedInstanceState: Bundle?) {
         binding.mvEventLocation.onCreate(savedInstanceState)
-        binding.mvEventLocation.getMapAsync(this)
     }
 
     /**
@@ -252,6 +323,7 @@ class EventDetailsFragment : Fragment(), OnMapReadyCallback {
     }
 
     /**
+     * TODO this reference should be fixed later.
      * Sets the onclick behaviour of the TextView, that can be used to navigate to the screen
      * (implemented by [EventDetailsFullDescriptionFragment]), that displays the whole description
      * of the event.
@@ -287,6 +359,7 @@ class EventDetailsFragment : Fragment(), OnMapReadyCallback {
     override fun onStart() {
         super.onStart()
         binding.mvEventLocation.onStart()
+        eventDetailsViewModel.loadEventDetails(representedEventId)
     }
 
     override fun onResume() {
@@ -358,15 +431,16 @@ class EventDetailsFragment : Fragment(), OnMapReadyCallback {
      */
     private fun geocodeLocation(): LatLng {
         with(Geocoder(requireContext(), Locale.ENGLISH)) {
-            //TODO actual location should be used later
-            getFromLocationName("Irinyi József utca 42., Budapest", 1).let { addressList ->
-                if (addressList.size == 0)
-                    throw IllegalStateException("No address was found!")
-                else
-                    return addressList[0].let { address ->
-                        LatLng(address.latitude, address.longitude)
-                    }
-            }
+            mapLocation?.let {
+                getFromLocationName(mapLocation, 1).let { addressList ->
+                    if (addressList.size == 0)
+                        throw IllegalStateException("No address was found!")
+                    else
+                        return addressList[0].let { address ->
+                            LatLng(address.latitude, address.longitude)
+                        }
+                }
+            } ?: throw IllegalStateException("No location was set!")
         }
     }
 

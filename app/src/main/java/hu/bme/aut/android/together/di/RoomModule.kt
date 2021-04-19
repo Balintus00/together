@@ -24,6 +24,9 @@ class RoomModule {
 
     @Provides
     fun provideEventShortInfoDao(appDatabase: AppDatabase) = appDatabase.eventShortInfoDao()
+    
+    @Provides
+    fun provideEventDetailsDao(appDatabase: AppDatabase) = appDatabase.eventDetailsDao()
 
     @Provides
     @Singleton
