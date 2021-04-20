@@ -8,9 +8,11 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.hilt.testing.TestInstallIn
 import hu.bme.aut.android.together.di.RoomModule
+import hu.bme.aut.android.together.model.persistence.PersistedEventDetails
 import hu.bme.aut.android.together.model.persistence.PersistedEventInvitation
 import hu.bme.aut.android.together.model.persistence.PersistedEventShortInfo
 import hu.bme.aut.android.together.model.persistence.PersistedProfileData
+import hu.bme.aut.android.together.persistence.dao.EventDetailsDao
 import hu.bme.aut.android.together.persistence.dao.EventInvitationsDao
 import hu.bme.aut.android.together.persistence.dao.EventShortInfoDao
 import hu.bme.aut.android.together.persistence.dao.ProfileDao
@@ -79,6 +81,31 @@ class FakeRoomModule {
             }
 
             override fun insertCachedEventShortInfo(vararg eventShortInfo: PersistedEventShortInfo) {}
+
+        }
+
+    @Provides
+    fun provideEventDetailsDao(@Suppress("UNUSED_PARAMETER") appDatabase: AppDatabase) =
+        object : EventDetailsDao {
+            override fun getCachedEventDetailsById(eventId: Long): PersistedEventDetails {
+                return PersistedEventDetails(
+                    1L,
+                    "Kristóf's birtday party",
+                    "https://picsum.photos/200",
+                    "2021.4.20. 6:9",
+                    "2021.6.9. 4:20",
+                    "Budapest, Irinyi József u. 42.",
+                    "Lorem ipsum dolor sit amet!",
+                    false,
+                    0,
+                    0,
+                    isPrivate = true,
+                    isParticipant = true,
+                    isOrganiser = true
+                )
+            }
+
+            override fun cacheEventDetails(details: PersistedEventDetails) {}
 
         }
 
