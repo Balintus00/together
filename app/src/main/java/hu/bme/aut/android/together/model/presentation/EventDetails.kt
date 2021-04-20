@@ -1,8 +1,7 @@
 package hu.bme.aut.android.together.model.presentation
 
-import java.util.*
-
 class EventDetails(
+    val eventId: Long,
     val title: String,
     val imageUrl: String,
     val startDate: String,

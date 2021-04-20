@@ -18,6 +18,7 @@ class EventDetailsPresenter @Inject constructor(
 
     private fun DomainEventDetails.toEventDetails(): EventDetails {
         return EventDetails(
+            id,
             title,
             imageUrl,
             convertDateToRepresentedDateFormat(startDate),
