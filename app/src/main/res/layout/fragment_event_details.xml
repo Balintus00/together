@@ -28,8 +28,8 @@
                 android:contentDescription="@string/content_description_event_image"
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
-                tools:src="@mipmap/ic_launcher"
-                app:layout_collapseMode="parallax" />
+                app:layout_collapseMode="parallax"
+                tools:src="@mipmap/ic_launcher" />
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/tbEventDetails"
@@ -81,10 +81,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
-                    tools:text="@string/example_date_time_event_details"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvPrivateEvent" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvPrivateEvent"
+                    tools:text="@string/example_date_time_event_details" />
 
                 <TextView
                     android:id="@+id/tvEventPlace"
@@ -92,10 +92,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
-                    tools:text="@string/example_place_event_details"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvEventStartDateTime" />
+                    app:layout_constraintTop_toBottomOf="@id/tvEventStartDateTime"
+                    tools:text="@string/example_place_event_details" />
 
                 <TextView
                     android:id="@+id/tvEventParticipantCount"
@@ -103,10 +103,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
-                    tools:text="@string/example_remaining_spaces_event_details"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvEventPlace" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvEventPlace"
+                    tools:text="@string/example_remaining_spaces_event_details" />
 
                 <TextView
                     android:id="@+id/textView19"
@@ -125,10 +125,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    tools:text="@string/example_quick_info_event_detail"
+                    android:ellipsize="end"
+                    android:maxLines="1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView19" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView19"
+                    tools:text="@string/example_quick_info_event_detail" />
 
                 <TextView
                     android:id="@+id/tvShowMoreInformationEventDetails"
@@ -157,10 +159,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    tools:text="@string/example_place_event_details"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView21" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView21"
+                    tools:text="@string/example_place_event_details" />
 
                 <com.google.android.gms.maps.MapView xmlns:map="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/mvEventLocation"
