@@ -12,7 +12,7 @@ class EventDetailsRepository @Inject constructor(
 ) {
 
     fun saveEventDetails(eventDetails: DomainEventDetails) {
-        eventDetailsDao.cacheEventDetails(eventDetails.toPersistedEventDetails())
+        eventDetailsDao.insertCachedEventDetails(eventDetails.toPersistedEventDetails())
     }
 
     fun loadEventDetailsById(eventId: Long): DomainEventDetails {

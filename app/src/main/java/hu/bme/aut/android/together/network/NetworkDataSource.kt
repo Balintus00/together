@@ -15,4 +15,6 @@ interface NetworkDataSource {
     fun searchEventsByQueryParameter(queryParameter: DomainEventQueryParameter) : List<DomainEventShortInfo>?
 
     fun getEventDetailsById(eventId: Long) : DomainEventDetails?
+
+    fun getEventDescriptionDataById(eventId: Long) : DomainEventDescriptionData?
 }

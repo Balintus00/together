@@ -8,15 +8,33 @@ import androidx.room.PrimaryKey
 class PersistedEventDetails(
     @PrimaryKey val id: Long,
     @ColumnInfo(name = "title") val title: String,
-    @ColumnInfo(name = "imageUrl") val imageUrl: String,
+    @ColumnInfo(name = "imageUrl", defaultValue = "") val imageUrl: String,
     @ColumnInfo(name = "startDate") val startDate: String,
     @ColumnInfo(name = "endDate") val endDate: String,
     @ColumnInfo(name = "location") val location: String,
     @ColumnInfo(name = "description") val description: String,
-    @ColumnInfo(name = "isParticipantCountLimited") val isParticipantCountLimited: Boolean,
-    @ColumnInfo(name = "maxParticipantCount") val maxParticipantCount: Int,
-    @ColumnInfo(name = "currentParticipantCount") val currentParticipantCount: Int,
-    @ColumnInfo(name = "isPrivate") val isPrivate: Boolean,
-    @ColumnInfo(name = "isParticipant") val isParticipant: Boolean,
-    @ColumnInfo(name = "isOrganiser") val isOrganiser: Boolean
+    @ColumnInfo(
+        name = "isParticipantCountLimited",
+        defaultValue = false.toString()
+    ) val isParticipantCountLimited: Boolean,
+    @ColumnInfo(
+        name = "maxParticipantCount",
+        defaultValue = 0.toString()
+    ) val maxParticipantCount: Int,
+    @ColumnInfo(
+        name = "currentParticipantCount",
+        defaultValue = 0.toString()
+    ) val currentParticipantCount: Int,
+    @ColumnInfo(name = "isPrivate", defaultValue = false.toString()) val isPrivate: Boolean,
+    @ColumnInfo(name = "isParticipant", defaultValue = false.toString()) val isParticipant: Boolean,
+    @ColumnInfo(name = "isOrganiser", defaultValue = false.toString()) val isOrganiser: Boolean
+)
+
+class PersistedEventDescriptionData(
+    @PrimaryKey val id: Long,
+    @ColumnInfo(name = "title") val title: String,
+    @ColumnInfo(name = "startDate") val startDate: String,
+    @ColumnInfo(name = "endDate") val endDate: String,
+    @ColumnInfo(name = "location") val location: String,
+    @ColumnInfo(name = "description") val description: String,
 )

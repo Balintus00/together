@@ -73,7 +73,7 @@ class EventDetailsFragment : RainbowCakeFragment<EventDetailsState, EventDetails
         binding.ctlEventDetailsToolbarLayout.title = details.title
         loadEventImage(details.imageUrl)
         binding.tvPrivateEvent.isVisible = details.isPrivate
-        binding.tvEventDateTime.text = details.startDate
+        binding.tvEventStartDateTime.text = details.startDate
         binding.tvEventPlace.text = details.location
         binding.tvMapLocation.text = details.location
         setMapLocation(details.location)
@@ -324,7 +324,7 @@ class EventDetailsFragment : RainbowCakeFragment<EventDetailsState, EventDetails
 
     /**
      * Sets the onclick behaviour of the TextView, that can be used to navigate to the screen
-     * (implemented by [hu.bme.aut.android.together.features.eventcontrol.wholedescription.fragment.EventDetailsFullDescriptionFragment]),
+     * (implemented by [hu.bme.aut.android.together.features.eventcontrol.wholedescription.fragment.EventWholeDescriptionFragment]),
      * that displays the whole description of the event.
      */
     private fun setShowWholeDescriptionTextBehaviour() {

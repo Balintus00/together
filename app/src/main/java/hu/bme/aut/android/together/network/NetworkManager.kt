@@ -57,7 +57,7 @@ class NetworkManager @Inject constructor() : NetworkDataSource {
                     Locale.ENGLISH
                 ).run { parse("2022.03.02. 22:00") }!!,
                 "https://picsum.photos/200"
-                ),
+            ),
             DomainEventShortInfo(
                 2L,
                 "Budapest sightseeing tour",
@@ -132,7 +132,7 @@ class NetworkManager @Inject constructor() : NetworkDataSource {
     override fun getEventDetailsById(eventId: Long): DomainEventDetails {
         Thread.sleep(SIMULATED_LOADING_TIME_MS)
         //returning different kinds of events by id
-        return when(eventId) {
+        return when (eventId) {
             1L -> {
                 DomainEventDetails(
                     1L,
@@ -147,7 +147,7 @@ class NetworkManager @Inject constructor() : NetworkDataSource {
                         Locale.ENGLISH
                     ).run { parse("2020.02.14. 22:00") }!!,
                     "Budapest, Irinyi József u. 42.",
-                    "Lorem ipsum dolor sit amet!",
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget lobortis enim, ut convallis est. Curabitur sit amet ligula a orci elementum vulputate. Proin arcu lectus, volutpat eget aliquet nec, condimentum quis justo. Pellentesque tempor mauris quis tellus suscipit finibus. Aliquam at lobortis sapien, non iaculis mauris. In malesuada facilisis leo id cursus. Cras id risus fringilla, lacinia eros at, volutpat arcu. Etiam elementum sagittis pharetra. Praesent pretium elementum quam vel semper. In mollis, neque et efficitur blandit, magna nisl porta velit, eget elementum eros elit sed nisl. Sed consectetur vitae risus condimentum sollicitudin. Aliquam ultricies rhoncus justo sed semper. Sed in lorem porttitor, tincidunt ipsum sit amet, accumsan ipsum. Nam ac mattis nunc. Vivamus efficitur, tortor ac pulvinar auctor, enim nunc cursus odio, id tristique risus turpis eu nisi. Nunc luctus, mauris non tincidunt maximus, erat mi ultricies ligula, nec pretium nibh tellus a diam. Vestibulum blandit, neque sit amet varius convallis, diam ante venenatis ipsum, vitae gravida enim leo ac diam. Sed sapien sapien, pellentesque eu massa et, tempus placerat urna. Curabitur egestas, purus ac lobortis dignissim, ligula orci venenatis eros, non fermentum lectus tellus non leo. Etiam in accumsan quam. Nam vel ligula leo. Aenean in congue dolor. Sed dictum blandit velit vitae ultrices. Suspendisse nec ex vitae magna vehicula facilisis vel id justo. Nullam a semper erat. Sed venenatis ligula vel dignissim auctor. Quisque felis libero, aliquet vel diam a, rhoncus finibus ex.",
                     false,
                     0,
                     0,
@@ -170,7 +170,7 @@ class NetworkManager @Inject constructor() : NetworkDataSource {
                         Locale.ENGLISH
                     ).run { parse("2020.02.14. 22:00") }!!,
                     "Budapest, Irinyi József u. 42.",
-                    "Lorem ipsum dolor sit amet!",
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget lobortis enim, ut convallis est. Curabitur sit amet ligula a orci elementum vulputate. Proin arcu lectus, volutpat eget aliquet nec, condimentum quis justo. Pellentesque tempor mauris quis tellus suscipit finibus. Aliquam at lobortis sapien, non iaculis mauris. In malesuada facilisis leo id cursus. Cras id risus fringilla, lacinia eros at, volutpat arcu. Etiam elementum sagittis pharetra. Praesent pretium elementum quam vel semper. In mollis, neque et efficitur blandit, magna nisl porta velit, eget elementum eros elit sed nisl. Sed consectetur vitae risus condimentum sollicitudin. Aliquam ultricies rhoncus justo sed semper. Sed in lorem porttitor, tincidunt ipsum sit amet, accumsan ipsum. Nam ac mattis nunc. Vivamus efficitur, tortor ac pulvinar auctor, enim nunc cursus odio, id tristique risus turpis eu nisi. Nunc luctus, mauris non tincidunt maximus, erat mi ultricies ligula, nec pretium nibh tellus a diam. Vestibulum blandit, neque sit amet varius convallis, diam ante venenatis ipsum, vitae gravida enim leo ac diam. Sed sapien sapien, pellentesque eu massa et, tempus placerat urna. Curabitur egestas, purus ac lobortis dignissim, ligula orci venenatis eros, non fermentum lectus tellus non leo. Etiam in accumsan quam. Nam vel ligula leo. Aenean in congue dolor. Sed dictum blandit velit vitae ultrices. Suspendisse nec ex vitae magna vehicula facilisis vel id justo. Nullam a semper erat. Sed venenatis ligula vel dignissim auctor. Quisque felis libero, aliquet vel diam a, rhoncus finibus ex.",
                     true,
                     50,
                     30,
@@ -193,13 +193,67 @@ class NetworkManager @Inject constructor() : NetworkDataSource {
                         Locale.ENGLISH
                     ).run { parse("2020.02.14. 22:00") }!!,
                     "Budapest, Irinyi József u. 42.",
-                    "Lorem ipsum dolor sit amet!",
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget lobortis enim, ut convallis est. Curabitur sit amet ligula a orci elementum vulputate. Proin arcu lectus, volutpat eget aliquet nec, condimentum quis justo. Pellentesque tempor mauris quis tellus suscipit finibus. Aliquam at lobortis sapien, non iaculis mauris. In malesuada facilisis leo id cursus. Cras id risus fringilla, lacinia eros at, volutpat arcu. Etiam elementum sagittis pharetra. Praesent pretium elementum quam vel semper. In mollis, neque et efficitur blandit, magna nisl porta velit, eget elementum eros elit sed nisl. Sed consectetur vitae risus condimentum sollicitudin. Aliquam ultricies rhoncus justo sed semper. Sed in lorem porttitor, tincidunt ipsum sit amet, accumsan ipsum. Nam ac mattis nunc. Vivamus efficitur, tortor ac pulvinar auctor, enim nunc cursus odio, id tristique risus turpis eu nisi. Nunc luctus, mauris non tincidunt maximus, erat mi ultricies ligula, nec pretium nibh tellus a diam. Vestibulum blandit, neque sit amet varius convallis, diam ante venenatis ipsum, vitae gravida enim leo ac diam. Sed sapien sapien, pellentesque eu massa et, tempus placerat urna. Curabitur egestas, purus ac lobortis dignissim, ligula orci venenatis eros, non fermentum lectus tellus non leo. Etiam in accumsan quam. Nam vel ligula leo. Aenean in congue dolor. Sed dictum blandit velit vitae ultrices. Suspendisse nec ex vitae magna vehicula facilisis vel id justo. Nullam a semper erat. Sed venenatis ligula vel dignissim auctor. Quisque felis libero, aliquet vel diam a, rhoncus finibus ex.",
                     false,
                     0,
                     0,
                     isPrivate = false,
                     isParticipant = false,
                     isOrganiser = false
+                )
+            }
+        }
+    }
+
+    override fun getEventDescriptionDataById(eventId: Long): DomainEventDescriptionData {
+        Thread.sleep(SIMULATED_LOADING_TIME_MS)
+        return when (eventId) {
+            1L -> {
+                DomainEventDescriptionData(
+                    1L,
+                    "Kristóf's birthday party",
+                    SimpleDateFormat(
+                        "yyyy.MM.dd. HH:mm",
+                        Locale.ENGLISH
+                    ).run { parse("2020.02.14. 16:00") }!!,
+                    SimpleDateFormat(
+                        "yyyy.MM.dd. HH:mm",
+                        Locale.ENGLISH
+                    ).run { parse("2020.02.14. 22:00") }!!,
+                    "Budapest, Irinyi József u. 42.",
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget lobortis enim, ut convallis est. Curabitur sit amet ligula a orci elementum vulputate. Proin arcu lectus, volutpat eget aliquet nec, condimentum quis justo. Pellentesque tempor mauris quis tellus suscipit finibus. Aliquam at lobortis sapien, non iaculis mauris. In malesuada facilisis leo id cursus. Cras id risus fringilla, lacinia eros at, volutpat arcu. Etiam elementum sagittis pharetra. Praesent pretium elementum quam vel semper. In mollis, neque et efficitur blandit, magna nisl porta velit, eget elementum eros elit sed nisl. Sed consectetur vitae risus condimentum sollicitudin. Aliquam ultricies rhoncus justo sed semper. Sed in lorem porttitor, tincidunt ipsum sit amet, accumsan ipsum. Nam ac mattis nunc. Vivamus efficitur, tortor ac pulvinar auctor, enim nunc cursus odio, id tristique risus turpis eu nisi. Nunc luctus, mauris non tincidunt maximus, erat mi ultricies ligula, nec pretium nibh tellus a diam. Vestibulum blandit, neque sit amet varius convallis, diam ante venenatis ipsum, vitae gravida enim leo ac diam. Sed sapien sapien, pellentesque eu massa et, tempus placerat urna. Curabitur egestas, purus ac lobortis dignissim, ligula orci venenatis eros, non fermentum lectus tellus non leo. Etiam in accumsan quam. Nam vel ligula leo. Aenean in congue dolor. Sed dictum blandit velit vitae ultrices. Suspendisse nec ex vitae magna vehicula facilisis vel id justo. Nullam a semper erat. Sed venenatis ligula vel dignissim auctor. Quisque felis libero, aliquet vel diam a, rhoncus finibus ex."
+                )
+            }
+            2L -> {
+                DomainEventDescriptionData(
+                    2L,
+                    "Budapest sightseeing tour",
+                    SimpleDateFormat(
+                        "yyyy.MM.dd. HH:mm",
+                        Locale.ENGLISH
+                    ).run { parse("2020.02.14. 16:00") }!!,
+                    SimpleDateFormat(
+                        "yyyy.MM.dd. HH:mm",
+                        Locale.ENGLISH
+                    ).run { parse("2020.02.14. 22:00") }!!,
+                    "Budapest, Irinyi József u. 42.",
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget lobortis enim, ut convallis est. Curabitur sit amet ligula a orci elementum vulputate. Proin arcu lectus, volutpat eget aliquet nec, condimentum quis justo. Pellentesque tempor mauris quis tellus suscipit finibus. Aliquam at lobortis sapien, non iaculis mauris. In malesuada facilisis leo id cursus. Cras id risus fringilla, lacinia eros at, volutpat arcu. Etiam elementum sagittis pharetra. Praesent pretium elementum quam vel semper. In mollis, neque et efficitur blandit, magna nisl porta velit, eget elementum eros elit sed nisl. Sed consectetur vitae risus condimentum sollicitudin. Aliquam ultricies rhoncus justo sed semper. Sed in lorem porttitor, tincidunt ipsum sit amet, accumsan ipsum. Nam ac mattis nunc. Vivamus efficitur, tortor ac pulvinar auctor, enim nunc cursus odio, id tristique risus turpis eu nisi. Nunc luctus, mauris non tincidunt maximus, erat mi ultricies ligula, nec pretium nibh tellus a diam. Vestibulum blandit, neque sit amet varius convallis, diam ante venenatis ipsum, vitae gravida enim leo ac diam. Sed sapien sapien, pellentesque eu massa et, tempus placerat urna. Curabitur egestas, purus ac lobortis dignissim, ligula orci venenatis eros, non fermentum lectus tellus non leo. Etiam in accumsan quam. Nam vel ligula leo. Aenean in congue dolor. Sed dictum blandit velit vitae ultrices. Suspendisse nec ex vitae magna vehicula facilisis vel id justo. Nullam a semper erat. Sed venenatis ligula vel dignissim auctor. Quisque felis libero, aliquet vel diam a, rhoncus finibus ex."
+                )
+            }
+            else -> {
+                DomainEventDescriptionData(
+                    3L,
+                    "Going to gym",
+                    SimpleDateFormat(
+                        "yyyy.MM.dd. HH:mm",
+                        Locale.ENGLISH
+                    ).run { parse("2020.02.14. 16:00") }!!,
+                    SimpleDateFormat(
+                        "yyyy.MM.dd. HH:mm",
+                        Locale.ENGLISH
+                    ).run { parse("2020.02.14. 22:00") }!!,
+                    "Budapest, Irinyi József u. 42.",
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget lobortis enim, ut convallis est. Curabitur sit amet ligula a orci elementum vulputate. Proin arcu lectus, volutpat eget aliquet nec, condimentum quis justo. Pellentesque tempor mauris quis tellus suscipit finibus. Aliquam at lobortis sapien, non iaculis mauris. In malesuada facilisis leo id cursus. Cras id risus fringilla, lacinia eros at, volutpat arcu. Etiam elementum sagittis pharetra. Praesent pretium elementum quam vel semper. In mollis, neque et efficitur blandit, magna nisl porta velit, eget elementum eros elit sed nisl. Sed consectetur vitae risus condimentum sollicitudin. Aliquam ultricies rhoncus justo sed semper. Sed in lorem porttitor, tincidunt ipsum sit amet, accumsan ipsum. Nam ac mattis nunc. Vivamus efficitur, tortor ac pulvinar auctor, enim nunc cursus odio, id tristique risus turpis eu nisi. Nunc luctus, mauris non tincidunt maximus, erat mi ultricies ligula, nec pretium nibh tellus a diam. Vestibulum blandit, neque sit amet varius convallis, diam ante venenatis ipsum, vitae gravida enim leo ac diam. Sed sapien sapien, pellentesque eu massa et, tempus placerat urna. Curabitur egestas, purus ac lobortis dignissim, ligula orci venenatis eros, non fermentum lectus tellus non leo. Etiam in accumsan quam. Nam vel ligula leo. Aenean in congue dolor. Sed dictum blandit velit vitae ultrices. Suspendisse nec ex vitae magna vehicula facilisis vel id justo. Nullam a semper erat. Sed venenatis ligula vel dignissim auctor. Quisque felis libero, aliquet vel diam a, rhoncus finibus ex."
                 )
             }
         }

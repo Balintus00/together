@@ -105,7 +105,7 @@ class FakeRoomModule {
                 )
             }
 
-            override fun cacheEventDetails(details: PersistedEventDetails) {}
+            override fun insertCachedEventDetails(details: PersistedEventDetails) {}
 
         }
 

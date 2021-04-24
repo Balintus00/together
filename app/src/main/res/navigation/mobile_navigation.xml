@@ -112,9 +112,9 @@
         </fragment>
         <fragment
             android:id="@+id/eventDetailsFullDescriptionFragment"
-            android:name="hu.bme.aut.android.together.features.eventcontrol.wholedescription.fragment.EventDetailsFullDescriptionFragment"
+            android:name="hu.bme.aut.android.together.features.eventcontrol.wholedescription.fragment.EventWholeDescriptionFragment"
             android:label="fragment_event_details_full_description"
-            tools:layout="@layout/fragment_event_details_full_description" >
+            tools:layout="@layout/fragment_event_details_whole_description" >
             <argument
                 android:name="eventId"
                 app:argType="long" />

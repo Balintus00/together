@@ -76,7 +76,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tvEventDateTime"
+                    android:id="@+id/tvEventStartDateTime"
                     style="@style/HighlightedBigNormalAttribute"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -95,7 +95,7 @@
                     tools:text="@string/example_place_event_details"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvEventDateTime" />
+                    app:layout_constraintTop_toBottomOf="@id/tvEventStartDateTime" />
 
                 <TextView
                     android:id="@+id/tvEventParticipantCount"
