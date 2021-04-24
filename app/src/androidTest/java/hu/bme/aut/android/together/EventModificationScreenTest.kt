@@ -9,7 +9,7 @@ import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.contrib.PickerActions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.filters.SmallTest
-import hu.bme.aut.android.together.features.event.fragment.details.ModifyEventDetailsFragment
+import hu.bme.aut.android.together.features.eventcontrol.modifyevent.fragment.ModifyEventDetailsFragment
 import org.hamcrest.Matchers
 import org.junit.Test
 

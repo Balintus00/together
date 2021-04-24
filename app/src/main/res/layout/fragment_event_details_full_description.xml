@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".features.event.fragment.details.EventDetailsFullDescriptionFragment">
+    tools:context=".features.eventcontrol.wholedescription.fragment.EventDetailsFullDescriptionFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tbEventDetailsFull"

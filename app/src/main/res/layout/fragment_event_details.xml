@@ -5,7 +5,7 @@
     android:id="@+id/clEventDetailsCoordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.event.details.fragment.EventDetailsFragment">
+    tools:context=".features.eventcontrol.details.fragment.EventDetailsFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"

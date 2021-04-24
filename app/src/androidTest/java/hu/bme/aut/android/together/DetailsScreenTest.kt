@@ -14,7 +14,7 @@ import androidx.test.internal.runner.junit4.statement.UiThreadStatement
 import com.google.common.truth.Truth
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import hu.bme.aut.android.together.features.event.details.fragment.EventDetailsFragment
+import hu.bme.aut.android.together.features.eventcontrol.details.fragment.EventDetailsFragment
 import hu.bme.aut.android.together.hilt.launchFragmentInHiltContainer
 import hu.bme.aut.android.together.mock.FakeNetworkDataSource
 import org.junit.Rule

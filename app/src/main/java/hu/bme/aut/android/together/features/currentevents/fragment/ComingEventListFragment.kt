@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
@@ -86,7 +85,7 @@ class ComingEventListFragment : RainbowCakeFragment<EventListState, ComingEventL
      * Initializes the contained RecyclerView widget's adapter and layoutManager.
      * [LinearLayoutManager] is used as its layoutManager, and the adapter is set to an [EventListAdapter]
      * instance. When an item event item is clicked, the user should be navigated to a
-     * [hu.bme.aut.android.together.features.event.details.fragment.EventDetailsFragment]
+     * [hu.bme.aut.android.together.features.eventcontrol.details.fragment.EventDetailsFragment]
      * instance. This behaviour is passed as a method reference in the adapter's constructor.
      */
     private fun initRecyclerView() {

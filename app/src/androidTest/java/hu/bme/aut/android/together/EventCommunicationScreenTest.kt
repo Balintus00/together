@@ -11,7 +11,7 @@ import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.filters.SmallTest
 import androidx.test.internal.runner.junit4.statement.UiThreadStatement
 import com.google.common.truth.Truth
-import hu.bme.aut.android.together.features.event.fragment.communication.EventDetailsCommunicationFragment
+import hu.bme.aut.android.together.features.eventcontrol.communication.fragment.EventDetailsCommunicationFragment
 import org.junit.Test
 
 class EventCommunicationScreenTest {

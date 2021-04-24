@@ -113,7 +113,7 @@ class AddEventPagerFragment : Fragment(), EventAddingPagerContainer {
 
     /**
      * This function navigates to a
-     * [hu.bme.aut.android.together.features.event.fragment.details.EventDetailsFragment]
+     * [hu.bme.aut.android.together.features.eventcontrol.fragment.details.EventDetailsFragment]
      * instance, which displays the created event's details.
      */
     private fun navigateToCreatedEvent() {

@@ -97,7 +97,7 @@ class EventSearchResultFragment :
      * layoutManager as a [LinearLayoutManager] instance, and the adapter as an [EventListAdapter]
      * instance. In the adapter's constructor the item on click behaviour is passed. When a
      * contained item of this RecyclerView is clicked, it should navigate to an
-     * [hu.bme.aut.android.together.features.event.details.fragment.EventDetailsFragment]
+     * [hu.bme.aut.android.together.features.eventcontrol.details.fragment.EventDetailsFragment]
      * instance, which displays the clicked event item's information.
      */
     private fun setUpRecyclerView() {
