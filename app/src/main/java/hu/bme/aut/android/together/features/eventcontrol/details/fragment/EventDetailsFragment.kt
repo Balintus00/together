@@ -64,9 +64,14 @@ class EventDetailsFragment : RainbowCakeFragment<EventDetailsState, EventDetails
     }
 
     private fun displayLoadingStateUI() {
+        clearToolbarMenu()
         binding.clDetailsContent.isVisible = false
         binding.fabActionEventDetails.isVisible = false
         binding.cpiDetailsLoading.isVisible = true
+    }
+
+    private fun clearToolbarMenu() {
+        binding.tbEventDetails.menu.clear()
     }
 
     private fun setDisplayableDetailsData(details: EventDetails) {
@@ -82,7 +87,6 @@ class EventDetailsFragment : RainbowCakeFragment<EventDetailsState, EventDetails
             details.maxParticipantCount,
             details.currentParticipantCount
         )
-        //TODO too long descriptions should be handled
         binding.tvEventQuickDescription.text = details.description
         setMainFABBehaviour(details.isParticipant, details.isOrganiser)
     }
