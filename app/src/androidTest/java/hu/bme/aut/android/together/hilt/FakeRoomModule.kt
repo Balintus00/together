@@ -9,10 +9,7 @@ import dagger.hilt.components.SingletonComponent
 import dagger.hilt.testing.TestInstallIn
 import hu.bme.aut.android.together.di.RoomModule
 import hu.bme.aut.android.together.model.persistence.*
-import hu.bme.aut.android.together.persistence.dao.EventDataDao
-import hu.bme.aut.android.together.persistence.dao.EventInvitationsDao
-import hu.bme.aut.android.together.persistence.dao.EventShortInfoDao
-import hu.bme.aut.android.together.persistence.dao.ProfileDao
+import hu.bme.aut.android.together.persistence.dao.*
 import hu.bme.aut.android.together.persistence.database.AppDatabase
 import javax.inject.Singleton
 
@@ -98,15 +95,48 @@ class FakeRoomModule {
                     0,
                     isPrivate = true,
                     isParticipant = true,
-                    isOrganiser = true
+                    isOrganiser = true,
+                    1
                 )
             }
 
-            override fun insertCachedEventDetails(data: PersistedEventData) {}
+            override fun insertCachedEventDetails(data: PersistedEventDetails) {}
 
             override fun insertCachedEventDescriptionDetails(data: PersistedEventDescriptionData) {}
 
+            override fun insertCachedEventCommunicationPagerData(data: PersistedCommunicationPagerData) {}
+
         }
+
+    @Provides
+    fun provideEventNewsDao(@Suppress("UNUSED_PARAMETER") appDatabase: AppDatabase) = object: EventNewsDao {
+        override fun persistEventNews(vararg new: PersistedEventNews) { }
+
+        override fun getCachedNewsByEventId(eventId: Long): List<PersistedEventNews> {
+            return listOf()
+        }
+
+    }
+
+    @Provides
+    fun provideEventQuestionDao(@Suppress("UNUSED_PARAMETER") appDatabase: AppDatabase) = object: EventQuestionDao {
+        override fun insertEventQuestion(vararg question: PersistedEventQuestion) { }
+
+    }
+
+    @Provides
+    fun provideEventAnswerDao(@Suppress("UNUSED_PARAMETER") appDatabase: AppDatabase) = object: EventAnswerDao {
+        override fun insertEventAnswer(vararg answer: PersistedEventAnswer) { }
+
+    }
+
+    @Provides
+    fun provideQuestionAndAnswerDao(@Suppress("UNUSED_PARAMETER") appDatabase: AppDatabase) = object: QuestionAndAnswerDao {
+        override fun getEventsQuestionsAndAnswers(eventId: Long): List<PersistedQuestionAndAnswer> {
+            return listOf()
+        }
+
+    }
 
     @Provides
     @Singleton

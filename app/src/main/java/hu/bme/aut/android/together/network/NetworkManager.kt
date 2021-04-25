@@ -260,6 +260,7 @@ class NetworkManager @Inject constructor() : NetworkDataSource {
     }
 
     override fun getCommunicationPagerDataById(eventId: Long): DomainCommunicationPagerData {
+        Thread.sleep(SIMULATED_LOADING_TIME_MS)
         return when (eventId) {
             1L -> {
                 DomainCommunicationPagerData(1L, "Kristóf's birtday party", true, 2)
@@ -274,6 +275,7 @@ class NetworkManager @Inject constructor() : NetworkDataSource {
     }
 
     override fun getEventNewsById(eventId: Long): List<DomainEventNews> {
+        Thread.sleep(SIMULATED_LOADING_TIME_MS)
         return listOf(
             when (eventId) {
                 1L -> {
@@ -290,6 +292,7 @@ class NetworkManager @Inject constructor() : NetworkDataSource {
     }
 
     override fun getEventQuestionsAndAnswersByEventId(eventId: Long): List<DomainEventQuestionAndAnswer> {
+        Thread.sleep(SIMULATED_LOADING_TIME_MS)
         return listOf(
             DomainEventQuestionAndAnswer(
                 DomainEventQuestion(
