@@ -45,7 +45,7 @@ class EventModificationScreenTest {
             )
         Espresso.onView(ViewMatchers.withId(android.R.id.button1)).perform(ViewActions.click())
         Espresso.onView(ViewMatchers.withId(R.id.tvFromDate))
-            .check(ViewAssertions.matches(ViewMatchers.withText("$mockedYear.${mockedMonth - 1}.$mockedDay $mockedHour:$mockedMinute")))
+            .check(ViewAssertions.matches(ViewMatchers.withText("$mockedYear.${mockedMonth - 1}.$mockedDay. $mockedHour:$mockedMinute")))
     }
 
     @Test
@@ -78,6 +78,6 @@ class EventModificationScreenTest {
             )
         Espresso.onView(ViewMatchers.withId(android.R.id.button1)).perform(ViewActions.click())
         Espresso.onView(ViewMatchers.withId(R.id.tvToDate))
-            .check(ViewAssertions.matches(ViewMatchers.withText("$mockedYear.${mockedMonth - 1}.$mockedDay $mockedHour:$mockedMinute")))
+            .check(ViewAssertions.matches(ViewMatchers.withText("$mockedYear.${mockedMonth - 1}.$mockedDay. $mockedHour:$mockedMinute")))
     }
 }
