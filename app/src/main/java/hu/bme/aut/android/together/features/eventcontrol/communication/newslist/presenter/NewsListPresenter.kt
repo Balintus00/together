@@ -6,7 +6,7 @@ import hu.bme.aut.android.together.model.presentation.EventNews
 import javax.inject.Inject
 
 class NewsListPresenter @Inject constructor(
-    val interactor: NewsListInteractor
+    private val interactor: NewsListInteractor
 ) {
 
     suspend fun loadEventNews(eventId: Long) = withIOContext {
