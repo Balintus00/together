@@ -1,4 +1,4 @@
-package hu.bme.aut.android.together.event.details
+package hu.bme.aut.android.together.eventcontrol.details
 
 import co.zsmb.rainbowcake.test.assertObserved
 import co.zsmb.rainbowcake.test.base.ViewModelTest

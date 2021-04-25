@@ -1,4 +1,4 @@
-package hu.bme.aut.android.together.event.details
+package hu.bme.aut.android.together.eventcontrol.details
 
 import hu.bme.aut.android.together.features.eventcontrol.details.interactor.EventDetailsInteractor
 import hu.bme.aut.android.together.model.domain.DomainEventDetails

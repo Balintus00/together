@@ -8,10 +8,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.hilt.testing.TestInstallIn
 import hu.bme.aut.android.together.di.RoomModule
-import hu.bme.aut.android.together.model.persistence.PersistedEventDetails
-import hu.bme.aut.android.together.model.persistence.PersistedEventInvitation
-import hu.bme.aut.android.together.model.persistence.PersistedEventShortInfo
-import hu.bme.aut.android.together.model.persistence.PersistedProfileData
+import hu.bme.aut.android.together.model.persistence.*
 import hu.bme.aut.android.together.persistence.dao.EventDetailsDao
 import hu.bme.aut.android.together.persistence.dao.EventInvitationsDao
 import hu.bme.aut.android.together.persistence.dao.EventShortInfoDao
@@ -106,6 +103,8 @@ class FakeRoomModule {
             }
 
             override fun insertCachedEventDetails(details: PersistedEventDetails) {}
+
+            override fun insertCachedEventDescriptionDetails(data: PersistedEventDescriptionData) {}
 
         }
 
