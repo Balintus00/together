@@ -190,7 +190,7 @@
     <string name="action_accept">Accept</string>
     <string name="content_description_own_profile_picture">Your profile picture.</string>
     <string name="content_description_search_button">Search button.</string>
-    <string name="date_year_month_day">%1$d.%2$d.%3$d</string>
+    <string name="date_year_month_day">%1$d.%2$d.%3$d.</string>
     <string name="time_hour_minute">%1$d:%2$d</string>
     <string name="by_author">by %s</string>
     <string name="event_details_remaining_spaces">Remaining spaces: %d</string>

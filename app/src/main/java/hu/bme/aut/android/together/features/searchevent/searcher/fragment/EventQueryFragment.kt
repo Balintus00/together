@@ -19,6 +19,7 @@ import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentEventQueryBinding
 import hu.bme.aut.android.together.features.searchevent.searcher.viewmodel.EventQueryState
 import hu.bme.aut.android.together.features.searchevent.searcher.viewmodel.EventQueryViewModel
+import hu.bme.aut.android.together.model.presentation.EventQueryParameter
 import java.util.*
 
 /**
@@ -69,25 +70,29 @@ class EventQueryFragment : RainbowCakeFragment<EventQueryState, EventQueryViewMo
         setDateTextViewDialogBehaviour(
             binding.tvFromDate,
             getString(R.string.event_query_default_value_today),
-            this::useDatePickerDialogOnTextView) {
+            this::useDatePickerDialogOnTextView
+        ) {
             viewModel.startDateText.value = it
         }
         setDateTextViewDialogBehaviour(
             binding.tvFromTime,
             getString(R.string.event_query_default_value_now),
-            this::useTimePickerDialogOnTextView) {
+            this::useTimePickerDialogOnTextView
+        ) {
             viewModel.startTimeText.value = it
         }
         setDateTextViewDialogBehaviour(
             binding.tvToDate,
             getString(R.string.event_query_default_value_date_indefinite),
-            this::useDatePickerDialogOnTextView) {
+            this::useDatePickerDialogOnTextView
+        ) {
             viewModel.endDateText.value = it
         }
         setDateTextViewDialogBehaviour(
             binding.tvToTime,
             getString(R.string.event_query_default_value_time_indefinite),
-            this::useTimePickerDialogOnTextView) {
+            this::useTimePickerDialogOnTextView
+        ) {
             viewModel.endTimeText.value = it
         }
     }
@@ -193,15 +198,17 @@ class EventQueryFragment : RainbowCakeFragment<EventQueryState, EventQueryViewMo
     private fun setUpSearchFAB() {
         binding.fabSearchEvent.setOnClickListener {
             EventQueryFragmentDirections.actionEventQueryFragmentToEventSearchResultFragment(
-                place = binding.etPlace.text.toString(),
-                radius = if (binding.etRadius.text.isEmpty()) 0 else binding.etRadius.text.toString()
-                    .toInt(),
-                fromDate = binding.tvFromDate.toString(),
-                fromTime = binding.tvFromTime.toString(),
-                toDate = binding.tvToDate.text.toString(),
-                toTime = binding.tvToTime.text.toString(),
-                type = binding.spinnerCategory.selectedItem.toString(),
-                name = binding.etName.text.toString()
+                EventQueryParameter(
+                    place = binding.etPlace.text.toString(),
+                    radius = if (binding.etRadius.text.isEmpty()) 0 else binding.etRadius.text.toString()
+                        .toInt(),
+                    startDate = binding.tvFromDate.text.toString(),
+                    startTime = binding.tvFromTime.text.toString(),
+                    endDate = binding.tvToDate.text.toString(),
+                    endTime = binding.tvToTime.text.toString(),
+                    type = binding.spinnerCategory.selectedItem.toString(),
+                    name = binding.etName.text.toString()
+                )
             )
                 .let { action ->
                     findNavController().navigate(action)

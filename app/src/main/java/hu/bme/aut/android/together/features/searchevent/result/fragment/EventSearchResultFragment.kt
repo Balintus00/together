@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
 import co.zsmb.rainbowcake.extensions.exhaustive
@@ -28,17 +29,7 @@ import hu.bme.aut.android.together.model.presentation.EventShortInfo
 class EventSearchResultFragment :
     RainbowCakeFragment<EventSearchResultState, EventSearchResultViewModel>() {
 
-    //TODO this should be retrieved from navargs !!!
-    private val exampleEventQueryParameter = EventQueryParameter(
-        "",
-        "Szombathely",
-        0,
-        "2021.03.18.",
-        "18:53",
-        "2021.04.18.",
-        "18:54",
-        "Family"
-    )
+    private val args: EventSearchResultFragmentArgs by navArgs()
 
     private lateinit var binding: FragmentEventSearchResultBinding
 
@@ -116,6 +107,10 @@ class EventSearchResultFragment :
 
     override fun onStart() {
         super.onStart()
-        viewModel.loadResults(exampleEventQueryParameter)
+        viewModel.loadResults(getQueryParameterFromNavArgs())
+    }
+
+    private fun getQueryParameterFromNavArgs(): EventQueryParameter {
+        return args.queryParameter
     }
 }
