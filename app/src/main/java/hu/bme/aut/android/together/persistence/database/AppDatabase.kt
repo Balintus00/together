@@ -2,19 +2,14 @@ package hu.bme.aut.android.together.persistence.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import hu.bme.aut.android.together.model.persistence.PersistedEventDetails
-import hu.bme.aut.android.together.model.persistence.PersistedEventInvitation
-import hu.bme.aut.android.together.model.persistence.PersistedEventShortInfo
-import hu.bme.aut.android.together.model.persistence.PersistedProfileData
-import hu.bme.aut.android.together.persistence.dao.EventDetailsDao
-import hu.bme.aut.android.together.persistence.dao.EventInvitationsDao
-import hu.bme.aut.android.together.persistence.dao.EventShortInfoDao
-import hu.bme.aut.android.together.persistence.dao.ProfileDao
+import hu.bme.aut.android.together.model.persistence.*
+import hu.bme.aut.android.together.persistence.dao.*
 
 @Database(
-    entities = [PersistedProfileData::class, PersistedEventInvitation::class, PersistedEventShortInfo::class,
-        PersistedEventDetails::class],
-    version = 5
+    entities = [PersistedProfileData::class, PersistedEventInvitation::class,
+        PersistedEventShortInfo::class, PersistedEventData::class, PersistedEventNews::class,
+        PersistedEventQuestion::class, PersistedEventAnswer::class],
+    version = 7
 )
 abstract class AppDatabase : RoomDatabase() {
 
@@ -24,5 +19,13 @@ abstract class AppDatabase : RoomDatabase() {
 
     abstract fun eventShortInfoDao(): EventShortInfoDao
 
-    abstract fun eventDetailsDao(): EventDetailsDao
+    abstract fun eventDataDao(): EventDataDao
+
+    abstract fun eventNewsDao(): EventNewsDao
+
+    abstract fun eventQuestionDao(): EventQuestionDao
+
+    abstract fun eventAnswerDao(): EventAnswerDao
+
+    abstract fun questionAndAnswerDao(): QuestionAndAnswerDao
 }

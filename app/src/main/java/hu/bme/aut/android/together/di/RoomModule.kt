@@ -26,13 +26,25 @@ class RoomModule {
     fun provideEventShortInfoDao(appDatabase: AppDatabase) = appDatabase.eventShortInfoDao()
     
     @Provides
-    fun provideEventDetailsDao(appDatabase: AppDatabase) = appDatabase.eventDetailsDao()
+    fun provideEventDetailsDao(appDatabase: AppDatabase) = appDatabase.eventDataDao()
+
+    @Provides
+    fun provideEventNewsDao(appDatabase: AppDatabase) = appDatabase.eventNewsDao()
+
+    @Provides
+    fun provideEventQuestionDao(appDatabase: AppDatabase) = appDatabase.eventQuestionDao()
+
+    @Provides
+    fun provideEventAnswerDao(appDatabase: AppDatabase) = appDatabase.eventAnswerDao()
+
+    @Provides
+    fun provideQuestionAndAnswerDao(appDatabase: AppDatabase) = appDatabase.questionAndAnswerDao()
 
     @Provides
     @Singleton
     fun provideAppDatabase(@ApplicationContext applicationContext: Context): AppDatabase {
         return Room.databaseBuilder(applicationContext, AppDatabase::class.java, "together-db")
-            // Currently the database is used only for caching, so this option seems to be perfect
+            // Currently the database is used only for caching, so this easy option seems to be perfect
             .fallbackToDestructiveMigration()
             .build()
     }

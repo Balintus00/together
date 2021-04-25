@@ -259,4 +259,49 @@ class NetworkManager @Inject constructor() : NetworkDataSource {
         }
     }
 
+    override fun getCommunicationPagerDataById(eventId: Long): DomainCommunicationPagerData {
+        return when (eventId) {
+            1L -> {
+                DomainCommunicationPagerData(1L, "Kristóf's birtday party", true, 2)
+            }
+            2L -> {
+                DomainCommunicationPagerData(2L, "Budapest sightseeing tour", false, 0)
+            }
+            else -> {
+                DomainCommunicationPagerData(3L, "Going to gym", false, 0)
+            }
+        }
+    }
+
+    override fun getEventNewsById(eventId: Long): List<DomainEventNews> {
+        return listOf(
+            when (eventId) {
+                1L -> {
+                    DomainEventNews(1L, "We need more food!", "KR1ST0F", "Spicy jalapeno bacon ipsum dolor amet kielbasa fatback corned beef meatloaf turducken burgdoggen pork belly brisket jowl biltong swine ribeye. Chuck pork pork loin pastrami kielbasa. Porchetta buffalo filet mignon corned beef swine frankfurter. Bacon short loin chuck landjaeger andouille. Corned beef beef ribs picanha leberkas short ribs. Chuck beef tail meatball buffalo filet mignon rump sirloin prosciutto ground round pork belly shoulder tri-tip chicken.")
+                }
+                2L -> {
+                    DomainEventNews(2L, "Most likely it will rain!", "Yanet Garcia", "Spicy jalapeno bacon ipsum dolor amet kielbasa fatback corned beef meatloaf turducken burgdoggen pork belly brisket jowl biltong swine ribeye. Chuck pork pork loin pastrami kielbasa. Porchetta buffalo filet mignon corned beef swine frankfurter. Bacon short loin chuck landjaeger andouille. Corned beef beef ribs picanha leberkas short ribs. Chuck beef tail meatball buffalo filet mignon rump sirloin prosciutto ground round pork belly shoulder tri-tip chicken.")
+                }
+                else -> {
+                    DomainEventNews(3L, "Bull Shark Testosterone", "Brucie Kibbutz", "Spicy jalapeno bacon ipsum dolor amet kielbasa fatback corned beef meatloaf turducken burgdoggen pork belly brisket jowl biltong swine ribeye. Chuck pork pork loin pastrami kielbasa. Porchetta buffalo filet mignon corned beef swine frankfurter. Bacon short loin chuck landjaeger andouille. Corned beef beef ribs picanha leberkas short ribs. Chuck beef tail meatball buffalo filet mignon rump sirloin prosciutto ground round pork belly shoulder tri-tip chicken.")
+                }
+            }
+        )
+    }
+
+    override fun getEventQuestionsAndAnswersByEventId(eventId: Long): List<DomainEventQuestionAndAnswer> {
+        return listOf(
+            DomainEventQuestionAndAnswer(
+                DomainEventQuestion(
+                    1L, "Has anyone seen my son?", "Anakin Skywalker", "Spicy jalapeno bacon ipsum dolor amet kielbasa fatback corned beef meatloaf turducken burgdoggen pork belly brisket jowl biltong swine ribeye. Chuck pork pork loin pastrami kielbasa. Porchetta buffalo filet mignon corned beef swine frankfurter. Bacon short loin chuck landjaeger andouille. Corned beef beef ribs picanha leberkas short ribs. Chuck beef tail meatball buffalo filet mignon rump sirloin prosciutto ground round pork belly shoulder tri-tip chicken.",
+                    eventId
+                ),
+                DomainEventAnswer(
+                    1L, "I believe he is on Hoth.", "Han Solo", "Spicy jalapeno bacon ipsum dolor amet kielbasa fatback corned beef meatloaf turducken burgdoggen pork belly brisket jowl biltong swine ribeye. Chuck pork pork loin pastrami kielbasa. Porchetta buffalo filet mignon corned beef swine frankfurter. Bacon short loin chuck landjaeger andouille. Corned beef beef ribs picanha leberkas short ribs. Chuck beef tail meatball buffalo filet mignon rump sirloin prosciutto ground round pork belly shoulder tri-tip chicken.",
+                    eventId
+                ), eventId
+            )
+        )
+    }
+
 }

@@ -11,7 +11,7 @@ import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.filters.SmallTest
 import androidx.test.internal.runner.junit4.statement.UiThreadStatement
 import com.google.common.truth.Truth
-import hu.bme.aut.android.together.features.eventcontrol.communication.fragment.EventDetailsCommunicationFragment
+import hu.bme.aut.android.together.features.eventcontrol.communication.pager.fragment.EventCommunicationPagerFragment
 import org.junit.Test
 
 class EventCommunicationScreenTest {
@@ -25,7 +25,7 @@ class EventCommunicationScreenTest {
             navController.setCurrentDestination(R.id.eventDetailsCommunicationFragment)
         }
         val eventCommunicationScreenScenario =
-            launchFragmentInContainer<EventDetailsCommunicationFragment>(themeResId = R.style.AppTheme,
+            launchFragmentInContainer<EventCommunicationPagerFragment>(themeResId = R.style.AppTheme,
                 fragmentArgs = Bundle().apply {
                     putBoolean("isOrganiser", true)
                 })

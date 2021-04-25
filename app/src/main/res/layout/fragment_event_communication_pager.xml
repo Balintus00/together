@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.eventcontrol.communication.fragment.EventDetailsCommunicationFragment">
+    tools:context=".features.eventcontrol.communication.pager.fragment.EventCommunicationPagerFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tbEventDetailsCommunication"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/ic_action_arrow_back"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:title="@string/example_title_event_detail" />
+        tools:title="@string/example_title_event_detail" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tlCommunicationPanels"

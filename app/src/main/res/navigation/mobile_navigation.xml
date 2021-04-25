@@ -99,16 +99,15 @@
         </fragment>
         <fragment
             android:id="@+id/eventDetailsCommunicationFragment"
-            android:name="hu.bme.aut.android.together.features.eventcontrol.communication.fragment.EventDetailsCommunicationFragment"
+            android:name="hu.bme.aut.android.together.features.eventcontrol.communication.pager.fragment.EventCommunicationPagerFragment"
             android:label="fragment_event_details_communication"
-            tools:layout="@layout/fragment_event_details_communication" >
-            <argument
-                android:name="isOrganiser"
-                app:argType="boolean"
-                android:defaultValue="false" />
+            tools:layout="@layout/fragment_event_communication_pager" >
             <action
                 android:id="@+id/action_eventDetailsCommunicationFragment_to_eventQuestionsFragment"
                 app:destination="@id/eventQuestionsFragment" />
+            <argument
+                android:name="eventId"
+                app:argType="long" />
         </fragment>
         <fragment
             android:id="@+id/eventQuestionsFragment"

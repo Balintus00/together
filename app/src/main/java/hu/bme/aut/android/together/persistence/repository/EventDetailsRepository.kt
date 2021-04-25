@@ -1,22 +1,23 @@
 package hu.bme.aut.android.together.persistence.repository
 
 import hu.bme.aut.android.together.model.domain.DomainEventDetails
+import hu.bme.aut.android.together.model.persistence.PersistedEventData
 import hu.bme.aut.android.together.model.persistence.PersistedEventDetails
-import hu.bme.aut.android.together.persistence.dao.EventDetailsDao
+import hu.bme.aut.android.together.persistence.dao.EventDataDao
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
 
 class EventDetailsRepository @Inject constructor(
-    private val eventDetailsDao: EventDetailsDao
+    private val eventDataDao: EventDataDao
 ) {
 
     fun saveEventDetails(eventDetails: DomainEventDetails) {
-        eventDetailsDao.insertCachedEventDetails(eventDetails.toPersistedEventDetails())
+        eventDataDao.insertCachedEventDetails(eventDetails.toPersistedEventDetails())
     }
 
     fun loadEventDetailsById(eventId: Long): DomainEventDetails {
-        return eventDetailsDao.getCachedEventDetailsById(eventId).toDomainEventDetails()
+        return eventDataDao.getCachedEventDetailsById(eventId).toDomainEventDetails()
     }
 
     private fun DomainEventDetails.toPersistedEventDetails(): PersistedEventDetails {
@@ -37,7 +38,7 @@ class EventDetailsRepository @Inject constructor(
         )
     }
 
-    private fun PersistedEventDetails.toDomainEventDetails(): DomainEventDetails {
+    private fun PersistedEventData.toDomainEventDetails(): DomainEventDetails {
         return DomainEventDetails(
             id,
             title,

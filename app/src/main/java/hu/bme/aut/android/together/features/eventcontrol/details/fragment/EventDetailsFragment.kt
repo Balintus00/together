@@ -181,7 +181,7 @@ class EventDetailsFragment : RainbowCakeFragment<EventDetailsState, EventDetails
     private fun setOrganiserSheetBehaviour() {
         with(binding) {
             tvOrganiserActionShowMessages.setOnClickListener {
-                navigateToEventCommunication(true)
+                navigateToEventCommunication()
                 fabActionEventDetails.isExpanded = false
             }
             tvOrganiserActionInvitePeople.setOnClickListener {
@@ -198,9 +198,9 @@ class EventDetailsFragment : RainbowCakeFragment<EventDetailsState, EventDetails
         }
     }
 
-    private fun navigateToEventCommunication(isOrganiser: Boolean) {
+    private fun navigateToEventCommunication() {
         EventDetailsFragmentDirections.actionEventDetailsFragmentToEventDetailsCommunicationFragment(
-            isOrganiser = isOrganiser
+            representedEventId
         )
             .let { action ->
                 findNavController().navigate(action)
@@ -235,7 +235,7 @@ class EventDetailsFragment : RainbowCakeFragment<EventDetailsState, EventDetails
         with(binding.fabActionEventDetails) {
             setImageResource(R.drawable.ic_action_message)
             setOnClickListener {
-                navigateToEventCommunication(false)
+                navigateToEventCommunication()
             }
         }
     }

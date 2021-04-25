@@ -2,25 +2,25 @@ package hu.bme.aut.android.together.persistence.repository
 
 import hu.bme.aut.android.together.model.domain.DomainEventDescriptionData
 import hu.bme.aut.android.together.model.persistence.PersistedEventDescriptionData
-import hu.bme.aut.android.together.model.persistence.PersistedEventDetails
-import hu.bme.aut.android.together.persistence.dao.EventDetailsDao
+import hu.bme.aut.android.together.model.persistence.PersistedEventData
+import hu.bme.aut.android.together.persistence.dao.EventDataDao
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
 
 class EventDescriptionDataRepository @Inject constructor(
-    private val eventDetailsDao: EventDetailsDao
+    private val eventDataDao: EventDataDao
 ) {
 
     fun saveEventDescriptionData(savableData: DomainEventDescriptionData) {
-        eventDetailsDao.insertCachedEventDescriptionDetails(savableData.toPersistedEventDescriptionData())
+        eventDataDao.insertCachedEventDescriptionDetails(savableData.toPersistedEventDescriptionData())
     }
 
     fun loadEventDescriptionData(eventId: Long): DomainEventDescriptionData {
-        return eventDetailsDao.getCachedEventDetailsById(eventId).toDomainEventDescriptionData()
+        return eventDataDao.getCachedEventDetailsById(eventId).toDomainEventDescriptionData()
     }
 
-    private fun PersistedEventDetails.toDomainEventDescriptionData(): DomainEventDescriptionData {
+    private fun PersistedEventData.toDomainEventDescriptionData(): DomainEventDescriptionData {
         return DomainEventDescriptionData(
             id,
             title,

@@ -9,7 +9,7 @@ import dagger.hilt.components.SingletonComponent
 import dagger.hilt.testing.TestInstallIn
 import hu.bme.aut.android.together.di.RoomModule
 import hu.bme.aut.android.together.model.persistence.*
-import hu.bme.aut.android.together.persistence.dao.EventDetailsDao
+import hu.bme.aut.android.together.persistence.dao.EventDataDao
 import hu.bme.aut.android.together.persistence.dao.EventInvitationsDao
 import hu.bme.aut.android.together.persistence.dao.EventShortInfoDao
 import hu.bme.aut.android.together.persistence.dao.ProfileDao
@@ -83,9 +83,9 @@ class FakeRoomModule {
 
     @Provides
     fun provideEventDetailsDao(@Suppress("UNUSED_PARAMETER") appDatabase: AppDatabase) =
-        object : EventDetailsDao {
-            override fun getCachedEventDetailsById(eventId: Long): PersistedEventDetails {
-                return PersistedEventDetails(
+        object : EventDataDao {
+            override fun getCachedEventDetailsById(eventId: Long): PersistedEventData {
+                return PersistedEventData(
                     1L,
                     "Kristóf's birtday party",
                     "https://picsum.photos/200",
@@ -102,7 +102,7 @@ class FakeRoomModule {
                 )
             }
 
-            override fun insertCachedEventDetails(details: PersistedEventDetails) {}
+            override fun insertCachedEventDetails(data: PersistedEventData) {}
 
             override fun insertCachedEventDescriptionDetails(data: PersistedEventDescriptionData) {}
 

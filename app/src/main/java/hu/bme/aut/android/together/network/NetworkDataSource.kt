@@ -17,4 +17,10 @@ interface NetworkDataSource {
     fun getEventDetailsById(eventId: Long) : DomainEventDetails?
 
     fun getEventDescriptionDataById(eventId: Long) : DomainEventDescriptionData?
+
+    fun getCommunicationPagerDataById(eventId: Long) : DomainCommunicationPagerData?
+
+    fun getEventNewsById(eventId: Long) : List<DomainEventNews>?
+
+    fun getEventQuestionsAndAnswersByEventId(eventId: Long): List<DomainEventQuestionAndAnswer>?
 }

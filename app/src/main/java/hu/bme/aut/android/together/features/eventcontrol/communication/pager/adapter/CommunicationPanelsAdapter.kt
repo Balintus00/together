@@ -1,18 +1,18 @@
-package hu.bme.aut.android.together.features.eventcontrol.communication.adapter
+package hu.bme.aut.android.together.features.eventcontrol.communication.pager.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import hu.bme.aut.android.together.R
-import hu.bme.aut.android.together.features.eventcontrol.communication.fragment.NewsListFragment
-import hu.bme.aut.android.together.features.eventcontrol.communication.fragment.QAFragment
+import hu.bme.aut.android.together.features.eventcontrol.communication.newslist.fragment.NewsListFragment
+import hu.bme.aut.android.together.features.eventcontrol.communication.qa.fragment.EventQAFragment
 
 /**
  * This adapter controls the appearance of the tabs, that can be used to communicate with the other
  * event participants.
  * @param fragment the reference of the Fragment, which contains the widget, that uses this adapter.
- * @param isOrganiser if the user has organiser privileges, this value should be true.
+ * @param eventId the id of the represented event.
  */
-class CommunicationPanelsAdapter(fragment: Fragment, private val isOrganiser: Boolean) :
+class CommunicationPanelsAdapter(fragment: Fragment, private val eventId: Long) :
     FragmentStateAdapter(fragment) {
     companion object {
         private const val TAB_COUNT = 2
@@ -27,8 +27,8 @@ class CommunicationPanelsAdapter(fragment: Fragment, private val isOrganiser: Bo
     override fun createFragment(position: Int): Fragment {
         require(position in 0 until TAB_COUNT)
         return when (position) {
-            0 -> NewsListFragment.createFragment(isOrganiser)
-            1 -> QAFragment()
+            0 -> NewsListFragment.createFragment(eventId)
+            1 -> EventQAFragment.createFragment(eventId)
             else -> throw IllegalArgumentException("Invalid position was given to adapter!")
         }
     }
