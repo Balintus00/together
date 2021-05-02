@@ -100,6 +100,10 @@ class FakeRoomModule {
                 )
             }
 
+            override fun getEventTitleById(eventId: Long): String {
+                return "Lorem"
+            }
+
             override fun insertCachedEventDetails(data: PersistedEventDetails) {}
 
             override fun insertCachedEventDescriptionDetails(data: PersistedEventDescriptionData) {}
@@ -120,6 +124,10 @@ class FakeRoomModule {
 
     @Provides
     fun provideEventQuestionDao(@Suppress("UNUSED_PARAMETER") appDatabase: AppDatabase) = object: EventQuestionDao {
+        override fun getEventQuestionsById(eventId: Long): List<PersistedEventQuestion> {
+            return listOf()
+        }
+
         override fun insertEventQuestion(vararg question: PersistedEventQuestion) { }
 
     }
