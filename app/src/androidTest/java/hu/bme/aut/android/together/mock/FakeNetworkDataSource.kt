@@ -13,8 +13,10 @@ class FakeNetworkDataSource @Inject constructor() : NetworkDataSource {
 
         const val organiserEventId = 1L
         const val participantEventId = 2L
+
         @Suppress("unused")
         const val nonParticipantEventId = 3L
+
         @Suppress("unused")
         const val privateEventId = 1L
 
@@ -129,7 +131,7 @@ class FakeNetworkDataSource @Inject constructor() : NetworkDataSource {
     }
 
     override fun getEventDetailsById(eventId: Long): DomainEventDetails {
-        return when(eventId) {
+        return when (eventId) {
             organiserEventId -> {
                 DomainEventDetails(
                     1L,
@@ -273,13 +275,28 @@ class FakeNetworkDataSource @Inject constructor() : NetworkDataSource {
         return listOf(
             when (eventId) {
                 1L -> {
-                    DomainEventNews(1L, "We need more food!", "KR1ST0F", "Spicy jalapeno bacon ipsum dolor amet kielbasa fatback corned beef meatloaf turducken burgdoggen pork belly brisket jowl biltong swine ribeye. Chuck pork pork loin pastrami kielbasa. Porchetta buffalo filet mignon corned beef swine frankfurter. Bacon short loin chuck landjaeger andouille. Corned beef beef ribs picanha leberkas short ribs. Chuck beef tail meatball buffalo filet mignon rump sirloin prosciutto ground round pork belly shoulder tri-tip chicken.")
+                    DomainEventNews(
+                        1L,
+                        "We need more food!",
+                        "KR1ST0F",
+                        "Spicy jalapeno bacon ipsum dolor amet kielbasa fatback corned beef meatloaf turducken burgdoggen pork belly brisket jowl biltong swine ribeye. Chuck pork pork loin pastrami kielbasa. Porchetta buffalo filet mignon corned beef swine frankfurter. Bacon short loin chuck landjaeger andouille. Corned beef beef ribs picanha leberkas short ribs. Chuck beef tail meatball buffalo filet mignon rump sirloin prosciutto ground round pork belly shoulder tri-tip chicken."
+                    )
                 }
                 2L -> {
-                    DomainEventNews(2L, "Most likely it will rain!", "Yanet Garcia", "Spicy jalapeno bacon ipsum dolor amet kielbasa fatback corned beef meatloaf turducken burgdoggen pork belly brisket jowl biltong swine ribeye. Chuck pork pork loin pastrami kielbasa. Porchetta buffalo filet mignon corned beef swine frankfurter. Bacon short loin chuck landjaeger andouille. Corned beef beef ribs picanha leberkas short ribs. Chuck beef tail meatball buffalo filet mignon rump sirloin prosciutto ground round pork belly shoulder tri-tip chicken.")
+                    DomainEventNews(
+                        2L,
+                        "Most likely it will rain!",
+                        "Yanet Garcia",
+                        "Spicy jalapeno bacon ipsum dolor amet kielbasa fatback corned beef meatloaf turducken burgdoggen pork belly brisket jowl biltong swine ribeye. Chuck pork pork loin pastrami kielbasa. Porchetta buffalo filet mignon corned beef swine frankfurter. Bacon short loin chuck landjaeger andouille. Corned beef beef ribs picanha leberkas short ribs. Chuck beef tail meatball buffalo filet mignon rump sirloin prosciutto ground round pork belly shoulder tri-tip chicken."
+                    )
                 }
                 else -> {
-                    DomainEventNews(3L, "Bull Shark Testosterone", "Brucie Kibbutz", "Spicy jalapeno bacon ipsum dolor amet kielbasa fatback corned beef meatloaf turducken burgdoggen pork belly brisket jowl biltong swine ribeye. Chuck pork pork loin pastrami kielbasa. Porchetta buffalo filet mignon corned beef swine frankfurter. Bacon short loin chuck landjaeger andouille. Corned beef beef ribs picanha leberkas short ribs. Chuck beef tail meatball buffalo filet mignon rump sirloin prosciutto ground round pork belly shoulder tri-tip chicken.")
+                    DomainEventNews(
+                        3L,
+                        "Bull Shark Testosterone",
+                        "Brucie Kibbutz",
+                        "Spicy jalapeno bacon ipsum dolor amet kielbasa fatback corned beef meatloaf turducken burgdoggen pork belly brisket jowl biltong swine ribeye. Chuck pork pork loin pastrami kielbasa. Porchetta buffalo filet mignon corned beef swine frankfurter. Bacon short loin chuck landjaeger andouille. Corned beef beef ribs picanha leberkas short ribs. Chuck beef tail meatball buffalo filet mignon rump sirloin prosciutto ground round pork belly shoulder tri-tip chicken."
+                    )
                 }
             }
         )
@@ -289,11 +306,17 @@ class FakeNetworkDataSource @Inject constructor() : NetworkDataSource {
         return listOf(
             DomainEventQuestionAndAnswer(
                 DomainEventQuestion(
-                    1L, "Has anyone seen my son?", "Anakin Skywalker", "Spicy jalapeno bacon ipsum dolor amet kielbasa fatback corned beef meatloaf turducken burgdoggen pork belly brisket jowl biltong swine ribeye. Chuck pork pork loin pastrami kielbasa. Porchetta buffalo filet mignon corned beef swine frankfurter. Bacon short loin chuck landjaeger andouille. Corned beef beef ribs picanha leberkas short ribs. Chuck beef tail meatball buffalo filet mignon rump sirloin prosciutto ground round pork belly shoulder tri-tip chicken.",
+                    1L,
+                    "Has anyone seen my son?",
+                    "Anakin Skywalker",
+                    "Spicy jalapeno bacon ipsum dolor amet kielbasa fatback corned beef meatloaf turducken burgdoggen pork belly brisket jowl biltong swine ribeye. Chuck pork pork loin pastrami kielbasa. Porchetta buffalo filet mignon corned beef swine frankfurter. Bacon short loin chuck landjaeger andouille. Corned beef beef ribs picanha leberkas short ribs. Chuck beef tail meatball buffalo filet mignon rump sirloin prosciutto ground round pork belly shoulder tri-tip chicken.",
                     eventId
                 ),
                 DomainEventAnswer(
-                    1L, "I believe he is on Hoth.", "Han Solo", "Spicy jalapeno bacon ipsum dolor amet kielbasa fatback corned beef meatloaf turducken burgdoggen pork belly brisket jowl biltong swine ribeye. Chuck pork pork loin pastrami kielbasa. Porchetta buffalo filet mignon corned beef swine frankfurter. Bacon short loin chuck landjaeger andouille. Corned beef beef ribs picanha leberkas short ribs. Chuck beef tail meatball buffalo filet mignon rump sirloin prosciutto ground round pork belly shoulder tri-tip chicken.",
+                    1L,
+                    "I believe he is on Hoth.",
+                    "Han Solo",
+                    "Spicy jalapeno bacon ipsum dolor amet kielbasa fatback corned beef meatloaf turducken burgdoggen pork belly brisket jowl biltong swine ribeye. Chuck pork pork loin pastrami kielbasa. Porchetta buffalo filet mignon corned beef swine frankfurter. Bacon short loin chuck landjaeger andouille. Corned beef beef ribs picanha leberkas short ribs. Chuck beef tail meatball buffalo filet mignon rump sirloin prosciutto ground round pork belly shoulder tri-tip chicken.",
                     eventId
                 ), eventId
             )
@@ -301,8 +324,37 @@ class FakeNetworkDataSource @Inject constructor() : NetworkDataSource {
     }
 
     override fun getEventQuestionsAndTitle(eventId: Long): DomainEventQuestionsWithTitle {
-        return DomainEventQuestionsWithTitle(1L, "Kristóf's birthday party", listOf(
-            DomainEventQuestion(id = 8L, eventId = 1L,  question = "Should I bring food?", author = "B4RN1", detailedQuestion =  "Spicy jalapeno bacon ipsum dolor amet kielbasa fatback corned beef meatloaf turducken burgdoggen pork belly brisket jowl biltong swine ribeye. Chuck pork pork loin pastrami kielbasa. Porchetta buffalo filet mignon corned beef swine frankfurter. Bacon short loin chuck landjaeger andouille. Corned beef beef ribs picanha leberkas short ribs. Chuck beef tail meatball buffalo filet mignon rump sirloin prosciutto ground round pork belly shoulder tri-tip chicken.")
-        ))
+        return DomainEventQuestionsWithTitle(
+            1L, "Kristóf's birthday party", listOf(
+                DomainEventQuestion(
+                    id = 8L,
+                    eventId = 1L,
+                    question = "Should I bring food?",
+                    author = "B4RN1",
+                    detailedQuestion = "Spicy jalapeno bacon ipsum dolor amet kielbasa fatback corned beef meatloaf turducken burgdoggen pork belly brisket jowl biltong swine ribeye. Chuck pork pork loin pastrami kielbasa. Porchetta buffalo filet mignon corned beef swine frankfurter. Bacon short loin chuck landjaeger andouille. Corned beef beef ribs picanha leberkas short ribs. Chuck beef tail meatball buffalo filet mignon rump sirloin prosciutto ground round pork belly shoulder tri-tip chicken."
+                )
+            )
+        )
+    }
+
+    override fun sendInvitations(eventId: Long, userNames: List<String>): Boolean {
+        return true
+    }
+
+    override fun getEventShortInfoByEventId(eventId: Long): DomainEventShortInfo {
+        return DomainEventShortInfo(
+            1,
+            "Kristóf's birthday party",
+            "Budapest",
+            SimpleDateFormat(
+                "yyyy.MM.dd. HH:mm",
+                Locale.ENGLISH
+            ).run { parse("2022.03.02. 16:00") }!!,
+            SimpleDateFormat(
+                "yyyy.MM.dd. HH:mm",
+                Locale.ENGLISH
+            ).run { parse("2022.03.02. 22:00") }!!,
+            "https://picsum.photos/200"
+        )
     }
 }

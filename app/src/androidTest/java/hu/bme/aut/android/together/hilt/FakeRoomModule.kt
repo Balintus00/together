@@ -58,6 +58,21 @@ class FakeRoomModule {
     @Provides
     fun provideEventShortInfoDao(@Suppress("UNUSED_PARAMETER") appDatabase: AppDatabase) =
         object : EventShortInfoDao {
+
+            override fun getEventShortInfoByEventId(eventId: Long): PersistedEventShortInfo {
+                return PersistedEventShortInfo(
+                    1,
+                    "Coronavirus beginning party",
+                    "Budapest",
+                    "2020.02.14.",
+                    "16:00",
+                    "2020.02.14.",
+                    "22:00",
+                    "https://picsum.photos/200",
+                    PersistedEventShortInfoType.ComingEvent.ordinal
+                )
+            }
+
             override fun getShortInfoByPersistenceOption(shortInfoPersistenceOption: Int): List<PersistedEventShortInfo> {
                 return listOf(
                     PersistedEventShortInfo(
@@ -113,38 +128,42 @@ class FakeRoomModule {
         }
 
     @Provides
-    fun provideEventNewsDao(@Suppress("UNUSED_PARAMETER") appDatabase: AppDatabase) = object: EventNewsDao {
-        override fun persistEventNews(vararg new: PersistedEventNews) { }
+    fun provideEventNewsDao(@Suppress("UNUSED_PARAMETER") appDatabase: AppDatabase) =
+        object : EventNewsDao {
+            override fun persistEventNews(vararg new: PersistedEventNews) {}
 
-        override fun getCachedNewsByEventId(eventId: Long): List<PersistedEventNews> {
-            return listOf()
+            override fun getCachedNewsByEventId(eventId: Long): List<PersistedEventNews> {
+                return listOf()
+            }
+
         }
 
-    }
-
     @Provides
-    fun provideEventQuestionDao(@Suppress("UNUSED_PARAMETER") appDatabase: AppDatabase) = object: EventQuestionDao {
-        override fun getEventQuestionsById(eventId: Long): List<PersistedEventQuestion> {
-            return listOf()
+    fun provideEventQuestionDao(@Suppress("UNUSED_PARAMETER") appDatabase: AppDatabase) =
+        object : EventQuestionDao {
+            override fun getEventQuestionsById(eventId: Long): List<PersistedEventQuestion> {
+                return listOf()
+            }
+
+            override fun insertEventQuestion(vararg question: PersistedEventQuestion) {}
+
         }
 
-        override fun insertEventQuestion(vararg question: PersistedEventQuestion) { }
-
-    }
-
     @Provides
-    fun provideEventAnswerDao(@Suppress("UNUSED_PARAMETER") appDatabase: AppDatabase) = object: EventAnswerDao {
-        override fun insertEventAnswer(vararg answer: PersistedEventAnswer) { }
+    fun provideEventAnswerDao(@Suppress("UNUSED_PARAMETER") appDatabase: AppDatabase) =
+        object : EventAnswerDao {
+            override fun insertEventAnswer(vararg answer: PersistedEventAnswer) {}
 
-    }
-
-    @Provides
-    fun provideQuestionAndAnswerDao(@Suppress("UNUSED_PARAMETER") appDatabase: AppDatabase) = object: QuestionAndAnswerDao {
-        override fun getEventsQuestionsAndAnswers(eventId: Long): List<PersistedQuestionAndAnswer> {
-            return listOf()
         }
 
-    }
+    @Provides
+    fun provideQuestionAndAnswerDao(@Suppress("UNUSED_PARAMETER") appDatabase: AppDatabase) =
+        object : QuestionAndAnswerDao {
+            override fun getEventsQuestionsAndAnswers(eventId: Long): List<PersistedQuestionAndAnswer> {
+                return listOf()
+            }
+
+        }
 
     @Provides
     @Singleton
