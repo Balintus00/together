@@ -8,7 +8,27 @@ import androidx.fragment.app.DialogFragment
 import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.DialogfragmentEventAttributeModifierBinding
 
-class EventAttributeModifierDialogFragment(private val attributeName: String) : DialogFragment() {
+class EventAttributeModifierDialogFragment : DialogFragment() {
+
+    companion object {
+        private const val ATTRIBUTE_NAME_KEY = "ATTRIBUTE_NAME_KEY"
+        private const val INITIAL_VALUE_KEY = "INITIAL_VALUE_KEY"
+        fun newInstance(
+            attributeName: String,
+            initialValue: String,
+            modifyFunction: (String) -> Unit
+        ): EventAttributeModifierDialogFragment {
+            return EventAttributeModifierDialogFragment().apply {
+                onPositiveFinish = modifyFunction
+                arguments = Bundle().apply {
+                    putString(ATTRIBUTE_NAME_KEY, attributeName)
+                    putString(INITIAL_VALUE_KEY, initialValue)
+                }
+            }
+        }
+    }
+
+    private lateinit var onPositiveFinish: (String) -> Unit
 
     private lateinit var binding: DialogfragmentEventAttributeModifierBinding
 
@@ -28,17 +48,26 @@ class EventAttributeModifierDialogFragment(private val attributeName: String) : 
 
     private fun setUpUIWidgets() {
         setTitleTextViewsContent()
+        setEditTextInitialValueFromArgs()
         setPositiveButtonBehaviour()
         setNegativeButtonBehaviour()
     }
 
     private fun setTitleTextViewsContent() {
-        binding.tvModificationTitle.text = getString(R.string.title_modification_event_attribute, attributeName)
+        binding.tvModificationTitle.text = getString(
+            R.string.title_modification_event_attribute, requireArguments().getString(
+                ATTRIBUTE_NAME_KEY
+            )
+        )
+    }
+
+    private fun setEditTextInitialValueFromArgs() {
+        binding.editText2.setText(requireArguments().getString(INITIAL_VALUE_KEY))
     }
 
     private fun setPositiveButtonBehaviour() {
-        //TODO saving the new attribute value
         binding.btnAccept.setOnClickListener {
+            onPositiveFinish(binding.editText2.text.toString())
             dismiss()
         }
     }

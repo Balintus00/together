@@ -27,8 +27,8 @@ class ModifyEventDetailsPresenter @Inject constructor(
             title,
             imageUrl,
             category,
-            SimpleDateFormat("EEEE, MMM dd - HH:mm", Locale.ENGLISH).run { parse(startDate) }!!,
-            SimpleDateFormat("EEEE, MMM dd - HH:mm", Locale.ENGLISH).run { parse(endDate) }!!,
+            SimpleDateFormat("yyyy.MM.DD. HH:mm", Locale.ENGLISH).run { parse(startDate) }!!,
+            SimpleDateFormat("yyyy.MM.DD. HH:mm", Locale.ENGLISH).run { parse(endDate) }!!,
             location,
             description,
             isParticipantCountLimited,
@@ -60,7 +60,7 @@ class ModifyEventDetailsPresenter @Inject constructor(
     }
 
     private fun convertDateToRepresentedDateFormat(date: Date): String {
-        return SimpleDateFormat("EEEE, MMM dd - HH:mm", Locale.ENGLISH).format(date)
+        return SimpleDateFormat("yyyy.MM.dd. HH:mm", Locale.ENGLISH).format(date)
     }
 
 }

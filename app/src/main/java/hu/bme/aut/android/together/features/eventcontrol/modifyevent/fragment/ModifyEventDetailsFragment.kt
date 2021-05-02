@@ -16,6 +16,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
@@ -36,6 +37,7 @@ import java.util.*
 
 /**
  * On this fragment the user can modify an event.
+ * TODO the event's picture modification is currently unhandled. The implementation of this feature might depend on the backend.
  */
 @AndroidEntryPoint
 class ModifyEventDetailsFragment :
@@ -181,8 +183,16 @@ class ModifyEventDetailsFragment :
         setSimpleModifiableTextViewsBehaviour()
         setPhotoModifierButtonBehaviour()
         setCategorySpinner()
-        setDateTextViewBehaviour(binding.tvFromDate)
-        setDateTextViewBehaviour(binding.tvToDate)
+        setDateTextViewBehaviour(binding.tvFromDate) {
+            modifyEventDetailsViewModel.modifiedEventDetails.value!!.startDate = it
+            modifyEventDetailsViewModel.modifiedEventDetails.value =
+                modifyEventDetailsViewModel.modifiedEventDetails.value!!
+        }
+        setDateTextViewBehaviour(binding.tvToDate) {
+            modifyEventDetailsViewModel.modifiedEventDetails.value!!.endDate = it
+            modifyEventDetailsViewModel.modifiedEventDetails.value =
+                modifyEventDetailsViewModel.modifiedEventDetails.value!!
+        }
     }
 
     /**
@@ -228,15 +238,32 @@ class ModifyEventDetailsFragment :
 
     private fun setSimpleModifiableTextViewsBehaviour() {
         with(binding) {
-            setOnClickDialogToAppearOnTextView(tvEventName, tvTitleNameAttribute.text.toString())
+            setOnClickDialogToAppearOnTextView(
+                tvEventName, tvTitleNameAttribute.text.toString(),
+                tvEventName.text.toString()
+            ) {
+                modifyEventDetailsViewModel.modifiedEventDetails.value!!.title = it
+                modifyEventDetailsViewModel.modifiedEventDetails.value =
+                    modifyEventDetailsViewModel.modifiedEventDetails.value!!
+            }
             setOnClickDialogToAppearOnTextView(
                 tvEventLocation,
-                tvTitleLocationAttribute.text.toString()
-            )
+                tvTitleLocationAttribute.text.toString(),
+                tvEventLocation.text.toString()
+            ) {
+                modifyEventDetailsViewModel.modifiedEventDetails.value!!.location = it
+                modifyEventDetailsViewModel.modifiedEventDetails.value =
+                    modifyEventDetailsViewModel.modifiedEventDetails.value!!
+            }
             setOnClickDialogToAppearOnTextView(
                 tvDescription,
-                tvTitleDescriptionAttribute.text.toString()
-            )
+                tvTitleDescriptionAttribute.text.toString(),
+                tvDescription.text.toString()
+            ) {
+                modifyEventDetailsViewModel.modifiedEventDetails.value!!.description = it
+                modifyEventDetailsViewModel.modifiedEventDetails.value =
+                    modifyEventDetailsViewModel.modifiedEventDetails.value!!
+            }
         }
     }
 
@@ -245,12 +272,18 @@ class ModifyEventDetailsFragment :
      * parameter.
      * @param textView the TextView, of which content can be modified using the dialog.
      */
-    private fun setOnClickDialogToAppearOnTextView(textView: TextView, attributeName: String) {
+    private fun setOnClickDialogToAppearOnTextView(
+        textView: TextView,
+        attributeName: String,
+        initialValue: String,
+        onModify: (String) -> Unit
+    ) {
         textView.setOnClickListener {
-            EventAttributeModifierDialogFragment(attributeName).show(
-                parentFragmentManager,
-                ""
-            )
+            EventAttributeModifierDialogFragment.newInstance(attributeName, initialValue, onModify)
+                .show(
+                    parentFragmentManager,
+                    ""
+                )
         }
     }
 
@@ -332,6 +365,14 @@ class ModifyEventDetailsFragment :
                 R.layout.support_simple_spinner_dropdown_item,
                 resources.getStringArray(R.array.event_category_types_array)
             )
+            onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                    modifyEventDetailsViewModel.modifiedEventDetails.value!!.category =
+                        resources.getStringArray(R.array.event_category_types_array)[p2]
+                }
+
+                override fun onNothingSelected(p0: AdapterView<*>?) {}
+            }
         }
     }
 
@@ -342,7 +383,7 @@ class ModifyEventDetailsFragment :
      * @param textView the date containing TextView, which behaviour will be set.
      */
     @SuppressLint("SetTextI18n") //In this it works perfectly; using a placeholder resource is unnecessary
-    private fun setDateTextViewBehaviour(textView: TextView) {
+    private fun setDateTextViewBehaviour(textView: TextView, modifyDateString: (String) -> Unit) {
         textView.setOnClickListener {
             val calendar = Calendar.getInstance()
             var dateString: String
@@ -357,7 +398,7 @@ class ModifyEventDetailsFragment :
                         { _, hour, minute ->
                             timeString =
                                 getString(R.string.time_hour_minute, hour, minute)
-                            textView.text = "$dateString $timeString"
+                            modifyDateString("$dateString $timeString")
                         },
                         calendar.get(Calendar.HOUR_OF_DAY),
                         calendar.get(Calendar.MINUTE),
@@ -368,13 +409,13 @@ class ModifyEventDetailsFragment :
                 calendar.get(Calendar.MONTH),
                 calendar.get(Calendar.DAY_OF_MONTH)
             ).show()
-            //TODO modifying the data
         }
     }
 
     private fun observeCurrentlyModifiedEventDetails() {
         modifyEventDetailsViewModel.modifiedEventDetails.observe(viewLifecycleOwner) {
             with(binding) {
+                tbModifyEvent.title = it.title
                 tvEventName.text = it.title
                 tvEventLocation.text = it.location
                 tvFromDate.text = it.startDate
