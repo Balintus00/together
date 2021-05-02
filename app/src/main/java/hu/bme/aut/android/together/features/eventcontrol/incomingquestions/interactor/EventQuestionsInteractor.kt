@@ -12,7 +12,7 @@ class EventQuestionsInteractor @Inject constructor(
 
     fun getEventQuestionById(eventId: Long): DomainEventQuestionsWithTitle {
         return networkDataSource.getEventQuestionsAndTitle(eventId)?.let {
-            eventQuestionsAndTitleRepository.saveEventQuestionsByEventId(eventId, it.questions)
+            eventQuestionsAndTitleRepository.saveEventQuestions(it.questions)
             it
         } ?: DomainEventQuestionsWithTitle(
             eventId,

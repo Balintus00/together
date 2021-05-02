@@ -104,7 +104,7 @@ class EventQuestionsFragment : RainbowCakeFragment<EventQuestionsState, EventQue
             showEventQuestionResponseDialog(representedQuestion)
         }
         with(binding.rvQuestions) {
-            adapter = adapter
+            adapter = this@EventQuestionsFragment.adapter
             layoutManager = LinearLayoutManager(requireContext())
         }
     }

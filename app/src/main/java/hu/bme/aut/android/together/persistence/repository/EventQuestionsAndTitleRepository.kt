@@ -11,7 +11,7 @@ class EventQuestionsAndTitleRepository @Inject constructor(
     private val eventDataDao: EventDataDao
 ) {
 
-    fun saveEventQuestionsByEventId(eventId: Long, listOfQuestions: List<DomainEventQuestion>) {
+    fun saveEventQuestions(listOfQuestions: List<DomainEventQuestion>) {
         questionDao.insertEventQuestion(*listOfQuestions.map { it.toPersistedEventQuestion() }
             .toTypedArray())
     }
@@ -25,11 +25,11 @@ class EventQuestionsAndTitleRepository @Inject constructor(
     }
 
     private fun PersistedEventQuestion.toDomainEventQuestion(): DomainEventQuestion {
-
+        return DomainEventQuestion(questionId, question, author, detailedQuestion, eventId)
     }
 
     private fun DomainEventQuestion.toPersistedEventQuestion(): PersistedEventQuestion {
-
+        return PersistedEventQuestion(id, question, author, detailedQuestion, eventId)
     }
 
 }
