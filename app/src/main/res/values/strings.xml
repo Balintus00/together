@@ -218,4 +218,5 @@
     <string name="error_message_loading">Searched data can\'t be loaded!</string>
     <string name="action_reload">RELOAD</string>
     <string name="event_details_unlimited_spaces">Spaces are not limited!</string>
+    <string name="error_unsuccessful_invitation_sending">Invitation sending was unsuccessful!</string>
 </resources>

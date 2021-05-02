@@ -122,7 +122,11 @@
             android:id="@+id/eventInvitationSenderFragment"
             android:name="hu.bme.aut.android.together.features.eventcontrol.sendinvitation.fragment.EventInvitationSenderFragment"
             android:label="fragment_event_invitation_sender"
-            tools:layout="@layout/fragment_event_invitation_sender" />
+            tools:layout="@layout/fragment_event_invitation_sender" >
+            <argument
+                android:name="eventId"
+                app:argType="long" />
+        </fragment>
         <fragment
             android:id="@+id/modifyEventDetailsFragment"
             android:name="hu.bme.aut.android.together.features.eventcontrol.modifyevent.fragment.ModifyEventDetailsFragment"

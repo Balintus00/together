@@ -27,85 +27,99 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tbEventDetailsCommunication">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/textView26"
-                style="@style/Title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/title_invitation_event"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textView27"
-                style="@style/HighlightedBigNormalAttribute"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/example_date_time_event_details"
-                app:layout_constraintTop_toBottomOf="@+id/textView26" />
-
-            <TextView
-                android:id="@+id/textView28"
-                style="@style/BigNormalAttribute"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/example_place_event_details"
-                app:layout_constraintTop_toBottomOf="@+id/textView27" />
-
-            <TextView
-                android:id="@+id/textView30"
-                style="@style/BigNormalAttribute"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/example_event_name"
-                app:layout_constraintTop_toBottomOf="@+id/textView28" />
-
-            <EditText
-                android:id="@+id/etInvitedUserNameInput"
-                style="@style/BigNormalAttribute"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:hint="@string/hint_event_invitation_username_input"
-                android:importantForAutofill="no"
-                android:inputType="text"
-                app:layout_constraintTop_toBottomOf="@+id/textView30" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnAddInvitedUserName"
-                style="@style/HighlightedMediumButton"
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/cpiEventInvitationSenderLoading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="12dp"
-                android:text="@string/action_add"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etInvitedUserNameInput" />
+                android:indeterminate="true"/>
 
-            <TextView
-                android:id="@+id/textView31"
-                style="@style/BigBoldAttribute"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clContent"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="@string/title_event_invitation_sender_selected"
-                app:layout_constraintTop_toBottomOf="@+id/btnAddInvitedUserName" />
+                android:layout_height="wrap_content">
 
-            <TextView
-                style="@style/BigNormalAttribute"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/example_invited_usernames"
-                app:layout_constraintTop_toBottomOf="@+id/textView31" />
+                <TextView
+                    android:id="@+id/textView26"
+                    style="@style/Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_invitation_event"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/tvEventStartDate"
+                    style="@style/HighlightedBigNormalAttribute"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    tools:text="@string/example_date_time_event_details"
+                    app:layout_constraintTop_toBottomOf="@+id/textView26" />
+
+                <TextView
+                    android:id="@+id/tvEventLocation"
+                    style="@style/BigNormalAttribute"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    tools:text="@string/example_place_event_details"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEventStartDate" />
+
+                <TextView
+                    android:id="@+id/tvEventTitle"
+                    style="@style/BigNormalAttribute"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    tools:text="@string/example_event_name"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEventLocation" />
+
+                <EditText
+                    android:id="@+id/etInvitedUserNameInput"
+                    style="@style/BigNormalAttribute"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:hint="@string/hint_event_invitation_username_input"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEventTitle" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAddInvitedUserName"
+                    style="@style/HighlightedMediumButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/action_add"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etInvitedUserNameInput" />
+
+                <TextView
+                    android:id="@+id/textView31"
+                    style="@style/BigBoldAttribute"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/title_event_invitation_sender_selected"
+                    app:layout_constraintTop_toBottomOf="@+id/btnAddInvitedUserName" />
+
+                <TextView
+                    android:id="@+id/tvSelectedUsernames"
+                    style="@style/BigNormalAttribute"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    tools:text="@string/example_invited_usernames"
+                    app:layout_constraintTop_toBottomOf="@+id/textView31" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </FrameLayout>
 
     </ScrollView>
 

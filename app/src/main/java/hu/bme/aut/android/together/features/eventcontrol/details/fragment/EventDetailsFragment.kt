@@ -208,7 +208,9 @@ class EventDetailsFragment : RainbowCakeFragment<EventDetailsState, EventDetails
     }
 
     private fun navigateToInvitationSenderScreen() {
-        EventDetailsFragmentDirections.actionEventDetailsFragmentToEventInvitationSenderFragment()
+        EventDetailsFragmentDirections.actionEventDetailsFragmentToEventInvitationSenderFragment(
+            representedEventId
+        )
             .let { action ->
                 findNavController().navigate(action)
             }
