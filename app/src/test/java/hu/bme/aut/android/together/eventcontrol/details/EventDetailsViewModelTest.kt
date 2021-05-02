@@ -42,6 +42,7 @@ class EventDetailsViewModelTest : ViewModelTest() {
             1L,
             "Kristóf's birtday party",
             "https://picsum.photos/200",
+            "Tech",
             "2021.4.20. 6:9",
             "2021.6.9. 4:20",
             "Budapest, Irinyi József u. 42.",

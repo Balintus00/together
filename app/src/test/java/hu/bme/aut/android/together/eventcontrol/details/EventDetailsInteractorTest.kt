@@ -36,6 +36,7 @@ class EventDetailsInteractorTest {
             1L,
             "Kristóf's birtday party",
             "https://picsum.photos/200",
+            "Tech",
             SimpleDateFormat(
                 "yyyy.MM.dd. HH:mm",
                 Locale.ENGLISH
@@ -68,6 +69,7 @@ class EventDetailsInteractorTest {
             1L,
             "Kristóf's birtday party",
             "https://picsum.photos/200",
+            "Tech",
             SimpleDateFormat(
                 "yyyy.MM.dd. HH:mm",
                 Locale.ENGLISH
