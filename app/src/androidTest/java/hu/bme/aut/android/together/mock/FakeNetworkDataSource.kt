@@ -299,4 +299,10 @@ class FakeNetworkDataSource @Inject constructor() : NetworkDataSource {
             )
         )
     }
+
+    override fun getEventQuestionsAndTitle(eventId: Long): DomainEventQuestionsWithTitle {
+        return DomainEventQuestionsWithTitle(1L, "Kristóf's birthday party", listOf(
+            DomainEventQuestion(id = 8L, eventId = 1L,  question = "Should I bring food?", author = "B4RN1", detailedQuestion =  "Spicy jalapeno bacon ipsum dolor amet kielbasa fatback corned beef meatloaf turducken burgdoggen pork belly brisket jowl biltong swine ribeye. Chuck pork pork loin pastrami kielbasa. Porchetta buffalo filet mignon corned beef swine frankfurter. Bacon short loin chuck landjaeger andouille. Corned beef beef ribs picanha leberkas short ribs. Chuck beef tail meatball buffalo filet mignon rump sirloin prosciutto ground round pork belly shoulder tri-tip chicken.")
+        ))
+    }
 }
