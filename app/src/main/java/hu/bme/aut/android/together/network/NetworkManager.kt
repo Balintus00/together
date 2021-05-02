@@ -314,4 +314,27 @@ class NetworkManager @Inject constructor() : NetworkDataSource {
         ))
     }
 
+    override fun sendInvitations(eventId: Long, userNames: List<String>): Boolean {
+        Thread.sleep(SIMULATED_LOADING_TIME_MS)
+        return true
+    }
+
+    override fun getEventShortInfoByEventId(eventId: Long): DomainEventShortInfo {
+        Thread.sleep(SIMULATED_LOADING_TIME_MS)
+        return DomainEventShortInfo(
+            1L,
+            "Kristóf's birthday party",
+            "Budapest",
+            SimpleDateFormat(
+                "yyyy.MM.dd. HH:mm",
+                Locale.ENGLISH
+            ).run { parse("2022.03.02. 16:00") }!!,
+            SimpleDateFormat(
+                "yyyy.MM.dd. HH:mm",
+                Locale.ENGLISH
+            ).run { parse("2022.03.02. 22:00") }!!,
+            "https://picsum.photos/200"
+        )
+    }
+
 }

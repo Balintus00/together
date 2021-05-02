@@ -10,6 +10,9 @@ import hu.bme.aut.android.together.model.persistence.PersistedEventShortInfo
 @Dao
 interface EventShortInfoDao {
 
+    @Query("SELECT * FROM persistedeventshortinfo WHERE eventId=:eventId")
+    fun getEventShortInfoByEventId(eventId: Long): PersistedEventShortInfo
+
     @Query("SELECT * FROM persistedeventshortinfo WHERE cachingType = :shortInfoPersistenceOption")
     @Throws(SQLiteException::class)
     fun getShortInfoByPersistenceOption(shortInfoPersistenceOption: Int) : List<PersistedEventShortInfo>

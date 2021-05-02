@@ -25,4 +25,8 @@ interface NetworkDataSource {
     fun getEventQuestionsAndAnswersByEventId(eventId: Long): List<DomainEventQuestionAndAnswer>?
 
     fun getEventQuestionsAndTitle(eventId: Long): DomainEventQuestionsWithTitle?
+
+    fun sendInvitations(eventId: Long, userNames: List<String>): Boolean
+
+    fun getEventShortInfoByEventId(eventId: Long): DomainEventShortInfo?
 }
