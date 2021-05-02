@@ -9,7 +9,7 @@ import hu.bme.aut.android.together.persistence.dao.*
     entities = [PersistedProfileData::class, PersistedEventInvitation::class,
         PersistedEventShortInfo::class, PersistedEventData::class, PersistedEventNews::class,
         PersistedEventQuestion::class, PersistedEventAnswer::class],
-    version = 7
+    version = 8
 )
 abstract class AppDatabase : RoomDatabase() {
 

@@ -13,26 +13,91 @@ import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.view.isVisible
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import co.zsmb.rainbowcake.base.RainbowCakeFragment
+import co.zsmb.rainbowcake.extensions.exhaustive
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentModifyEventDetailsBinding
-import hu.bme.aut.android.together.features.eventcontrol.dialogfragment.EventAttributeModifierDialogFragment
+import hu.bme.aut.android.together.features.eventcontrol.modifyevent.dialogfragment.EventAttributeModifierDialogFragment
+import hu.bme.aut.android.together.features.eventcontrol.modifyevent.viewmodel.*
+import hu.bme.aut.android.together.model.presentation.EventDetails
 import java.util.*
 
 /**
  * On this fragment the user can modify an event.
  */
-class ModifyEventDetailsFragment : Fragment() {
+@AndroidEntryPoint
+class ModifyEventDetailsFragment :
+    RainbowCakeFragment<ModifyEventDetailsState, ModifyEventDetailsViewModel>() {
+
+    private val args: ModifyEventDetailsFragmentArgs by navArgs()
+
+    private val modifyEventDetailsViewModel: ModifyEventDetailsViewModel by viewModels()
 
     private lateinit var binding: FragmentModifyEventDetailsBinding
+
+    override fun provideViewModel(): ModifyEventDetailsViewModel = modifyEventDetailsViewModel
+
+    override fun render(viewState: ModifyEventDetailsState) {
+        when (viewState) {
+            is Loading -> {
+                displayLoadingUI()
+            }
+            is EventDetailsLoaded -> {
+                loadDetailsData(viewState.eventDetails)
+                displayLoadedUI()
+            }
+            is EventModificationHappened -> {
+                displayLoadedUI()
+                onEventModificationHappened(viewState.wasSuccessful)
+            }
+        }.exhaustive
+    }
+
+    private fun loadDetailsData(eventDetails: EventDetails) {
+        modifyEventDetailsViewModel.modifiedEventDetails.value = eventDetails
+    }
+
+    private fun displayLoadingUI() {
+        with(binding) {
+            clContent.isVisible = false
+            cpiEventModifyLoading.isVisible = true
+        }
+    }
+
+    private fun displayLoadedUI() {
+        with(binding) {
+            cpiEventModifyLoading.isVisible = false
+            clContent.isVisible = true
+        }
+    }
+
+    private fun onEventModificationHappened(wasSuccessful: Boolean) {
+        if (wasSuccessful) {
+            findNavController().popBackStack()
+        } else {
+            displayModificationUploadError()
+        }
+    }
+
+    private fun displayModificationUploadError() {
+        Snackbar.make(
+            requireView(),
+            getString(R.string.error_modification_upload_error),
+            Snackbar.LENGTH_LONG
+        ).show()
+    }
 
     /**
      * This [androidx.activity.result.ActivityResultLauncher] instance can be used to launch some
@@ -107,6 +172,7 @@ class ModifyEventDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpUIWidgets()
+        observeCurrentlyModifiedEventDetails()
     }
 
     private fun setUpUIWidgets() {
@@ -155,9 +221,8 @@ class ModifyEventDetailsFragment : Fragment() {
      * event's details screen.
      */
     private fun setFabBehaviour() {
-        //TODO sending actual data to backend
         binding.fabModifyEvent.setOnClickListener {
-            findNavController().popBackStack()
+            modifyEventDetailsViewModel.sendModificationRequest(args.eventId)
         }
     }
 
@@ -268,7 +333,6 @@ class ModifyEventDetailsFragment : Fragment() {
                 resources.getStringArray(R.array.event_category_types_array)
             )
         }
-        //TODO initializing its location to represent the currently set option
     }
 
     /**
@@ -281,7 +345,6 @@ class ModifyEventDetailsFragment : Fragment() {
     private fun setDateTextViewBehaviour(textView: TextView) {
         textView.setOnClickListener {
             val calendar = Calendar.getInstance()
-            //TODO these strings initial value will be the currently set date and time
             var dateString: String
             var timeString: String
             DatePickerDialog(
@@ -307,5 +370,26 @@ class ModifyEventDetailsFragment : Fragment() {
             ).show()
             //TODO modifying the data
         }
+    }
+
+    private fun observeCurrentlyModifiedEventDetails() {
+        modifyEventDetailsViewModel.modifiedEventDetails.observe(viewLifecycleOwner) {
+            with(binding) {
+                tvEventName.text = it.title
+                tvEventLocation.text = it.location
+                tvFromDate.text = it.startDate
+                tvToDate.text = it.endDate
+                tvDescription.text = it.description
+                spinnerCategory.setSelection(
+                    resources.getStringArray(R.array.event_category_types_array)
+                        .indexOf(it.category)
+                )
+            }
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        modifyEventDetailsViewModel.loadCurrentEventDetailsByEventId(args.eventId)
     }
 }

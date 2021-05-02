@@ -9,6 +9,7 @@ class PersistedEventData(
     @PrimaryKey val id: Long,
     @ColumnInfo(name = "title", defaultValue = "") val title: String,
     @ColumnInfo(name = "imageUrl", defaultValue = "") val imageUrl: String,
+    @ColumnInfo(name = "category", defaultValue = "") val category: String,
     @ColumnInfo(name = "startDate", defaultValue = "") val startDate: String,
     @ColumnInfo(name = "endDate", defaultValue = "") val endDate: String,
     @ColumnInfo(name = "location", defaultValue = "") val location: String,

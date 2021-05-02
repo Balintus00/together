@@ -6,6 +6,7 @@ class DomainEventDetails(
     val id: Long,
     val title: String,
     val imageUrl: String,
+    val category: String,
     val startDate: Date,
     val endDate: Date,
     val location: String,

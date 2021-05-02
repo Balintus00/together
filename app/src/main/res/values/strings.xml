@@ -219,4 +219,5 @@
     <string name="action_reload">RELOAD</string>
     <string name="event_details_unlimited_spaces">Spaces are not limited!</string>
     <string name="error_unsuccessful_invitation_sending">Invitation sending was unsuccessful!</string>
+    <string name="error_modification_upload_error">Something went wrong with the uploading. Please try again!</string>
 </resources>

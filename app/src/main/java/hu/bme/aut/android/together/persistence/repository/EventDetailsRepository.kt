@@ -43,6 +43,7 @@ class EventDetailsRepository @Inject constructor(
             id,
             title,
             imageUrl,
+            category,
             SimpleDateFormat("yyyy.MM.d. HH:mm", Locale.ENGLISH).run { parse(startDate) }!!,
             SimpleDateFormat("yyyy.MM.d. HH:mm", Locale.ENGLISH).run { parse(endDate) }!!,
             location,

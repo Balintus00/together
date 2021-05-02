@@ -217,7 +217,9 @@ class EventDetailsFragment : RainbowCakeFragment<EventDetailsState, EventDetails
     }
 
     private fun navigateToEventModificationScreen() {
-        EventDetailsFragmentDirections.actionEventDetailsFragmentToModifyEventDetailsFragment()
+        EventDetailsFragmentDirections.actionEventDetailsFragmentToModifyEventDetailsFragment(
+            representedEventId
+        )
             .let { action ->
                 findNavController().navigate(action)
             }

@@ -138,6 +138,7 @@ class NetworkManager @Inject constructor() : NetworkDataSource {
                     1L,
                     "Kristóf's birtday party",
                     "https://picsum.photos/200",
+                    "Tech",
                     SimpleDateFormat(
                         "yyyy.MM.dd. HH:mm",
                         Locale.ENGLISH
@@ -161,6 +162,7 @@ class NetworkManager @Inject constructor() : NetworkDataSource {
                     2L,
                     "Budapest sightseeing tour",
                     "https://picsum.photos/200",
+                    "Tech",
                     SimpleDateFormat(
                         "yyyy.MM.dd. HH:mm",
                         Locale.ENGLISH
@@ -184,6 +186,7 @@ class NetworkManager @Inject constructor() : NetworkDataSource {
                     3L,
                     "Going to gym",
                     "https://picsum.photos/200",
+                    "Tech",
                     SimpleDateFormat(
                         "yyyy.MM.dd. HH:mm",
                         Locale.ENGLISH
@@ -335,6 +338,10 @@ class NetworkManager @Inject constructor() : NetworkDataSource {
             ).run { parse("2022.03.02. 22:00") }!!,
             "https://picsum.photos/200"
         )
+    }
+
+    override fun modifyEvent(eventId: Long, eventDetails: DomainEventDetails): Boolean {
+        return true
     }
 
 }

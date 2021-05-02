@@ -21,6 +21,7 @@ class EventDetailsPresenter @Inject constructor(
             id,
             title,
             imageUrl,
+            category,
             convertDateToRepresentedDateFormat(startDate),
             convertDateToRepresentedDateFormat(endDate),
             location,

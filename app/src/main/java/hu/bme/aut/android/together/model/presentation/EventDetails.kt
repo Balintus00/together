@@ -4,6 +4,7 @@ class EventDetails(
     val eventId: Long,
     val title: String,
     val imageUrl: String,
+    val category: String,
     val startDate: String,
     val endDate: String,
     val location: String,

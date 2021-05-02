@@ -131,7 +131,11 @@
             android:id="@+id/modifyEventDetailsFragment"
             android:name="hu.bme.aut.android.together.features.eventcontrol.modifyevent.fragment.ModifyEventDetailsFragment"
             android:label="fragment_modify_event_details"
-            tools:layout="@layout/fragment_modify_event_details" />
+            tools:layout="@layout/fragment_modify_event_details" >
+            <argument
+                android:name="eventId"
+                app:argType="long" />
+        </fragment>
         <fragment
             android:id="@+id/eventSettingsFragment"
             android:name="hu.bme.aut.android.together.features.eventcontrol.eventsettings.EventSettingsFragment"
