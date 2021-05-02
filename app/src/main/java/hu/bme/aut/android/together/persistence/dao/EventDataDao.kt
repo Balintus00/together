@@ -15,6 +15,9 @@ interface EventDataDao {
     @Query("SELECT * FROM persistedeventdata WHERE id=:eventId")
     fun getCachedEventDetailsById(eventId: Long) : PersistedEventData
 
+    @Query("SELECT title FROM PersistedEventData WHERE id=:eventId")
+    fun getEventTitleById(eventId: Long): String
+
     @Insert(onConflict = OnConflictStrategy.REPLACE, entity = PersistedEventData::class)
     fun insertCachedEventDetails(data: PersistedEventDetails)
 

@@ -1,4 +1,4 @@
-package hu.bme.aut.android.together.features.shared.eventmessage.adapter
+package hu.bme.aut.android.together.features.incomiginvitations.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,8 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import hu.bme.aut.android.together.R
-import hu.bme.aut.android.together.databinding.ItemEventNewsBinding
+import hu.bme.aut.android.together.databinding.ItemEventInvitationBinding
+import hu.bme.aut.android.together.features.incomiginvitations.adapter.EventInvitationsAdapter.EventNewsViewHolder
 import hu.bme.aut.android.together.model.presentation.EventInvitation
 import hu.bme.aut.android.together.model.presentation.comparator.EventInvitationComparator
 
@@ -16,12 +17,12 @@ import hu.bme.aut.android.together.model.presentation.comparator.EventInvitation
  * @param onItemClick this function will be fired when an element will be clicked of the
  * RecyclerView, that uses this adapter.
  */
-class EventMessagesAdapter(val onItemClick: (represented: EventInvitation) -> Unit) :
-    ListAdapter<EventInvitation, EventMessagesAdapter.EventNewsViewHolder>(EventInvitationComparator) {
+class EventInvitationsAdapter(val onItemClick: (represented: EventInvitation) -> Unit) :
+    ListAdapter<EventInvitation, EventInvitationsAdapter.EventNewsViewHolder>(EventInvitationComparator) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventNewsViewHolder {
         return EventNewsViewHolder(
-            ItemEventNewsBinding.inflate(
+            ItemEventInvitationBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -32,11 +33,11 @@ class EventMessagesAdapter(val onItemClick: (represented: EventInvitation) -> Un
     override fun onBindViewHolder(holder: EventNewsViewHolder, position: Int) {
         with(holder.binding) {
             val representedNews = getItem(position)
-            tvTitleEventNews.text = representedNews.title
-            tvAuthorEventNews.text =
+            tvTitleEventInvitation.text = representedNews.title
+            tvAuthorEventInvitation.text =
                 holder.binding.root.resources.getString(R.string.by_author, representedNews.author)
-            tvMessageEventNews.text = representedNews.message
-            setCardOnClickBehaviour(cardItemEventNews, representedNews)
+            tvMessageEventInvitation.text = representedNews.message
+            setCardOnClickBehaviour(cardItemEventInvitation, representedNews)
         }
     }
 
@@ -55,7 +56,7 @@ class EventMessagesAdapter(val onItemClick: (represented: EventInvitation) -> Un
     /**
      * The ViewHolder uses the [R.layout.item_event_news] layout.
      */
-    inner class EventNewsViewHolder(val binding: ItemEventNewsBinding) :
+    inner class EventNewsViewHolder(val binding: ItemEventInvitationBinding) :
         RecyclerView.ViewHolder(binding.root)
 
 }

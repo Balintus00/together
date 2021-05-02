@@ -12,7 +12,7 @@ import co.zsmb.rainbowcake.base.RainbowCakeFragment
 import co.zsmb.rainbowcake.extensions.exhaustive
 import dagger.hilt.android.AndroidEntryPoint
 import hu.bme.aut.android.together.databinding.FragmentIncomingEventInvitationsBinding
-import hu.bme.aut.android.together.features.shared.eventmessage.adapter.EventMessagesAdapter
+import hu.bme.aut.android.together.features.incomiginvitations.adapter.EventInvitationsAdapter
 import hu.bme.aut.android.together.features.incomiginvitations.dialogfragment.InvitationResponderDialogFragment
 import hu.bme.aut.android.together.features.incomiginvitations.viewmodel.IncomingEventInvitationsLoaded
 import hu.bme.aut.android.together.features.incomiginvitations.viewmodel.IncomingEventInvitationsState
@@ -34,7 +34,7 @@ class IncomingEventInvitationsFragment :
 
     private lateinit var binding: FragmentIncomingEventInvitationsBinding
 
-    private lateinit var adapter: EventMessagesAdapter
+    private lateinit var adapter: EventInvitationsAdapter
 
     private val incomingEventInvitationsViewModel: IncomingEventInvitationsViewModel by viewModels()
 
@@ -92,11 +92,11 @@ class IncomingEventInvitationsFragment :
     /**
      * This function sets the adapter and the layoutManager of the contained recyclerView
      * (with the id of rvIncomingInvites). The layoutManager uses the built in
-     * [LinearLayoutManager]'s instance, and the adapter is set to be a [EventMessagesAdapter]
+     * [LinearLayoutManager]'s instance, and the adapter is set to be a [EventInvitationsAdapter]
      * instance.
      */
     private fun setUpRecyclerView() {
-        adapter = EventMessagesAdapter {
+        adapter = EventInvitationsAdapter {
             InvitationResponderDialogFragment(it).show(parentFragmentManager, "")
         }
         with(binding.rvIncomingInvites) {

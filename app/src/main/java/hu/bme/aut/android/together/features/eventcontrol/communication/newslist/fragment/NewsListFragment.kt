@@ -20,7 +20,7 @@ import hu.bme.aut.android.together.features.eventcontrol.communication.newslist.
 import hu.bme.aut.android.together.features.eventcontrol.communication.newslist.viewmodel.NewsListState
 import hu.bme.aut.android.together.features.eventcontrol.communication.newslist.viewmodel.NewsListViewModel
 import hu.bme.aut.android.together.features.eventcontrol.communication.newslist.dialogfragment.EventPostNewsDialogFragment
-import hu.bme.aut.android.together.features.shared.eventmessage.adapter.EventMessagesAdapter
+import hu.bme.aut.android.together.features.incomiginvitations.adapter.EventInvitationsAdapter
 import hu.bme.aut.android.together.model.presentation.EventInvitation
 import hu.bme.aut.android.together.model.presentation.EventNews
 
@@ -96,7 +96,7 @@ class NewsListFragment : RainbowCakeFragment<NewsListState, NewsListViewModel>()
 
     /**
      * Sets up the fragment's RecyclerView. The layout manager is set to a [LinearLayoutManager],
-     * the adapter set to an [EventMessagesAdapter] instance. In the constructor of the adapter
+     * the adapter set to an [EventInvitationsAdapter] instance. In the constructor of the adapter
      * the list item onclick behaviour is passed; when an items is clicked, [showNewsInformationInDialog]
      * method is fired using the data provided by the adapter.
      */

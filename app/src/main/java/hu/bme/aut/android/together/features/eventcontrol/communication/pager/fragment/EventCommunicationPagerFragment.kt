@@ -95,7 +95,9 @@ class EventCommunicationPagerFragment :
             setOnMenuItemClickListener {
                 when (it.itemId) {
                     R.id.actionOrganiserEventQuestions -> {
-                        EventCommunicationPagerFragmentDirections.actionEventDetailsCommunicationFragmentToEventQuestionsFragment()
+                        EventCommunicationPagerFragmentDirections.actionEventDetailsCommunicationFragmentToEventQuestionsFragment(
+                            args.eventId
+                        )
                             .let { action ->
                                 findNavController().navigate(action)
                             }

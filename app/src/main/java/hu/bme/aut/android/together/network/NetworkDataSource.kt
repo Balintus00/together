@@ -23,4 +23,6 @@ interface NetworkDataSource {
     fun getEventNewsById(eventId: Long) : List<DomainEventNews>?
 
     fun getEventQuestionsAndAnswersByEventId(eventId: Long): List<DomainEventQuestionAndAnswer>?
+
+    fun getEventQuestionsAndTitle(eventId: Long): DomainEventQuestionsWithTitle?
 }
