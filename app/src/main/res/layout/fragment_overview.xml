@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.addevent.fragment.pagerelement.detailsetter.OverviewFragment">
+    tools:context=".features.addevent.pagerelement.overview.fragment.OverviewFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tbAddEventOverview"

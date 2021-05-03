@@ -145,7 +145,7 @@
         app:startDestination="@id/addEventPagerFragment">
         <fragment
             android:id="@+id/addEventPagerFragment"
-            android:name="hu.bme.aut.android.together.features.addevent.fragment.AddEventPagerFragment"
+            android:name="hu.bme.aut.android.together.features.addevent.pager.fragment.AddEventPagerFragment"
             android:label="fragment_add_event_pager"
             tools:layout="@layout/fragment_add_event_pager">
             <action
@@ -154,7 +154,7 @@
         </fragment>
         <fragment
             android:id="@+id/publicEventRuleSetterFragment"
-            android:name="hu.bme.aut.android.together.features.addevent.fragment.pagerelement.detailsetter.PublicEventRuleSetterFragment"
+            android:name="hu.bme.aut.android.together.features.addevent.pagerelement.detailsetter.participant.rulesetter.fragment.PublicEventRuleSetterFragment"
             android:label="fragment_public_event_rule_setter"
             tools:layout="@layout/fragment_public_event_rule_setter">
             <action
@@ -163,7 +163,7 @@
         </fragment>
         <fragment
             android:id="@+id/publicEventParticipantQuantifierFragment"
-            android:name="hu.bme.aut.android.together.features.addevent.fragment.pagerelement.detailsetter.PublicEventParticipantQuantifierFragment"
+            android:name="hu.bme.aut.android.together.features.addevent.pagerelement.detailsetter.participant.quantifier.fragment.PublicEventParticipantQuantifierFragment"
             android:label="fragment_public_event_participant_quantifier"
             tools:layout="@layout/fragment_public_event_participant_quantifier" />
         <action
