@@ -1,4 +1,4 @@
-package hu.bme.aut.android.together.features.addevent.pagerelement.settercontainer.pagercallback
+package hu.bme.aut.android.together.features.addevent.pager.pagercallback
 
 /**
  * The provided interface can be used to signal events about the event creation.
@@ -28,4 +28,8 @@ interface EventAddingPagerContainer {
      * Notifies the implementing instance, that the event, that is being created, should be discarded.
      */
     fun eventDiscarded()
+
+    fun getCurrentEventTitle(): String
+
+    fun modifyEventTitle(newTitle: String)
 }

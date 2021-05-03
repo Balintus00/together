@@ -7,8 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import hu.bme.aut.android.together.databinding.FragmentPageableDetailSetterContainerBinding
-import hu.bme.aut.android.together.features.addevent.pagerelement.settercontainer.pagercallback.EventAddingPagerContainer
+import hu.bme.aut.android.together.features.addevent.pager.pagercallback.EventAddingPagerContainer
 import hu.bme.aut.android.together.features.addevent.pagerelement.settercontainer.factory.PageableDetailSetterFragmentFactory
+import hu.bme.aut.android.together.features.addevent.pagerelement.settercontainer.modificationcallback.ModificationCallback
 import kotlin.properties.Delegates
 
 /**
@@ -17,7 +18,7 @@ import kotlin.properties.Delegates
  * This fragment's parent should implement the
  * [hu.bme.aut.android.together.features.addevent.interfaces.EventAddingPagerContainer] interface.
  */
-class PageableDetailSetterContainerFragment : Fragment() {
+class PageableDetailSetterContainerFragment : Fragment(), ModificationCallback {
 
     companion object {
         private const val CONTAINED_FRAGMENT_ID_KEY = "CONTAINED_FRAGMENT_ID_KEY"
@@ -185,5 +186,13 @@ class PageableDetailSetterContainerFragment : Fragment() {
             else
                 binding.swipeButtonBar.ibtnRight.visibility = View.GONE
         }
+    }
+
+    override fun getCurrentEventTitle(): String {
+        return eventAddingPagerContainer.getCurrentEventTitle()
+    }
+
+    override fun modifyEventTitle(newTitle: String) {
+        eventAddingPagerContainer.modifyEventTitle(newTitle)
     }
 }

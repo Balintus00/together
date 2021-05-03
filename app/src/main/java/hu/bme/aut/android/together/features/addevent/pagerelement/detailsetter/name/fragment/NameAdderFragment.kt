@@ -1,5 +1,6 @@
 package hu.bme.aut.android.together.features.addevent.pagerelement.detailsetter.name.fragment
 
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.InputFilter
@@ -9,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import hu.bme.aut.android.together.databinding.FragmentNameAdderBinding
+import hu.bme.aut.android.together.features.addevent.pagerelement.settercontainer.modificationcallback.ModificationCallback
 
 /**
  * This [Fragment] provides an user interface, that can be used by the user to set the name of
@@ -21,7 +23,14 @@ class NameAdderFragment : Fragment() {
      */
     private var maxCharacterCount = -1
 
+    private lateinit var modificationCallback: ModificationCallback
+
     private lateinit var binding: FragmentNameAdderBinding
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        modificationCallback = parentFragment as ModificationCallback
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +44,7 @@ class NameAdderFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initializeCharacterCounterTextView()
         setEditTextBehaviour()
+        setEditTextInitialValue()
     }
 
     /**
@@ -76,8 +86,14 @@ class NameAdderFragment : Fragment() {
 
             override fun afterTextChanged(p0: Editable?) {
                 setCharacterCounterTextView(maxCharacterCount - (p0?.length ?: 0))
+                modificationCallback.modifyEventTitle(p0.toString())
             }
 
         })
     }
+
+    private fun setEditTextInitialValue() {
+        binding.etAddEventName.setText(modificationCallback.getCurrentEventTitle())
+    }
+
 }

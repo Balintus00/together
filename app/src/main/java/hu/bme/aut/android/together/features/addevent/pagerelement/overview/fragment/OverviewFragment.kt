@@ -11,7 +11,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
 import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentOverviewBinding
-import hu.bme.aut.android.together.features.addevent.pagerelement.settercontainer.pagercallback.EventAddingPagerContainer
+import hu.bme.aut.android.together.features.addevent.pager.pagercallback.EventAddingPagerContainer
 
 /**
  * This Fragment displays the event's data set by the user.

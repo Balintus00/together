@@ -1,15 +1,21 @@
 package hu.bme.aut.android.together.features.addevent.pager.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
+import co.zsmb.rainbowcake.base.RainbowCakeFragment
+import co.zsmb.rainbowcake.extensions.exhaustive
+import dagger.hilt.android.AndroidEntryPoint
 import hu.bme.aut.android.together.databinding.FragmentAddEventPagerBinding
 import hu.bme.aut.android.together.features.addevent.pager.adapter.AddEventPagerAdapter
-import hu.bme.aut.android.together.features.addevent.pagerelement.settercontainer.pagercallback.EventAddingPagerContainer
+import hu.bme.aut.android.together.features.addevent.pager.viewmodel.AddEventPagerState
+import hu.bme.aut.android.together.features.addevent.pager.viewmodel.AddEventPagerViewModel
+import hu.bme.aut.android.together.features.addevent.pager.viewmodel.Loaded
+import hu.bme.aut.android.together.features.addevent.pager.pagercallback.EventAddingPagerContainer
 import kotlin.math.roundToInt
 
 /**
@@ -18,16 +24,28 @@ import kotlin.math.roundToInt
  * This Fragment also contains a [com.google.android.material.progressindicator.LinearProgressIndicator]
  * instance, which displays the progress of event creation process.
  */
-class AddEventPagerFragment : Fragment(), EventAddingPagerContainer {
+@AndroidEntryPoint
+class AddEventPagerFragment : RainbowCakeFragment<AddEventPagerState, AddEventPagerViewModel>(),
+    EventAddingPagerContainer {
 
     companion object {
         //TODO this will be changed
-        private val mockedEventId = 1L
+        private const val mockedEventId = 1L
     }
+
+    private val addEventPagerFragmentViewModel: AddEventPagerViewModel by viewModels()
 
     private lateinit var pagerAdapter: AddEventPagerAdapter
 
     private lateinit var binding: FragmentAddEventPagerBinding
+
+    override fun provideViewModel(): AddEventPagerViewModel = addEventPagerFragmentViewModel
+
+    override fun render(viewState: AddEventPagerState) {
+        when(viewState){
+            is Loaded -> { }
+        }.exhaustive
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -126,5 +144,13 @@ class AddEventPagerFragment : Fragment(), EventAddingPagerContainer {
      */
     override fun eventDiscarded() {
         findNavController().popBackStack()
+    }
+
+    override fun getCurrentEventTitle(): String {
+        return viewModel.addableEvent.value!!.title
+    }
+
+    override fun modifyEventTitle(newTitle: String) {
+        viewModel.addableEvent.value!!.title = newTitle
     }
 }
