@@ -1,5 +1,6 @@
 package hu.bme.aut.android.together
 
+import android.os.Bundle
 import android.widget.DatePicker
 import android.widget.TimePicker
 import androidx.test.espresso.Espresso
@@ -28,7 +29,11 @@ class EventModificationScreenTest {
     @Test
     @SmallTest
     fun testFromDateTimeSettingBehaviour() {
-        launchFragmentInHiltContainer<ModifyEventDetailsFragment>(themeResId = R.style.AppTheme)
+        val fakeEventId = 1L
+        launchFragmentInHiltContainer<ModifyEventDetailsFragment>(themeResId = R.style.AppTheme,
+            fragmentArgs = Bundle().apply {
+                putLong("eventId", fakeEventId)
+            })
         Espresso.onView(ViewMatchers.withId(R.id.tvFromDate))
             .perform(ViewActions.click())
         val mockedYear = 2022
@@ -60,7 +65,11 @@ class EventModificationScreenTest {
     @Test
     @SmallTest
     fun testToDateTimeSettingBehaviour() {
-        launchFragmentInHiltContainer<ModifyEventDetailsFragment>(themeResId = R.style.AppTheme)
+        val fakeEventId = 1L
+        launchFragmentInHiltContainer<ModifyEventDetailsFragment>(themeResId = R.style.AppTheme,
+            fragmentArgs = Bundle().apply {
+                putLong("eventId", fakeEventId)
+            })
         Espresso.onView(ViewMatchers.withId(R.id.tvToDate))
             .perform(ViewActions.click())
         val mockedYear = 2022
