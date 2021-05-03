@@ -21,11 +21,8 @@ import kotlin.math.roundToInt
 class AddEventPagerFragment : Fragment(), EventAddingPagerContainer {
 
     companion object {
-        //TODO this mocked data will be removed later, and actual data will be used
-        //organiser, private, limitedParticipantCount, isParticipant
-        private val mockedCreatedEventSettingsArray = arrayOf(
-            true, false, true, true
-        )
+        //TODO this will be changed
+        private val mockedEventId = 1L
     }
 
     private lateinit var pagerAdapter: AddEventPagerAdapter
@@ -118,10 +115,7 @@ class AddEventPagerFragment : Fragment(), EventAddingPagerContainer {
      */
     private fun navigateToCreatedEvent() {
         AddEventPagerFragmentDirections.actionGlobalEventDetailsGraph(
-            isOrganiser = mockedCreatedEventSettingsArray[0],
-            isPrivate = mockedCreatedEventSettingsArray[1],
-            isParticipantCountLimited = mockedCreatedEventSettingsArray[2],
-            isParticipant = mockedCreatedEventSettingsArray[3]
+            mockedEventId
         ).let { action ->
             findNavController().navigate(action)
         }

@@ -171,17 +171,8 @@
             app:destination="@id/eventDetailsGraph"
             app:popUpTo="@id/currentEventsListFragment">
             <argument
-                android:name="isOrganiser"
-                app:argType="boolean" />
-            <argument
-                android:name="isPrivate"
-                app:argType="boolean" />
-            <argument
-                android:name="isParticipantCountLimited"
-                app:argType="boolean" />
-            <argument
-                android:name="isParticipant"
-                app:argType="boolean" />
+                android:name="eventId"
+                app:argType="long" />
         </action>
     </navigation>
     <fragment
