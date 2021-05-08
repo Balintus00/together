@@ -139,7 +139,7 @@ class PublicEventRuleSetterFragment :
     }
 
     private fun setParticipantCountViews(isMaximumRuleSet: Boolean, maximumParticipantCount: Int) {
-        if (isMaximumRuleSet) {
+        if (!isMaximumRuleSet) {
             setParticipantCountViewsIntoNoRuleState()
         } else {
             setParticipantCountViewsIntoRuleSetState(maximumParticipantCount)

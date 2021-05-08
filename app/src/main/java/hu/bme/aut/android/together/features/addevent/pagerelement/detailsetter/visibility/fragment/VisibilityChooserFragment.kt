@@ -68,7 +68,7 @@ class VisibilityChooserFragment : Fragment() {
     private fun setDisplayedPublicEventOptions() {
         with(modificationCallback) {
             binding.tvMaxParticipantCount.text =
-                if (isMaxParticipantCountRuleSet()) resources.getString(
+                if (!isMaxParticipantCountRuleSet()) resources.getString(
                     R.string.option_indefinite
                 ) else getMaxParticipantCount().toString()
             binding.tvAutoJoinEnabilityState.text =
