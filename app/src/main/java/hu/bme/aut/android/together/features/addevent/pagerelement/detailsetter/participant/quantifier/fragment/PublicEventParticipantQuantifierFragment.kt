@@ -5,16 +5,36 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import hu.bme.aut.android.together.databinding.FragmentPublicEventParticipantQuantifierBinding
 import hu.bme.aut.android.together.features.addevent.pagerelement.detailsetter.participant.quantifier.dialogfragment.EventParticipantCountSpecifierDialogFragment
+import hu.bme.aut.android.together.model.presentation.EventParticipantCountOptions
 
 /**
  * On this Fragment the user can specify the maximum threshold for participants.
  */
 class PublicEventParticipantQuantifierFragment : Fragment() {
 
+    companion object{
+        const val PARTICIPANT_QUANTIFIER_RESULT_KEY = "PARTICIPANT_QUANTIFIER_RESULT_KEY"
+    }
+
     private lateinit var binding: FragmentPublicEventParticipantQuantifierBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        observeMaxCountResult()
+    }
+
+    private fun observeMaxCountResult() {
+        setFragmentResultListener(EventParticipantCountSpecifierDialogFragment.PARTICIPANT_COUNT_SPECIFIER_DIALOG_FRAGMENT_RESULT_KEY) {
+            _, bundle ->
+            passResultAndNavigateBack(true,
+                bundle.getInt(EventParticipantCountSpecifierDialogFragment.PARTICIPANT_COUNT_SPECIFIER_DIALOG_FRAGMENT_BUNDLE_KEY)
+            )
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,9 +59,8 @@ class PublicEventParticipantQuantifierFragment : Fragment() {
      * Sets the threshold as indefinite value, then pops the BackStack.
      */
     private fun setIndefiniteOptionBehaviour() {
-        // TODO passing the set value using ViewModel probably
         binding.tvInfiniteParticipantOption.setOnClickListener {
-            findNavController().popBackStack()
+            passResultAndNavigateBack(false, 0)
         }
     }
 
@@ -56,6 +75,15 @@ class PublicEventParticipantQuantifierFragment : Fragment() {
                 parentFragmentManager,
                 EventParticipantCountSpecifierDialogFragment::class.java.simpleName
             )
+        }
+    }
+
+    private fun passResultAndNavigateBack(isMaximumParticipantCountRuleSet: Boolean, newMaxParticipantCount: Int) {
+        with(findNavController()) {
+            previousBackStackEntry?.savedStateHandle?.set(
+                PARTICIPANT_QUANTIFIER_RESULT_KEY, EventParticipantCountOptions(isMaximumParticipantCountRuleSet, newMaxParticipantCount)
+            )
+            popBackStack()
         }
     }
 }

@@ -13,9 +13,11 @@ import co.zsmb.rainbowcake.extensions.exhaustive
 import dagger.hilt.android.AndroidEntryPoint
 import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentPublicEventRuleSetterBinding
+import hu.bme.aut.android.together.features.addevent.pagerelement.detailsetter.participant.quantifier.fragment.PublicEventParticipantQuantifierFragment
 import hu.bme.aut.android.together.features.addevent.pagerelement.detailsetter.participant.rulesetter.viewmodel.Loaded
 import hu.bme.aut.android.together.features.addevent.pagerelement.detailsetter.participant.rulesetter.viewmodel.PublicEventRuleSetterState
 import hu.bme.aut.android.together.features.addevent.pagerelement.detailsetter.participant.rulesetter.viewmodel.PublicEventRuleSetterViewModel
+import hu.bme.aut.android.together.model.presentation.EventParticipantCountOptions
 
 /**
  * On this Fragment the user can set the special public event options, such as the maximum
@@ -57,6 +59,20 @@ class PublicEventRuleSetterFragment :
         setInitialViewState()
         setWidgetBehaviours()
         observeViewModel()
+        observeParticipantQuantifierResult()
+    }
+
+    private fun observeParticipantQuantifierResult() {
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<EventParticipantCountOptions>(
+            PublicEventParticipantQuantifierFragment.PARTICIPANT_QUANTIFIER_RESULT_KEY
+        )?.observe(viewLifecycleOwner) {
+            publicEventRuleSetterViewModel.publicEventOptions.value!!.isParticipantCountLimited =
+                it.isMaximumParticipantCountRuleSet
+            if(it.isMaximumParticipantCountRuleSet)
+                publicEventRuleSetterViewModel.publicEventOptions.value!!.maximumParticipantCount =
+                    it.newMaxParticipantCount
+            notifyViewModel()
+        }
     }
 
     private fun setInitialViewState() {
@@ -103,7 +119,7 @@ class PublicEventRuleSetterFragment :
      */
     private fun setCountOptionBehaviour() {
         binding.tvParticipantCountOption.setOnClickListener {
-            //TODO this fragment will be started for result
+
             PublicEventRuleSetterFragmentDirections.actionPublicEventRuleSetterFragmentToPublicEventParticipantQuantifierFragment()
                 .let { action ->
                     findNavController().navigate(action)

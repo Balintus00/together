@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 class EventPublicRuleOptions(
-    val isParticipantCountLimited: Boolean,
-    val maximumParticipantCount: Int,
+    var isParticipantCountLimited: Boolean,
+    var maximumParticipantCount: Int,
     var isJoinAutoAcceptEnabled: Boolean
 ) : Parcelable

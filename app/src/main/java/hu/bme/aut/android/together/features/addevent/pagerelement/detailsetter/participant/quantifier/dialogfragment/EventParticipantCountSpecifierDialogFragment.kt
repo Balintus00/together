@@ -1,19 +1,27 @@
 package hu.bme.aut.android.together.features.addevent.pagerelement.detailsetter.participant.quantifier.dialogfragment
 
 import android.app.Dialog
-import android.content.DialogInterface
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
-import androidx.navigation.fragment.findNavController
+import androidx.fragment.app.setFragmentResult
 import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.DialogfragmentEventParticipantCountSpecifierBinding
 
 class EventParticipantCountSpecifierDialogFragment : DialogFragment() {
+
+    companion object {
+        const val PARTICIPANT_COUNT_SPECIFIER_DIALOG_FRAGMENT_RESULT_KEY =
+            "PARTICIPANT_COUNT_SPECIFIER_DIALOG_FRAGMENT_RESULT_KEY"
+        const val PARTICIPANT_COUNT_SPECIFIER_DIALOG_FRAGMENT_BUNDLE_KEY =
+            "PARTICIPANT_COUNT_SPECIFIER_DIALOG_FRAGMENT_BUNDLE_KEY"
+        private const val DEFAULT_MAX_PARTICIPANT_COUNT_VALUE = 1
+    }
 
     private lateinit var binding: DialogfragmentEventParticipantCountSpecifierBinding
 
@@ -43,14 +51,14 @@ class EventParticipantCountSpecifierDialogFragment : DialogFragment() {
         setUpDialogFragmentUI()
     }
 
-    private fun setUpDialogFragmentUI(){
-        dialog?.let{
+    private fun setUpDialogFragmentUI() {
+        dialog?.let {
             setDialogAttributes(it)
         }
         setWidgetsBehaviour()
     }
 
-    private fun setDialogAttributes(dialog: Dialog){
+    private fun setDialogAttributes(dialog: Dialog) {
         dialog.setTitle(getString(R.string.title_event_participant_count_dialogfragment))
     }
 
@@ -76,24 +84,29 @@ class EventParticipantCountSpecifierDialogFragment : DialogFragment() {
 
     private fun setApplyButtonBehaviour() {
         binding.btnApplyParticipantCount.setOnClickListener {
-            // TODO: passing data using ViewModel probably.
-            //  Also the passed data's validness should be checked.
-            //  If something is wrong, the user can be notified here about it.
+            setFragmentResult(
+                PARTICIPANT_COUNT_SPECIFIER_DIALOG_FRAGMENT_RESULT_KEY,
+                bundleOf(PARTICIPANT_COUNT_SPECIFIER_DIALOG_FRAGMENT_BUNDLE_KEY to getSetMaxParticipantCount())
+            )
             isCountSpecified = true
             dismiss()
         }
     }
 
-    private fun setCancelButtonBehaviour() {
-        binding.btnCancelParticipantCount.setOnClickListener{
-            dismiss()
+    private fun getSetMaxParticipantCount(): Int {
+        return binding.etParticipantCount.text.toString().let {
+            try{
+                it.toInt()
+            } catch (nfe: NumberFormatException) {
+                DEFAULT_MAX_PARTICIPANT_COUNT_VALUE
+            }
         }
     }
 
-    override fun onDismiss(dialog: DialogInterface) {
-        super.onDismiss(dialog)
-        if(isCountSpecified)
-            findNavController().popBackStack()
+    private fun setCancelButtonBehaviour() {
+        binding.btnCancelParticipantCount.setOnClickListener {
+            dismiss()
+        }
     }
 
 }
