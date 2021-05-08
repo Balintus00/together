@@ -1,5 +1,6 @@
 package hu.bme.aut.android.together.features.addevent.pagerelement.detailsetter.category.fragment
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipDrawable
 import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentCategoryPickerBinding
+import hu.bme.aut.android.together.features.addevent.pagerelement.settercontainer.modificationcallback.ModificationCallback
 
 /**
  * This [Fragment] provides an user interface, that can be used by the user to set the category of
@@ -16,7 +18,18 @@ import hu.bme.aut.android.together.databinding.FragmentCategoryPickerBinding
  */
 class CategoryPickerFragment : Fragment() {
 
+    private lateinit var modificationCallback: ModificationCallback
+
     private lateinit var binding: FragmentCategoryPickerBinding
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        setModificationCallback()
+    }
+
+    private fun setModificationCallback() {
+        modificationCallback = parentFragment as ModificationCallback
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -57,6 +70,14 @@ class CategoryPickerFragment : Fragment() {
                     R.style.Widget_MaterialComponents_Chip_Choice
                 )
             )
+            setOnClickListener {
+                modificationCallback.changeCategory(name)
+            }
+            isChecked = isCurrentlySelected(name)
         }
+    }
+
+    private fun isCurrentlySelected(categoryName: String): Boolean {
+        return modificationCallback.getCategory() == categoryName
     }
 }

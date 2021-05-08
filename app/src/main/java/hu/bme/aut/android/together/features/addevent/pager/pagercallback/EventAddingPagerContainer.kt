@@ -48,4 +48,8 @@ interface EventAddingPagerContainer {
     fun changeJoinRequestAutoAcceptRule(isJoinRequestAutoAcceptAllowed: Boolean)
 
     fun isJoinRequestAutoAcceptAllowed(): Boolean
+
+    fun getCategory(): String
+
+    fun changeCategory(newCategory: String)
 }

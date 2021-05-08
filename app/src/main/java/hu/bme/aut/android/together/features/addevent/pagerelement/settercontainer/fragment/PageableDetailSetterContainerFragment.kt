@@ -227,4 +227,12 @@ class PageableDetailSetterContainerFragment : Fragment(), ModificationCallback {
     override fun isJoinRequestAutoAcceptAllowed(): Boolean {
         return eventAddingPagerContainer.isJoinRequestAutoAcceptAllowed()
     }
+
+    override fun getCategory(): String {
+        return eventAddingPagerContainer.getCategory()
+    }
+
+    override fun changeCategory(newCategory: String) {
+        eventAddingPagerContainer.changeCategory(newCategory)
+    }
 }

@@ -185,4 +185,12 @@ class AddEventPagerFragment : RainbowCakeFragment<AddEventPagerState, AddEventPa
     override fun isJoinRequestAutoAcceptAllowed(): Boolean {
         return viewModel.addableEvent.value!!.isJoinRequestAutoAcceptAllowed
     }
+
+    override fun getCategory(): String {
+        return viewModel.addableEvent.value!!.category
+    }
+
+    override fun changeCategory(newCategory: String) {
+        viewModel.addableEvent.value!!.category = newCategory
+    }
 }

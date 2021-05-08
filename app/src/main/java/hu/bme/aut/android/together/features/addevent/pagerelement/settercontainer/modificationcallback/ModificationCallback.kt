@@ -22,4 +22,8 @@ interface ModificationCallback {
 
     fun isJoinRequestAutoAcceptAllowed(): Boolean
 
+    fun getCategory(): String
+
+    fun changeCategory(newCategory: String)
+
 }
