@@ -26,6 +26,10 @@ interface ModificationCallback {
 
     fun changeCategory(newCategory: String)
 
+    fun getLocation(): String
+
+    fun setLocation(newLocation: String)
+
     fun getDescription(): String
 
     fun setDescription(newDescription: String)

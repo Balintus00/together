@@ -7,5 +7,6 @@ class AddableEvent(
     var maximumParticipantCount: Int,
     var isJoinRequestAutoAcceptAllowed: Boolean,
     var category: String,
+    var location: String,
     var description: String
 )

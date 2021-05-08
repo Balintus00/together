@@ -236,6 +236,14 @@ class PageableDetailSetterContainerFragment : Fragment(), ModificationCallback {
         eventAddingPagerContainer.changeCategory(newCategory)
     }
 
+    override fun getLocation(): String {
+        return eventAddingPagerContainer.getLocation()
+    }
+
+    override fun setLocation(newLocation: String) {
+        eventAddingPagerContainer.setLocation(newLocation)
+    }
+
     override fun getDescription(): String {
         return eventAddingPagerContainer.getDescription()
     }

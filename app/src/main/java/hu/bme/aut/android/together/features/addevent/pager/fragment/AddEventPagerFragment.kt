@@ -194,6 +194,14 @@ class AddEventPagerFragment : RainbowCakeFragment<AddEventPagerState, AddEventPa
         viewModel.addableEvent.value!!.category = newCategory
     }
 
+    override fun getLocation(): String {
+        return viewModel.addableEvent.value!!.location
+    }
+
+    override fun setLocation(newLocation: String) {
+        viewModel.addableEvent.value!!.location = newLocation
+    }
+
     override fun getDescription(): String {
         return viewModel.addableEvent.value!!.description
     }

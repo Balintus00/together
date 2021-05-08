@@ -18,6 +18,7 @@ class AddEventPagerViewModel @Inject constructor() :
             0,
             isJoinRequestAutoAcceptAllowed = false,
             category = "",
+            location = "",
             description = ""
         )
     )
