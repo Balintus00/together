@@ -209,4 +209,36 @@ class AddEventPagerFragment : RainbowCakeFragment<AddEventPagerState, AddEventPa
     override fun setDescription(newDescription: String) {
         viewModel.addableEvent.value!!.description = newDescription
     }
+
+    override fun getStartDateString(): String {
+        return viewModel.addableEvent.value!!.startDate
+    }
+
+    override fun setStartDateString(dateString: String) {
+        viewModel.addableEvent.value!!.startDate = dateString
+    }
+
+    override fun getEndDateString(): String {
+        return viewModel.addableEvent.value!!.endDate
+    }
+
+    override fun setEndDateString(dateString: String) {
+        viewModel.addableEvent.value!!.endDate = dateString
+    }
+
+    override fun getStartTimeString(): String {
+        return viewModel.addableEvent.value!!.startTime
+    }
+
+    override fun setStartTimeString(dateString: String) {
+        viewModel.addableEvent.value!!.startTime = dateString
+    }
+
+    override fun getEndTimeString(): String {
+        return viewModel.addableEvent.value!!.endTime
+    }
+
+    override fun setEndTimeString(dateString: String) {
+        viewModel.addableEvent.value!!.endTime = dateString
+    }
 }

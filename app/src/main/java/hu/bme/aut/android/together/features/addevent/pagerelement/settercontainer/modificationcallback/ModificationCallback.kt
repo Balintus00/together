@@ -34,4 +34,13 @@ interface ModificationCallback {
 
     fun setDescription(newDescription: String)
 
+    fun getStartDateString(): String
+    fun setStartDateString(dateString: String)
+    fun getEndDateString(): String
+    fun setEndDateString(dateString: String)
+    fun getStartTimeString(): String
+    fun setStartTimeString(dateString: String)
+    fun getEndTimeString(): String
+    fun setEndTimeString(dateString: String)
+
 }

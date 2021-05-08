@@ -2,6 +2,7 @@ package hu.bme.aut.android.together.features.addevent.pagerelement.detailsetter.
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentDateSetterBinding
+import hu.bme.aut.android.together.features.addevent.pagerelement.settercontainer.modificationcallback.ModificationCallback
 import java.util.*
 
 /**
@@ -19,7 +21,18 @@ import java.util.*
  */
 class DateSetterFragment : Fragment() {
 
+    private lateinit var modificationCallback: ModificationCallback
+
     private lateinit var binding: FragmentDateSetterBinding
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        initializeModificationCallback()
+    }
+
+    private fun initializeModificationCallback() {
+        modificationCallback = parentFragment as ModificationCallback
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,6 +45,7 @@ class DateSetterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUIBehaviour()
+        setInitialViewState()
     }
 
     private fun setUIBehaviour() {
@@ -47,8 +61,10 @@ class DateSetterFragment : Fragment() {
             DatePickerDialog(
                 requireContext(),
                 { _, year, month, day ->
-                    binding.tvAddEventFromDate.text =
-                        getString(R.string.date_year_month_day, year, month, day)
+                    getString(R.string.date_year_month_day, year, month + 1, day).let {
+                        binding.tvAddEventFromDate.text = it
+                        modificationCallback.setStartDateString(it)
+                    }
                 },
                 calendar.get(Calendar.YEAR),
                 calendar.get(Calendar.MONTH),
@@ -63,8 +79,11 @@ class DateSetterFragment : Fragment() {
             TimePickerDialog(
                 requireContext(),
                 { _, hour, minute ->
-                    binding.tvAddEventFromHourMinute.text =
-                        getString(R.string.time_hour_minute, hour, minute)
+                    getString(R.string.time_hour_minute, hour, minute).let {
+                        binding.tvAddEventFromHourMinute.text = it
+                        modificationCallback.setStartTimeString(it)
+                    }
+
                 },
                 calendar.get(Calendar.HOUR_OF_DAY),
                 calendar.get(Calendar.MINUTE),
@@ -79,8 +98,10 @@ class DateSetterFragment : Fragment() {
             DatePickerDialog(
                 requireContext(),
                 { _, year, month, day ->
-                    binding.tvAddEventToDate.text =
-                        getString(R.string.date_year_month_day, year, month, day)
+                    getString(R.string.date_year_month_day, year, month + 1, day).let {
+                        binding.tvAddEventToDate.text = it
+                        modificationCallback.setEndDateString(it)
+                    }
                 },
                 calendar.get(Calendar.YEAR),
                 calendar.get(Calendar.MONTH),
@@ -95,13 +116,26 @@ class DateSetterFragment : Fragment() {
             TimePickerDialog(
                 requireContext(),
                 { _, hour, minute ->
-                    binding.tvAddEventToHourMinute.text =
-                        getString(R.string.time_hour_minute, hour, minute)
+                    getString(R.string.time_hour_minute, hour, minute).let {
+                        binding.tvAddEventToHourMinute.text = it
+                        modificationCallback.setEndTimeString(it)
+                    }
                 },
                 calendar.get(Calendar.HOUR_OF_DAY),
                 calendar.get(Calendar.MINUTE),
                 true
             ).show()
+        }
+    }
+
+    private fun setInitialViewState() {
+        with(binding) {
+            modificationCallback.let {
+                tvAddEventFromDate.text = it.getStartDateString()
+                tvAddEventToDate.text = it.getEndDateString()
+                tvAddEventFromHourMinute.text =it.getStartTimeString()
+                tvAddEventToHourMinute.text = it.getEndTimeString()
+            }
         }
     }
 }

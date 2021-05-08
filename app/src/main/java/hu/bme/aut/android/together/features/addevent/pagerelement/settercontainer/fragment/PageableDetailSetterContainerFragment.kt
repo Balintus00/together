@@ -251,4 +251,36 @@ class PageableDetailSetterContainerFragment : Fragment(), ModificationCallback {
     override fun setDescription(newDescription: String) {
         eventAddingPagerContainer.setDescription(newDescription)
     }
+
+    override fun getStartDateString(): String {
+        return eventAddingPagerContainer.getStartDateString()
+    }
+
+    override fun setStartDateString(dateString: String) {
+        eventAddingPagerContainer.setStartDateString(dateString)
+    }
+
+    override fun getEndDateString(): String {
+        return eventAddingPagerContainer.getEndDateString()
+    }
+
+    override fun setEndDateString(dateString: String) {
+        eventAddingPagerContainer.setEndDateString(dateString)
+    }
+
+    override fun getStartTimeString(): String {
+        return eventAddingPagerContainer.getStartTimeString()
+    }
+
+    override fun setStartTimeString(dateString: String) {
+        eventAddingPagerContainer.setStartTimeString(dateString)
+    }
+
+    override fun getEndTimeString(): String {
+        return eventAddingPagerContainer.getEndTimeString()
+    }
+
+    override fun setEndTimeString(dateString: String) {
+        eventAddingPagerContainer.setEndTimeString(dateString)
+    }
 }
