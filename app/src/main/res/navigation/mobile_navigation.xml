@@ -160,6 +160,9 @@
             <action
                 android:id="@+id/action_publicEventRuleSetterFragment_to_publicEventParticipantQuantifierFragment"
                 app:destination="@id/publicEventParticipantQuantifierFragment" />
+            <argument
+                android:name="options"
+                app:argType="hu.bme.aut.android.together.model.presentation.EventPublicRuleOptions" />
         </fragment>
         <fragment
             android:id="@+id/publicEventParticipantQuantifierFragment"

@@ -128,7 +128,7 @@ class AddEventPagerFragment : RainbowCakeFragment<AddEventPagerState, AddEventPa
 
     /**
      * This function navigates to a
-     * [hu.bme.aut.android.together.features.eventcontrol.fragment.details.EventDetailsFragment]
+     * [hu.bme.aut.android.together.features.eventcontrol.details.fragment.EventDetailsFragment]
      * instance, which displays the created event's details.
      */
     private fun navigateToCreatedEvent() {
@@ -152,5 +152,37 @@ class AddEventPagerFragment : RainbowCakeFragment<AddEventPagerState, AddEventPa
 
     override fun modifyEventTitle(newTitle: String) {
         viewModel.addableEvent.value!!.title = newTitle
+    }
+
+    override fun isEventInCurrentlyPrivateMode(): Boolean {
+        return viewModel.addableEvent.value!!.isPrivate
+    }
+
+    override fun changeEventPrivateMode(isPrivate: Boolean) {
+        viewModel.addableEvent.value!!.isPrivate = isPrivate
+    }
+
+    override fun isMaxParticipantCountRuleSet(): Boolean {
+        return viewModel.addableEvent.value!!.isMaximumParticipantCountRuleSet
+    }
+
+    override fun changeMaxParticipantCountRule(isMaxParticipantCountRuleSet: Boolean) {
+        viewModel.addableEvent.value!!.isMaximumParticipantCountRuleSet = isMaxParticipantCountRuleSet
+    }
+
+    override fun getMaxParticipantCount(): Int {
+        return viewModel.addableEvent.value!!.maximumParticipantCount
+    }
+
+    override fun setMaxParticipantCount(maxParticipantCount: Int) {
+        viewModel.addableEvent.value!!.maximumParticipantCount = maxParticipantCount
+    }
+
+    override fun changeJoinRequestAutoAcceptRule(isJoinRequestAutoAcceptAllowed: Boolean) {
+        viewModel.addableEvent.value!!.isJoinRequestAutoAcceptAllowed = isJoinRequestAutoAcceptAllowed
+    }
+
+    override fun isJoinRequestAutoAcceptAllowed(): Boolean {
+        return viewModel.addableEvent.value!!.isJoinRequestAutoAcceptAllowed
     }
 }

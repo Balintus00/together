@@ -1,14 +1,20 @@
 package hu.bme.aut.android.together.features.addevent.pagerelement.detailsetter.visibility.fragment
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.card.MaterialCardView
+import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentVisibilityChooserBinding
 import hu.bme.aut.android.together.features.addevent.pager.fragment.AddEventPagerFragmentDirections
+import hu.bme.aut.android.together.features.addevent.pagerelement.detailsetter.participant.rulesetter.fragment.PublicEventRuleSetterFragment
+import hu.bme.aut.android.together.features.addevent.pagerelement.settercontainer.modificationcallback.ModificationCallback
+import hu.bme.aut.android.together.model.presentation.EventPublicRuleOptions
 import kotlin.math.roundToInt
 
 /**
@@ -21,7 +27,14 @@ class VisibilityChooserFragment : Fragment() {
         private const val CHOSEN_CARD_STROKE_WIDTH_DP = 5
     }
 
+    private lateinit var modificationCallback: ModificationCallback
+
     private lateinit var binding: FragmentVisibilityChooserBinding
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        modificationCallback = parentFragment as ModificationCallback
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,7 +46,36 @@ class VisibilityChooserFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        observePublicEventRuleSetterResult()
         setWidgetsBehaviour()
+        setInitiallySelectedVisibility()
+        setDisplayedPublicEventOptions()
+    }
+
+    private fun observePublicEventRuleSetterResult() {
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<EventPublicRuleOptions>(
+            PublicEventRuleSetterFragment.EVENT_RULE_OPTIONS_RESULT_KEY
+        )?.observe(viewLifecycleOwner) {
+            modificationCallback.changeJoinRequestAutoAcceptRule(it.isJoinAutoAcceptEnabled)
+            modificationCallback.changeMaxParticipantCountRule(it.isParticipantCountLimited)
+            if(it.isParticipantCountLimited) {
+                modificationCallback.setMaxParticipantCount(it.maximumParticipantCount)
+            }
+            setDisplayedPublicEventOptions()
+        }
+    }
+
+    private fun setDisplayedPublicEventOptions() {
+        with(modificationCallback) {
+            binding.tvMaxParticipantCount.text =
+                if (isMaxParticipantCountRuleSet()) resources.getString(
+                    R.string.option_indefinite
+                ) else getMaxParticipantCount().toString()
+            binding.tvAutoJoinEnabilityState.text =
+                if (isJoinRequestAutoAcceptAllowed()) resources.getString(R.string.state_on) else resources.getString(
+                    R.string.state_off
+                )
+        }
     }
 
     private fun setWidgetsBehaviour() {
@@ -43,8 +85,12 @@ class VisibilityChooserFragment : Fragment() {
 
     private fun setCardsClickBehaviour() {
         with(binding) {
-            setChoosableClickBehaviourOnCard(cardPrivate, arrayOf(cardPublic), false)
-            setChoosableClickBehaviourOnCard(cardPublic, arrayOf(cardPrivate), true)
+            setChoosableClickBehaviourOnCard(cardPrivate, arrayOf(cardPublic), false) {
+                modificationCallback.changeEventPrivateMode(true)
+            }
+            setChoosableClickBehaviourOnCard(cardPublic, arrayOf(cardPrivate), true) {
+                modificationCallback.changeEventPrivateMode(false)
+            }
         }
     }
 
@@ -61,14 +107,30 @@ class VisibilityChooserFragment : Fragment() {
     private fun setChoosableClickBehaviourOnCard(
         chosenCard: MaterialCardView,
         otherCards: Array<MaterialCardView>,
-        willPublicOptionsBeVisible: Boolean
+        willPublicOptionsBeVisible: Boolean,
+        notifyAboutVisibilityChange: () -> Unit
     ) {
         chosenCard.setOnClickListener { card ->
-            setChosenCard(card as MaterialCardView)
-            for (otherCard in otherCards)
-                setUnchosenCard(otherCard)
-            setPublicOptionsVisibility(willPublicOptionsBeVisible)
+            setOneCardChosen(
+                card as MaterialCardView,
+                otherCards,
+                willPublicOptionsBeVisible,
+                notifyAboutVisibilityChange
+            )
         }
+    }
+
+    private fun setOneCardChosen(
+        chosenCard: MaterialCardView,
+        unchosenCardArray: Array<MaterialCardView>,
+        willPublicOptionsBeVisible: Boolean,
+        notifyAboutVisibilityChange: () -> Unit
+    ) {
+        setChosenCard(chosenCard)
+        for (otherCard in unchosenCardArray)
+            setUnchosenCard(otherCard)
+        setPublicOptionsVisibility(willPublicOptionsBeVisible)
+        notifyAboutVisibilityChange()
     }
 
     /**
@@ -107,10 +169,7 @@ class VisibilityChooserFragment : Fragment() {
      */
     private fun setPublicOptionsVisibility(willBeVisible: Boolean) {
         with(binding.clPublicOptions) {
-            visibility = if (willBeVisible) {
-                View.VISIBLE
-            } else
-                View.GONE
+            isVisible = willBeVisible
         }
     }
 
@@ -121,10 +180,28 @@ class VisibilityChooserFragment : Fragment() {
      */
     private fun setPublicOptionsLinkBehaviour() {
         binding.tvPublicOptionsModifierLink.setOnClickListener {
-            AddEventPagerFragmentDirections.actionAddEventPagerFragmentToPublicEventRuleSetterFragment()
+            AddEventPagerFragmentDirections.actionAddEventPagerFragmentToPublicEventRuleSetterFragment(
+                modificationCallback.let {
+                    EventPublicRuleOptions(
+                        it.isMaxParticipantCountRuleSet(),
+                        it.getMaxParticipantCount(),
+                        it.isJoinRequestAutoAcceptAllowed()
+                    )
+                }
+            )
                 .let { action ->
                     findNavController().navigate(action)
                 }
+        }
+    }
+
+    private fun setInitiallySelectedVisibility() {
+        with(binding) {
+            if (modificationCallback.isEventInCurrentlyPrivateMode()) {
+                setOneCardChosen(cardPrivate, arrayOf(cardPublic), false) { }
+            } else {
+                setOneCardChosen(cardPublic, arrayOf(cardPrivate), true) { }
+            }
         }
     }
 }

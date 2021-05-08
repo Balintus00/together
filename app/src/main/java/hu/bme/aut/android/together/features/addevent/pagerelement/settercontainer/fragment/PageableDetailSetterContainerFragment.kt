@@ -195,4 +195,36 @@ class PageableDetailSetterContainerFragment : Fragment(), ModificationCallback {
     override fun modifyEventTitle(newTitle: String) {
         eventAddingPagerContainer.modifyEventTitle(newTitle)
     }
+
+    override fun isEventInCurrentlyPrivateMode(): Boolean {
+        return eventAddingPagerContainer.isEventInCurrentlyPrivateMode()
+    }
+
+    override fun changeEventPrivateMode(isPrivate: Boolean) {
+        eventAddingPagerContainer.changeEventPrivateMode(isPrivate)
+    }
+
+    override fun isMaxParticipantCountRuleSet(): Boolean {
+        return eventAddingPagerContainer.isMaxParticipantCountRuleSet()
+    }
+
+    override fun changeMaxParticipantCountRule(isMaxParticipantCountRuleSet: Boolean) {
+        eventAddingPagerContainer.changeMaxParticipantCountRule(isMaxParticipantCountRuleSet)
+    }
+
+    override fun getMaxParticipantCount(): Int {
+        return eventAddingPagerContainer.getMaxParticipantCount()
+    }
+
+    override fun setMaxParticipantCount(maxParticipantCount: Int) {
+        eventAddingPagerContainer.setMaxParticipantCount(maxParticipantCount)
+    }
+
+    override fun changeJoinRequestAutoAcceptRule(isJoinRequestAutoAcceptAllowed: Boolean) {
+        eventAddingPagerContainer.changeJoinRequestAutoAcceptRule(isJoinRequestAutoAcceptAllowed)
+    }
+
+    override fun isJoinRequestAutoAcceptAllowed(): Boolean {
+        return eventAddingPagerContainer.isJoinRequestAutoAcceptAllowed()
+    }
 }
