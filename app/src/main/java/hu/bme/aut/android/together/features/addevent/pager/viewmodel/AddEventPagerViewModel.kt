@@ -17,7 +17,8 @@ class AddEventPagerViewModel @Inject constructor() :
             isMaximumParticipantCountRuleSet = false,
             0,
             isJoinRequestAutoAcceptAllowed = false,
-            category = ""
+            category = "",
+            description = ""
         )
     )
 

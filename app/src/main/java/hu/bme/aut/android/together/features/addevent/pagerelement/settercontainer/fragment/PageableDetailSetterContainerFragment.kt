@@ -235,4 +235,12 @@ class PageableDetailSetterContainerFragment : Fragment(), ModificationCallback {
     override fun changeCategory(newCategory: String) {
         eventAddingPagerContainer.changeCategory(newCategory)
     }
+
+    override fun getDescription(): String {
+        return eventAddingPagerContainer.getDescription()
+    }
+
+    override fun setDescription(newDescription: String) {
+        eventAddingPagerContainer.setDescription(newDescription)
+    }
 }

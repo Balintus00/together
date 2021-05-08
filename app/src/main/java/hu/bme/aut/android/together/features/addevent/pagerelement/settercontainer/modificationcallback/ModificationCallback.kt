@@ -26,4 +26,8 @@ interface ModificationCallback {
 
     fun changeCategory(newCategory: String)
 
+    fun getDescription(): String
+
+    fun setDescription(newDescription: String)
+
 }

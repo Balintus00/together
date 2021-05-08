@@ -1,5 +1,6 @@
 package hu.bme.aut.android.together.features.addevent.pagerelement.detailsetter.description.fragment
 
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.InputFilter
@@ -9,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import hu.bme.aut.android.together.databinding.FragmentDescriptionGiverBinding
+import hu.bme.aut.android.together.features.addevent.pagerelement.settercontainer.modificationcallback.ModificationCallback
 
 /**
  * This [Fragment] provides an user interface, that can be used by the user to set description of
@@ -21,7 +23,18 @@ class DescriptionGiverFragment : Fragment() {
      */
     private var maxCharacterCount = -1
 
+    private lateinit var modificationCallback: ModificationCallback
+
     private lateinit var binding: FragmentDescriptionGiverBinding
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        initializeModificationCallback()
+    }
+
+    private fun initializeModificationCallback() {
+        modificationCallback = parentFragment as ModificationCallback
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +48,7 @@ class DescriptionGiverFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initializeCharacterCounterTextView()
         setEditTextBehaviour()
+        setEditTextInitialValue()
     }
 
     /**
@@ -73,8 +87,13 @@ class DescriptionGiverFragment : Fragment() {
 
             override fun afterTextChanged(p0: Editable?) {
                 setCharacterCounterTextView(maxCharacterCount - (p0?.length ?: 0))
+                modificationCallback.setDescription(p0.toString())
             }
 
         })
+    }
+
+    private fun setEditTextInitialValue() {
+        binding.etAddEventDescriptionGiver.setText(modificationCallback.getDescription())
     }
 }
