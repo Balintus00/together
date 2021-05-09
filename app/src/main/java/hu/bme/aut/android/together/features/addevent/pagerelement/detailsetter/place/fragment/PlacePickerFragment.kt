@@ -20,7 +20,7 @@ import hu.bme.aut.android.together.features.addevent.pagerelement.settercontaine
  */
 class PlacePickerFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
-    private lateinit var modificationCallback: ModificationCallback
+    private var modificationCallback: ModificationCallback? = null
 
     private lateinit var binding: FragmentPlacePickerBinding
 
@@ -69,7 +69,7 @@ class PlacePickerFragment : Fragment(), AdapterView.OnItemSelectedListener {
     }
 
     private fun setInitialState() {
-        val currentLocation = modificationCallback.getLocation()
+        val currentLocation = modificationCallback?.getLocation() ?: ""
         if(currentLocation == getString(R.string.online)) {
             binding.spinnerAddEventPickPlaceCategories.setSelection(1)
         } else {
@@ -85,7 +85,7 @@ class PlacePickerFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
             override fun afterTextChanged(p0: Editable?) {
                 p0.toString().let {
-                    modificationCallback.setLocation(it)
+                    modificationCallback?.setLocation(it)
                 }
             }
 
@@ -97,7 +97,7 @@ class PlacePickerFragment : Fragment(), AdapterView.OnItemSelectedListener {
             // Not online
             0 -> {
                 binding.etAddEventPickPlace.isEnabled = true
-                binding.etAddEventPickPlace.setText(modificationCallback.getLocation())
+                binding.etAddEventPickPlace.setText(modificationCallback?.getLocation() ?: "")
             }
             // Online
             1 -> {

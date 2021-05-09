@@ -27,13 +27,13 @@ class VisibilityChooserFragment : Fragment() {
         private const val CHOSEN_CARD_STROKE_WIDTH_DP = 5
     }
 
-    private lateinit var modificationCallback: ModificationCallback
+    private var modificationCallback: ModificationCallback? = null
 
     private lateinit var binding: FragmentVisibilityChooserBinding
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        modificationCallback = parentFragment as ModificationCallback
+        modificationCallback = parentFragment as ModificationCallback?
     }
 
     override fun onCreateView(
@@ -56,25 +56,27 @@ class VisibilityChooserFragment : Fragment() {
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<EventPublicRuleOptions>(
             PublicEventRuleSetterFragment.EVENT_RULE_OPTIONS_RESULT_KEY
         )?.observe(viewLifecycleOwner) {
-            modificationCallback.changeJoinRequestAutoAcceptRule(it.isJoinAutoAcceptEnabled)
-            modificationCallback.changeMaxParticipantCountRule(it.isParticipantCountLimited)
-            if(it.isParticipantCountLimited) {
-                modificationCallback.setMaxParticipantCount(it.maximumParticipantCount)
+            modificationCallback?.changeJoinRequestAutoAcceptRule(it.isJoinAutoAcceptEnabled)
+            modificationCallback?.changeMaxParticipantCountRule(it.isParticipantCountLimited)
+            if (it.isParticipantCountLimited) {
+                modificationCallback?.setMaxParticipantCount(it.maximumParticipantCount)
             }
             setDisplayedPublicEventOptions()
         }
     }
 
     private fun setDisplayedPublicEventOptions() {
-        with(modificationCallback) {
-            binding.tvMaxParticipantCount.text =
-                if (!isMaxParticipantCountRuleSet()) resources.getString(
-                    R.string.option_indefinite
-                ) else getMaxParticipantCount().toString()
-            binding.tvAutoJoinEnabilityState.text =
-                if (isJoinRequestAutoAcceptAllowed()) resources.getString(R.string.state_on) else resources.getString(
-                    R.string.state_off
-                )
+        modificationCallback?.let {
+            with(modificationCallback!!) {
+                binding.tvMaxParticipantCount.text =
+                    if (!isMaxParticipantCountRuleSet()) resources.getString(
+                        R.string.option_indefinite
+                    ) else getMaxParticipantCount().toString()
+                binding.tvAutoJoinEnabilityState.text =
+                    if (isJoinRequestAutoAcceptAllowed()) resources.getString(R.string.state_on) else resources.getString(
+                        R.string.state_off
+                    )
+            }
         }
     }
 
@@ -86,10 +88,10 @@ class VisibilityChooserFragment : Fragment() {
     private fun setCardsClickBehaviour() {
         with(binding) {
             setChoosableClickBehaviourOnCard(cardPrivate, arrayOf(cardPublic), false) {
-                modificationCallback.changeEventPrivateMode(true)
+                modificationCallback?.changeEventPrivateMode(true)
             }
             setChoosableClickBehaviourOnCard(cardPublic, arrayOf(cardPrivate), true) {
-                modificationCallback.changeEventPrivateMode(false)
+                modificationCallback?.changeEventPrivateMode(false)
             }
         }
     }
@@ -181,13 +183,13 @@ class VisibilityChooserFragment : Fragment() {
     private fun setPublicOptionsLinkBehaviour() {
         binding.tvPublicOptionsModifierLink.setOnClickListener {
             AddEventPagerFragmentDirections.actionAddEventPagerFragmentToPublicEventRuleSetterFragment(
-                modificationCallback.let {
+                modificationCallback?.let {
                     EventPublicRuleOptions(
                         it.isMaxParticipantCountRuleSet(),
                         it.getMaxParticipantCount(),
                         it.isJoinRequestAutoAcceptAllowed()
                     )
-                }
+                } ?: EventPublicRuleOptions(false, 0, false)
             )
                 .let { action ->
                     findNavController().navigate(action)
@@ -197,10 +199,12 @@ class VisibilityChooserFragment : Fragment() {
 
     private fun setInitiallySelectedVisibility() {
         with(binding) {
-            if (modificationCallback.isEventInCurrentlyPrivateMode()) {
-                setOneCardChosen(cardPrivate, arrayOf(cardPublic), false) { }
-            } else {
-                setOneCardChosen(cardPublic, arrayOf(cardPrivate), true) { }
+            modificationCallback?.let {
+                if (modificationCallback!!.isEventInCurrentlyPrivateMode()) {
+                    setOneCardChosen(cardPrivate, arrayOf(cardPublic), false) { }
+                } else {
+                    setOneCardChosen(cardPublic, arrayOf(cardPrivate), true) { }
+                }
             }
         }
     }

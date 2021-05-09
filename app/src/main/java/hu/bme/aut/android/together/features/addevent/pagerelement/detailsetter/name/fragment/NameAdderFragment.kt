@@ -23,13 +23,13 @@ class NameAdderFragment : Fragment() {
      */
     private var maxCharacterCount = -1
 
-    private lateinit var modificationCallback: ModificationCallback
+    private var modificationCallback: ModificationCallback? = null
 
     private lateinit var binding: FragmentNameAdderBinding
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        modificationCallback = parentFragment as ModificationCallback
+        modificationCallback = parentFragment as ModificationCallback?
     }
 
     override fun onCreateView(
@@ -86,14 +86,14 @@ class NameAdderFragment : Fragment() {
 
             override fun afterTextChanged(p0: Editable?) {
                 setCharacterCounterTextView(maxCharacterCount - (p0?.length ?: 0))
-                modificationCallback.modifyEventTitle(p0.toString())
+                modificationCallback?.modifyEventTitle(p0.toString())
             }
 
         })
     }
 
     private fun setEditTextInitialValue() {
-        binding.etAddEventName.setText(modificationCallback.getCurrentEventTitle())
+        binding.etAddEventName.setText(modificationCallback?.getCurrentEventTitle() ?: "")
     }
 
 }

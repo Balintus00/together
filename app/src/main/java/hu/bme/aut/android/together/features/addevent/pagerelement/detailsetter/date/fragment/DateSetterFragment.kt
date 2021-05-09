@@ -21,7 +21,7 @@ import java.util.*
  */
 class DateSetterFragment : Fragment() {
 
-    private lateinit var modificationCallback: ModificationCallback
+    private var modificationCallback: ModificationCallback? = null
 
     private lateinit var binding: FragmentDateSetterBinding
 
@@ -63,7 +63,7 @@ class DateSetterFragment : Fragment() {
                 { _, year, month, day ->
                     getString(R.string.date_year_month_day, year, month + 1, day).let {
                         binding.tvAddEventFromDate.text = it
-                        modificationCallback.setStartDateString(it)
+                        modificationCallback?.setStartDateString(it)
                     }
                 },
                 calendar.get(Calendar.YEAR),
@@ -81,7 +81,7 @@ class DateSetterFragment : Fragment() {
                 { _, hour, minute ->
                     getString(R.string.time_hour_minute, hour, minute).let {
                         binding.tvAddEventFromHourMinute.text = it
-                        modificationCallback.setStartTimeString(it)
+                        modificationCallback?.setStartTimeString(it)
                     }
 
                 },
@@ -100,7 +100,7 @@ class DateSetterFragment : Fragment() {
                 { _, year, month, day ->
                     getString(R.string.date_year_month_day, year, month + 1, day).let {
                         binding.tvAddEventToDate.text = it
-                        modificationCallback.setEndDateString(it)
+                        modificationCallback?.setEndDateString(it)
                     }
                 },
                 calendar.get(Calendar.YEAR),
@@ -118,7 +118,7 @@ class DateSetterFragment : Fragment() {
                 { _, hour, minute ->
                     getString(R.string.time_hour_minute, hour, minute).let {
                         binding.tvAddEventToHourMinute.text = it
-                        modificationCallback.setEndTimeString(it)
+                        modificationCallback?.setEndTimeString(it)
                     }
                 },
                 calendar.get(Calendar.HOUR_OF_DAY),
@@ -131,10 +131,10 @@ class DateSetterFragment : Fragment() {
     private fun setInitialViewState() {
         with(binding) {
             modificationCallback.let {
-                tvAddEventFromDate.text = it.getStartDateString()
-                tvAddEventToDate.text = it.getEndDateString()
-                tvAddEventFromHourMinute.text =it.getStartTimeString()
-                tvAddEventToHourMinute.text = it.getEndTimeString()
+                tvAddEventFromDate.text = it?.getStartDateString() ?: ""
+                tvAddEventToDate.text = it?.getEndDateString() ?: ""
+                tvAddEventFromHourMinute.text =it?.getStartTimeString() ?: ""
+                tvAddEventToHourMinute.text = it?.getEndTimeString() ?: ""
             }
         }
     }

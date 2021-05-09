@@ -27,6 +27,7 @@ class AddEventNameAdderScreenTest {
             launchFragmentInContainer<NameAdderFragment>(themeResId = R.style.AppTheme)
         nameAdderScenario.onFragment { fragment ->
             Navigation.setViewNavController(fragment.requireView(), navController)
+
         }
         val maxLength = 50
         Espresso.onView(ViewMatchers.withId(R.id.etAddEventName)).perform(ViewActions.typeText("333"))
