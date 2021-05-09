@@ -131,10 +131,10 @@ class DateSetterFragment : Fragment() {
     private fun setInitialViewState() {
         with(binding) {
             modificationCallback.let {
-                tvAddEventFromDate.text = it?.getStartDateString() ?: ""
-                tvAddEventToDate.text = it?.getEndDateString() ?: ""
-                tvAddEventFromHourMinute.text =it?.getStartTimeString() ?: ""
-                tvAddEventToHourMinute.text = it?.getEndTimeString() ?: ""
+                tvAddEventFromDate.text = it?.getStartDateString() ?: "2022.02.02."
+                tvAddEventToDate.text = it?.getEndDateString() ?: "2022.02.02."
+                tvAddEventFromHourMinute.text =it?.getStartTimeString() ?: "14:45"
+                tvAddEventToHourMinute.text = it?.getEndTimeString() ?: "14:45"
             }
         }
     }
