@@ -31,7 +31,7 @@ class DateSetterFragment : Fragment() {
     }
 
     private fun initializeModificationCallback() {
-        modificationCallback = parentFragment as ModificationCallback
+        modificationCallback = parentFragment as ModificationCallback?
     }
 
     override fun onCreateView(
