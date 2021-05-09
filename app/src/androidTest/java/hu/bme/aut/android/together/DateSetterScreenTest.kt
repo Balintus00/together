@@ -34,7 +34,7 @@ class DateSetterScreenTest {
             )
         )
         onView(withId(android.R.id.button1)).perform(click())
-        onView(withId(R.id.tvAddEventFromDate)).check(matches(withText("$mockedYear.${mockedMonth - 1}.$mockedDay.")))
+        onView(withId(R.id.tvAddEventFromDate)).check(matches(withText("$mockedYear.${mockedMonth}.$mockedDay.")))
     }
 
     @Test
@@ -74,7 +74,7 @@ class DateSetterScreenTest {
             )
         )
         onView(withId(android.R.id.button1)).perform(click())
-        onView(withId(R.id.tvAddEventToDate)).check(matches(withText("$mockedYear.${mockedMonth - 1}.$mockedDay.")))
+        onView(withId(R.id.tvAddEventToDate)).check(matches(withText("$mockedYear.${mockedMonth}.$mockedDay.")))
     }
 
     @Test

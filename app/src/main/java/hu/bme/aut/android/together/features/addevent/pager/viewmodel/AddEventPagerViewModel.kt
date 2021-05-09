@@ -21,9 +21,9 @@ class AddEventPagerViewModel @Inject constructor() :
             isJoinRequestAutoAcceptAllowed = false,
             category = "",
             startDate = SimpleDateFormat("yyyy.MM.dd.", Locale.ENGLISH).run { format(Date()) },
-            startTime = SimpleDateFormat("HH:mm.", Locale.ENGLISH).run { format(Date()) },
+            startTime = SimpleDateFormat("HH:mm", Locale.ENGLISH).run { format(Date()) },
             endDate = SimpleDateFormat("yyyy.MM.dd.", Locale.ENGLISH).run { format(Date()) },
-            endTime = SimpleDateFormat("HH:mm.", Locale.ENGLISH).run { format(Date()) },
+            endTime = SimpleDateFormat("HH:mm", Locale.ENGLISH).run { format(Date()) },
             location = "",
             description = ""
         )
