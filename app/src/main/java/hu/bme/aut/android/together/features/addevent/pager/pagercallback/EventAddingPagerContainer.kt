@@ -1,5 +1,7 @@
 package hu.bme.aut.android.together.features.addevent.pager.pagercallback
 
+import hu.bme.aut.android.together.model.presentation.AddableEvent
+
 /**
  * The provided interface can be used to signal events about the event creation.
  */
@@ -69,4 +71,6 @@ interface EventAddingPagerContainer {
     fun setStartTimeString(dateString: String)
     fun getEndTimeString(): String
     fun setEndTimeString(dateString: String)
+
+    fun getCurrentAddableEvent(): AddableEvent
 }

@@ -4,30 +4,78 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.isVisible
+import androidx.fragment.app.viewModels
+import co.zsmb.rainbowcake.base.RainbowCakeFragment
+import co.zsmb.rainbowcake.extensions.exhaustive
+import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentOverviewBinding
 import hu.bme.aut.android.together.features.addevent.pager.pagercallback.EventAddingPagerContainer
+import hu.bme.aut.android.together.features.addevent.pagerelement.overview.viewmodel.*
+import hu.bme.aut.android.together.model.presentation.UploadResponse
 
 /**
  * This Fragment displays the event's data set by the user.
  * The container Fragment must implement the [hu.bme.aut.android.together.features.addevent.pager.pagercallback.EventAddingPagerContainer]
  * interface.
  */
-class OverviewFragment : Fragment() {
+@AndroidEntryPoint
+class OverviewFragment : RainbowCakeFragment<OverviewState, OverviewViewModel>() {
 
     /**
      * The pageable container which contains this fragment.
      */
     private lateinit var eventAddingPagerContainer: EventAddingPagerContainer
 
+    private val overviewViewModel: OverviewViewModel by viewModels()
+
     private lateinit var binding: FragmentOverviewBinding
+
+    override fun provideViewModel(): OverviewViewModel = overviewViewModel
+
+    override fun render(viewState: OverviewState) {
+        when(viewState){
+            is ReviewState -> {
+                showOverview()
+            }
+            is Loading -> {
+                showLoading()
+            }
+            is EventUploaded -> {
+                showOverview()
+                onEventUpload(viewState.response)
+            }
+        }.exhaustive
+    }
+
+    private fun showOverview() {
+        with(binding) {
+            cpiOverviewLoading.isVisible = false
+            clContent.isVisible = true
+        }
+    }
+
+    private fun showLoading() {
+        with(binding) {
+            clContent.isVisible = false
+            cpiOverviewLoading.isVisible = true
+        }
+    }
+
+    private fun onEventUpload(response: UploadResponse) {
+        if(response.wasSuccessful) {
+            eventAddingPagerContainer.eventCreated()
+        } else {
+            Snackbar.make(requireView(), response.errorMessage, Snackbar.LENGTH_LONG).show()
+        }
+    }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -89,7 +137,7 @@ class OverviewFragment : Fragment() {
             setOnMenuItemClickListener {
                 when (it.itemId) {
                     R.id.actionCompleteEventAdding -> {
-                        createEventSelected()
+                        viewModel.uploadEvent(eventAddingPagerContainer.getCurrentAddableEvent())
                         true
                     }
                     R.id.actionCancelEventAdding -> {
@@ -100,13 +148,6 @@ class OverviewFragment : Fragment() {
                 }
             }
         }
-    }
-
-    /**
-     * Signaling [eventAddingPagerContainer] that user completed setting the event.
-     */
-    private fun createEventSelected() {
-        eventAddingPagerContainer.eventCreated()
     }
 
     /**

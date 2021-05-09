@@ -31,4 +31,6 @@ interface NetworkDataSource {
     fun getEventShortInfoByEventId(eventId: Long): DomainEventShortInfo?
 
     fun modifyEvent(eventId: Long, eventDetails: DomainEventDetails): Boolean
+
+    fun uploadEvent(event: DomainAddableEvent): DomainUploadResponse
 }

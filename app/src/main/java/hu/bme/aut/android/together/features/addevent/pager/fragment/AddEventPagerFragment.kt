@@ -16,6 +16,7 @@ import hu.bme.aut.android.together.features.addevent.pager.viewmodel.AddEventPag
 import hu.bme.aut.android.together.features.addevent.pager.viewmodel.AddEventPagerViewModel
 import hu.bme.aut.android.together.features.addevent.pager.viewmodel.Loaded
 import hu.bme.aut.android.together.features.addevent.pager.pagercallback.EventAddingPagerContainer
+import hu.bme.aut.android.together.model.presentation.AddableEvent
 import kotlin.math.roundToInt
 
 /**
@@ -240,5 +241,9 @@ class AddEventPagerFragment : RainbowCakeFragment<AddEventPagerState, AddEventPa
 
     override fun setEndTimeString(dateString: String) {
         viewModel.addableEvent.value!!.endTime = dateString
+    }
+
+    override fun getCurrentAddableEvent(): AddableEvent {
+        return viewModel.addableEvent.value!!
     }
 }

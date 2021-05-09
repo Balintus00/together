@@ -344,4 +344,9 @@ class NetworkManager @Inject constructor() : NetworkDataSource {
         return true
     }
 
+    override fun uploadEvent(event: DomainAddableEvent): DomainUploadResponse {
+        Thread.sleep(SIMULATED_LOADING_TIME_MS)
+        return DomainUploadResponse(true, "")
+    }
+
 }
