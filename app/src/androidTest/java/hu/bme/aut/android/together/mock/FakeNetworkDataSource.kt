@@ -364,4 +364,8 @@ class FakeNetworkDataSource @Inject constructor() : NetworkDataSource {
     override fun modifyEvent(eventId: Long, eventDetails: DomainEventDetails): Boolean {
         return true
     }
+
+    override fun uploadEvent(event: DomainAddableEvent): DomainUploadResponse {
+        return DomainUploadResponse(true,"")
+    }
 }
