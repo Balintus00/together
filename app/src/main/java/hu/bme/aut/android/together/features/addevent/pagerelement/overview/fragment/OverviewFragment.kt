@@ -1,5 +1,6 @@
 package hu.bme.aut.android.together.features.addevent.pagerelement.overview.fragment
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
@@ -9,13 +10,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.isVisible
 import hu.bme.aut.android.together.R
 import hu.bme.aut.android.together.databinding.FragmentOverviewBinding
 import hu.bme.aut.android.together.features.addevent.pager.pagercallback.EventAddingPagerContainer
 
 /**
  * This Fragment displays the event's data set by the user.
- * The container Fragment must implement the [hu.bme.aut.android.together.features.addevent.interfaces.EventAddingPagerContainer]
+ * The container Fragment must implement the [hu.bme.aut.android.together.features.addevent.pager.pagercallback.EventAddingPagerContainer]
  * interface.
  */
 class OverviewFragment : Fragment() {
@@ -36,7 +38,7 @@ class OverviewFragment : Fragment() {
      * Sets [eventAddingPagerContainer] to parentFragment.
      */
     private fun setPagerContainer() {
-        //TODO Using dependency injection pattern would be better than this.
+        //TODO Using dependency injection pattern (somehow) would be better than this.
         eventAddingPagerContainer = parentFragment as EventAddingPagerContainer
     }
 
@@ -123,5 +125,41 @@ class OverviewFragment : Fragment() {
                 dialogInterface.dismiss()
             }
         }.show()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        initializeDisplayedContent()
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun initializeDisplayedContent() {
+        with(binding) {
+            eventAddingPagerContainer.let {
+                tvEventName.text = it.getCurrentEventTitle()
+                tvVisibility.text =
+                    if (it.isEventInCurrentlyPrivateMode()) resources.getString(R.string.visibility_private) else resources.getString(
+                        R.string.visibility_public
+                    )
+                if (it.isMaxParticipantCountRuleSet()) {
+                    tvMaxParticipantCount.isVisible = true
+                    tvMaxParticipantCount.text = resources.getString(
+                        R.string.max_participant_count_template,
+                        it.getMaxParticipantCount()
+                    )
+                } else {
+                    tvMaxParticipantCount.isVisible = false
+                }
+                tvAutoJoinRequest.text = resources.getString(
+                    R.string.auto_join_request_template,
+                    resources.getString(if (it.isJoinRequestAutoAcceptAllowed()) R.string.state_on else R.string.state_off)
+                )
+                tvCategory.text = it.getCategory()
+                tvFromDate.text = "${it.getStartDateString()} ${it.getStartTimeString()}"
+                tvToDate.text = "${it.getEndDateString()} ${it.getEndTimeString()}"
+                tvEventPlace.text = it.getLocation()
+                tvDescription.text = it.getDescription()
+            }
+        }
     }
 }

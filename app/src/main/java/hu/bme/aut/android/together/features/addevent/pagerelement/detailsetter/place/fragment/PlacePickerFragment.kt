@@ -85,8 +85,7 @@ class PlacePickerFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
             override fun afterTextChanged(p0: Editable?) {
                 p0.toString().let {
-                    if(it != resources.getString(R.string.online))
-                        modificationCallback.setLocation(it)
+                    modificationCallback.setLocation(it)
                 }
             }
 

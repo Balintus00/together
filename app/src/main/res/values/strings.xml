@@ -103,7 +103,7 @@
     <string name="example_event_category">Family</string>
     <string name="example_event_description">Lorem ipsum dolor sit amet.</string>
     <string name="overview_title_description">Description</string>
-    <string name="overview_place_title">Place</string>
+    <string name="overview_place_title">Location</string>
     <string name="example_event_place">Online</string>
     <string name="overview_title_date">Date</string>
     <string name="example_from_date">2021.02.14. 14:15</string>
@@ -221,4 +221,6 @@
     <string name="error_unsuccessful_invitation_sending">Invitation sending was unsuccessful!</string>
     <string name="error_modification_upload_error">Something went wrong with the uploading. Please try again!</string>
     <string name="state_on">ON</string>
+    <string name="max_participant_count_template">Maximum participant count: %d</string>
+    <string name="auto_join_request_template">Join request auto accept: %s</string>
 </resources>
