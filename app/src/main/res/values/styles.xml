@@ -3,8 +3,7 @@
     <!-- TODO after the correct theme will be used, most of the styles might need to be refactored -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/primaryHighlightColor</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/primaryHighlightColor</item>
+        <item name="colorSecondary">@color/secondaryHighlightColor</item>
         <item name="fontFamily">@font/roboto</item>
     </style>
 

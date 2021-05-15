@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.eventdetails.fragment.communication.EventQuestionsFragment">
+    tools:context=".features.eventcontrol.incomingquestions.fragment.EventQuestionsFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tbEventDetailsQuestions"
@@ -18,24 +18,45 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/ic_action_arrow_back"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:title="@string/example_title_event_detail" />
+        tools:title="@string/example_title_event_detail" />
 
-    <TextView
-        android:id="@+id/textView25"
-        style="@style/Title"
-        android:layout_width="match_parent"
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/cpiQuestionsLoading"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/title_event_details_questions"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tbEventDetailsQuestions" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvQuestions"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clContent"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+        app:layout_constraintTop_toBottomOf="@+id/tbEventDetailsQuestions"
+        tools:visibility="gone">
+
+        <TextView
+            android:id="@+id/textView25"
+            style="@style/Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_event_details_questions"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvQuestions"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

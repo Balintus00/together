@@ -9,7 +9,7 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.PickerActions
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.filters.SmallTest
-import hu.bme.aut.android.together.features.addevent.fragment.pagerelement.detailsetter.DateSetterFragment
+import hu.bme.aut.android.together.features.addevent.pagerelement.detailsetter.date.fragment.DateSetterFragment
 import org.hamcrest.Matchers
 import org.junit.Test
 
@@ -34,7 +34,7 @@ class DateSetterScreenTest {
             )
         )
         onView(withId(android.R.id.button1)).perform(click())
-        onView(withId(R.id.tvAddEventFromDate)).check(matches(withText("$mockedYear.${mockedMonth - 1}.$mockedDay")))
+        onView(withId(R.id.tvAddEventFromDate)).check(matches(withText("$mockedYear.${mockedMonth}.$mockedDay.")))
     }
 
     @Test
@@ -74,7 +74,7 @@ class DateSetterScreenTest {
             )
         )
         onView(withId(android.R.id.button1)).perform(click())
-        onView(withId(R.id.tvAddEventToDate)).check(matches(withText("$mockedYear.${mockedMonth - 1}.$mockedDay")))
+        onView(withId(R.id.tvAddEventToDate)).check(matches(withText("$mockedYear.${mockedMonth}.$mockedDay.")))
     }
 
     @Test

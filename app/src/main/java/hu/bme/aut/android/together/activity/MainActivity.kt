@@ -7,12 +7,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import dagger.hilt.android.AndroidEntryPoint
 import hu.bme.aut.android.together.R
 
 /**
  * The application implements the Single Activity Architecture. It is the application's activity,
  * that contains the application's fragments.
  */
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     lateinit var navController: NavController

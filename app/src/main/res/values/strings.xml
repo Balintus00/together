@@ -103,7 +103,7 @@
     <string name="example_event_category">Family</string>
     <string name="example_event_description">Lorem ipsum dolor sit amet.</string>
     <string name="overview_title_description">Description</string>
-    <string name="overview_place_title">Place</string>
+    <string name="overview_place_title">Location</string>
     <string name="example_event_place">Online</string>
     <string name="overview_title_date">Date</string>
     <string name="example_from_date">2021.02.14. 14:15</string>
@@ -190,9 +190,10 @@
     <string name="action_accept">Accept</string>
     <string name="content_description_own_profile_picture">Your profile picture.</string>
     <string name="content_description_search_button">Search button.</string>
-    <string name="date_year_month_day">%1$d.%2$d.%3$d</string>
+    <string name="date_year_month_day">%1$d.%2$d.%3$d.</string>
     <string name="time_hour_minute">%1$d:%2$d</string>
     <string name="by_author">by %s</string>
+    <string name="event_details_remaining_spaces">Remaining spaces: %d</string>
     <string name="content_description_current_event_list_add_fab">Create your own new event button.</string>
     <string name="swipe_left_back_button">Swipe left/back button</string>
     <string name="swipe_right_forward_button">Swipe right/forward button</string>
@@ -214,4 +215,12 @@
     <string name="hint_event_attribute_modifier">Type here the new value of the selected attribute!</string>
     <string name="title_modification_event_attribute">Detail modification - %s</string>
     <string name="title_modification_event_image">Modify your event\'s image!</string>
+    <string name="error_message_loading">Searched data can\'t be loaded!</string>
+    <string name="action_reload">RELOAD</string>
+    <string name="event_details_unlimited_spaces">Spaces are not limited!</string>
+    <string name="error_unsuccessful_invitation_sending">Invitation sending was unsuccessful!</string>
+    <string name="error_modification_upload_error">Something went wrong with the uploading. Please try again!</string>
+    <string name="state_on">ON</string>
+    <string name="max_participant_count_template">Maximum participant count: %d</string>
+    <string name="auto_join_request_template">Join request auto accept: %s</string>
 </resources>

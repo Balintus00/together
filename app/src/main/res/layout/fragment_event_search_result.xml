@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.searchevent.fragment.EventSearchResultFragment">
+    tools:context=".features.searchevent.result.fragment.EventSearchResultFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tbSearchResults"
@@ -20,12 +20,23 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:title="@string/title_results_event_search" />
 
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/cpiEventSearchResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbSearchResults" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvEventResults"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tbSearchResults" />
+        app:layout_constraintTop_toBottomOf="@+id/tbSearchResults"
+        tools:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

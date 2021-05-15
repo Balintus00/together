@@ -18,17 +18,17 @@
             style="@style/BigBoldAttribute"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="@string/example_title_event_news"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/example_title_event_news" />
 
         <TextView
             android:id="@+id/tvAuthorEventNews"
             style="@style/MediumSecondaryAttribute"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="@string/example_author_event_news"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitleEventNews" />
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleEventNews"
+            tools:text="@string/example_author_event_news" />
 
         <TextView
             android:id="@+id/tvMessageEventNews"
@@ -36,8 +36,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            tools:text="@string/example_event_description"
-            app:layout_constraintTop_toBottomOf="@+id/tvAuthorEventNews" />
+            android:ellipsize="end"
+            android:maxLines="3"
+            app:layout_constraintTop_toBottomOf="@+id/tvAuthorEventNews"
+            tools:text="@string/example_event_description" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
