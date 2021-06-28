@@ -1,4 +1,4 @@
-package hu.bme.aut.android.together.model.domain
+package hu.bme.aut.android.together.domain.model
 
 import java.util.*
 

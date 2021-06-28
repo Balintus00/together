@@ -2,7 +2,7 @@ package hu.bme.aut.android.together.features.eventcontrol.modifyevent.presenter
 
 import co.zsmb.rainbowcake.withIOContext
 import hu.bme.aut.android.together.features.eventcontrol.modifyevent.interactor.ModifyEventDetailsInteractor
-import hu.bme.aut.android.together.model.domain.DomainEventDetails
+import hu.bme.aut.android.together.domain.model.DomainEventDetails
 import hu.bme.aut.android.together.model.presentation.EventDetails
 import java.text.SimpleDateFormat
 import java.util.*

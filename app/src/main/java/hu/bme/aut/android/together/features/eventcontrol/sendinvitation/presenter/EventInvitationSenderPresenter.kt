@@ -2,7 +2,7 @@ package hu.bme.aut.android.together.features.eventcontrol.sendinvitation.present
 
 import co.zsmb.rainbowcake.withIOContext
 import hu.bme.aut.android.together.features.eventcontrol.sendinvitation.interactor.EventInvitationSenderInteractor
-import hu.bme.aut.android.together.model.domain.DomainEventShortInfo
+import hu.bme.aut.android.together.domain.model.DomainEventShortInfo
 import hu.bme.aut.android.together.model.presentation.EventShortInfo
 import java.text.SimpleDateFormat
 import java.util.*

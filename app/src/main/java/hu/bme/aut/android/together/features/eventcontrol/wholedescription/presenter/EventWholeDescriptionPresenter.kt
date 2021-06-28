@@ -2,7 +2,7 @@ package hu.bme.aut.android.together.features.eventcontrol.wholedescription.prese
 
 import co.zsmb.rainbowcake.withIOContext
 import hu.bme.aut.android.together.features.eventcontrol.wholedescription.interactor.EventWholeDescriptionInteractor
-import hu.bme.aut.android.together.model.domain.DomainEventDescriptionData
+import hu.bme.aut.android.together.domain.model.DomainEventDescriptionData
 import hu.bme.aut.android.together.model.presentation.EventDescriptionScreenData
 import java.text.SimpleDateFormat
 import java.util.*

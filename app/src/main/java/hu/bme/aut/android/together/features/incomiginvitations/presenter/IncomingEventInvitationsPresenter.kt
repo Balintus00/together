@@ -1,7 +1,7 @@
 package hu.bme.aut.android.together.features.incomiginvitations.presenter
 
 import co.zsmb.rainbowcake.withIOContext
-import hu.bme.aut.android.together.features.incomiginvitations.interactor.IncomingEventInvitationsInteractor
+import hu.bme.aut.android.together.domain.interactor.IncomingEventInvitationsInteractor
 import hu.bme.aut.android.together.model.presentation.EventInvitation
 import javax.inject.Inject
 

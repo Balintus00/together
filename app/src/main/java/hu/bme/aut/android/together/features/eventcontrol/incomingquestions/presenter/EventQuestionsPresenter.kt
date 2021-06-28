@@ -2,8 +2,8 @@ package hu.bme.aut.android.together.features.eventcontrol.incomingquestions.pres
 
 import co.zsmb.rainbowcake.withIOContext
 import hu.bme.aut.android.together.features.eventcontrol.incomingquestions.interactor.EventQuestionsInteractor
-import hu.bme.aut.android.together.model.domain.DomainEventQuestion
-import hu.bme.aut.android.together.model.domain.DomainEventQuestionsWithTitle
+import hu.bme.aut.android.together.domain.model.DomainEventQuestion
+import hu.bme.aut.android.together.domain.model.DomainEventQuestionsWithTitle
 import hu.bme.aut.android.together.model.presentation.EventQuestion
 import hu.bme.aut.android.together.model.presentation.EventQuestionsWithTitle
 import javax.inject.Inject

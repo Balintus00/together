@@ -1,6 +1,6 @@
-package hu.bme.aut.android.together.features.eventcontrol.communication.newslist.interactor
+package hu.bme.aut.android.together.domain.interactor
 
-import hu.bme.aut.android.together.model.domain.DomainEventNews
+import hu.bme.aut.android.together.domain.model.DomainEventNews
 import hu.bme.aut.android.together.data.network.NetworkDataSource
 import hu.bme.aut.android.together.data.disk.repository.EventNewsRepository
 import javax.inject.Inject

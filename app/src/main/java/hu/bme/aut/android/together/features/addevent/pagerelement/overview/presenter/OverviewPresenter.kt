@@ -1,9 +1,9 @@
 package hu.bme.aut.android.together.features.addevent.pagerelement.overview.presenter
 
 import co.zsmb.rainbowcake.withIOContext
-import hu.bme.aut.android.together.features.addevent.pagerelement.overview.interactor.OverviewInteractor
-import hu.bme.aut.android.together.model.domain.DomainAddableEvent
-import hu.bme.aut.android.together.model.domain.DomainUploadResponse
+import hu.bme.aut.android.together.domain.interactor.OverviewInteractor
+import hu.bme.aut.android.together.domain.model.DomainAddableEvent
+import hu.bme.aut.android.together.domain.model.DomainUploadResponse
 import hu.bme.aut.android.together.model.presentation.AddableEvent
 import hu.bme.aut.android.together.model.presentation.UploadResponse
 import java.text.SimpleDateFormat

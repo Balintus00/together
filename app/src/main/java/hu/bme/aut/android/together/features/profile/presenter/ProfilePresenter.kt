@@ -1,7 +1,7 @@
 package hu.bme.aut.android.together.features.profile.presenter
 
 import co.zsmb.rainbowcake.withIOContext
-import hu.bme.aut.android.together.features.profile.interactor.ProfileInteractor
+import hu.bme.aut.android.together.domain.interactor.ProfileInteractor
 import hu.bme.aut.android.together.model.presentation.ProfileData
 import java.util.*
 import javax.inject.Inject

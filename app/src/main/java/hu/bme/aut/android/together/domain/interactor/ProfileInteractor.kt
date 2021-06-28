@@ -1,6 +1,6 @@
-package hu.bme.aut.android.together.features.profile.interactor
+package hu.bme.aut.android.together.domain.interactor
 
-import hu.bme.aut.android.together.model.domain.DomainProfileData
+import hu.bme.aut.android.together.domain.model.DomainProfileData
 import hu.bme.aut.android.together.data.network.NetworkDataSource
 import hu.bme.aut.android.together.data.disk.repository.ProfileRepository
 import javax.inject.Inject

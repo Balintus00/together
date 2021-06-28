@@ -4,7 +4,7 @@ import android.content.Context
 import co.zsmb.rainbowcake.withIOContext
 import dagger.hilt.android.qualifiers.ApplicationContext
 import hu.bme.aut.android.together.R
-import hu.bme.aut.android.together.features.currentevents.interactor.EventListInteractor
+import hu.bme.aut.android.together.domain.interactor.EventListInteractor
 import hu.bme.aut.android.together.model.presentation.EventShortInfo
 import java.text.SimpleDateFormat
 import java.util.*

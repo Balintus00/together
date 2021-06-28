@@ -1,6 +1,6 @@
 package hu.bme.aut.android.together.features.eventcontrol.sendinvitation.interactor
 
-import hu.bme.aut.android.together.model.domain.DomainEventShortInfo
+import hu.bme.aut.android.together.domain.model.DomainEventShortInfo
 import hu.bme.aut.android.together.data.network.NetworkDataSource
 import hu.bme.aut.android.together.data.disk.repository.InvitationSenderRepository
 import javax.inject.Inject

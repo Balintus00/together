@@ -1,8 +1,8 @@
 package hu.bme.aut.android.together.data.disk.repository
 
-import hu.bme.aut.android.together.model.domain.DomainEventAnswer
-import hu.bme.aut.android.together.model.domain.DomainEventQuestion
-import hu.bme.aut.android.together.model.domain.DomainEventQuestionAndAnswer
+import hu.bme.aut.android.together.domain.model.DomainEventAnswer
+import hu.bme.aut.android.together.domain.model.DomainEventQuestion
+import hu.bme.aut.android.together.domain.model.DomainEventQuestionAndAnswer
 import hu.bme.aut.android.together.data.disk.model.PersistedEventAnswer
 import hu.bme.aut.android.together.data.disk.model.PersistedEventQuestion
 import hu.bme.aut.android.together.data.disk.model.PersistedQuestionAndAnswer

@@ -1,6 +1,6 @@
 package hu.bme.aut.android.together.data.disk.repository
 
-import hu.bme.aut.android.together.model.domain.DomainEventInvitation
+import hu.bme.aut.android.together.domain.model.DomainEventInvitation
 import hu.bme.aut.android.together.data.disk.model.PersistedEventInvitation
 import hu.bme.aut.android.together.persistence.dao.EventInvitationsDao
 import javax.inject.Inject

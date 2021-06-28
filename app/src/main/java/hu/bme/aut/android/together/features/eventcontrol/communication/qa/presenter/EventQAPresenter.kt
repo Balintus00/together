@@ -1,7 +1,7 @@
 package hu.bme.aut.android.together.features.eventcontrol.communication.qa.presenter
 
 import co.zsmb.rainbowcake.withIOContext
-import hu.bme.aut.android.together.features.eventcontrol.communication.qa.interactor.EventQAInteractor
+import hu.bme.aut.android.together.domain.interactor.EventQAInteractor
 import hu.bme.aut.android.together.model.presentation.EventAnswer
 import hu.bme.aut.android.together.model.presentation.EventQuestion
 import hu.bme.aut.android.together.model.presentation.EventQuestionAndAnswer

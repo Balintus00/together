@@ -1,7 +1,7 @@
 package hu.bme.aut.android.together.features.eventcontrol.communication.newslist.presenter
 
 import co.zsmb.rainbowcake.withIOContext
-import hu.bme.aut.android.together.features.eventcontrol.communication.newslist.interactor.NewsListInteractor
+import hu.bme.aut.android.together.domain.interactor.NewsListInteractor
 import hu.bme.aut.android.together.model.presentation.EventNews
 import javax.inject.Inject
 

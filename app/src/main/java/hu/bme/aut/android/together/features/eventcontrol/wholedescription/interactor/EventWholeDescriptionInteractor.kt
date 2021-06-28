@@ -1,6 +1,6 @@
 package hu.bme.aut.android.together.features.eventcontrol.wholedescription.interactor
 
-import hu.bme.aut.android.together.model.domain.DomainEventDescriptionData
+import hu.bme.aut.android.together.domain.model.DomainEventDescriptionData
 import hu.bme.aut.android.together.data.network.NetworkDataSource
 import hu.bme.aut.android.together.data.disk.repository.EventDescriptionDataRepository
 import javax.inject.Inject

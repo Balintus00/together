@@ -1,6 +1,6 @@
 package hu.bme.aut.android.together.data.network
 
-import hu.bme.aut.android.together.model.domain.*
+import hu.bme.aut.android.together.domain.model.*
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject

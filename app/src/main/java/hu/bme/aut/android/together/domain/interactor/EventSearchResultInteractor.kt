@@ -1,8 +1,8 @@
-package hu.bme.aut.android.together.features.searchevent.result.interactor
+package hu.bme.aut.android.together.domain.interactor
 
 import android.util.Log
-import hu.bme.aut.android.together.model.domain.DomainEventQueryParameter
-import hu.bme.aut.android.together.model.domain.DomainEventShortInfo
+import hu.bme.aut.android.together.domain.model.DomainEventQueryParameter
+import hu.bme.aut.android.together.domain.model.DomainEventShortInfo
 import hu.bme.aut.android.together.data.network.NetworkDataSource
 import hu.bme.aut.android.together.data.disk.repository.EventShortInfoRepository
 import javax.inject.Inject

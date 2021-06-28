@@ -2,9 +2,9 @@ package hu.bme.aut.android.together.features.searchevent.result.presenter
 
 import java.text.SimpleDateFormat
 import co.zsmb.rainbowcake.withIOContext
-import hu.bme.aut.android.together.features.searchevent.result.interactor.EventSearchResultInteractor
-import hu.bme.aut.android.together.model.domain.DomainEventQueryParameter
-import hu.bme.aut.android.together.model.domain.DomainEventShortInfo
+import hu.bme.aut.android.together.domain.interactor.EventSearchResultInteractor
+import hu.bme.aut.android.together.domain.model.DomainEventQueryParameter
+import hu.bme.aut.android.together.domain.model.DomainEventShortInfo
 import hu.bme.aut.android.together.model.presentation.EventQueryParameter
 import hu.bme.aut.android.together.model.presentation.EventShortInfo
 import java.text.ParseException

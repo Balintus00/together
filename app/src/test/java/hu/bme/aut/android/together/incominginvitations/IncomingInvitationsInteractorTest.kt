@@ -1,8 +1,8 @@
 package hu.bme.aut.android.together.incominginvitations
 
-import hu.bme.aut.android.together.features.incomiginvitations.interactor.IncomingEventInvitationsInteractor
+import hu.bme.aut.android.together.domain.interactor.IncomingEventInvitationsInteractor
 import hu.bme.aut.android.together.mockito.any
-import hu.bme.aut.android.together.model.domain.DomainEventInvitation
+import hu.bme.aut.android.together.domain.model.DomainEventInvitation
 import hu.bme.aut.android.together.data.network.NetworkDataSource
 import hu.bme.aut.android.together.data.disk.repository.EventInvitationsRepository
 import org.junit.Before

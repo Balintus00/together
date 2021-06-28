@@ -1,8 +1,8 @@
 package hu.bme.aut.android.together.features.eventcontrol.communication.pager.presenter
 
 import co.zsmb.rainbowcake.withIOContext
-import hu.bme.aut.android.together.features.eventcontrol.communication.pager.interactor.EventCommunicationPagerInteractor
-import hu.bme.aut.android.together.model.domain.DomainCommunicationPagerData
+import hu.bme.aut.android.together.domain.interactor.EventCommunicationPagerInteractor
+import hu.bme.aut.android.together.domain.model.DomainCommunicationPagerData
 import hu.bme.aut.android.together.model.presentation.CommunicationPagerData
 import javax.inject.Inject
 

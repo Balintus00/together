@@ -1,6 +1,6 @@
 package hu.bme.aut.android.together.data.disk.repository
 
-import hu.bme.aut.android.together.model.domain.DomainEventNews
+import hu.bme.aut.android.together.domain.model.DomainEventNews
 import hu.bme.aut.android.together.data.disk.model.PersistedEventNews
 import hu.bme.aut.android.together.persistence.dao.EventNewsDao
 import javax.inject.Inject
