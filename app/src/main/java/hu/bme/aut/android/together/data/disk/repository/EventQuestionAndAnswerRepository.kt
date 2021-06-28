@@ -1,11 +1,11 @@
-package hu.bme.aut.android.together.persistence.repository
+package hu.bme.aut.android.together.data.disk.repository
 
 import hu.bme.aut.android.together.model.domain.DomainEventAnswer
 import hu.bme.aut.android.together.model.domain.DomainEventQuestion
 import hu.bme.aut.android.together.model.domain.DomainEventQuestionAndAnswer
-import hu.bme.aut.android.together.model.persistence.PersistedEventAnswer
-import hu.bme.aut.android.together.model.persistence.PersistedEventQuestion
-import hu.bme.aut.android.together.model.persistence.PersistedQuestionAndAnswer
+import hu.bme.aut.android.together.data.disk.model.PersistedEventAnswer
+import hu.bme.aut.android.together.data.disk.model.PersistedEventQuestion
+import hu.bme.aut.android.together.data.disk.model.PersistedQuestionAndAnswer
 import hu.bme.aut.android.together.persistence.dao.EventAnswerDao
 import hu.bme.aut.android.together.persistence.dao.EventQuestionDao
 import hu.bme.aut.android.together.persistence.dao.QuestionAndAnswerDao

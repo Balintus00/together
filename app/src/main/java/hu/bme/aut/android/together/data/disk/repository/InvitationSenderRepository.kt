@@ -1,8 +1,8 @@
-package hu.bme.aut.android.together.persistence.repository
+package hu.bme.aut.android.together.data.disk.repository
 
 import hu.bme.aut.android.together.model.domain.DomainEventShortInfo
-import hu.bme.aut.android.together.model.persistence.PersistedEventShortInfo
-import hu.bme.aut.android.together.model.persistence.PersistedEventShortInfoType
+import hu.bme.aut.android.together.data.disk.model.PersistedEventShortInfo
+import hu.bme.aut.android.together.data.disk.model.PersistedEventShortInfoType
 import hu.bme.aut.android.together.persistence.dao.EventShortInfoDao
 import java.text.SimpleDateFormat
 import java.util.*

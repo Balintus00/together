@@ -2,7 +2,7 @@ package hu.bme.aut.android.together.features.addevent.pagerelement.overview.inte
 
 import hu.bme.aut.android.together.model.domain.DomainAddableEvent
 import hu.bme.aut.android.together.model.domain.DomainUploadResponse
-import hu.bme.aut.android.together.network.NetworkDataSource
+import hu.bme.aut.android.together.data.network.NetworkDataSource
 import javax.inject.Inject
 
 class OverviewInteractor @Inject constructor(

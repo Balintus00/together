@@ -4,8 +4,8 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import hu.bme.aut.android.together.network.NetworkDataSource
-import hu.bme.aut.android.together.network.NetworkManager
+import hu.bme.aut.android.together.data.network.NetworkDataSource
+import hu.bme.aut.android.together.data.network.FakeNetworkManager
 import javax.inject.Singleton
 
 @Suppress("unused")
@@ -15,6 +15,6 @@ abstract class NetworkModule {
 
     @Singleton
     @Binds
-    abstract fun bindNetworkDataSource(networkManager: NetworkManager) : NetworkDataSource
+    abstract fun bindNetworkDataSource(networkManager: FakeNetworkManager) : NetworkDataSource
 
 }

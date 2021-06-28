@@ -1,4 +1,4 @@
-package hu.bme.aut.android.together.model.persistence
+package hu.bme.aut.android.together.data.disk.model
 
 import androidx.room.Embedded
 import androidx.room.Entity

@@ -1,4 +1,4 @@
-package hu.bme.aut.android.together.network
+package hu.bme.aut.android.together.data.network
 
 import hu.bme.aut.android.together.model.domain.*
 import java.text.SimpleDateFormat
@@ -6,7 +6,7 @@ import java.util.*
 import javax.inject.Inject
 
 //TODO this fake implementation will be changed to communicate with the backend
-class NetworkManager @Inject constructor() : NetworkDataSource {
+class FakeNetworkManager @Inject constructor() : NetworkDataSource {
 
     companion object {
         private const val SIMULATED_LOADING_TIME_MS = 500L
@@ -14,7 +14,6 @@ class NetworkManager @Inject constructor() : NetworkDataSource {
 
     //TODO: RedundantNullabeReturnType warning is suppressed, because it will be fixed
     // in the actual implementation later
-
     @Suppress("RedundantNullableReturnType")
     override fun getUserProfileById(@Suppress("UNUSED_PARAMETER") id: Long): DomainProfileData? {
         Thread.sleep(SIMULATED_LOADING_TIME_MS)

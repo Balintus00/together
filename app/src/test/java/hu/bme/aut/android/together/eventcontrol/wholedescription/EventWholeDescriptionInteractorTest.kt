@@ -3,8 +3,8 @@ package hu.bme.aut.android.together.eventcontrol.wholedescription
 import hu.bme.aut.android.together.features.eventcontrol.wholedescription.interactor.EventWholeDescriptionInteractor
 import hu.bme.aut.android.together.mockito.any
 import hu.bme.aut.android.together.model.domain.DomainEventDescriptionData
-import hu.bme.aut.android.together.network.NetworkDataSource
-import hu.bme.aut.android.together.persistence.repository.EventDescriptionDataRepository
+import hu.bme.aut.android.together.data.network.NetworkDataSource
+import hu.bme.aut.android.together.data.disk.repository.EventDescriptionDataRepository
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith

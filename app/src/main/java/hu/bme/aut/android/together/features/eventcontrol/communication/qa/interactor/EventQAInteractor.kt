@@ -1,8 +1,8 @@
 package hu.bme.aut.android.together.features.eventcontrol.communication.qa.interactor
 
 import hu.bme.aut.android.together.model.domain.DomainEventQuestionAndAnswer
-import hu.bme.aut.android.together.network.NetworkDataSource
-import hu.bme.aut.android.together.persistence.repository.EventQuestionAndAnswerRepository
+import hu.bme.aut.android.together.data.network.NetworkDataSource
+import hu.bme.aut.android.together.data.disk.repository.EventQuestionAndAnswerRepository
 import javax.inject.Inject
 
 class EventQAInteractor @Inject constructor(

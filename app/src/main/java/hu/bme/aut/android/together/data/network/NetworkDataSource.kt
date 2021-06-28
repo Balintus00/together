@@ -1,4 +1,4 @@
-package hu.bme.aut.android.together.network
+package hu.bme.aut.android.together.data.network
 
 import hu.bme.aut.android.together.model.domain.*
 

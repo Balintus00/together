@@ -1,8 +1,8 @@
 package hu.bme.aut.android.together.features.incomiginvitations.interactor
 
 import hu.bme.aut.android.together.model.domain.DomainEventInvitation
-import hu.bme.aut.android.together.network.NetworkDataSource
-import hu.bme.aut.android.together.persistence.repository.EventInvitationsRepository
+import hu.bme.aut.android.together.data.network.NetworkDataSource
+import hu.bme.aut.android.together.data.disk.repository.EventInvitationsRepository
 import javax.inject.Inject
 
 class IncomingEventInvitationsInteractor @Inject constructor(

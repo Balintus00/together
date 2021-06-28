@@ -2,8 +2,8 @@ package hu.bme.aut.android.together.features.currentevents.interactor
 
 import android.util.Log
 import hu.bme.aut.android.together.model.domain.DomainEventShortInfo
-import hu.bme.aut.android.together.network.NetworkDataSource
-import hu.bme.aut.android.together.persistence.repository.EventShortInfoRepository
+import hu.bme.aut.android.together.data.network.NetworkDataSource
+import hu.bme.aut.android.together.data.disk.repository.EventShortInfoRepository
 import javax.inject.Inject
 
 class EventListInteractor @Inject constructor(

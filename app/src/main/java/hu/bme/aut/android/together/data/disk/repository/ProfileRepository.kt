@@ -1,7 +1,7 @@
-package hu.bme.aut.android.together.persistence.repository
+package hu.bme.aut.android.together.data.disk.repository
 
 import hu.bme.aut.android.together.model.domain.DomainProfileData
-import hu.bme.aut.android.together.model.persistence.PersistedProfileData
+import hu.bme.aut.android.together.data.disk.model.PersistedProfileData
 import hu.bme.aut.android.together.persistence.dao.ProfileDao
 import java.text.SimpleDateFormat
 import java.util.*

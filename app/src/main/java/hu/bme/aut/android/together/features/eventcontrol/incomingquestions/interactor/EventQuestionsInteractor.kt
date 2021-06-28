@@ -1,8 +1,8 @@
 package hu.bme.aut.android.together.features.eventcontrol.incomingquestions.interactor
 
 import hu.bme.aut.android.together.model.domain.DomainEventQuestionsWithTitle
-import hu.bme.aut.android.together.network.NetworkDataSource
-import hu.bme.aut.android.together.persistence.repository.EventQuestionsAndTitleRepository
+import hu.bme.aut.android.together.data.network.NetworkDataSource
+import hu.bme.aut.android.together.data.disk.repository.EventQuestionsAndTitleRepository
 import javax.inject.Inject
 
 class EventQuestionsInteractor @Inject constructor(

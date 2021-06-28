@@ -3,8 +3,8 @@ package hu.bme.aut.android.together.features.searchevent.result.interactor
 import android.util.Log
 import hu.bme.aut.android.together.model.domain.DomainEventQueryParameter
 import hu.bme.aut.android.together.model.domain.DomainEventShortInfo
-import hu.bme.aut.android.together.network.NetworkDataSource
-import hu.bme.aut.android.together.persistence.repository.EventShortInfoRepository
+import hu.bme.aut.android.together.data.network.NetworkDataSource
+import hu.bme.aut.android.together.data.disk.repository.EventShortInfoRepository
 import javax.inject.Inject
 
 class EventSearchResultInteractor @Inject constructor(
