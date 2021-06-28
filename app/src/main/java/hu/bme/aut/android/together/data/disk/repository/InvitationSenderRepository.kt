@@ -3,7 +3,7 @@ package hu.bme.aut.android.together.data.disk.repository
 import hu.bme.aut.android.together.domain.model.DomainEventShortInfo
 import hu.bme.aut.android.together.data.disk.model.PersistedEventShortInfo
 import hu.bme.aut.android.together.data.disk.model.PersistedEventShortInfoType
-import hu.bme.aut.android.together.persistence.dao.EventShortInfoDao
+import hu.bme.aut.android.together.data.disk.dao.EventShortInfoDao
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject

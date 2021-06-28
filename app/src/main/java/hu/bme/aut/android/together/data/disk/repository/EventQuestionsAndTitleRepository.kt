@@ -2,8 +2,8 @@ package hu.bme.aut.android.together.data.disk.repository
 
 import hu.bme.aut.android.together.domain.model.DomainEventQuestion
 import hu.bme.aut.android.together.data.disk.model.PersistedEventQuestion
-import hu.bme.aut.android.together.persistence.dao.EventDataDao
-import hu.bme.aut.android.together.persistence.dao.EventQuestionDao
+import hu.bme.aut.android.together.data.disk.dao.EventDataDao
+import hu.bme.aut.android.together.data.disk.dao.EventQuestionDao
 import javax.inject.Inject
 
 class EventQuestionsAndTitleRepository @Inject constructor(

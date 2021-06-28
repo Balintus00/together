@@ -6,9 +6,9 @@ import hu.bme.aut.android.together.domain.model.DomainEventQuestionAndAnswer
 import hu.bme.aut.android.together.data.disk.model.PersistedEventAnswer
 import hu.bme.aut.android.together.data.disk.model.PersistedEventQuestion
 import hu.bme.aut.android.together.data.disk.model.PersistedQuestionAndAnswer
-import hu.bme.aut.android.together.persistence.dao.EventAnswerDao
-import hu.bme.aut.android.together.persistence.dao.EventQuestionDao
-import hu.bme.aut.android.together.persistence.dao.QuestionAndAnswerDao
+import hu.bme.aut.android.together.data.disk.dao.EventAnswerDao
+import hu.bme.aut.android.together.data.disk.dao.EventQuestionDao
+import hu.bme.aut.android.together.data.disk.dao.QuestionAndAnswerDao
 import javax.inject.Inject
 
 class EventQuestionAndAnswerRepository @Inject constructor(
