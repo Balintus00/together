@@ -5,7 +5,7 @@ sudo: required
 stages:
   - compile
   - local_test
-  - instrumented_test
+  - name: "Instrumented (UI) tests"
     if: branch = master || Develop
 jobs:
   include:
