@@ -6,7 +6,7 @@ stages:
   - compile
   - local_test
   - name: instrumented test
-    if: branch = master || Develop
+    if: branch = master OR branch = Develop
 jobs:
   include:
     - stage: compile
