@@ -5,18 +5,11 @@ sudo: required
 stages:
   - compile
   - local_test
-  - name: "Instrumented (UI) tests"
+  - name: instrumented test
     if: branch = master || Develop
 jobs:
   include:
     - stage: compile
-      name: "Compile"
-      script: ./gradlew --stacktrace :app:build
-    - stage: local_test
-      name: "Local (JVM) tests"
-      script: ./gradlew --stacktrace test
-    - stage: instrumented_test
-      name: "Instrumented (UI) tests"
       env:
         global:
           - MALLOC_ARENA_MAX=2
@@ -43,4 +36,8 @@ jobs:
         - emulator -avd test -no-audio -no-window &
         - adb wait-for-device
         - adb shell input keyevent 82 &
+      script: ./gradlew --stacktrace :app:build
+    - stage: local test
+      script: ./gradlew --stacktrace test
+    - stage: instrumented test
       script: ./gradlew --stacktrace :app:build :app:connectedDebugAndroidTest
