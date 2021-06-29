@@ -9,7 +9,7 @@ import androidx.test.filters.SmallTest
 import com.google.common.truth.Truth.assertThat
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import hu.bme.aut.android.together.activity.MainActivity
+import hu.bme.aut.android.together.ui.activity.MainActivity
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith

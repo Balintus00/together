@@ -8,7 +8,7 @@ import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.filters.SmallTest
-import hu.bme.aut.android.together.features.addevent.pagerelement.detailsetter.place.fragment.PlacePickerFragment
+import hu.bme.aut.android.together.ui.screen.addevent.pagerelement.detailsetter.place.fragment.PlacePickerFragment
 import org.hamcrest.CoreMatchers.*
 import org.junit.Test
 

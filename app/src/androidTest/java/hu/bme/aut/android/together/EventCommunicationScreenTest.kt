@@ -1,7 +1,6 @@
 package hu.bme.aut.android.together
 
 import android.os.Bundle
-import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.navigation.Navigation
 import androidx.navigation.testing.TestNavHostController
 import androidx.test.core.app.ApplicationProvider
@@ -14,7 +13,7 @@ import androidx.test.internal.runner.junit4.statement.UiThreadStatement
 import com.google.common.truth.Truth
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import hu.bme.aut.android.together.features.eventcontrol.communication.pager.fragment.EventCommunicationPagerFragment
+import hu.bme.aut.android.together.ui.screen.eventcontrol.communication.pager.fragment.EventCommunicationPagerFragment
 import hu.bme.aut.android.together.hilt.launchFragmentInHiltContainer
 import org.junit.Rule
 import org.junit.Test

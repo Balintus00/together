@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/currentEventsListFragment"
-        android:name="hu.bme.aut.android.together.features.currentevents.fragment.EventListsPagerFragment"
+        android:name="hu.bme.aut.android.together.ui.screen.currentevents.fragment.EventListsPagerFragment"
         android:label="fragment_current_events_list"
         tools:layout="@layout/fragment_event_lists_pager">
         <action
@@ -23,7 +23,7 @@
     </fragment>
     <fragment
         android:id="@+id/eventQueryFragment"
-        android:name="hu.bme.aut.android.together.features.searchevent.searcher.fragment.EventQueryFragment"
+        android:name="hu.bme.aut.android.together.ui.screen.searchevent.searcher.fragment.EventQueryFragment"
         android:label="fragment_event_query"
         tools:layout="@layout/fragment_event_query">
         <action
@@ -32,7 +32,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="hu.bme.aut.android.together.features.profile.fragment.ProfileFragment"
+        android:name="hu.bme.aut.android.together.ui.screen.profile.fragment.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile">
         <action
@@ -44,11 +44,11 @@
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="hu.bme.aut.android.together.features.profilesettings.ProfileSettingsFragment"
+        android:name="hu.bme.aut.android.together.ui.screen.profilesettings.ProfileSettingsFragment"
         android:label="SettingsFragment" />
     <fragment
         android:id="@+id/eventSearchResultFragment"
-        android:name="hu.bme.aut.android.together.features.searchevent.result.fragment.EventSearchResultFragment"
+        android:name="hu.bme.aut.android.together.ui.screen.searchevent.result.fragment.EventSearchResultFragment"
         android:label="fragment_event_search_result"
         tools:layout="@layout/fragment_event_search_result" >
         <action
@@ -60,13 +60,13 @@
         </action>
         <argument
             android:name="queryParameter"
-            app:argType="hu.bme.aut.android.together.model.presentation.EventQueryParameter" />
+            app:argType="hu.bme.aut.android.together.ui.model.EventQueryParameter" />
     </fragment>
     <navigation android:id="@+id/eventDetailsGraph"
         app:startDestination="@id/eventDetailsFragment">
         <fragment
             android:id="@+id/eventDetailsFragment"
-            android:name="hu.bme.aut.android.together.features.eventcontrol.details.fragment.EventDetailsFragment"
+            android:name="hu.bme.aut.android.together.ui.screen.eventcontrol.details.fragment.EventDetailsFragment"
             android:label="fragment_event_details"
             tools:layout="@layout/fragment_event_details">
             <action
@@ -90,7 +90,7 @@
         </fragment>
         <fragment
             android:id="@+id/eventDetailsFullDescriptionFragment"
-            android:name="hu.bme.aut.android.together.features.eventcontrol.wholedescription.fragment.EventWholeDescriptionFragment"
+            android:name="hu.bme.aut.android.together.ui.screen.eventcontrol.wholedescription.fragment.EventWholeDescriptionFragment"
             android:label="fragment_event_details_full_description"
             tools:layout="@layout/fragment_event_details_whole_description" >
             <argument
@@ -99,7 +99,7 @@
         </fragment>
         <fragment
             android:id="@+id/eventDetailsCommunicationFragment"
-            android:name="hu.bme.aut.android.together.features.eventcontrol.communication.pager.fragment.EventCommunicationPagerFragment"
+            android:name="hu.bme.aut.android.together.ui.screen.eventcontrol.communication.pager.fragment.EventCommunicationPagerFragment"
             android:label="fragment_event_details_communication"
             tools:layout="@layout/fragment_event_communication_pager" >
             <action
@@ -111,7 +111,7 @@
         </fragment>
         <fragment
             android:id="@+id/eventQuestionsFragment"
-            android:name="hu.bme.aut.android.together.features.eventcontrol.incomingquestions.fragment.EventQuestionsFragment"
+            android:name="hu.bme.aut.android.together.ui.screen.eventcontrol.incomingquestions.fragment.EventQuestionsFragment"
             android:label="fragment_event_questions"
             tools:layout="@layout/fragment_event_questions" >
             <argument
@@ -120,7 +120,7 @@
         </fragment>
         <fragment
             android:id="@+id/eventInvitationSenderFragment"
-            android:name="hu.bme.aut.android.together.features.eventcontrol.sendinvitation.fragment.EventInvitationSenderFragment"
+            android:name="hu.bme.aut.android.together.ui.screen.eventcontrol.sendinvitation.fragment.EventInvitationSenderFragment"
             android:label="fragment_event_invitation_sender"
             tools:layout="@layout/fragment_event_invitation_sender" >
             <argument
@@ -129,7 +129,7 @@
         </fragment>
         <fragment
             android:id="@+id/modifyEventDetailsFragment"
-            android:name="hu.bme.aut.android.together.features.eventcontrol.modifyevent.fragment.ModifyEventDetailsFragment"
+            android:name="hu.bme.aut.android.together.ui.screen.eventcontrol.modifyevent.fragment.ModifyEventDetailsFragment"
             android:label="fragment_modify_event_details"
             tools:layout="@layout/fragment_modify_event_details" >
             <argument
@@ -138,14 +138,14 @@
         </fragment>
         <fragment
             android:id="@+id/eventSettingsFragment"
-            android:name="hu.bme.aut.android.together.features.eventcontrol.eventsettings.EventSettingsFragment"
+            android:name="hu.bme.aut.android.together.ui.screen.eventcontrol.eventsettings.EventSettingsFragment"
             android:label="EventSettingsFragment" />
     </navigation>
     <navigation android:id="@+id/addEventGraph"
         app:startDestination="@id/addEventPagerFragment">
         <fragment
             android:id="@+id/addEventPagerFragment"
-            android:name="hu.bme.aut.android.together.features.addevent.pager.fragment.AddEventPagerFragment"
+            android:name="hu.bme.aut.android.together.ui.screen.addevent.pager.fragment.AddEventPagerFragment"
             android:label="fragment_add_event_pager"
             tools:layout="@layout/fragment_add_event_pager">
             <action
@@ -154,7 +154,7 @@
         </fragment>
         <fragment
             android:id="@+id/publicEventRuleSetterFragment"
-            android:name="hu.bme.aut.android.together.features.addevent.pagerelement.detailsetter.participant.rulesetter.fragment.PublicEventRuleSetterFragment"
+            android:name="hu.bme.aut.android.together.ui.screen.addevent.pagerelement.detailsetter.participant.rulesetter.fragment.PublicEventRuleSetterFragment"
             android:label="fragment_public_event_rule_setter"
             tools:layout="@layout/fragment_public_event_rule_setter">
             <action
@@ -162,11 +162,11 @@
                 app:destination="@id/publicEventParticipantQuantifierFragment" />
             <argument
                 android:name="options"
-                app:argType="hu.bme.aut.android.together.model.presentation.EventPublicRuleOptions" />
+                app:argType="hu.bme.aut.android.together.ui.model.EventPublicRuleOptions" />
         </fragment>
         <fragment
             android:id="@+id/publicEventParticipantQuantifierFragment"
-            android:name="hu.bme.aut.android.together.features.addevent.pagerelement.detailsetter.participant.quantifier.fragment.PublicEventParticipantQuantifierFragment"
+            android:name="hu.bme.aut.android.together.ui.screen.addevent.pagerelement.detailsetter.participant.quantifier.fragment.PublicEventParticipantQuantifierFragment"
             android:label="fragment_public_event_participant_quantifier"
             tools:layout="@layout/fragment_public_event_participant_quantifier" />
         <action
@@ -180,7 +180,7 @@
     </navigation>
     <fragment
         android:id="@+id/eventInvitationsFragment"
-        android:name="hu.bme.aut.android.together.features.incomiginvitations.fragment.IncomingEventInvitationsFragment"
+        android:name="hu.bme.aut.android.together.ui.screen.incomiginvitations.fragment.IncomingEventInvitationsFragment"
         android:label="fragment_event_invitations"
         tools:layout="@layout/fragment_incoming_event_invitations" />
 </navigation>

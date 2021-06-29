@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.eventcontrol.sendinvitation.fragment.EventInvitationSenderFragment">
+    tools:context=".ui.screen.eventcontrol.sendinvitation.fragment.EventInvitationSenderFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tbModifyEvent"

@@ -4,11 +4,11 @@ import co.zsmb.rainbowcake.test.assertObserved
 import co.zsmb.rainbowcake.test.base.ViewModelTest
 import co.zsmb.rainbowcake.test.observeStateAndEvents
 import com.google.common.truth.Truth
-import hu.bme.aut.android.together.features.eventcontrol.communication.pager.presenter.EventCommunicationPagerPresenter
-import hu.bme.aut.android.together.features.eventcontrol.communication.pager.viewmodel.DataLoaded
-import hu.bme.aut.android.together.features.eventcontrol.communication.pager.viewmodel.EventCommunicationPagerViewModel
-import hu.bme.aut.android.together.features.eventcontrol.communication.pager.viewmodel.Loading
-import hu.bme.aut.android.together.model.presentation.CommunicationPagerData
+import hu.bme.aut.android.together.ui.screen.eventcontrol.communication.pager.presenter.EventCommunicationPagerPresenter
+import hu.bme.aut.android.together.ui.screen.eventcontrol.communication.pager.viewmodel.DataLoaded
+import hu.bme.aut.android.together.ui.screen.eventcontrol.communication.pager.viewmodel.EventCommunicationPagerViewModel
+import hu.bme.aut.android.together.ui.screen.eventcontrol.communication.pager.viewmodel.Loading
+import hu.bme.aut.android.together.ui.model.CommunicationPagerData
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before

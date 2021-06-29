@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.searchevent.result.fragment.EventSearchResultFragment">
+    tools:context=".ui.screen.searchevent.result.fragment.EventSearchResultFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tbSearchResults"

@@ -22,7 +22,7 @@
         <uses-library android:name="android.test.runner"
             android:required="false" />
         <activity
-            android:name=".activity.MainActivity"
+            android:name="hu.bme.aut.android.together.ui.activity.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

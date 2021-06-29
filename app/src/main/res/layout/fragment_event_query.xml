@@ -3,23 +3,23 @@
     <data>
         <variable
             name="viewModel"
-            type="hu.bme.aut.android.together.features.searchevent.searcher.viewmodel.EventQueryViewModel" />
+            type="hu.bme.aut.android.together.ui.screen.searchevent.searcher.viewmodel.EventQueryViewModel" />
     </data>
     <FrameLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".features.searchevent.searcher.fragment.EventQueryFragment">
+        tools:context=".ui.screen.searchevent.searcher.fragment.EventQueryFragment">
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".features.searchevent.searcher.fragment.EventQueryFragment">
+            tools:context=".ui.screen.searchevent.searcher.fragment.EventQueryFragment">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:context=".features.searchevent.searcher.fragment.EventQueryFragment">
+                tools:context=".ui.screen.searchevent.searcher.fragment.EventQueryFragment">
 
                 <TextView
                     android:id="@+id/textView3"

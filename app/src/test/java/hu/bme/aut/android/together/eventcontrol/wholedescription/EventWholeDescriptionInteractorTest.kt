@@ -1,6 +1,6 @@
 package hu.bme.aut.android.together.eventcontrol.wholedescription
 
-import hu.bme.aut.android.together.features.eventcontrol.wholedescription.interactor.EventWholeDescriptionInteractor
+import hu.bme.aut.android.together.ui.screen.eventcontrol.wholedescription.interactor.EventWholeDescriptionInteractor
 import hu.bme.aut.android.together.mockito.any
 import hu.bme.aut.android.together.domain.model.DomainEventDescriptionData
 import hu.bme.aut.android.together.data.network.NetworkDataSource

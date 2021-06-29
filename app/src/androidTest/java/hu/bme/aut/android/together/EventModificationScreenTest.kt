@@ -12,7 +12,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import hu.bme.aut.android.together.features.eventcontrol.modifyevent.fragment.ModifyEventDetailsFragment
+import hu.bme.aut.android.together.ui.screen.eventcontrol.modifyevent.fragment.ModifyEventDetailsFragment
 import hu.bme.aut.android.together.hilt.launchFragmentInHiltContainer
 import org.hamcrest.Matchers
 import org.junit.Rule

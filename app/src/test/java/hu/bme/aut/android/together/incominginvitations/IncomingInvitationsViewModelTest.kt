@@ -4,11 +4,11 @@ import co.zsmb.rainbowcake.test.assertObserved
 import co.zsmb.rainbowcake.test.base.ViewModelTest
 import co.zsmb.rainbowcake.test.observeStateAndEvents
 import com.google.common.truth.Truth
-import hu.bme.aut.android.together.features.incomiginvitations.presenter.IncomingEventInvitationsPresenter
-import hu.bme.aut.android.together.features.incomiginvitations.viewmodel.IncomingEventInvitationsLoaded
-import hu.bme.aut.android.together.features.incomiginvitations.viewmodel.IncomingEventInvitationsViewModel
-import hu.bme.aut.android.together.features.incomiginvitations.viewmodel.Loading
-import hu.bme.aut.android.together.model.presentation.EventInvitation
+import hu.bme.aut.android.together.ui.screen.incomiginvitations.presenter.IncomingEventInvitationsPresenter
+import hu.bme.aut.android.together.ui.screen.incomiginvitations.viewmodel.IncomingEventInvitationsLoaded
+import hu.bme.aut.android.together.ui.screen.incomiginvitations.viewmodel.IncomingEventInvitationsViewModel
+import hu.bme.aut.android.together.ui.screen.incomiginvitations.viewmodel.Loading
+import hu.bme.aut.android.together.ui.model.EventInvitation
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before

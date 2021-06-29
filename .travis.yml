@@ -92,4 +92,4 @@ jobs:
         - emulator -avd test -no-audio -no-window &
         - adb wait-for-device
         - adb shell input keyevent 82 &
-      script: ./gradlew --stacktrace :app:build :app:connectedDebugAndroidTest
+      script: ./gradlew --stacktrace :app:connectedDebugAndroidTest
