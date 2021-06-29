@@ -1,10 +1,10 @@
 package hu.bme.aut.android.together.eventcontrol.wholedescription
 
-import hu.bme.aut.android.together.features.eventcontrol.wholedescription.interactor.EventWholeDescriptionInteractor
+import hu.bme.aut.android.together.ui.screen.eventcontrol.wholedescription.interactor.EventWholeDescriptionInteractor
 import hu.bme.aut.android.together.mockito.any
-import hu.bme.aut.android.together.model.domain.DomainEventDescriptionData
-import hu.bme.aut.android.together.network.NetworkDataSource
-import hu.bme.aut.android.together.persistence.repository.EventDescriptionDataRepository
+import hu.bme.aut.android.together.domain.model.DomainEventDescriptionData
+import hu.bme.aut.android.together.data.network.NetworkDataSource
+import hu.bme.aut.android.together.data.disk.repository.EventDescriptionDataRepository
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -82,7 +82,8 @@ class EventWholeDescriptionInteractorTest {
         )
         eventWholeDescriptionInteractor.getEventDescriptionDataByEventId(exampleDomainEventDescriptionData.id)
         Mockito.verify(mockNetworkDataSource, Mockito.times(1)).getEventDescriptionDataById(exampleDomainEventDescriptionData.id)
-        Mockito.verify(mockEventDescriptionDataRepository, Mockito.never()).saveEventDescriptionData(any(DomainEventDescriptionData::class.java))
+        Mockito.verify(mockEventDescriptionDataRepository, Mockito.never()).saveEventDescriptionData(any(
+            DomainEventDescriptionData::class.java))
         Mockito.verify(mockEventDescriptionDataRepository, Mockito.times(1))
             .loadEventDescriptionData(exampleDomainEventDescriptionData.id)
     }

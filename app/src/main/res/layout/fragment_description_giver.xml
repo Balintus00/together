@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".features.addevent.pagerelement.detailsetter.description.fragment.DescriptionGiverFragment">
+    tools:context=".ui.screen.addevent.pagerelement.detailsetter.description.fragment.DescriptionGiverFragment">
 
     <TextView
         android:id="@+id/tvAddEventDescriptionGiverTitle"

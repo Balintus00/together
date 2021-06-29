@@ -1,0 +1,24 @@
+package hu.bme.aut.android.together.data.disk.repository
+
+import hu.bme.aut.android.together.domain.model.DomainEventNews
+import hu.bme.aut.android.together.data.disk.model.PersistedEventNews
+import hu.bme.aut.android.together.data.disk.dao.EventNewsDao
+import javax.inject.Inject
+
+class EventNewsRepository @Inject constructor(
+    private val dao: EventNewsDao
+) {
+
+    fun loadPersistedEventNewsByEventId(eventId: Long): List<DomainEventNews> {
+        return dao.getCachedNewsByEventId(eventId).map {
+            DomainEventNews(it.id, it.title, it.author, it.message)
+        }
+    }
+
+    fun persistEventNews(eventId: Long, eventNews: List<DomainEventNews>) {
+        dao.persistEventNews(*eventNews.map {
+            PersistedEventNews(it.id, it.title, it.author, it.message, eventId)
+        }.toTypedArray())
+    }
+
+}

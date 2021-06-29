@@ -6,7 +6,7 @@ import dagger.hilt.components.SingletonComponent
 import dagger.hilt.testing.TestInstallIn
 import hu.bme.aut.android.together.di.NetworkModule
 import hu.bme.aut.android.together.mock.FakeNetworkDataSource
-import hu.bme.aut.android.together.network.NetworkDataSource
+import hu.bme.aut.android.together.data.network.NetworkDataSource
 import javax.inject.Singleton
 
 @Suppress("unused")

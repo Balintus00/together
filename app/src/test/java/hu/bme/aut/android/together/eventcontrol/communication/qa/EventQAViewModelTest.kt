@@ -1,15 +1,14 @@
 package hu.bme.aut.android.together.eventcontrol.communication.qa
 
-import androidx.lifecycle.viewModelScope
 import co.zsmb.rainbowcake.test.assertObserved
 import co.zsmb.rainbowcake.test.base.ViewModelTest
 import co.zsmb.rainbowcake.test.observeStateAndEvents
 import com.google.common.truth.Truth
-import hu.bme.aut.android.together.features.eventcontrol.communication.qa.presenter.EventQAPresenter
-import hu.bme.aut.android.together.features.eventcontrol.communication.qa.viewmodel.EventQALoaded
-import hu.bme.aut.android.together.features.eventcontrol.communication.qa.viewmodel.EventQAViewModel
-import hu.bme.aut.android.together.features.eventcontrol.communication.qa.viewmodel.Loading
-import hu.bme.aut.android.together.model.presentation.EventQuestionAndAnswer
+import hu.bme.aut.android.together.ui.screen.eventcontrol.communication.qa.presenter.EventQAPresenter
+import hu.bme.aut.android.together.ui.screen.eventcontrol.communication.qa.viewmodel.EventQALoaded
+import hu.bme.aut.android.together.ui.screen.eventcontrol.communication.qa.viewmodel.EventQAViewModel
+import hu.bme.aut.android.together.ui.screen.eventcontrol.communication.qa.viewmodel.Loading
+import hu.bme.aut.android.together.ui.model.EventQuestionAndAnswer
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before

@@ -1,9 +1,9 @@
 package hu.bme.aut.android.together.eventcontrol.details
 
-import hu.bme.aut.android.together.features.eventcontrol.details.interactor.EventDetailsInteractor
-import hu.bme.aut.android.together.model.domain.DomainEventDetails
-import hu.bme.aut.android.together.network.NetworkDataSource
-import hu.bme.aut.android.together.persistence.repository.EventDetailsRepository
+import hu.bme.aut.android.together.ui.screen.eventcontrol.details.interactor.EventDetailsInteractor
+import hu.bme.aut.android.together.domain.model.DomainEventDetails
+import hu.bme.aut.android.together.data.network.NetworkDataSource
+import hu.bme.aut.android.together.data.disk.repository.EventDetailsRepository
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith

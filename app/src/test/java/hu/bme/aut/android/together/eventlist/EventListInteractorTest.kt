@@ -1,10 +1,10 @@
 package hu.bme.aut.android.together.eventlist
 
-import hu.bme.aut.android.together.features.currentevents.interactor.EventListInteractor
+import hu.bme.aut.android.together.domain.interactor.EventListInteractor
 import hu.bme.aut.android.together.mockito.any
-import hu.bme.aut.android.together.model.domain.DomainEventShortInfo
-import hu.bme.aut.android.together.network.NetworkDataSource
-import hu.bme.aut.android.together.persistence.repository.EventShortInfoRepository
+import hu.bme.aut.android.together.domain.model.DomainEventShortInfo
+import hu.bme.aut.android.together.data.network.NetworkDataSource
+import hu.bme.aut.android.together.data.disk.repository.EventShortInfoRepository
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith

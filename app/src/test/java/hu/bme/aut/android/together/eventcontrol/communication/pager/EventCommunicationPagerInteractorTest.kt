@@ -1,9 +1,9 @@
 package hu.bme.aut.android.together.eventcontrol.communication.pager
 
-import hu.bme.aut.android.together.features.eventcontrol.communication.pager.interactor.EventCommunicationPagerInteractor
-import hu.bme.aut.android.together.model.domain.DomainCommunicationPagerData
-import hu.bme.aut.android.together.network.NetworkDataSource
-import hu.bme.aut.android.together.persistence.repository.EventCommunicationPagerDataRepository
+import hu.bme.aut.android.together.domain.interactor.EventCommunicationPagerInteractor
+import hu.bme.aut.android.together.domain.model.DomainCommunicationPagerData
+import hu.bme.aut.android.together.data.network.NetworkDataSource
+import hu.bme.aut.android.together.data.disk.repository.EventCommunicationPagerDataRepository
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith

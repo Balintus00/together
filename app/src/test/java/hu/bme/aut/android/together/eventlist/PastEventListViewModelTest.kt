@@ -4,11 +4,11 @@ import co.zsmb.rainbowcake.test.assertObserved
 import co.zsmb.rainbowcake.test.base.ViewModelTest
 import co.zsmb.rainbowcake.test.observeStateAndEvents
 import com.google.common.truth.Truth
-import hu.bme.aut.android.together.features.currentevents.presenter.PastEventListPresenter
-import hu.bme.aut.android.together.features.currentevents.viewmodel.EventListLoaded
-import hu.bme.aut.android.together.features.currentevents.viewmodel.Loading
-import hu.bme.aut.android.together.features.currentevents.viewmodel.PastEventListViewModel
-import hu.bme.aut.android.together.model.presentation.EventShortInfo
+import hu.bme.aut.android.together.ui.screen.currentevents.presenter.PastEventListPresenter
+import hu.bme.aut.android.together.ui.screen.currentevents.viewmodel.EventListLoaded
+import hu.bme.aut.android.together.ui.screen.currentevents.viewmodel.Loading
+import hu.bme.aut.android.together.ui.screen.currentevents.viewmodel.PastEventListViewModel
+import hu.bme.aut.android.together.ui.model.EventShortInfo
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before

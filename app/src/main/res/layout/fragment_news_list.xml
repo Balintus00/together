@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.eventcontrol.communication.newslist.fragment.NewsListFragment">
+    tools:context=".ui.screen.eventcontrol.communication.newslist.fragment.NewsListFragment">
 
     <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/cpiNewsListLoading"

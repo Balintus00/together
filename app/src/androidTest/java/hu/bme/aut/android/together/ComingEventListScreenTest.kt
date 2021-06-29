@@ -12,7 +12,7 @@ import androidx.test.internal.runner.junit4.statement.UiThreadStatement.runOnUiT
 import com.google.common.truth.Truth.assertThat
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import hu.bme.aut.android.together.features.currentevents.fragment.ComingEventListFragment
+import hu.bme.aut.android.together.ui.screen.currentevents.fragment.ComingEventListFragment
 import hu.bme.aut.android.together.hilt.launchFragmentInHiltContainer
 import org.junit.Rule
 import org.junit.Test

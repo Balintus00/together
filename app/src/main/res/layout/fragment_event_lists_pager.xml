@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".features.currentevents.fragment.EventListsPagerFragment">
+    tools:context=".ui.screen.currentevents.fragment.EventListsPagerFragment">
 
     <TextView
         android:id="@+id/textView"

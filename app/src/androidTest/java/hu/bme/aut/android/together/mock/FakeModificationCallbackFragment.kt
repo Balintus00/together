@@ -1,7 +1,7 @@
 package hu.bme.aut.android.together.mock
 
 import androidx.fragment.app.Fragment
-import hu.bme.aut.android.together.features.addevent.pagerelement.settercontainer.modificationcallback.ModificationCallback
+import hu.bme.aut.android.together.ui.screen.addevent.pagerelement.settercontainer.modificationcallback.ModificationCallback
 
 class FakeModificationCallbackFragment : Fragment(), ModificationCallback {
 

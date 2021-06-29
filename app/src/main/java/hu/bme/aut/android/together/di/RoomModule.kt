@@ -7,7 +7,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import hu.bme.aut.android.together.persistence.database.AppDatabase
+import hu.bme.aut.android.together.data.disk.database.AppDatabase
 import javax.inject.Singleton
 
 @Suppress("unused")

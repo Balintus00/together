@@ -7,10 +7,10 @@ import dagger.Provides
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.hilt.testing.TestInstallIn
+import hu.bme.aut.android.together.data.disk.dao.*
+import hu.bme.aut.android.together.data.disk.model.*
 import hu.bme.aut.android.together.di.RoomModule
-import hu.bme.aut.android.together.model.persistence.*
-import hu.bme.aut.android.together.persistence.dao.*
-import hu.bme.aut.android.together.persistence.database.AppDatabase
+import hu.bme.aut.android.together.data.disk.database.AppDatabase
 import javax.inject.Singleton
 
 @Suppress("unused")
