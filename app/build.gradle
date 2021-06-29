@@ -8,11 +8,6 @@ apply plugin: "androidx.navigation.safeargs.kotlin"
 apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 
-// NO LONGER NECESSARY, SHOULD BE REMOVED
-hilt {
-    enableTransformForLocalTests = true
-}
-
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
