@@ -10,7 +10,7 @@ import hu.bme.aut.android.together.data.disk.model.PersistedEventNews
 interface EventNewsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun persistEventNews(vararg new: PersistedEventNews)
+    fun persistEventNews(vararg eventNews: PersistedEventNews)
 
     @Query("SELECT * FROM persistedeventnews WHERE eventId=:eventId")
     fun getCachedNewsByEventId(eventId: Long): List<PersistedEventNews>
