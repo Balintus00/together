@@ -23,7 +23,9 @@ class DateSetterFragment : Fragment() {
 
     private var modificationCallback: ModificationCallback? = null
 
-    private lateinit var binding: FragmentDateSetterBinding
+    private var _binding: FragmentDateSetterBinding? = null
+
+    private val binding get() = _binding!!
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -38,7 +40,7 @@ class DateSetterFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentDateSetterBinding.inflate(inflater, container, false)
+        _binding = FragmentDateSetterBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -137,5 +139,10 @@ class DateSetterFragment : Fragment() {
                 tvAddEventToHourMinute.text = it?.getEndTimeString() ?: "14:45"
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -25,7 +25,9 @@ class DescriptionGiverFragment : Fragment() {
 
     private lateinit var modificationCallback: ModificationCallback
 
-    private lateinit var binding: FragmentDescriptionGiverBinding
+    private var _binding: FragmentDescriptionGiverBinding? = null
+
+    private val binding get() = _binding!!
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -40,7 +42,7 @@ class DescriptionGiverFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentDescriptionGiverBinding.inflate(inflater, container, false)
+        _binding = FragmentDescriptionGiverBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -95,5 +97,10 @@ class DescriptionGiverFragment : Fragment() {
 
     private fun setEditTextInitialValue() {
         binding.etAddEventDescriptionGiver.setText(modificationCallback.getDescription())
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

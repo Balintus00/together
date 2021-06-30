@@ -35,7 +35,9 @@ class PublicEventRuleSetterFragment :
 
     private val args: PublicEventRuleSetterFragmentArgs by navArgs()
 
-    private lateinit var binding: FragmentPublicEventRuleSetterBinding
+    private var _binding: FragmentPublicEventRuleSetterBinding? = null
+
+    private val binding get() = _binding!!
 
     override fun provideViewModel(): PublicEventRuleSetterViewModel = publicEventRuleSetterViewModel
 
@@ -50,7 +52,7 @@ class PublicEventRuleSetterFragment :
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentPublicEventRuleSetterBinding.inflate(inflater, container, false)
+        _binding = FragmentPublicEventRuleSetterBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -178,5 +180,10 @@ class PublicEventRuleSetterFragment :
     private fun setAutoJoinRadioGroup(isEnabled: Boolean) {
         binding.rbAutoRequestHandlingPositive.isChecked = isEnabled
         binding.rbAutoRequestHandlingNegative.isChecked = !isEnabled
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

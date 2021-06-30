@@ -23,7 +23,9 @@ class EventParticipantCountSpecifierDialogFragment : DialogFragment() {
         private const val DEFAULT_MAX_PARTICIPANT_COUNT_VALUE = 1
     }
 
-    private lateinit var binding: DialogfragmentEventParticipantCountSpecifierBinding
+    private var _binding: DialogfragmentEventParticipantCountSpecifierBinding? = null
+
+    private val binding get() = _binding!!
 
     private var isCountSpecified = false
 
@@ -41,7 +43,7 @@ class EventParticipantCountSpecifierDialogFragment : DialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding =
+        _binding =
             DialogfragmentEventParticipantCountSpecifierBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -107,6 +109,11 @@ class EventParticipantCountSpecifierDialogFragment : DialogFragment() {
         binding.btnCancelParticipantCount.setOnClickListener {
             dismiss()
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

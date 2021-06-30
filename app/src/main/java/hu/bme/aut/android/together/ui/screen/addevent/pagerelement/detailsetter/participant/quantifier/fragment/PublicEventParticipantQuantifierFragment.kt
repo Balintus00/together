@@ -20,7 +20,9 @@ class PublicEventParticipantQuantifierFragment : Fragment() {
         const val PARTICIPANT_QUANTIFIER_RESULT_KEY = "PARTICIPANT_QUANTIFIER_RESULT_KEY"
     }
 
-    private lateinit var binding: FragmentPublicEventParticipantQuantifierBinding
+    private var _binding: FragmentPublicEventParticipantQuantifierBinding? = null
+
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +42,7 @@ class PublicEventParticipantQuantifierFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding =
+        _binding =
             FragmentPublicEventParticipantQuantifierBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -85,5 +87,10 @@ class PublicEventParticipantQuantifierFragment : Fragment() {
             )
             popBackStack()
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

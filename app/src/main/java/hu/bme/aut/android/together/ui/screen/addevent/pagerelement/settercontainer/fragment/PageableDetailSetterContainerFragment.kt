@@ -62,7 +62,9 @@ class PageableDetailSetterContainerFragment : Fragment(), ModificationCallback {
 
     private var showForwardNavigationButton by Delegates.notNull<Boolean>()
 
-    private lateinit var binding: FragmentPageableDetailSetterContainerBinding
+    private var _binding: FragmentPageableDetailSetterContainerBinding? = null
+
+    private val binding get() = _binding!!
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -125,7 +127,7 @@ class PageableDetailSetterContainerFragment : Fragment(), ModificationCallback {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentPageableDetailSetterContainerBinding.inflate(inflater, container, false)
+        _binding = FragmentPageableDetailSetterContainerBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -186,6 +188,11 @@ class PageableDetailSetterContainerFragment : Fragment(), ModificationCallback {
             else
                 binding.swipeButtonBar.ibtnRight.visibility = View.GONE
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun getCurrentEventTitle(): String {

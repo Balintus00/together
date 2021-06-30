@@ -38,7 +38,9 @@ class AddEventPagerFragment : RainbowCakeFragment<AddEventPagerState, AddEventPa
 
     private lateinit var pagerAdapter: AddEventPagerAdapter
 
-    private lateinit var binding: FragmentAddEventPagerBinding
+    private var _binding: FragmentAddEventPagerBinding? = null
+
+    private val binding get() = _binding!!
 
     override fun provideViewModel(): AddEventPagerViewModel = addEventPagerFragmentViewModel
 
@@ -52,7 +54,7 @@ class AddEventPagerFragment : RainbowCakeFragment<AddEventPagerState, AddEventPa
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentAddEventPagerBinding.inflate(inflater, container, false)
+        _binding = FragmentAddEventPagerBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -145,6 +147,11 @@ class AddEventPagerFragment : RainbowCakeFragment<AddEventPagerState, AddEventPa
      */
     override fun eventDiscarded() {
         findNavController().popBackStack()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun getCurrentEventTitle(): String {
