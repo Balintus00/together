@@ -31,7 +31,9 @@ class PastEventListFragment : RainbowCakeFragment<EventListState, PastEventListV
 
     private lateinit var eventListAdapter: EventListAdapter
 
-    private lateinit var binding: FragmentEventListBinding
+    private var _binding: FragmentEventListBinding? = null
+
+    private val binding get() = _binding!!
 
     private val pastEventListViewModel: PastEventListViewModel by viewModels()
 
@@ -71,7 +73,7 @@ class PastEventListFragment : RainbowCakeFragment<EventListState, PastEventListV
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentEventListBinding.inflate(inflater, container, false)
+        _binding = FragmentEventListBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -113,5 +115,10 @@ class PastEventListFragment : RainbowCakeFragment<EventListState, PastEventListV
     override fun onStart() {
         super.onStart()
         viewModel.loadPastEventShortInfoListByProfileId(FAKE_PROFILE_ID)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
