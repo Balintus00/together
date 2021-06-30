@@ -31,7 +31,9 @@ import java.util.*
 @AndroidEntryPoint
 class EventQueryFragment : RainbowCakeFragment<EventQueryState, EventQueryViewModel>() {
 
-    private lateinit var binding: FragmentEventQueryBinding
+    private var _binding: FragmentEventQueryBinding? = null
+
+    private val binding get() = _binding!!
 
     private val eventQueryViewModel: EventQueryViewModel by viewModels()
 
@@ -43,7 +45,7 @@ class EventQueryFragment : RainbowCakeFragment<EventQueryState, EventQueryViewMo
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_event_query, container, false)
+        _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_event_query, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = eventQueryViewModel
         return binding.root
@@ -214,5 +216,10 @@ class EventQueryFragment : RainbowCakeFragment<EventQueryState, EventQueryViewMo
                     findNavController().navigate(action)
                 }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

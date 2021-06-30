@@ -32,7 +32,9 @@ class IncomingEventInvitationsFragment :
         private const val MOCKED_PROFILE_ID = 1L
     }
 
-    private lateinit var binding: FragmentIncomingEventInvitationsBinding
+    private var _binding: FragmentIncomingEventInvitationsBinding? = null
+
+    private val binding get() = _binding!!
 
     private lateinit var adapter: EventInvitationsAdapter
 
@@ -63,7 +65,7 @@ class IncomingEventInvitationsFragment :
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentIncomingEventInvitationsBinding.inflate(inflater, container, false)
+        _binding = FragmentIncomingEventInvitationsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -108,5 +110,10 @@ class IncomingEventInvitationsFragment :
     override fun onStart() {
         super.onStart()
         viewModel.loadIncomingInvitesByProfileId(MOCKED_PROFILE_ID)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
