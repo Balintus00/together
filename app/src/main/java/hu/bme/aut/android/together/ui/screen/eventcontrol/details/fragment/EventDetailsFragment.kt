@@ -41,7 +41,9 @@ class EventDetailsFragment : RainbowCakeFragment<EventDetailsState, EventDetails
 
     private val args: EventDetailsFragmentArgs by navArgs()
 
-    private lateinit var binding: FragmentEventDetailsBinding
+    private var _binding: FragmentEventDetailsBinding? = null
+
+    private val binding get() = _binding!!
 
     private val eventDetailsViewModel: EventDetailsViewModel by viewModels()
 
@@ -294,7 +296,7 @@ class EventDetailsFragment : RainbowCakeFragment<EventDetailsState, EventDetails
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentEventDetailsBinding.inflate(inflater, container, false)
+        _binding = FragmentEventDetailsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -389,6 +391,7 @@ class EventDetailsFragment : RainbowCakeFragment<EventDetailsState, EventDetails
     override fun onDestroyView() {
         binding.mvEventLocation.onDestroy()
         super.onDestroyView()
+        _binding = null
     }
 
     override fun onLowMemory() {

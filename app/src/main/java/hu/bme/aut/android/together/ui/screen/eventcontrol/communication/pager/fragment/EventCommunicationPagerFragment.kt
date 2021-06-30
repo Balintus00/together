@@ -34,7 +34,9 @@ class EventCommunicationPagerFragment :
 
     private val args: EventCommunicationPagerFragmentArgs by navArgs()
 
-    private lateinit var binding: FragmentEventCommunicationPagerBinding
+    private var _binding: FragmentEventCommunicationPagerBinding? = null
+
+    private val binding get() = _binding!!
 
     private lateinit var pagerAdapter: CommunicationPanelsAdapter
 
@@ -88,7 +90,7 @@ class EventCommunicationPagerFragment :
      * up this menu on the toolbar, and its inbox action's onclick behaviour.
      */
     // The function that uses this feature is already marked with this annotation, and it should be enough
-    @SuppressLint("UnsafeExperimentalUsageError")
+    @SuppressLint("UnsafeExperimentalUsageError", "UnsafeOptInUsageError")
     private fun addOrganiserActionsToToolbar(organiserQuestionCount: Int) {
         with(binding.tbEventDetailsCommunication) {
             inflateMenu(R.menu.organiser_incoming_questions_menu)
@@ -132,7 +134,7 @@ class EventCommunicationPagerFragment :
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentEventCommunicationPagerBinding.inflate(inflater, container, false)
+        _binding = FragmentEventCommunicationPagerBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -183,5 +185,10 @@ class EventCommunicationPagerFragment :
     override fun onStart() {
         super.onStart()
         eventCommunicationPagerViewModel.loadRepresentedData(args.eventId)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

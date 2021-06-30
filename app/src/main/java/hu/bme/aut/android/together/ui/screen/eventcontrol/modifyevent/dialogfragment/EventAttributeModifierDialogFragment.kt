@@ -30,14 +30,16 @@ class EventAttributeModifierDialogFragment : DialogFragment() {
 
     private lateinit var onPositiveFinish: (String) -> Unit
 
-    private lateinit var binding: DialogfragmentEventAttributeModifierBinding
+    private var _binding: DialogfragmentEventAttributeModifierBinding? = null
+
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DialogfragmentEventAttributeModifierBinding.inflate(inflater, container, false)
+        _binding = DialogfragmentEventAttributeModifierBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -76,5 +78,10 @@ class EventAttributeModifierDialogFragment : DialogFragment() {
         binding.btnCancel.setOnClickListener {
             dismiss()
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

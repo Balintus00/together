@@ -47,7 +47,9 @@ class ModifyEventDetailsFragment :
 
     private val modifyEventDetailsViewModel: ModifyEventDetailsViewModel by viewModels()
 
-    private lateinit var binding: FragmentModifyEventDetailsBinding
+    private var _binding: FragmentModifyEventDetailsBinding? = null
+
+    private val binding get() = _binding!!
 
     override fun provideViewModel(): ModifyEventDetailsViewModel = modifyEventDetailsViewModel
 
@@ -167,7 +169,7 @@ class ModifyEventDetailsFragment :
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentModifyEventDetailsBinding.inflate(inflater, container, false)
+        _binding = FragmentModifyEventDetailsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -432,5 +434,10 @@ class ModifyEventDetailsFragment :
     override fun onStart() {
         super.onStart()
         modifyEventDetailsViewModel.loadCurrentEventDetailsByEventId(args.eventId)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

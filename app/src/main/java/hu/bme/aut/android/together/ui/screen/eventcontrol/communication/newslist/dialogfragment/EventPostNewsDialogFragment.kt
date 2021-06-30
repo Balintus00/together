@@ -9,14 +9,16 @@ import hu.bme.aut.android.together.databinding.DialogfragmentEventPostNewsBindin
 
 class EventPostNewsDialogFragment : DialogFragment() {
 
-    private lateinit var binding: DialogfragmentEventPostNewsBinding
+    private var _binding: DialogfragmentEventPostNewsBinding? = null
+
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DialogfragmentEventPostNewsBinding.inflate(inflater, container, false)
+        _binding = DialogfragmentEventPostNewsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -45,6 +47,11 @@ class EventPostNewsDialogFragment : DialogFragment() {
         binding.btnCancel.setOnClickListener {
             dismiss()
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

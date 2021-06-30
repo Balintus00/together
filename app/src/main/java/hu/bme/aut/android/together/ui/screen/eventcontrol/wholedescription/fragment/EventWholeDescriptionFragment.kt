@@ -30,7 +30,9 @@ class EventWholeDescriptionFragment :
 
     private var eventId by Delegates.notNull<Long>()
 
-    private lateinit var binding: FragmentEventDetailsWholeDescriptionBinding
+    private var _binding: FragmentEventDetailsWholeDescriptionBinding? = null
+
+    private val binding get() = _binding!!
 
     private val eventWholeDescriptionViewModel: EventWholeDescriptionViewModel by viewModels()
 
@@ -86,7 +88,7 @@ class EventWholeDescriptionFragment :
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentEventDetailsWholeDescriptionBinding.inflate(inflater, container, false)
+        _binding = FragmentEventDetailsWholeDescriptionBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -110,5 +112,10 @@ class EventWholeDescriptionFragment :
     override fun onStart() {
         super.onStart()
         eventWholeDescriptionViewModel.loadDescriptionScreenData(eventId)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

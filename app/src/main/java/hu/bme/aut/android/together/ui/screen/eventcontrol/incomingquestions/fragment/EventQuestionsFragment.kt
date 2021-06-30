@@ -34,7 +34,9 @@ class EventQuestionsFragment : RainbowCakeFragment<EventQuestionsState, EventQue
 
     private val eventQuestionsViewModel: EventQuestionsViewModel by viewModels()
 
-    private lateinit var binding: FragmentEventQuestionsBinding
+    private var _binding: FragmentEventQuestionsBinding? = null
+
+    private val binding get() = _binding!!
 
     private lateinit var adapter: EventQuestionsAdapter
 
@@ -67,7 +69,7 @@ class EventQuestionsFragment : RainbowCakeFragment<EventQuestionsState, EventQue
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentEventQuestionsBinding.inflate(inflater, container, false)
+        _binding = FragmentEventQuestionsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -121,5 +123,10 @@ class EventQuestionsFragment : RainbowCakeFragment<EventQuestionsState, EventQue
     override fun onStart() {
         super.onStart()
         viewModel.loadEventQuestions(args.eventId)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
