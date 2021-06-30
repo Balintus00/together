@@ -11,10 +11,6 @@ import hu.bme.aut.android.together.ui.model.EventQuestion
 
 class EventQuestionResponseDialogFragment : DialogFragment() {
 
-    private lateinit var representedQuestion: EventQuestion
-
-    private lateinit var binding: DialogfragmentEventQuestionResponseBinding
-
     companion object {
         private const val REPRESENTED_QUESTION_KEY = "REPRESENTED_QUESTION_KEY"
         fun newInstance(representedQuestion: EventQuestion): DialogFragment {
@@ -25,6 +21,12 @@ class EventQuestionResponseDialogFragment : DialogFragment() {
             }
         }
     }
+
+    private lateinit var representedQuestion: EventQuestion
+
+    private var _binding: DialogfragmentEventQuestionResponseBinding? = null
+
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,7 +53,7 @@ class EventQuestionResponseDialogFragment : DialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DialogfragmentEventQuestionResponseBinding.inflate(inflater, container, false)
+        _binding = DialogfragmentEventQuestionResponseBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -88,4 +90,8 @@ class EventQuestionResponseDialogFragment : DialogFragment() {
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

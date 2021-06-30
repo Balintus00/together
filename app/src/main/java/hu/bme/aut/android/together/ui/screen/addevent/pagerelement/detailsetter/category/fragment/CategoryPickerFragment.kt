@@ -20,7 +20,9 @@ class CategoryPickerFragment : Fragment() {
 
     private lateinit var modificationCallback: ModificationCallback
 
-    private lateinit var binding: FragmentCategoryPickerBinding
+    private var _binding: FragmentCategoryPickerBinding? = null
+
+    private val binding get() = _binding!!
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -35,7 +37,7 @@ class CategoryPickerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentCategoryPickerBinding.inflate(inflater, container, false)
+        _binding = FragmentCategoryPickerBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -79,5 +81,10 @@ class CategoryPickerFragment : Fragment() {
 
     private fun isCurrentlySelected(categoryName: String): Boolean {
         return modificationCallback.getCategory() == categoryName
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

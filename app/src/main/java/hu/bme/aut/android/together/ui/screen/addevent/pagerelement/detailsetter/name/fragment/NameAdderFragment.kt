@@ -25,7 +25,9 @@ class NameAdderFragment : Fragment() {
 
     private var modificationCallback: ModificationCallback? = null
 
-    private lateinit var binding: FragmentNameAdderBinding
+    private var _binding: FragmentNameAdderBinding? = null
+
+    private val binding get() = _binding!!
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -36,7 +38,7 @@ class NameAdderFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentNameAdderBinding.inflate(inflater, container, false)
+        _binding = FragmentNameAdderBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -94,6 +96,11 @@ class NameAdderFragment : Fragment() {
 
     private fun setEditTextInitialValue() {
         binding.etAddEventName.setText(modificationCallback?.getCurrentEventTitle() ?: "")
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

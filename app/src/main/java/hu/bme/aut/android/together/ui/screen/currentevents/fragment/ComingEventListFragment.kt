@@ -31,7 +31,9 @@ class ComingEventListFragment : RainbowCakeFragment<EventListState, ComingEventL
 
     private lateinit var eventListAdapter: EventListAdapter
 
-    private lateinit var binding: FragmentEventListBinding
+    private var _binding: FragmentEventListBinding? = null
+
+    private val binding get() = _binding!!
 
     private val comingEventListViewModel: ComingEventListViewModel by viewModels()
 
@@ -71,7 +73,7 @@ class ComingEventListFragment : RainbowCakeFragment<EventListState, ComingEventL
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentEventListBinding.inflate(inflater, container, false)
+        _binding = FragmentEventListBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -119,5 +121,10 @@ class ComingEventListFragment : RainbowCakeFragment<EventListState, ComingEventL
     override fun onStart() {
         super.onStart()
         viewModel.loadComingEventShortInfoListByProfileId(FAKE_PROFILE_ID)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

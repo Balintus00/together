@@ -22,7 +22,9 @@ class PlacePickerFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     private var modificationCallback: ModificationCallback? = null
 
-    private lateinit var binding: FragmentPlacePickerBinding
+    private var _binding: FragmentPlacePickerBinding? = null
+
+    private val binding get() = _binding!!
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -37,7 +39,7 @@ class PlacePickerFragment : Fragment(), AdapterView.OnItemSelectedListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentPlacePickerBinding.inflate(inflater, container, false)
+        _binding = FragmentPlacePickerBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -108,4 +110,9 @@ class PlacePickerFragment : Fragment(), AdapterView.OnItemSelectedListener {
     }
 
     override fun onNothingSelected(p0: AdapterView<*>?) { }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

@@ -8,17 +8,19 @@ import androidx.fragment.app.DialogFragment
 import hu.bme.aut.android.together.databinding.DialogfragmentInvitationResponderBinding
 import hu.bme.aut.android.together.ui.model.EventInvitation
 
-//TODO might needed to be refactored
+//TODO will be refactored
 class InvitationResponderDialogFragment(val invitationData: EventInvitation) : DialogFragment() {
 
-    private lateinit var binding: DialogfragmentInvitationResponderBinding
+    private var _binding: DialogfragmentInvitationResponderBinding? = null
+
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DialogfragmentInvitationResponderBinding.inflate(inflater, container, false)
+        _binding = DialogfragmentInvitationResponderBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -43,6 +45,11 @@ class InvitationResponderDialogFragment(val invitationData: EventInvitation) : D
         binding.btnCancel.setOnClickListener {
             dismiss()
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

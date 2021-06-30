@@ -15,14 +15,17 @@ import hu.bme.aut.android.together.ui.screen.currentevents.adapter.EventTimeAdap
  */
 class EventListsPagerFragment : Fragment() {
 
-    private lateinit var binding: FragmentEventListsPagerBinding
+    private var _binding: FragmentEventListsPagerBinding? = null
+
+    private val binding get() = _binding!!
+
     private lateinit var pagerAdapter: EventTimeAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentEventListsPagerBinding.inflate(inflater, container, false)
+        _binding = FragmentEventListsPagerBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -48,5 +51,10 @@ class EventListsPagerFragment : Fragment() {
         TabLayoutMediator(binding.eventTimeTabLayout, binding.eventTimePager) { tab, position ->
             tab.text = pagerAdapter.getTabName(position)
         }.attach()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -29,7 +29,9 @@ class VisibilityChooserFragment : Fragment() {
 
     private var modificationCallback: ModificationCallback? = null
 
-    private lateinit var binding: FragmentVisibilityChooserBinding
+    private var _binding: FragmentVisibilityChooserBinding? = null
+
+    private val binding get() = _binding!!
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -40,7 +42,7 @@ class VisibilityChooserFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentVisibilityChooserBinding.inflate(inflater, container, false)
+        _binding = FragmentVisibilityChooserBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -207,5 +209,10 @@ class VisibilityChooserFragment : Fragment() {
                 }
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -25,7 +25,9 @@ import hu.bme.aut.android.together.databinding.FragmentPhotoUploaderBinding
  * the event which is under creation.
  */
 class PhotoUploaderFragment : Fragment() {
-    private lateinit var binding: FragmentPhotoUploaderBinding
+    private var _binding: FragmentPhotoUploaderBinding? = null
+
+    private val binding get() = _binding!!
 
     /**
      * This [androidx.activity.result.ActivityResultLauncher] instance can be used to launch some
@@ -93,7 +95,7 @@ class PhotoUploaderFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentPhotoUploaderBinding.inflate(inflater, container, false)
+        _binding = FragmentPhotoUploaderBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -166,5 +168,10 @@ class PhotoUploaderFragment : Fragment() {
         }.let { intent ->
             photoPickerActivityLauncher.launch(intent)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -36,7 +36,9 @@ class OverviewFragment : RainbowCakeFragment<OverviewState, OverviewViewModel>()
 
     private val overviewViewModel: OverviewViewModel by viewModels()
 
-    private lateinit var binding: FragmentOverviewBinding
+    private var _binding: FragmentOverviewBinding? = null
+
+    private val binding get() = _binding!!
 
     override fun provideViewModel(): OverviewViewModel = overviewViewModel
 
@@ -94,7 +96,7 @@ class OverviewFragment : RainbowCakeFragment<OverviewState, OverviewViewModel>()
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentOverviewBinding.inflate(inflater, container, false)
+        _binding = FragmentOverviewBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -202,5 +204,10 @@ class OverviewFragment : RainbowCakeFragment<OverviewState, OverviewViewModel>()
                 tvDescription.text = it.getDescription()
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

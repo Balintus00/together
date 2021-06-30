@@ -44,7 +44,9 @@ class NewsListFragment : RainbowCakeFragment<NewsListState, NewsListViewModel>()
         }
     }
 
-    private lateinit var binding: FragmentNewsListBinding
+    private var _binding: FragmentNewsListBinding? = null
+
+    private val binding get() = _binding!!
 
     private lateinit var adapter: EventNewsAdapter
 
@@ -84,7 +86,7 @@ class NewsListFragment : RainbowCakeFragment<NewsListState, NewsListViewModel>()
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentNewsListBinding.inflate(inflater, container, false)
+        _binding = FragmentNewsListBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -145,6 +147,11 @@ class NewsListFragment : RainbowCakeFragment<NewsListState, NewsListViewModel>()
 
     private fun retrieveEventId(): Long {
         return requireArguments().getLong(EVENT_ID_DATA_KEY)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

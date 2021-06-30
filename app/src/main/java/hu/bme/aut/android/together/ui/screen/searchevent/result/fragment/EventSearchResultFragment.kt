@@ -31,7 +31,9 @@ class EventSearchResultFragment :
 
     private val args: EventSearchResultFragmentArgs by navArgs()
 
-    private lateinit var binding: FragmentEventSearchResultBinding
+    private var _binding: FragmentEventSearchResultBinding? = null
+
+    private val binding get() = _binding!!
 
     private val eventSearchResultViewModel: EventSearchResultViewModel by viewModels()
 
@@ -61,7 +63,7 @@ class EventSearchResultFragment :
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentEventSearchResultBinding.inflate(inflater, container, false)
+        _binding = FragmentEventSearchResultBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -112,5 +114,10 @@ class EventSearchResultFragment :
 
     private fun getQueryParameterFromNavArgs(): EventQueryParameter {
         return args.queryParameter
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

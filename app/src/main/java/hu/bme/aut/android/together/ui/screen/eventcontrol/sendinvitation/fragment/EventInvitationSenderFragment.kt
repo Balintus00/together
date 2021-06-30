@@ -34,7 +34,9 @@ class EventInvitationSenderFragment :
 
     private val eventInvitationSenderViewModel: EventInvitationSenderViewModel by viewModels()
 
-    private lateinit var binding: FragmentEventInvitationSenderBinding
+    private var _binding: FragmentEventInvitationSenderBinding? = null
+
+    private val binding get() = _binding!!
 
     override fun provideViewModel(): EventInvitationSenderViewModel = eventInvitationSenderViewModel
 
@@ -97,7 +99,7 @@ class EventInvitationSenderFragment :
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentEventInvitationSenderBinding.inflate(
+        _binding = FragmentEventInvitationSenderBinding.inflate(
             inflater,
             //R.layout.fragment_event_invitation_sender,
             container,
@@ -191,5 +193,10 @@ class EventInvitationSenderFragment :
     override fun onStart() {
         super.onStart()
         eventInvitationSenderViewModel.loadEventDetails(args.eventId)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

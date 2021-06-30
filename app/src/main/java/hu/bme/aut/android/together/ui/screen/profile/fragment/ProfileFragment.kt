@@ -34,7 +34,9 @@ class ProfileFragment : RainbowCakeFragment<ProfileState, ProfileViewModel>() {
         private const val MOCKED_PROFILE_ID = 1L
     }
 
-    private lateinit var binding: FragmentProfileBinding
+    private var _binding: FragmentProfileBinding? = null
+
+    private val binding get() = _binding!!
 
     private val profileViewModel : ProfileViewModel by viewModels()
 
@@ -75,7 +77,7 @@ class ProfileFragment : RainbowCakeFragment<ProfileState, ProfileViewModel>() {
      * invites.
      */
     //Already marked in the contained method, that causes this. That should be enough.
-    @SuppressLint("UnsafeExperimentalUsageError")
+    @SuppressLint("UnsafeExperimentalUsageError", "UnsafeOptInUsageError")
     private fun setUpToolbarMenu(incomingInvitesCount: Int) {
         with(binding.tbProfile) {
             inflateMenu(R.menu.profile_toolbar_menu)
@@ -142,7 +144,7 @@ class ProfileFragment : RainbowCakeFragment<ProfileState, ProfileViewModel>() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentProfileBinding.inflate(inflater, container, false)
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -166,5 +168,10 @@ class ProfileFragment : RainbowCakeFragment<ProfileState, ProfileViewModel>() {
     override fun onStart() {
         super.onStart()
         viewModel.loadProfileData(MOCKED_PROFILE_ID)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
