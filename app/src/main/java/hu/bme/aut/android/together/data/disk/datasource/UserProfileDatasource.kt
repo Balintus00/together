@@ -8,7 +8,7 @@ import javax.inject.Inject
 /**
  * Persistent datasource for user profiles.
  */
-class ProfileDatasource @Inject constructor(
+class UserProfileDatasource @Inject constructor(
     private val userProfileDao: UserProfileDao
 ) {
 

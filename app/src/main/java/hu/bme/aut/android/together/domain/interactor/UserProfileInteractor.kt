@@ -1,6 +1,6 @@
 package hu.bme.aut.android.together.domain.interactor
 
-import hu.bme.aut.android.together.data.disk.datasource.ProfileDatasource
+import hu.bme.aut.android.together.data.disk.datasource.UserProfileDatasource
 import hu.bme.aut.android.together.domain.model.DomainUserProfile
 import hu.bme.aut.android.together.data.network.NetworkDataSource
 import java.io.IOException
@@ -11,7 +11,7 @@ import javax.inject.Inject
  */
 class UserProfileInteractor @Inject constructor(
     private val networkDataSource: NetworkDataSource,
-    private val profileDatasource: ProfileDatasource
+    private val userProfileDatasource: UserProfileDatasource
 ) {
 
     /**
@@ -21,7 +21,7 @@ class UserProfileInteractor @Inject constructor(
      * @throws IOException if no user profile was found in the cache with the given ID.
      */
     suspend fun loadUserProfileById(userId: Long): DomainUserProfile {
-        return profileDatasource.getUserProfileById(userId)
+        return userProfileDatasource.getUserProfileById(userId)
             ?: throw IOException()
     }
 
@@ -32,7 +32,7 @@ class UserProfileInteractor @Inject constructor(
      */
     suspend fun refreshUserProfileById(userId: Long) {
         networkDataSource.getUserProfileById(userId)?.also {
-            profileDatasource.persistUserProfile(it)
+            userProfileDatasource.persistUserProfile(it)
         } ?: throw IOException()
     }
 
