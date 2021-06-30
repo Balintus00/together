@@ -20,7 +20,7 @@ class FakeNetworkDataSource @Inject constructor() : NetworkDataSource {
         @Suppress("unused")
         const val privateEventId = 1L
 
-        var usedProfileData = DomainProfileData(
+        var usedProfileData = DomainUserProfile(
             1,
             "Botond",
             "B0T0ND",
@@ -30,7 +30,7 @@ class FakeNetworkDataSource @Inject constructor() : NetworkDataSource {
         )
     }
 
-    override fun getUserProfileById(id: Long): DomainProfileData {
+    override fun getUserProfileById(id: Long): DomainUserProfile {
         return usedProfileData
     }
 

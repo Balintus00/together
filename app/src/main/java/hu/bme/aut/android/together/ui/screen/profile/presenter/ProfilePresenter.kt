@@ -1,17 +1,19 @@
 package hu.bme.aut.android.together.ui.screen.profile.presenter
 
 import co.zsmb.rainbowcake.withIOContext
-import hu.bme.aut.android.together.domain.interactor.ProfileInteractor
+import hu.bme.aut.android.together.domain.interactor.UserProfileInteractor
 import hu.bme.aut.android.together.ui.model.ProfileData
 import java.util.*
 import javax.inject.Inject
 
 class ProfilePresenter @Inject constructor(
-    private val profileInteractor: ProfileInteractor
+    private val userProfileInteractor: UserProfileInteractor
 ) {
 
     suspend fun getProfile(id: Long): ProfileData = withIOContext {
-        profileInteractor.getProfileDataById(id).let {
+        // TODO handle IOException; should be rewritten in v0.3 (refreshing logic)
+        userProfileInteractor.refreshUserProfileById(id)
+        userProfileInteractor.loadUserProfileById(id).let {
             ProfileData(
                 it.name,
                 it.username,

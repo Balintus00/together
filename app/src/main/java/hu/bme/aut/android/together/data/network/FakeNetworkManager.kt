@@ -15,9 +15,9 @@ class FakeNetworkManager @Inject constructor() : NetworkDataSource {
     //TODO: RedundantNullabeReturnType warning is suppressed, because it will be fixed
     // in the actual implementation later
     @Suppress("RedundantNullableReturnType")
-    override fun getUserProfileById(@Suppress("UNUSED_PARAMETER") id: Long): DomainProfileData? {
+    override fun getUserProfileById(@Suppress("UNUSED_PARAMETER") id: Long): DomainUserProfile? {
         Thread.sleep(SIMULATED_LOADING_TIME_MS)
-        return DomainProfileData(
+        return DomainUserProfile(
             1,
             "Botond",
             "B0T0ND",

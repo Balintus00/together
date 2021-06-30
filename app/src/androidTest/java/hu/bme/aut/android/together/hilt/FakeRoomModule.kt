@@ -11,6 +11,7 @@ import hu.bme.aut.android.together.data.disk.dao.*
 import hu.bme.aut.android.together.data.disk.model.*
 import hu.bme.aut.android.together.di.RoomModule
 import hu.bme.aut.android.together.data.disk.database.AppDatabase
+import java.util.*
 import javax.inject.Singleton
 
 @Suppress("unused")
@@ -23,17 +24,17 @@ class FakeRoomModule {
 
     @Provides
     fun provideProfileDao(@Suppress("UNUSED_PARAMETER") appDatabase: AppDatabase) =
-        object : ProfileDao {
-            override fun getProfileDataById(id: Long) = PersistedProfileData(
+        object : UserProfileDao {
+            override suspend fun getUserProfileById(id: Long) = PersistedUserProfile(
                 1,
                 "Botond",
                 "B0T0ND",
-                "1999.9.1",
+                Date(),
                 "https://picsum.photos/200",
                 1
             )
 
-            override fun insertProfileData(profile: PersistedProfileData) {}
+            override suspend fun insertUserProfile(vararg userProfiles: PersistedUserProfile) {}
 
         }
 

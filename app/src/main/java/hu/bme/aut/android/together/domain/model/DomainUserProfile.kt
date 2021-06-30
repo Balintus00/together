@@ -2,7 +2,7 @@ package hu.bme.aut.android.together.domain.model
 
 import java.util.*
 
-data class DomainProfileData(
+data class DomainUserProfile(
     val profileId: Long,
     val name: String,
     val username: String,

@@ -4,7 +4,7 @@ import hu.bme.aut.android.together.domain.model.*
 
 interface NetworkDataSource {
 
-    fun getUserProfileById(id: Long): DomainProfileData?
+    fun getUserProfileById(id: Long): DomainUserProfile?
 
     fun getIncomingInvitesById(id: Long): List<DomainEventInvitation>?
 

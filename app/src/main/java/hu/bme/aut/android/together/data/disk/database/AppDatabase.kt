@@ -2,16 +2,19 @@ package hu.bme.aut.android.together.data.disk.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import hu.bme.aut.android.together.data.disk.dao.*
 import hu.bme.aut.android.together.data.disk.model.*
+import hu.bme.aut.android.together.data.disk.typeconverter.DateConverter
 
 @Database(
     entities = [
         PersistedEventData::class, PersistedEventInvitation::class, PersistedEventNews::class,
         PersistedEventQuestion::class, PersistedEventAnswer::class,PersistedEventShortInfo::class,
-        PersistedProfileData::class],
-    version = 8
+        PersistedUserProfile::class],
+    version = 9
 )
+@TypeConverters(DateConverter::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun eventAnswerDao(): EventAnswerDao
@@ -26,7 +29,7 @@ abstract class AppDatabase : RoomDatabase() {
 
     abstract fun eventShortInfoDao(): EventShortInfoDao
 
-    abstract fun profileDao(): ProfileDao
+    abstract fun profileDao(): UserProfileDao
 
     abstract fun questionAndAnswerDao(): QuestionAndAnswerDao
 }
