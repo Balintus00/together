@@ -36,7 +36,7 @@ class UserProfileInteractorTest {
     @Test
     fun loadUserProfileById_returnsDomainUserProfile_ifGivenProfileIsNonNull() = runBlockingTest {
         val exampleProfileId = 1L
-        val exampleDomainProfileData = DomainUserProfile(
+        val exampleDomainUserProfile = DomainUserProfile(
             1L,
             "Botond",
             "B0T0ND",
@@ -45,14 +45,14 @@ class UserProfileInteractorTest {
             1
         )
         given(mockUserProfileDatasource.getUserProfileById(exampleProfileId))
-            .willReturn(exampleDomainProfileData)
+            .willReturn(exampleDomainUserProfile)
 
         val result = userProfileInteractor.loadUserProfileById(exampleProfileId)
 
         then(mockUserProfileDatasource)
             .should(times(1))
             .getUserProfileById(exampleProfileId)
-        assertThat(result == exampleDomainProfileData)
+        assertThat(result == exampleDomainUserProfile)
     }
 
     @Test
@@ -78,7 +78,7 @@ class UserProfileInteractorTest {
     @Test
     fun refreshUserProfileById_cachesResults_ifNetworkCallIsSuccessful() = runBlockingTest {
         val exampleProfileId = 1L
-        val exampleDomainProfileData = DomainUserProfile(
+        val exampleDomainUserProfile = DomainUserProfile(
             1L,
             "Botond",
             "B0T0ND",
@@ -87,7 +87,7 @@ class UserProfileInteractorTest {
             1
         )
         given(mockNetworkDataSource.getUserProfileById(exampleProfileId))
-            .willReturn(exampleDomainProfileData)
+            .willReturn(exampleDomainUserProfile)
 
         userProfileInteractor.refreshUserProfileById(exampleProfileId)
 
@@ -96,7 +96,7 @@ class UserProfileInteractorTest {
             .getUserProfileById(exampleProfileId)
         then(mockUserProfileDatasource)
             .should(times(1))
-            .persistUserProfile(exampleDomainProfileData)
+            .persistUserProfile(exampleDomainUserProfile)
     }
 
     @Test

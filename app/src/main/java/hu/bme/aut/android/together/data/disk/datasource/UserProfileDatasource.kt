@@ -19,7 +19,7 @@ class UserProfileDatasource @Inject constructor(
      * returns null.
      */
     suspend fun getUserProfileById(profileId: Long): DomainUserProfile? {
-        return userProfileDao.getUserProfileById(profileId)?.toDomainProfileData()
+        return userProfileDao.getUserProfileById(profileId)?.toDomainUserProfile()
     }
 
     /**
@@ -28,11 +28,11 @@ class UserProfileDatasource @Inject constructor(
      * @param profiles the user profiles, that will be cached.
      */
     suspend fun persistUserProfile(vararg profiles: DomainUserProfile) {
-        userProfileDao.insertUserProfile(*profiles.map { it.toPersistedProfileData() }
+        userProfileDao.insertUserProfile(*profiles.map { it.toPersistedUserProfile() }
             .toTypedArray())
     }
 
-    private fun DomainUserProfile.toPersistedProfileData(): PersistedUserProfile {
+    private fun DomainUserProfile.toPersistedUserProfile(): PersistedUserProfile {
         return this.let {
             PersistedUserProfile(
                 it.profileId,
@@ -45,7 +45,7 @@ class UserProfileDatasource @Inject constructor(
         }
     }
 
-    private fun PersistedUserProfile.toDomainProfileData(): DomainUserProfile {
+    private fun PersistedUserProfile.toDomainUserProfile(): DomainUserProfile {
         return this.let {
             DomainUserProfile(
                 it.id,
