@@ -34,79 +34,73 @@ class UserProfileInteractorTest {
     }
 
     @Test
-    fun loadUserProfileById_returnsDomainUserProfile_ifGivenProfileIsNonNull() {
-        runBlockingTest {
-            val exampleProfileId = 1L
-            val exampleDomainProfileData = DomainUserProfile(
-                1L,
-                "Botond",
-                "B0T0ND",
-                Date(),
-                "https://picsum.photos/200",
-                1
-            )
-            given(mockUserProfileDatasource.getUserProfileById(exampleProfileId))
-                .willReturn(exampleDomainProfileData)
+    fun loadUserProfileById_returnsDomainUserProfile_ifGivenProfileIsNonNull() = runBlockingTest {
+        val exampleProfileId = 1L
+        val exampleDomainProfileData = DomainUserProfile(
+            1L,
+            "Botond",
+            "B0T0ND",
+            Date(),
+            "https://picsum.photos/200",
+            1
+        )
+        given(mockUserProfileDatasource.getUserProfileById(exampleProfileId))
+            .willReturn(exampleDomainProfileData)
 
-            val result = userProfileInteractor.loadUserProfileById(exampleProfileId)
+        val result = userProfileInteractor.loadUserProfileById(exampleProfileId)
 
-            then(mockUserProfileDatasource)
-                .should(times(1))
-                .getUserProfileById(exampleProfileId)
-            assertThat(result == exampleDomainProfileData)
-        }
+        then(mockUserProfileDatasource)
+            .should(times(1))
+            .getUserProfileById(exampleProfileId)
+        assertThat(result == exampleDomainProfileData)
     }
 
     @Test
-    fun loadUserProfileById_throwsIOException_ifGivenProfileNull() {
-        runBlockingTest {
-            val exampleProfileId = 1L
-            var expectedException: Exception? = null
-            given(mockUserProfileDatasource.getUserProfileById(exampleProfileId))
-                .willReturn(null)
+    fun loadUserProfileById_throwsIOException_ifGivenProfileNull() = runBlockingTest {
+        val exampleProfileId = 1L
+        var expectedException: Exception? = null
+        given(mockUserProfileDatasource.getUserProfileById(exampleProfileId))
+            .willReturn(null)
 
-            try {
-                userProfileInteractor.loadUserProfileById(exampleProfileId)
-                fail("IOException should be thrown.")
-            } catch (e: Exception) {
-                expectedException = e
-            }
-
-            then(mockUserProfileDatasource)
-                .should(times(1))
-                .getUserProfileById((exampleProfileId))
-            assertThat(expectedException is IOException)
+        try {
+            userProfileInteractor.loadUserProfileById(exampleProfileId)
+            fail("IOException should be thrown.")
+        } catch (e: Exception) {
+            expectedException = e
         }
+
+        then(mockUserProfileDatasource)
+            .should(times(1))
+            .getUserProfileById((exampleProfileId))
+        assertThat(expectedException is IOException)
     }
 
     @Test
-    fun refreshUserProfileById_cachesResults_ifNetworkCallIsSuccessful() {
-        runBlockingTest {
-            val exampleProfileId = 1L
-            val exampleDomainProfileData = DomainUserProfile(
-                1L,
-                "Botond",
-                "B0T0ND",
-                Date(),
-                "https://picsum.photos/200",
-                1
-            )
-            given(mockNetworkDataSource.getUserProfileById(exampleProfileId))
-                .willReturn(exampleDomainProfileData)
+    fun refreshUserProfileById_cachesResults_ifNetworkCallIsSuccessful() = runBlockingTest {
+        val exampleProfileId = 1L
+        val exampleDomainProfileData = DomainUserProfile(
+            1L,
+            "Botond",
+            "B0T0ND",
+            Date(),
+            "https://picsum.photos/200",
+            1
+        )
+        given(mockNetworkDataSource.getUserProfileById(exampleProfileId))
+            .willReturn(exampleDomainProfileData)
 
-            userProfileInteractor.refreshUserProfileById(exampleProfileId)
+        userProfileInteractor.refreshUserProfileById(exampleProfileId)
 
-            then(mockNetworkDataSource)
-                .should(times(1))
-                .getUserProfileById(exampleProfileId)
-            then(mockUserProfileDatasource)
-                .should(times(1))
-                .persistUserProfile(exampleDomainProfileData)
-        }
+        then(mockNetworkDataSource)
+            .should(times(1))
+            .getUserProfileById(exampleProfileId)
+        then(mockUserProfileDatasource)
+            .should(times(1))
+            .persistUserProfile(exampleDomainProfileData)
     }
 
     @Test
-    fun refreshUserProfileById_throwsIOExceptionAndDoesNotCaches_IfNetworkCallIsUnsuccessful() {
+    fun refreshUserProfileById_throwsIOExceptionAndDoesNotCaches_IfNetworkCallIsUnsuccessful() =
         runBlockingTest {
             val exampleProfileId = 1L
             var expectedException: Exception? = null
@@ -127,6 +121,5 @@ class UserProfileInteractorTest {
                 .persistUserProfile(any())
             assertThat(expectedException is IOException)
         }
-    }
 
 }
