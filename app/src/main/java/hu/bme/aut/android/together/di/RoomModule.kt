@@ -16,7 +16,7 @@ import javax.inject.Singleton
 class RoomModule {
 
     @Provides
-    fun provideProfileDao(appDatabase: AppDatabase) = appDatabase.profileDao()
+    fun provideProfileDao(appDatabase: AppDatabase) = appDatabase.userProfileDao()
 
     @Provides
     fun provideIncomingEventInvitationsDao(appDatabase: AppDatabase) =

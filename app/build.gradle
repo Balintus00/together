@@ -71,7 +71,10 @@ android {
     }
 
     testOptions {
-        unitTests.returnDefaultValues = true
+        unitTests {
+            returnDefaultValues = true
+            includeAndroidResources = true
+        }
     }
 
     useLibrary 'android.test.runner'
@@ -138,6 +141,10 @@ dependencies {
 
     //Utilities to effectively test coroutines
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.3'
+    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.3") {
+        // conflicts with mockito due to direct inclusion of byte buddy
+        exclude group: "org.jetbrains.kotlinx", module: "kotlinx-coroutines-debug"
+    }
 
     //Hilt DI framework built on Dagger 2
     implementation "com.google.dagger:hilt-android:$hilt_version"

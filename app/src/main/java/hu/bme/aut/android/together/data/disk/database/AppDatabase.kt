@@ -29,7 +29,7 @@ abstract class AppDatabase : RoomDatabase() {
 
     abstract fun eventShortInfoDao(): EventShortInfoDao
 
-    abstract fun profileDao(): UserProfileDao
-
     abstract fun questionAndAnswerDao(): QuestionAndAnswerDao
+
+    abstract fun userProfileDao(): UserProfileDao
 }

@@ -7,7 +7,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.1'
+        classpath 'com.android.tools.build:gradle:4.2.2'
         //TODO:
         // Currently Hilt has some kind of incompatibility with kotlin 1.5.20 (newest version).
         // The issue about this: https://github.com/google/dagger/issues/2684
